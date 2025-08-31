@@ -45,23 +45,26 @@
       margin:0;
       color:var(--ink);
       background:var(--bg);
+      position:relative;
+      min-height:100%;
     }
 
-    /* Structure */
-    .wrap{ max-width:980px; margin:0 auto; padding:0 20px; }
-    header{ border-bottom:1px solid var(--line); background:#000; color:#fff; position:relative; }
-    .hero{ position:relative; padding:64px 0 36px; }
-    .hero-content{ position:relative; z-index:1; }
+    /* Site-wide matrix canvas (under everything) */
     #matrix{
-      position:absolute; inset:0; z-index:0;
-      display:block; background:#000; /* black background; white rain */
+      position: fixed; inset: 0; z-index: -1;
+      display:block; background:#fff; /* white background; black keys */
     }
+
+    /* Layout */
+    .wrap{ max-width:980px; margin:0 auto; padding:0 20px; }
+    header{ border-bottom:1px solid var(--line); }
+    .hero{ padding:48px 0 28px; }
     .hero h1{ margin:0 0 .25em; font-size:var(--fs-1000); line-height:var(--lh-head); }
     .lead{ font-size:var(--fs-500); margin:0 0 1rem; }
 
     nav{ display:flex; gap:16px; padding:0 0 24px; flex-wrap:wrap; }
     nav a{ text-decoration:underline; }
-    header nav a{ color:#fff; }      /* white links on black header */
+
     main{ padding:32px 0 64px; }
     section{ margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--line); }
     section:last-of-type{ border-bottom:0; padding-bottom:0; }
@@ -81,11 +84,22 @@
     h5{ font-size:var(--fs-600); }
     h6{ font-size:var(--fs-500); }
 
+    /* Angle-bracket header style */
+    .tag {
+      font-family: var(--font-mono);
+      display:inline-block;
+      padding:.15rem .45rem;
+      border:1px solid var(--line);
+      border-radius:4px;
+      background:#fff;
+      user-select:none;
+    }
+
     /* 4) Body helpers */
     p,ul,ol,dl,blockquote{ margin:0 0 1rem; }
     small,.small{ font-size:var(--fs-300); }
 
-    /* 5) Links (accessible, black only) */
+    /* 5) Links (accessible B/W) */
     a{ color:var(--ink); text-decoration:underline; }
 
     /* Lists / grid */
@@ -107,7 +121,7 @@
       background:#000; color:#fff; border-radius:4px; cursor:pointer;
     }
     button:hover{ opacity:.9; }
-    .help{ color:#000; }
+    .status{ margin-top:.5rem; min-height:1.25rem; }
 
     footer{ border-top:1px solid var(--line); padding:24px 0; }
 
@@ -131,26 +145,25 @@
   </style>
 </head>
 <body>
+  <!-- Site-wide black-on-white matrix rain -->
+  <canvas id="matrix" aria-hidden="true"></canvas>
+
   <header>
-    <!-- Black & white matrix rain hero -->
-    <canvas id="matrix" aria-hidden="true"></canvas>
     <div class="wrap hero">
-      <div class="hero-content">
-        <h1 style="color:#fff;">Oleksandr Sheniak</h1>
-        <p class="lead" style="color:#fff;">Cybersecurity Professional — Cloud Security · IAM · SIEM · Vulnerability Management · Secure Architecture · GRC</p>
-        <nav aria-label="Primary">
-          <a href="#about" style="color:#fff;">About</a>
-          <a href="#contact" style="color:#fff;">Contact</a>
-          <a href="https://github.com/sheniaks" target="_blank" rel="noopener" style="color:#fff;">GitHub</a>
-          <a href="https://www.linkedin.com/in/sheniaks" target="_blank" rel="noopener" style="color:#fff;">LinkedIn</a>
-        </nav>
-      </div>
+      <h1>Oleksandr Sheniak</h1>
+      <p class="lead">Cybersecurity Professional — Cloud Security · IAM · SIEM · Vulnerability Management · Secure Architecture · GRC</p>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://github.com/sheniaks" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/sheniaks" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
     </div>
   </header>
 
   <main class="wrap">
     <section id="about" aria-labelledby="about-title">
-      <h2 id="about-title">About Me</h2>
+      <h2 id="about-title"><span class="tag">&lt;about_me&gt;</span></h2>
 
       <p>
         I am <strong>Oleksandr Sheniak</strong>, a cybersecurity professional with expertise in <strong>cloud security, enterprise risk management, and security operations</strong>.
@@ -191,100 +204,102 @@
     </section>
 
     <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <form action="https://formspree.io/f/xldwbzyl" method="POST" novalidate>
+      <h2 id="contact-title"><span class="tag">&lt;contact&gt;</span></h2>
+
+      <!-- Fixed contact form (Formspree endpoint, JSON submit, inline status) -->
+      <form id="contact-form" action="https://formspree.io/f/xldwbzyl" method="POST">
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" type="text" autocomplete="name" required />
         </div>
+
         <div>
           <label for="email">Email</label>
+          <!-- Formspree accepts 'email' field; it will be used for reply-to -->
           <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
-          <div class="help small">Prefer email? <a href="mailto:work@sheniaks.com">work@sheniaks.com</a></div>
         </div>
+
         <div>
           <label for="message">Message</label>
           <textarea id="message" name="message" required></textarea>
         </div>
 
-        <!-- Honeypot -->
+        <!-- Basic honeypot -->
         <div class="sr-only" aria-hidden="true">
           <label for="_gotcha">Leave this field empty</label>
           <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
         </div>
 
+        <!-- Subject for your inbox -->
         <input type="hidden" name="_subject" value="Portfolio Contact — sheniaks.com" />
-        <button type="submit">Send Message</button>
-        <p class="help small">You can also reach me directly at <a href="mailto:work@sheniaks.com">work@sheniaks.com</a>.</p>
+
+        <button type="submit" id="submitBtn">Send Message</button>
+        <div id="form-status" class="status small" role="status" aria-live="polite"></div>
       </form>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <small>&copy; 2025 Oleksandr Sheniak. All rights reserved.</small>
+      <small>&copy; 2025 Oleksandr Sheniak · <a href="mailto:work@sheniaks.com">work@sheniaks.com</a></small>
     </div>
   </footer>
 
   <noscript>
     <div class="wrap" style="padding:8px 0;">
-      <small>JavaScript is disabled — the matrix animation is off, but the site works.</small>
+      <small>JavaScript is disabled — the matrix animation and inline form messages are off, but the site still works.</small>
     </div>
   </noscript>
 
   <script>
-    // Black & white matrix rain confined to the header area
+    // ===== Site-wide black-on-white matrix rain =====
     (function(){
       const canvas = document.getElementById('matrix');
       const ctx = canvas.getContext('2d');
-      const header = canvas.parentElement; // .wrap.hero container has padding; canvas is absolute to header
-      let w, h, columns, drops, fontSize = 16;
-
+      let w, h, columns, drops;
+      const fontSize = 16;
       const chars = ('01ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-      function sizeCanvas(){
-        // Match the header's pixel size, account for devicePixelRatio for crisp text
-        const rect = header.getBoundingClientRect();
+      function resize(){
         const dpr = window.devicePixelRatio || 1;
-        w = Math.max(1, Math.floor(rect.width));
-        h = Math.max(1, Math.floor(rect.height));
-        canvas.width = Math.floor(w * dpr);
-        canvas.height = Math.floor(h * dpr);
-        canvas.style.width = w + 'px';
-        canvas.style.height = h + 'px';
+        w = canvas.width = Math.floor(window.innerWidth * dpr);
+        h = canvas.height = Math.floor(window.innerHeight * dpr);
+        canvas.style.width = window.innerWidth + 'px';
+        canvas.style.height = window.innerHeight + 'px';
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        ctx.font = fontSize + 'px ' + ( 'ui-monospace, Menlo, monospace' );
-        columns = Math.ceil(w / fontSize);
-        drops = Array.from({length: columns}, () => Math.floor(Math.random() * (h / fontSize)));
-        // Initial paint: solid black
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0,0,w,h);
+        ctx.font = fontSize + 'px ' + ('ui-monospace, Menlo, monospace');
+        columns = Math.ceil(window.innerWidth / fontSize);
+        drops = Array.from({length: columns}, () => Math.floor(Math.random() * (window.innerHeight / fontSize)));
+        // White base
+        ctx.fillStyle = '#fff';
+        ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
       }
 
       function draw(){
-        // Faint trail using transparent black; still strictly B/W
-        ctx.fillStyle = 'rgba(0,0,0,0.08)';
-        ctx.fillRect(0,0,w,h);
-        ctx.fillStyle = '#fff';
+        // Fade to white for trail
+        ctx.fillStyle = 'rgba(255,255,255,0.08)';
+        ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+        ctx.fillStyle = '#000';
         for(let i=0;i<drops.length;i++){
           const text = chars[(Math.random()*chars.length)|0];
           ctx.fillText(text, i*fontSize, drops[i]*fontSize);
-          if(drops[i]*fontSize > h && Math.random() > 0.975){ drops[i] = 0; }
+          if(drops[i]*fontSize > window.innerHeight && Math.random() > 0.975){ drops[i] = 0; }
           drops[i]++;
         }
         raf = requestAnimationFrame(draw);
       }
 
+      let raf;
       function start(){
-        sizeCanvas();
+        resize();
         if(reduceMotion.matches){
-          // Static background
-          ctx.fillStyle = '#000';
-          ctx.fillRect(0,0,w,h);
+          // Static scatter (no animation)
           ctx.fillStyle = '#fff';
+          ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
+          ctx.fillStyle = '#000';
           for(let x=0; x<columns; x++){
-            for(let y=0; y<h/fontSize; y+=3){
+            for(let y=0; y<window.innerHeight/fontSize; y+=3){
               ctx.fillText(chars[(x+y)%chars.length], x*fontSize, y*fontSize);
             }
           }
@@ -293,17 +308,51 @@
         draw();
       }
 
-      let raf;
-      window.addEventListener('resize', () => {
+      window.addEventListener('resize', ()=>{
         cancelAnimationFrame(raf);
         start();
       });
-      reduceMotion.addEventListener?.('change', () => {
+      reduceMotion.addEventListener?.('change', ()=>{
         cancelAnimationFrame(raf);
         start();
       });
 
       start();
+    })();
+
+    // ===== Formspree fetch submit with inline status (no redirect) =====
+    (function(){
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      const btn = document.getElementById('submitBtn');
+
+      if(!form) return;
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        status.textContent = 'Sending…';
+        btn.disabled = true;
+
+        const data = new FormData(form);
+        try{
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+          if(res.ok){
+            status.textContent = 'Thanks — your message has been sent.';
+            form.reset();
+          }else{
+            const j = await res.json().catch(()=>({}));
+            status.textContent = (j && j.error) ? j.error : 'There was a problem sending your message.';
+          }
+        }catch(err){
+          status.textContent = 'Network error — please try again.';
+        }finally{
+          btn.disabled = false;
+        }
+      });
     })();
   </script>
 </body>
