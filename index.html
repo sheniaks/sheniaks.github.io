@@ -1,279 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Oleksandr Sheniak | Cybersecurity Professional</title>
-  <meta name="description" content="Cybersecurity professional focused on cloud security, IAM, SIEM, vulnerability management, and secure architecture." />
+  <meta name="description" content="Cybersecurity professional focused on cloud security, IAM, SIEM, vulnerability management, secure architecture, and GRC." />
 
   <style>
+    /* 1) Set up robust, privacy-friendly stacks */
     :root{
-      --bg: #000;
-      --fg: #c8ffb5;        /* light matrix green */
-      --fg-dim:#7aff55;     /* dimmer neon */
-      --accent:#00ff88;     /* neon accent */
-      --grid:#0a330a;
-      --card:#021b02cc;     /* translucent dark green */
-      --link:#8dffb0;
-      --error:#ff4d4d;
-      --radius:14px;
-      --shadow: 0 10px 30px rgba(0,255,120,0.08), inset 0 0 40px rgba(0,255,120,0.05);
+      --font-sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,
+                   "Noto Sans","Liberation Sans",sans-serif;
+      --font-serif: "Noto Serif",Georgia,"Times New Roman",Times,serif;
+      --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,
+                   "Liberation Mono","DejaVu Sans Mono","Courier New",monospace;
+
+      /* Type scale (Major Third, ~1.25) */
+      --fs-300: 0.875rem;   /* small */
+      --fs-400: 1rem;       /* base */
+      --fs-500: 1.25rem;    /* h6 / lead */
+      --fs-600: 1.563rem;   /* h5 */
+      --fs-700: 1.953rem;   /* h4 */
+      --fs-800: 2.441rem;   /* h3 */
+      --fs-900: 3.052rem;   /* h2 */
+      --fs-1000: 3.815rem;  /* h1 */
+
+      --lh-text: 1.6;
+      --lh-head: 1.25;
+
+      /* Black & white palette only */
+      --bg: #ffffff;
+      --ink: #000000;
+      --ink-2: #111111;   /* subtle headings */
+      --ink-3: #333333;   /* muted text (still grayscale) */
+      --line: #000000;    /* 1px borders */
+      --card: #ffffff;
     }
 
-    /* Base */
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* 2) Screen defaults: sans-serif */
+    html { font-size: 16px; }
+    body {
+      font-family: var(--font-sans);
+      font-size: var(--fs-400);
+      line-height: var(--lh-text);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      margin: 0;
+      color: var(--ink);
       background: var(--bg);
-      color: var(--fg);
-      line-height:1.6;
-      overflow-x:hidden;
     }
 
-    /* Matrix rain canvas */
-    #matrix {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: radial-gradient(1200px 800px at 20% 10%, rgba(0,255,140,0.08), transparent 60%),
-                  radial-gradient(1000px 700px at 80% 90%, rgba(0,255,140,0.06), transparent 60%),
-                  linear-gradient(0deg, rgba(0,0,0,0.9), rgba(0,0,0,0.9));
-    }
-    /* Subtle grid overlay */
-    #grid {
-      position: fixed; inset:0; z-index:-1; pointer-events:none; opacity:0.15;
-      background-image:
-        linear-gradient(to right, var(--grid) 1px, transparent 1px),
-        linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-      background-size: 40px 40px, 40px 40px;
-      mix-blend-mode: lighten;
+    /* Container & layout */
+    .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+    header { border-bottom: 1px solid var(--line); }
+    .hero { padding: 48px 0 28px; }
+    .hero h1 { margin: 0 0 .25em; color: var(--ink-2); }
+    .lead { font-size: var(--fs-500); color: var(--ink-3); margin: 0 0 1rem; }
+
+    nav { display: flex; gap: 16px; padding: 0 0 24px; flex-wrap: wrap; }
+    nav a {
+      text-decoration: underline;
+      color: var(--ink);
     }
 
-    /* Layout */
-    header{
-      padding: 64px 20px 24px;
-      text-align:center;
-    }
-    .hero{
-      max-width:1000px; margin:0 auto; padding: 0 16px;
-    }
-    .hero h1{
-      font-size: clamp(28px, 4vw, 52px);
-      margin: 0 0 10px;
-      letter-spacing: 1px;
-      text-shadow: 0 0 10px rgba(0,255,120,0.25), 0 0 30px rgba(0,255,120,0.1);
-    }
-    .type{
-      display:inline-block;
-      border-right: .12em solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      animation: caret 1s steps(1) infinite;
-    }
-    @keyframes caret{50%{border-right-color: transparent}}
+    main { padding: 32px 0 64px; }
+    section { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: 0; padding-bottom: 0; }
 
-    nav{
-      margin-top:18px;
-      display:flex; justify-content:center; gap:14px; flex-wrap:wrap;
+    /* 3) Headings */
+    h1,h2,h3,h4,h5,h6{
+      font-family: var(--font-sans);
+      line-height: var(--lh-head);
+      margin: 0.6em 0 0.3em;
+      font-weight: 700;
     }
-    nav a{
-      text-decoration:none;
-      color: var(--link);
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(0,255,120,0.25);
-      background: rgba(0,30,0,0.35);
-      box-shadow: var(--shadow);
-    }
-    nav a:hover{ transform: translateY(-1px); box-shadow: 0 12px 30px rgba(0,255,120,0.15)}
-    main{ max-width: 1000px; margin: 32px auto 80px; padding: 0 16px; }
+    h1{ font-size: var(--fs-1000); }
+    h2{ font-size: var(--fs-900); }
+    h3{ font-size: var(--fs-800); }
+    h4{ font-size: var(--fs-700); }
+    h5{ font-size: var(--fs-600); }
+    h6{ font-size: var(--fs-500); }
 
-    section{
-      background: var(--card);
-      border: 1px solid rgba(0,255,120,0.18);
-      border-radius: var(--radius);
-      padding: 28px;
-      margin-bottom: 26px;
-      backdrop-filter: blur(6px);
-      box-shadow: var(--shadow);
-    }
-    h2{ margin: 0 0 10px; font-size: clamp(20px, 2.5vw, 28px); color: var(--accent) }
+    /* 4) Body helpers */
+    p,ul,ol,dl,blockquote{ margin: 0 0 1rem; }
+    small, .small { font-size: var(--fs-300); }
 
-    .kvs{ display:grid; grid-template-columns: 1fr; gap:16px; margin-top:10px;}
-    .kv{ padding:12px 14px; border-radius:10px; background: rgba(0,255,120,0.04); border:1px solid rgba(0,255,120,0.12); }
-    .muted{ color:#bfffcf; opacity:.8 }
+    /* 5) Links clearly distinguished (accessibility-friendly) */
+    a{ text-decoration: underline; color: var(--ink); }
 
-    /* Contact form */
-    form{ display:grid; gap:12px; margin-top:10px;}
-    input, textarea{
-      width:100%;
-      padding:12px 14px;
-      background: #001400;
-      color: var(--fg);
-      border:1px solid rgba(0,255,120,0.2);
-      border-radius:10px;
-      outline:none;
-      box-shadow: inset 0 0 20px rgba(0,255,120,0.04);
-    }
-    input::placeholder, textarea::placeholder{ color:#90ffb0aa }
-    button{
-      justify-self:start;
-      padding:12px 18px;
-      background: linear-gradient(90deg, #00ff88, #00c96b);
-      color:#00210d; font-weight:700; letter-spacing:.3px;
-      border: none; border-radius: 999px; cursor:pointer;
-      box-shadow: 0 10px 30px rgba(0,255,140,0.2);
-    }
-    button:hover{ transform: translateY(-1px) }
-    .form-note{ font-size:.9rem; color:#bfffcf; opacity:.85 }
+    /* Cards / lists (monochrome) */
+    .list-clean { list-style: none; padding: 0; margin: .5rem 0 0; }
+    .list-clean li { padding-left: 0; margin: .25rem 0; }
 
-    footer{
-      text-align:center; padding: 28px 16px; color:#bfffcf; opacity:.75;
+    /* Grid for About bullets */
+    .grid { display: grid; gap: 14px; }
+    @media (min-width: 720px){
+      .grid-2 { grid-template-columns: 1fr 1fr; }
     }
 
-    /* Reduced motion users */
-    @media (prefers-reduced-motion: reduce){
-      .type{ animation: none; border-right: 0 }
+    /* Contact form (monochrome) */
+    form { display: grid; gap: 12px; max-width: 680px; }
+    label { font-weight: 600; }
+    input, textarea {
+      font: inherit;
+      padding: 0.75rem 0.85rem;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 4px;
+    }
+    textarea { min-height: 160px; resize: vertical; }
+    button {
+      font: inherit;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--line);
+      background: #000;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover { opacity: 0.9; }
+    .help { color: var(--ink-3); }
+
+    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--ink-3); }
+
+    /* 6) Code & preformatted */
+    code,kbd,samp,pre{
+      font-family: var(--font-mono);
+      font-size: 0.95em;
+    }
+    pre{
+      overflow: auto;
+      padding: 0.75rem 1rem;
+      background: #f6f6f6; /* grayscale */
+      border-radius: 6px;
+      border: 1px solid #eaeaea;
     }
 
-    /* Small screens */
-    @media (min-width:720px){
-      .kvs{ grid-template-columns: repeat(2, 1fr) }
+    /* 7) Print: switch to serif as per RFC CSS requirements */
+    @media print{
+      body{ font-family: var(--font-serif); }
+      a{ text-decoration: none; }
+      header, nav, footer { border: 0; }
+    }
+
+    /* Visually hidden for a11y */
+    .sr-only{
+      position:absolute!important; width:1px!important; height:1px!important;
+      padding:0!important; margin:-1px!important; overflow:hidden!important;
+      clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important;
     }
   </style>
 </head>
 <body>
-  <canvas id="matrix" aria-hidden="true"></canvas>
-  <div id="grid" aria-hidden="true"></div>
-
   <header>
-    <div class="hero">
-      <h1><span class="type" id="typeTarget">Oleksandr Sheniak — Cybersecurity Professional</span></h1>
-      <div class="muted">Cloud Security • IAM • SIEM • Vulnerability Management • Secure Architecture</div>
-      <nav>
+    <div class="wrap hero">
+      <h1>Oleksandr Sheniak</h1>
+      <p class="lead">Cybersecurity Professional — Cloud Security · IAM · SIEM · Vulnerability Management · Secure Architecture · GRC</p>
+      <nav aria-label="Primary">
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
         <a href="https://github.com/sheniaks" target="_blank" rel="noopener">GitHub</a>
         <a href="https://www.linkedin.com/in/sheniaks" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="Oleksandr_Sheniak_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <!-- Optional resume file drop-in -->
+        <!-- <a href="Oleksandr_Sheniak_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a> -->
       </nav>
     </div>
   </header>
 
-  <main>
-    <section id="about">
-      <h2>&lt;about_me&gt;</h2>
+  <main class="wrap">
+    <section id="about" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
+
       <p>
-        I am a cybersecurity professional focused on <strong>cloud security, identity and access management,
-        security operations, and risk management</strong>. I combine hands-on technical work with a strong business
-        mindset to align security outcomes with organizational goals and compliance requirements.
+        I am <strong>Oleksandr Sheniak</strong>, a cybersecurity professional with expertise in <strong>cloud security, enterprise risk management, and security operations</strong>.
+        My background combines a Master’s degree in <strong>Information and Communications Systems Security</strong> with a Master’s in <strong>Public Management and Administration</strong>,
+        giving me both the technical foundation and the strategic perspective to align security with business priorities.
       </p>
-      <div class="kvs">
-        <div class="kv"><strong>Focus:</strong> Cloud Security (AWS/Azure), IAM, SIEM, Incident Response</div>
-        <div class="kv"><strong>Capabilities:</strong> Threat detection, vulnerability assessments, secure architecture</div>
-        <div class="kv"><strong>Credentials (in progress):</strong> CompTIA Security+ (SY0-701)</div>
-        <div class="kv"><strong>Objective:</strong> Contribute to enterprise security at AWS • Microsoft • Google • Oracle</div>
+
+      <p>
+        I bring experience across technology, business leadership, and project management, having led teams, managed IT-driven operations,
+        and delivered solutions in fast-paced environments. This blend of skills allows me to approach cybersecurity not only as a technical
+        discipline but also as a business enabler.
+      </p>
+
+      <div class="grid grid-2" style="margin-top: .5rem;">
+        <div>
+          <h3>Areas of Focus</h3>
+          <ul class="list-clean">
+            <li>Cloud Security &amp; Identity Access Management (IAM)</li>
+            <li>Threat Detection, SIEM, and Incident Response</li>
+            <li>Vulnerability Management &amp; Risk Assessment</li>
+            <li>Secure System &amp; Network Architecture</li>
+            <li>Governance, Risk, and Compliance (GRC)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Professional Development</h3>
+          <p>
+            I am actively building advanced expertise through <strong>CompTIA Security+</strong> certification, cloud security labs,
+            and applied projects that demonstrate real-world security solutions.
+          </p>
+          <h3 style="margin-top:1rem;">Career Objective</h3>
+          <p>
+            With a strong foundation and a clear focus on enterprise security, my career goal is to contribute to global leaders in technology —
+            such as <strong>AWS, Microsoft, Google, or Oracle</strong> — helping organizations build resilient, secure, and scalable infrastructures.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section id="contact">
-      <h2>&lt;contact&gt;</h2>
-      <!-- Replace the action with your Formspree endpoint (or another form handler) -->
-      <form action="https://formspree.io/f/yourformid" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-        <!-- Honeypot field to reduce spam -->
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-        <!-- Subject suggestion -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <form
+        action="https://formspree.io/f/yourformid"  <!-- Replace with your Formspree endpoint -->
+        method="POST" novalidate>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required />
+          <div class="help small">Prefer email? <a href="mailto:work@sheniaks.com">work@sheniaks.com</a></div>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+
+        <!-- Basic spam honeypot (kept invisible to users) -->
+        <div class="sr-only" aria-hidden="true">
+          <label for="_gotcha">Leave this field empty</label>
+          <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <!-- Suggested subject for email notifications -->
         <input type="hidden" name="_subject" value="Portfolio Contact — sheniaks.com" />
+
         <button type="submit">Send Message</button>
+        <p class="help small">You can also reach me directly at <a href="mailto:work@sheniaks.com">work@sheniaks.com</a>.</p>
       </form>
-      <p class="form-note">
-        Alternatively: <a href="mailto:sheniaks@gmail.com">sheniaks@gmail.com</a> ·
-        <a href="https://www.linkedin.com/in/sheniaks" target="_blank" rel="noopener">LinkedIn</a>
-      </p>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Oleksandr Sheniak — “There is no patch for human curiosity.”
-  </footer>
-
-  <noscript>
-    <div style="position:fixed;bottom:10px;left:10px;padding:8px 12px;background:#200;border:1px solid #500;color:#ffbbbb;border-radius:8px;">
-      JavaScript is disabled — matrix rain animation is off, but the site still works.
+    <div class="wrap">
+      <small>&copy; 2025 Oleksandr Sheniak. All rights reserved.</small>
     </div>
-  </noscript>
-
-  <script>
-    // ===== Typing effect for hero line =====
-    (function(){
-      const el = document.getElementById('typeTarget');
-      const txt = el.textContent;
-      el.textContent = '';
-      let i = 0;
-      const speed = 24; // ms per char
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(reduce){ el.textContent = txt; return; }
-      const t = setInterval(()=>{
-        el.textContent = txt.slice(0, i++);
-        if(i > txt.length) clearInterval(t);
-      }, speed);
-    })();
-
-    // ===== Matrix rain animation (no libs) =====
-    (function(){
-      const canvas = document.getElementById('matrix');
-      const ctx = canvas.getContext('2d');
-      let w, h, columns, drops;
-      const chars = 'アイウエオカキクケコｱｲｳｴｵｶｷｸｹｺ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-/<=>'.split('');
-
-      function resize(){
-        w = canvas.width = window.innerWidth;
-        h = canvas.height = window.innerHeight;
-        columns = Math.floor(w / 16);
-        drops = Array.from({length: columns}, () => Math.floor(Math.random()*h/16));
-      }
-
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(reduce){
-        // Static faint columns for accessibility
-        resize();
-        ctx.fillStyle = 'rgba(0,0,0,1)';
-        ctx.fillRect(0,0,w,h);
-        ctx.fillStyle = 'rgba(0,255,140,0.08)';
-        for(let x=0; x<columns; x++){
-          for(let y=0; y<h/16; y+=3){
-            ctx.fillText(chars[(x+y)%chars.length], x*16, y*16);
-          }
-        }
-        return;
-      }
-
-      window.addEventListener('resize', resize);
-      resize();
-
-      function draw(){
-        // Faint trail
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.08)';
-        ctx.fillRect(0, 0, w, h);
-
-        ctx.fillStyle = '#00ff88';
-        ctx.font = '16px monospace';
-
-        for(let i=0; i<drops.length; i++){
-          const text = chars[Math.floor(Math.random()*chars.length)];
-          ctx.fillText(text, i*16, drops[i]*16);
-          // Reset & move
-          if(drops[i]*16 > h && Math.random() > 0.975){ drops[i] = 0; }
-          drops[i]++;
-        }
-        requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-  </script>
+  </footer>
 </body>
 </html>
