@@ -19,7 +19,7 @@
     #matrix{ position:fixed; inset:0; z-index:-1; background:#fff; }
 
     .wrap{ max-width:900px; margin:0 auto; padding:0 20px; }
-    .block{ background:#fff; padding:24px; margin:32px 0; border:1px solid var(--line); border-radius:4px; }
+    .block{ background:#fff; padding:24px; margin:32px auto; border:1px solid var(--line); border-radius:4px; }
 
     h1,h2{ line-height:var(--lh-head); font-weight:700; margin:0 0 1rem; }
     h1{ font-size:2.5rem; }
@@ -132,10 +132,12 @@
   </footer>
 
   <script>
-    // Matrix rain (black on white)
+    // Matrix rain with Japanese & extended chars
     (function(){
       const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
-      let w,h,cols,drops; const size=16, chars="アイウエオカキクケコｱｲｳｴｵｶｷｸｹｺ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-/<=>";
+      let w,h,cols,drops; 
+      const size=16; 
+      const chars="アイウエオカキクケコｱｲｳｴｵｶｷｸｹｺ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-/<=>".split('');
       function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; cols=Math.floor(w/size); drops=Array(cols).fill(0); }
       function draw(){
         ctx.fillStyle="rgba(255,255,255,0.08)";
