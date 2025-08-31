@@ -10,17 +10,12 @@
     :root{
       --font-sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
       --font-mono: ui-monospace,Menlo,Monaco,Consolas,"Courier New",monospace;
-      --fs-400: 1rem;
-      --fs-500: 1.25rem;
-      --fs-900: 3rem;
-      --lh-text: 1.6;
-      --lh-head: 1.25;
-      --ink: #000;
-      --bg: #fff;
-      --line: #000;
+      --ink: #000; --bg:#fff; --line:#000;
+      --fs-400: 1rem; --fs-500:1.25rem; --fs-900:3rem;
+      --lh-text:1.6; --lh-head:1.25;
     }
 
-    body{ margin:0; font-family:var(--font-sans); font-size:var(--fs-400); line-height:var(--lh-text); color:var(--ink); background:var(--bg); }
+    body{ margin:0; font-family:var(--font-sans); font-size:var(--fs-400); line-height:var(--lh-text); color:var(--ink); background:var(--bg);}
     #matrix{ position:fixed; inset:0; z-index:-1; background:#fff; }
 
     .wrap{ max-width:900px; margin:0 auto; padding:0 20px; }
@@ -30,8 +25,9 @@
     h1{ font-size:2.5rem; }
     h2{ font-size:var(--fs-900); font-family:var(--font-mono); }
 
-    nav{ margin-top:1rem; display:flex; gap:16px; flex-wrap:wrap; }
-    nav a{ color:var(--ink); text-decoration:underline; }
+    header{ text-align:center; }
+    nav{ margin-top:1rem; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    a{ color:var(--ink); text-decoration:underline; }
 
     ul{ margin:0 0 1rem; padding-left:20px; }
     li{ margin:.25rem 0; }
@@ -45,6 +41,11 @@
     .status{ font-size:.9rem; margin-top:.5rem; }
 
     footer{ border-top:1px solid var(--line); padding:20px; text-align:center; background:#fff; }
+
+    /* Expandable project details */
+    details{ border:1px solid var(--line); border-radius:4px; padding:12px 16px; background:#fff; margin:.75rem 0; }
+    details summary{ cursor:pointer; font-weight:600; list-style:none; }
+    details summary::marker{ display:none; }
   </style>
 </head>
 <body>
@@ -80,15 +81,32 @@
 
     <section id="projects" class="block">
       <h2>&lt;projects&gt;</h2>
-      <p>Hands-on projects that showcase my applied cybersecurity skills and align with the <strong>CompTIA Security+ (SY0-701)</strong> objectives:</p>
-      <ul>
-        <li><strong>SIEM Log Analysis:</strong> Built and monitored Splunk dashboards to detect brute-force attempts and anomalous login activity.</li>
-        <li><strong>AWS IAM Lab:</strong> Configured identity and access management with roles, MFA, and least privilege enforcement.</li>
-        <li><strong>Vulnerability Scan:</strong> Used OpenVAS/Nessus Essentials to identify vulnerabilities in a test lab and created remediation reports.</li>
-        <li><strong>Network Traffic Analysis:</strong> Captured and filtered packets with Wireshark to detect malicious traffic indicators.</li>
-        <li><strong>Incident Response Playbook:</strong> Drafted a structured process for containment, eradication, and recovery in a simulated phishing attack.</li>
-      </ul>
-      <p>More projects are published and updated regularly on my <a href="https://github.com/sheniaks" target="_blank">GitHub profile</a>.</p>
+      <p>Hands-on projects that showcase my applied cybersecurity skills. Click to expand each:</p>
+
+      <details>
+        <summary>🔍 SIEM Log Analysis</summary>
+        <p>Built and monitored Splunk dashboards to detect brute-force attempts and anomalous login activity. Applied filters and created alert rules aligned with incident response best practices.</p>
+      </details>
+
+      <details>
+        <summary>☁️ AWS IAM Lab</summary>
+        <p>Configured IAM with roles, MFA, and least privilege enforcement in AWS free tier. Demonstrated security misconfig detection and remediation.</p>
+      </details>
+
+      <details>
+        <summary>🛡 Vulnerability Scan</summary>
+        <p>Used OpenVAS/Nessus Essentials to identify vulnerabilities in a test lab and generated remediation reports, aligned with Security+ vulnerability management objectives.</p>
+      </details>
+
+      <details>
+        <summary>📡 Network Traffic Analysis</summary>
+        <p>Captured and filtered packets with Wireshark to detect indicators of compromise, including port scanning and unusual DNS queries.</p>
+      </details>
+
+      <details>
+        <summary>📑 Incident Response Playbook</summary>
+        <p>Drafted a structured process for containment, eradication, and recovery during a simulated phishing attack, mapping steps to NIST incident response lifecycle.</p>
+      </details>
     </section>
 
     <section id="contact" class="block">
@@ -117,7 +135,7 @@
     // Matrix rain (black on white)
     (function(){
       const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
-      let w,h,cols,drops; const size=16, chars="01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let w,h,cols,drops; const size=16, chars="アイウエオカキクケコｱｲｳｴｵｶｷｸｹｺ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-/<=>";
       function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; cols=Math.floor(w/size); drops=Array(cols).fill(0); }
       function draw(){
         ctx.fillStyle="rgba(255,255,255,0.08)";
