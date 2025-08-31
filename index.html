@@ -16,135 +16,113 @@
                    "Liberation Mono","DejaVu Sans Mono","Courier New",monospace;
 
       /* Type scale (Major Third, ~1.25) */
-      --fs-300: 0.875rem;   /* small */
-      --fs-400: 1rem;       /* base */
-      --fs-500: 1.25rem;    /* h6 / lead */
-      --fs-600: 1.563rem;   /* h5 */
-      --fs-700: 1.953rem;   /* h4 */
-      --fs-800: 2.441rem;   /* h3 */
-      --fs-900: 3.052rem;   /* h2 */
-      --fs-1000: 3.815rem;  /* h1 */
+      --fs-300: 0.875rem;
+      --fs-400: 1rem;
+      --fs-500: 1.25rem;
+      --fs-600: 1.563rem;
+      --fs-700: 1.953rem;
+      --fs-800: 2.441rem;
+      --fs-900: 3.052rem;
+      --fs-1000: 3.815rem;
 
       --lh-text: 1.6;
       --lh-head: 1.25;
 
-      /* Black & white palette only */
+      /* Strict black & white */
       --bg: #ffffff;
       --ink: #000000;
-      --ink-2: #111111;   /* subtle headings */
-      --ink-3: #333333;   /* muted text (still grayscale) */
-      --line: #000000;    /* 1px borders */
-      --card: #ffffff;
+      --line: #000000;
     }
 
-    /* 2) Screen defaults: sans-serif */
-    html { font-size: 16px; }
-    body {
-      font-family: var(--font-sans);
-      font-size: var(--fs-400);
-      line-height: var(--lh-text);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      margin: 0;
-      color: var(--ink);
-      background: var(--bg);
+    /* 2) Screen defaults */
+    html{ font-size:16px; }
+    body{
+      font-family:var(--font-sans);
+      font-size:var(--fs-400);
+      line-height:var(--lh-text);
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+      margin:0;
+      color:var(--ink);
+      background:var(--bg);
     }
 
-    /* Container & layout */
-    .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
-    header { border-bottom: 1px solid var(--line); }
-    .hero { padding: 48px 0 28px; }
-    .hero h1 { margin: 0 0 .25em; color: var(--ink-2); }
-    .lead { font-size: var(--fs-500); color: var(--ink-3); margin: 0 0 1rem; }
-
-    nav { display: flex; gap: 16px; padding: 0 0 24px; flex-wrap: wrap; }
-    nav a {
-      text-decoration: underline;
-      color: var(--ink);
+    /* Structure */
+    .wrap{ max-width:980px; margin:0 auto; padding:0 20px; }
+    header{ border-bottom:1px solid var(--line); background:#000; color:#fff; position:relative; }
+    .hero{ position:relative; padding:64px 0 36px; }
+    .hero-content{ position:relative; z-index:1; }
+    #matrix{
+      position:absolute; inset:0; z-index:0;
+      display:block; background:#000; /* black background; white rain */
     }
+    .hero h1{ margin:0 0 .25em; font-size:var(--fs-1000); line-height:var(--lh-head); }
+    .lead{ font-size:var(--fs-500); margin:0 0 1rem; }
 
-    main { padding: 32px 0 64px; }
-    section { margin-bottom: 40px; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
-    section:last-of-type { border-bottom: 0; padding-bottom: 0; }
+    nav{ display:flex; gap:16px; padding:0 0 24px; flex-wrap:wrap; }
+    nav a{ text-decoration:underline; }
+    header nav a{ color:#fff; }      /* white links on black header */
+    main{ padding:32px 0 64px; }
+    section{ margin-bottom:40px; padding-bottom:32px; border-bottom:1px solid var(--line); }
+    section:last-of-type{ border-bottom:0; padding-bottom:0; }
 
     /* 3) Headings */
     h1,h2,h3,h4,h5,h6{
-      font-family: var(--font-sans);
-      line-height: var(--lh-head);
-      margin: 0.6em 0 0.3em;
-      font-weight: 700;
+      font-family:var(--font-sans);
+      line-height:var(--lh-head);
+      margin:.6em 0 .3em;
+      font-weight:700;
+      color:var(--ink);
     }
-    h1{ font-size: var(--fs-1000); }
-    h2{ font-size: var(--fs-900); }
-    h3{ font-size: var(--fs-800); }
-    h4{ font-size: var(--fs-700); }
-    h5{ font-size: var(--fs-600); }
-    h6{ font-size: var(--fs-500); }
+    h1{ font-size:var(--fs-1000); }
+    h2{ font-size:var(--fs-900); }
+    h3{ font-size:var(--fs-800); }
+    h4{ font-size:var(--fs-700); }
+    h5{ font-size:var(--fs-600); }
+    h6{ font-size:var(--fs-500); }
 
     /* 4) Body helpers */
-    p,ul,ol,dl,blockquote{ margin: 0 0 1rem; }
-    small, .small { font-size: var(--fs-300); }
+    p,ul,ol,dl,blockquote{ margin:0 0 1rem; }
+    small,.small{ font-size:var(--fs-300); }
 
-    /* 5) Links clearly distinguished (accessibility-friendly) */
-    a{ text-decoration: underline; color: var(--ink); }
+    /* 5) Links (accessible, black only) */
+    a{ color:var(--ink); text-decoration:underline; }
 
-    /* Cards / lists (monochrome) */
-    .list-clean { list-style: none; padding: 0; margin: .5rem 0 0; }
-    .list-clean li { padding-left: 0; margin: .25rem 0; }
+    /* Lists / grid */
+    .list-clean{ list-style:none; padding:0; margin:.5rem 0 0; }
+    .list-clean li{ margin:.25rem 0; }
+    .grid{ display:grid; gap:14px; }
+    @media (min-width:720px){ .grid-2{ grid-template-columns:1fr 1fr; } }
 
-    /* Grid for About bullets */
-    .grid { display: grid; gap: 14px; }
-    @media (min-width: 720px){
-      .grid-2 { grid-template-columns: 1fr 1fr; }
+    /* Contact form */
+    form{ display:grid; gap:12px; max-width:680px; }
+    label{ font-weight:600; }
+    input,textarea{
+      font:inherit; padding:.75rem .85rem; border:1px solid var(--line);
+      background:#fff; color:var(--ink); border-radius:4px;
     }
-
-    /* Contact form (monochrome) */
-    form { display: grid; gap: 12px; max-width: 680px; }
-    label { font-weight: 600; }
-    input, textarea {
-      font: inherit;
-      padding: 0.75rem 0.85rem;
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--ink);
-      border-radius: 4px;
+    textarea{ min-height:160px; resize:vertical; }
+    button{
+      font:inherit; padding:.75rem 1rem; border:1px solid var(--line);
+      background:#000; color:#fff; border-radius:4px; cursor:pointer;
     }
-    textarea { min-height: 160px; resize: vertical; }
-    button {
-      font: inherit;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--line);
-      background: #000;
-      color: #fff;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover { opacity: 0.9; }
-    .help { color: var(--ink-3); }
+    button:hover{ opacity:.9; }
+    .help{ color:#000; }
 
-    footer { border-top: 1px solid var(--line); padding: 24px 0; color: var(--ink-3); }
+    footer{ border-top:1px solid var(--line); padding:24px 0; }
 
-    /* 6) Code & preformatted */
-    code,kbd,samp,pre{
-      font-family: var(--font-mono);
-      font-size: 0.95em;
-    }
-    pre{
-      overflow: auto;
-      padding: 0.75rem 1rem;
-      background: #f6f6f6; /* grayscale */
-      border-radius: 6px;
-      border: 1px solid #eaeaea;
-    }
+    /* 6) Code & pre */
+    code,kbd,samp,pre{ font-family:var(--font-mono); font-size:.95em; }
+    pre{ overflow:auto; padding:.75rem 1rem; background:#fff; border:1px solid #000; border-radius:6px; }
 
-    /* 7) Print: switch to serif as per RFC CSS requirements */
+    /* 7) Print */
     @media print{
-      body{ font-family: var(--font-serif); }
-      a{ text-decoration: none; }
-      header, nav, footer { border: 0; }
+      body{ font-family:var(--font-serif); }
+      a{ text-decoration:none; }
+      header,nav,footer{ border:0; }
     }
 
-    /* Visually hidden for a11y */
+    /* a11y: visually hidden */
     .sr-only{
       position:absolute!important; width:1px!important; height:1px!important;
       padding:0!important; margin:-1px!important; overflow:hidden!important;
@@ -154,17 +132,19 @@
 </head>
 <body>
   <header>
+    <!-- Black & white matrix rain hero -->
+    <canvas id="matrix" aria-hidden="true"></canvas>
     <div class="wrap hero">
-      <h1>Oleksandr Sheniak</h1>
-      <p class="lead">Cybersecurity Professional — Cloud Security · IAM · SIEM · Vulnerability Management · Secure Architecture · GRC</p>
-      <nav aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="https://github.com/sheniaks" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/sheniaks" target="_blank" rel="noopener">LinkedIn</a>
-        <!-- Optional resume file drop-in -->
-        <!-- <a href="Oleksandr_Sheniak_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a> -->
-      </nav>
+      <div class="hero-content">
+        <h1 style="color:#fff;">Oleksandr Sheniak</h1>
+        <p class="lead" style="color:#fff;">Cybersecurity Professional — Cloud Security · IAM · SIEM · Vulnerability Management · Secure Architecture · GRC</p>
+        <nav aria-label="Primary">
+          <a href="#about" style="color:#fff;">About</a>
+          <a href="#contact" style="color:#fff;">Contact</a>
+          <a href="https://github.com/sheniaks" target="_blank" rel="noopener" style="color:#fff;">GitHub</a>
+          <a href="https://www.linkedin.com/in/sheniaks" target="_blank" rel="noopener" style="color:#fff;">LinkedIn</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -184,7 +164,7 @@
         discipline but also as a business enabler.
       </p>
 
-      <div class="grid grid-2" style="margin-top: .5rem;">
+      <div class="grid grid-2" style="margin-top:.5rem;">
         <div>
           <h3>Areas of Focus</h3>
           <ul class="list-clean">
@@ -212,9 +192,7 @@
 
     <section id="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Contact</h2>
-      <form
-        action="https://formspree.io/f/yourformid"  <!-- Replace with your Formspree endpoint -->
-        method="POST" novalidate>
+      <form action="https://formspree.io/f/xldwbzyl" method="POST" novalidate>
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" type="text" autocomplete="name" required />
@@ -229,15 +207,13 @@
           <textarea id="message" name="message" required></textarea>
         </div>
 
-        <!-- Basic spam honeypot (kept invisible to users) -->
+        <!-- Honeypot -->
         <div class="sr-only" aria-hidden="true">
           <label for="_gotcha">Leave this field empty</label>
           <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off" />
         </div>
 
-        <!-- Suggested subject for email notifications -->
         <input type="hidden" name="_subject" value="Portfolio Contact — sheniaks.com" />
-
         <button type="submit">Send Message</button>
         <p class="help small">You can also reach me directly at <a href="mailto:work@sheniaks.com">work@sheniaks.com</a>.</p>
       </form>
@@ -249,5 +225,86 @@
       <small>&copy; 2025 Oleksandr Sheniak. All rights reserved.</small>
     </div>
   </footer>
+
+  <noscript>
+    <div class="wrap" style="padding:8px 0;">
+      <small>JavaScript is disabled — the matrix animation is off, but the site works.</small>
+    </div>
+  </noscript>
+
+  <script>
+    // Black & white matrix rain confined to the header area
+    (function(){
+      const canvas = document.getElementById('matrix');
+      const ctx = canvas.getContext('2d');
+      const header = canvas.parentElement; // .wrap.hero container has padding; canvas is absolute to header
+      let w, h, columns, drops, fontSize = 16;
+
+      const chars = ('01ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+      function sizeCanvas(){
+        // Match the header's pixel size, account for devicePixelRatio for crisp text
+        const rect = header.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        w = Math.max(1, Math.floor(rect.width));
+        h = Math.max(1, Math.floor(rect.height));
+        canvas.width = Math.floor(w * dpr);
+        canvas.height = Math.floor(h * dpr);
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.font = fontSize + 'px ' + ( 'ui-monospace, Menlo, monospace' );
+        columns = Math.ceil(w / fontSize);
+        drops = Array.from({length: columns}, () => Math.floor(Math.random() * (h / fontSize)));
+        // Initial paint: solid black
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0,0,w,h);
+      }
+
+      function draw(){
+        // Faint trail using transparent black; still strictly B/W
+        ctx.fillStyle = 'rgba(0,0,0,0.08)';
+        ctx.fillRect(0,0,w,h);
+        ctx.fillStyle = '#fff';
+        for(let i=0;i<drops.length;i++){
+          const text = chars[(Math.random()*chars.length)|0];
+          ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+          if(drops[i]*fontSize > h && Math.random() > 0.975){ drops[i] = 0; }
+          drops[i]++;
+        }
+        raf = requestAnimationFrame(draw);
+      }
+
+      function start(){
+        sizeCanvas();
+        if(reduceMotion.matches){
+          // Static background
+          ctx.fillStyle = '#000';
+          ctx.fillRect(0,0,w,h);
+          ctx.fillStyle = '#fff';
+          for(let x=0; x<columns; x++){
+            for(let y=0; y<h/fontSize; y+=3){
+              ctx.fillText(chars[(x+y)%chars.length], x*fontSize, y*fontSize);
+            }
+          }
+          return;
+        }
+        draw();
+      }
+
+      let raf;
+      window.addEventListener('resize', () => {
+        cancelAnimationFrame(raf);
+        start();
+      });
+      reduceMotion.addEventListener?.('change', () => {
+        cancelAnimationFrame(raf);
+        start();
+      });
+
+      start();
+    })();
+  </script>
 </body>
 </html>
