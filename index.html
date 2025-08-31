@@ -22,7 +22,7 @@
     .block{ background:#fff; padding:24px; margin:32px auto; border:1px solid var(--line); border-radius:4px; }
 
     h1,h2{ line-height:var(--lh-head); font-weight:700; margin:0 0 1rem; }
-    h1{ font-size:2.5rem; }
+    h1{ font-size:2.5rem; text-align:center; }
     h2{ font-size:var(--fs-900); font-family:var(--font-mono); }
 
     header{ text-align:center; }
@@ -80,32 +80,37 @@
     </section>
 
     <section id="projects" class="block">
-      <h2>&lt;projects&gt;</h2>
+      <h2>&lt;cybersecurity_projects&gt;</h2>
       <p>Hands-on projects that showcase my applied cybersecurity skills. Click to expand each:</p>
 
       <details>
-        <summary>🔍 SIEM Log Analysis</summary>
-        <p>Built and monitored Splunk dashboards to detect brute-force attempts and anomalous login activity. Applied filters and created alert rules aligned with incident response best practices.</p>
+        <summary>Security+ SY0-701 Lab & Study System</summary>
+        <p>Built a structured study plan for CompTIA Security+ (SY0-701), including domain-by-domain objectives, lab simulations, and hands-on exercises using Wireshark, Snort/Suricata, and SIEM platforms. Documented findings in GitHub repositories to demonstrate applied knowledge of CIA triad, Zero Trust, and incident response workflows.</p>
       </details>
 
       <details>
-        <summary>☁️ AWS IAM Lab</summary>
-        <p>Configured IAM with roles, MFA, and least privilege enforcement in AWS free tier. Demonstrated security misconfig detection and remediation.</p>
+        <summary>Threat Intelligence Briefings</summary>
+        <p>Produced concise intelligence reports on major cyber incidents (e.g., SolarWinds, WormGPT, AI-driven attacks), mapping them to MITRE ATT&CK tactics and techniques. Focused on adversary motivations, attack surfaces, and enterprise-level mitigations.</p>
       </details>
 
       <details>
-        <summary>🛡 Vulnerability Scan</summary>
-        <p>Used OpenVAS/Nessus Essentials to identify vulnerabilities in a test lab and generated remediation reports, aligned with Security+ vulnerability management objectives.</p>
+        <summary>SOC Analyst & Incident Response Labs</summary>
+        <p>Completed hands-on simulations with TryHackMe and custom labs, analyzing logs, triaging incidents, investigating phishing attempts, and tuning SIEM queries. Created post-incident reports to practice professional communication of technical findings.</p>
       </details>
 
       <details>
-        <summary>📡 Network Traffic Analysis</summary>
-        <p>Captured and filtered packets with Wireshark to detect indicators of compromise, including port scanning and unusual DNS queries.</p>
+        <summary>DevSecOps Portfolio Development</summary>
+        <p>Designed a learning and career roadmap around secure cloud and DevOps practices, including AWS IAM, GuardDuty, Terraform for Infrastructure as Code (IaC), and container security. Initial labs included securing Docker/Kubernetes environments and deploying least-privilege IAM policies.</p>
       </details>
 
       <details>
-        <summary>📑 Incident Response Playbook</summary>
-        <p>Drafted a structured process for containment, eradication, and recovery during a simulated phishing attack, mapping steps to NIST incident response lifecycle.</p>
+        <summary>System Hardening & Baseline Security</summary>
+        <p>Configured and documented secure baselines for Windows and Linux virtual machines. Implemented firewall rules, endpoint protection, VPN access, and system monitoring. Tested host-based IDS/IPS, encryption policies, and password management solutions.</p>
+      </details>
+
+      <details>
+        <summary>OSINT & Investigation Exercises</summary>
+        <p>Practiced open-source intelligence (OSINT) investigations using PhoneInfoga, Truecaller, and OSINT Framework tools. Simulated phishing risk analysis, identity verification, and brand impersonation detection, producing written playbooks for enterprise application.</p>
       </details>
     </section>
 
@@ -132,7 +137,7 @@
   </footer>
 
   <script>
-    // Matrix rain with Japanese & extended chars
+    // Matrix rain with extended chars
     (function(){
       const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
       let w,h,cols,drops; 
