@@ -7,30 +7,45 @@
   <meta name="description" content="Resume of Oleksandr Sheniak — cybersecurity & IT professional." />
   <link rel="canonical" href="https://www.sheniaks.com/resume/" />
 
-  <!-- Global site styles (adjust path if needed) -->
-  <link rel="stylesheet" href="/assets/css/main.css" />
-
-  <!-- Site-wide favicon (DEF CON icon per your request) -->
+  <!-- DEF CON favicon -->
   <link rel="icon" type="image/png" href="https://media.defcon.org/DEF%20CON%20Logo/defcon-black.png" />
 
+  <!-- Your site’s CSS -->
   <style>
-    .wrap { max-width: 980px; margin: 0 auto; padding: 1.25rem 1rem; }
-    .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
-    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
-    .muted { opacity: .75; }
-    .chips { display:flex; flex-wrap:wrap; gap:.5rem }
-    .chip { padding:.25rem .6rem; border:1px solid currentColor; border-radius:999px; opacity:.85 }
+    :root{
+      --font-sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --font-mono: ui-monospace,Menlo,Monaco,Consolas,"Courier New",monospace;
+      --ink: #000; --bg:#fff; --line:#000;
+      --fs-400: 1rem; --fs-500:1.25rem; --fs-900:3rem;
+      --lh-text:1.6; --lh-head:1.25;
+    }
+    body{ margin:0; font-family:var(--font-sans); font-size:var(--fs-400); line-height:var(--lh-text); color:var(--ink); background:var(--bg);}
+    #matrix{ position:fixed; inset:0; z-index:-1; background:#fff; }
+    .wrap{ max-width:900px; margin:0 auto; padding:0 20px; }
+    .block{ background:#fff; padding:24px; margin:32px auto; border:1px solid var(--line); border-radius:4px; }
+    h1,h2{ line-height:var(--lh-head); font-weight:700; margin:0 0 1rem; }
+    h1{ font-size:2.5rem; text-align:center; }
+    h2{ font-size:var(--fs-900); font-family:var(--font-mono); }
+    header{ text-align:center; }
+    nav{ margin-top:1rem; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+    a{ color:var(--ink); text-decoration:underline; }
+    ul{ margin:0 0 1rem; padding-left:20px; }
+    li{ margin:.25rem 0; }
+    button{ font:inherit; padding:.75rem 1rem; border:1px solid var(--line); background:#000; color:#fff; border-radius:4px; cursor:pointer; }
+    button:hover{ opacity:.85; }
+    footer{ border-top:1px solid var(--line); padding:20px; text-align:center; background:#fff; }
     @media print {
-      .nav, .print-btn { display: none !important; }
-      a[href]:after { content: " (" attr(href) ")"; font-size: .85em; }
+      nav, .print-btn { display:none !important; }
+      a[href]:after{ content:" (" attr(href) ")"; font-size:.85em; }
     }
   </style>
 </head>
 <body>
+  <div id="matrix"></div>
   <div class="wrap">
 
-    <!-- Top nav -->
-    <nav class="nav">
+    <!-- Navigation -->
+    <nav>
       <a href="/">About</a>
       <a href="/#projects">Projects</a>
       <a href="/#contact">Contact</a>
@@ -39,130 +54,122 @@
     </nav>
 
     <!-- Header -->
-    <header class="topbar">
-      <div>
-        <h1>Oleksandr Sheniak</h1>
-        <p>Cybersecurity &amp; IT Professional · Cloud Security · Virtualization · Secure Development</p>
-        <p class="muted">
-          Winnipeg, MB, Canada · <a href="mailto:sheniaks@gmail.com">sheniaks@gmail.com</a> ·
-          <a href="tel:+16472424221">+1 (647) 242-4221</a>
-        </p>
-      </div>
-      <div>
-        <button class="print-btn" type="button" onclick="window.print()">Print / Save PDF</button><br/>
-        <a class="muted" href="#certifications">Verify Certificates</a>
-      </div>
+    <header class="block">
+      <h1>Oleksandr Sheniak</h1>
+      <p>Cybersecurity &amp; IT Professional · Cloud Security · Virtualization · Secure Development</p>
+      <p>
+        Winnipeg, MB, Canada · <a href="mailto:sheniaks@gmail.com">sheniaks@gmail.com</a> ·
+        <a href="tel:+16472424221">+1 (647) 242-4221</a>
+      </p>
+      <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
     </header>
 
-    <hr/>
+    <!-- Summary -->
+    <section class="block">
+      <h2>Summary</h2>
+      <p>
+        Cybersecurity and IT professional with dual Master’s degrees in <strong>Information &amp; Communications Systems Security</strong>
+        and <strong>Public Management</strong>. Skilled in <strong>risk management</strong>, <strong>cloud platforms</strong>,
+        <strong>virtualization</strong>, and <strong>secure development practices</strong>. Entrepreneurial leader with experience
+        operating an e-commerce and cloud services company, plus roles in software development, IT operations, and production support.
+        Advancing toward <strong>CompTIA Security+</strong> with a growing portfolio in <strong>cloud security</strong> and
+        <strong>DevSecOps</strong>.
+      </p>
+    </section>
 
-    <main>
-      <section>
-        <h2>Summary</h2>
-        <p>
-          Cybersecurity and IT professional with dual Master’s degrees in <strong>Information &amp; Communications Systems Security</strong>
-          and <strong>Public Management</strong>. Skilled in <strong>risk management</strong>, <strong>cloud platforms</strong>,
-          <strong>virtualization</strong>, and <strong>secure development practices</strong>. Entrepreneurial leader with experience
-          operating an e-commerce and cloud services company, plus roles in software development, IT operations, and production support.
-          Advancing toward <strong>CompTIA Security+</strong> with a growing portfolio in <strong>cloud security</strong> and
-          <strong>DevSecOps</strong>.
-        </p>
-      </section>
+    <!-- Experience -->
+    <section class="block">
+      <h2>Experience</h2>
+      <h3>Production Team Member — New Flyer</h3>
+      <p><em>2024–2025 · Winnipeg, Canada</em></p>
+      <ul>
+        <li>Supported manufacturing with <strong>quality inspection</strong>, troubleshooting, and safety compliance.</li>
+        <li>Applied blueprint reading and problem-solving in a high-precision environment.</li>
+      </ul>
 
-      <section>
-        <h2>Experience</h2>
+      <h3>CEO / Owner — TopWot Online Store</h3>
+      <p><em>2014–2022 · Ukraine</em></p>
+      <ul>
+        <li>Founded and scaled an e-commerce platform for <strong>digital goods</strong> and <strong>cloud services</strong>.</li>
+        <li>Managed up to <strong>120 VMware-based virtual machines</strong> across NA, EU, and CIS.</li>
+        <li>Implemented <strong>fraud prevention</strong> and customer trust measures for online transactions.</li>
+        <li>Coordinated global freelancers via Slack for development, design, and marketing.</li>
+      </ul>
 
-        <h3>Production Team Member — New Flyer</h3>
-        <p class="muted">2024–2025 · Winnipeg, Canada</p>
-        <ul>
-          <li>Supported manufacturing with <strong>quality inspection</strong>, troubleshooting, and safety compliance.</li>
-          <li>Applied blueprint reading and problem-solving in a high-precision environment.</li>
-        </ul>
+      <h3>Front-End Developer — SoftServe</h3>
+      <p><em>2021–2022 · Ukraine</em></p>
+      <ul>
+        <li>Built responsive apps using <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>.</li>
+        <li>Delivered features in cross-functional Agile teams.</li>
+      </ul>
 
-        <h3>CEO / Owner — TopWot Online Store</h3>
-        <p class="muted">2014–2022 · Ukraine</p>
-        <ul>
-          <li>Founded and scaled an e-commerce platform for <strong>digital goods</strong> and <strong>cloud services</strong>.</li>
-          <li>Managed up to <strong>120 VMware-based virtual machines</strong> across NA, EU, and CIS.</li>
-          <li>Implemented <strong>fraud prevention</strong> and customer trust measures for online transactions.</li>
-          <li>Coordinated global freelancers via Slack for development, design, and marketing.</li>
-        </ul>
+      <h3>Junior Android Developer — SmartIT-Ukraine</h3>
+      <p><em>2017 · Ukraine</em></p>
+      <ul>
+        <li>Developed and tested Android applications; gained foundation in mobile security.</li>
+      </ul>
 
-        <h3>Front-End Developer — SoftServe</h3>
-        <p class="muted">2021–2022 · Ukraine</p>
-        <ul>
-          <li>Built responsive apps using <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>.</li>
-          <li>Delivered features in cross-functional Agile teams.</li>
-        </ul>
+      <h3>Additional Roles</h3>
+      <p><em>Let’s Do Moving — Crew Manager (2022–2023); Uber — Driver (2023–Present)</em></p>
+    </section>
 
-        <h3>Junior Android Developer — SmartIT-Ukraine</h3>
-        <p class="muted">2017 · Ukraine</p>
-        <ul>
-          <li>Developed and tested Android applications; gained foundation in mobile security.</li>
-        </ul>
+    <!-- Skills -->
+    <section class="block">
+      <h2>Key Skills</h2>
+      <ul>
+        <li>NIST CSF 2.0 · Threat & Risk Analysis · Incident Response</li>
+        <li>AWS · Azure · Google Cloud · Oracle Cloud</li>
+        <li>VMware IaaS · Wireshark · Suricata · MITRE ATT&CK/ATLAS</li>
+        <li>JavaScript · HTML5/CSS3 · Android · Python (basics)</li>
+        <li>Agile / Project Management</li>
+      </ul>
+    </section>
 
-        <h3>Additional Roles</h3>
-        <p class="muted">Let’s Do Moving — Crew Manager (2022–2023); Uber — Driver (2023–Present)</p>
-      </section>
+    <!-- Education -->
+    <section class="block">
+      <h2>Education</h2>
+      <p><strong>M.A. — Information &amp; Communications Systems Security</strong><br/>National Mining University, Dnipro, Ukraine</p>
+      <p><strong>M.A. — Public Management &amp; Administration</strong><br/>National Mining University, Dnipro, Ukraine</p>
+    </section>
 
-      <section>
-        <h2>Key Skills</h2>
-        <p class="chips">
-          <span class="chip">NIST CSF 2.0</span>
-          <span class="chip">Threat &amp; Risk Analysis</span>
-          <span class="chip">Incident Response</span>
-          <span class="chip">AWS</span>
-          <span class="chip">Azure</span>
-          <span class="chip">Google Cloud</span>
-          <span class="chip">Oracle Cloud</span>
-          <span class="chip">VMware IaaS</span>
-          <span class="chip">Wireshark</span>
-          <span class="chip">Suricata</span>
-          <span class="chip">MITRE ATT&amp;CK / ATLAS</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">HTML5/CSS3</span>
-          <span class="chip">Android</span>
-          <span class="chip">Python (basics)</span>
-          <span class="chip">Agile / PM</span>
-        </p>
-      </section>
+    <!-- Certifications -->
+    <section class="block" id="certifications">
+      <h2>Certifications</h2>
+      <ul>
+        <li><strong>CSF Cybersecurity Fundamentals — SoftServe</strong><br/>
+          Credential ID: Series QI № 25764/2025 · 
+          <a href="https://drive.google.com/file/d/1q54lHNA0IsfZfPOshJe9bDQN1vdsvh_e/view" target="_blank">Verify</a></li>
+        <li><strong>Foundations of Cybersecurity — Coursera</strong><br/>
+          Credential ID: 7LXMAYXXMZAG · 
+          <a href="https://www.coursera.org/account/accomplishments/certificate/7LXMAYXXMZAG" target="_blank">Verify</a></li>
+        <li><strong>Play It Safe: Manage Security Risks — Coursera</strong><br/>
+          Credential ID: BQ5ML7U3MLQS · 
+          <a href="https://www.coursera.org/account/accomplishments/certificate/BQ5ML7U3MLQS" target="_blank">Verify</a></li>
+        <li><strong>Advanced Project Management — York University</strong><br/>
+          <a href="https://drive.google.com/file/d/1n4grZ_zyLu0xc0dGiHq4vItCHeDgSYFl/view" target="_blank">Verify</a></li>
+        <li><strong>Supply Chain Fundamentals — York University</strong><br/>
+          <a href="https://drive.google.com/file/d/1m3b_aQgFaSNDML89CJBhAy1myyWRmTRJ/view" target="_blank">Verify</a></li>
+        <li><strong>ScriptJedi42 — Programming Mentor</strong><br/>
+          Credential ID: 2022-f45a8d0dc727 · 
+          <a href="https://cert.programmingmentor.com/2022-f45a8d0dc727.pdf" target="_blank">Verify</a></li>
+        <li><strong>HTML5 / CSS3 / JavaScript Fundamentals — SoftServe</strong><br/>
+          Credential ID: Series EM № 7175/2021 · 
+          <a href="https://drive.google.com/file/d/1JYeBYlNIYwhFQmC2PWL1YruIErF5atJ8/view" target="_blank">Verify</a></li>
+        <li><strong>CompTIA Security+</strong> — <em>in progress</em></li>
+      </ul>
+    </section>
 
-      <section id="education">
-        <h2>Education</h2>
-        <h3>M.A. — Information &amp; Communications Systems Security</h3>
-        <p class="muted">National Mining University, Dnipro, Ukraine</p>
+    <!-- Languages -->
+    <section class="block">
+      <h2>Languages</h2>
+      <ul>
+        <li>English — Professional</li>
+        <li>Ukrainian — Native</li>
+        <li>Russian — Fluent</li>
+      </ul>
+    </section>
 
-        <h3>M.A. — Public Management &amp; Administration</h3>
-        <p class="muted">National Mining University, Dnipro, Ukraine</p>
-      </section>
-
-      <section id="certifications">
-        <h2>Certifications</h2>
-        <ul>
-          <li><strong>Cybersecurity Fundamentals — SoftServe Academy</strong> (2025) · ID: QI № 25764/2025 · <a href="https://career.softserveinc.com/certification/verification" target="_blank" rel="noopener">Verify</a></li>
-          <li><strong>Foundations of Cybersecurity — Google (Coursera)</strong> · <a href="http://coursera.org/account/accomplishments/certificate/7LXMAYXXMZAG" target="_blank" rel="noopener">Verify</a></li>
-          <li><strong>Play It Safe: Manage Security Risks — Google (Coursera)</strong> · <a href="https://www.coursera.org/account/accomplishments/certificate/BQ5ML7U3MLQS" target="_blank" rel="noopener">Verify</a></li>
-          <li><strong>Advanced Project Management — York University (Canada)</strong> · <a href="https://drive.google.com/file/d/1n4grZ_zyLu0xc0dGiHq4vItCHeDgSYFl/view" target="_blank" rel="noopener">Verify</a></li>
-          <li><strong>HTML5/CSS3/JavaScript Fundamentals</strong> · <a href="https://drive.google.com/file/d/1m3b_aQgFaSNDML89CJBhAy1myyWRmTRJ/view" target="_blank" rel="noopener">Verify</a></li>
-          <li><strong>Supply Chain Fundamentals</strong> · <a href="https://cert.programmingmentor.com/2022-f45a8d0dc727.pdf" target="_blank" rel="noopener">Verify</a></li>
-          <li><strong>CompTIA Security+</strong> — <span class="muted">in progress</span></li>
-          <li><strong>Additional Credential</strong> · <a href="https://drive.google.com/file/d/1JYeBYlNIYwhFQmC2PWL1YruIErF5atJ8/view" target="_blank" rel="noopener">Verify</a></li>
-          <li><strong>Additional Credential</strong> · <a href="https://drive.google.com/file/d/1q54lHNA0IsfZfPOshJe9bDQN1vdsvh_e/view?usp=sharing" target="_blank" rel="noopener">Verify</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Languages</h2>
-        <p class="chips">
-          <span class="chip">English — Professional</span>
-          <span class="chip">Ukrainian — Native</span>
-          <span class="chip">Russian — Fluent</span>
-        </p>
-      </section>
-    </main>
-
-    <hr/>
-    <footer class="muted">
+    <footer>
       Updated: September 8, 2025 — © Oleksandr Sheniak
     </footer>
   </div>
