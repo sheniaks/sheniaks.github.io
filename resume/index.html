@@ -2,204 +2,183 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Oleksandr Sheniak — Resume</title>
   <meta name="description" content="Resume of Oleksandr Sheniak — cybersecurity & IT professional." />
-  <link rel="canonical" href="https://sheniaks.com/resume" />
-  <!-- Point this to your real global stylesheet(s) -->
+  <link rel="canonical" href="https://www.sheniaks.com/resume/" />
+
+  <!-- Global site styles (adjust path if needed) -->
   <link rel="stylesheet" href="/assets/css/main.css" />
 
+  <!-- Site-wide favicon (DEF CON icon per your request) -->
+  <link rel="icon" type="image/png" href="https://media.defcon.org/DEF%20CON%20Logo/defcon-black.png" />
+
+  <!-- Minimal helpers only (inherits your site’s typography/colors) -->
   <style>
-    /* Minimal layout only — inherits your theme */
-    .resume { max-width: 980px; margin: 0 auto; padding: clamp(12px,3vw,24px); }
-    .resume-header { display: grid; gap: 16px; align-items: start; }
-    .resume-header .meta { display: flex; flex-wrap: wrap; gap: .5rem .75rem; }
-    .resume-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: .5rem; }
-    .resume-grid { display: grid; gap: 1rem; }
-    .resume-section { padding: 1rem; border-radius: .5rem; }
-    .resume-list { margin: 0; padding-left: 1.1rem; }
-    .chips { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .chip { padding: .3rem .6rem; border-radius: 999px; border: 1px solid currentColor; opacity: .85; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 1.25rem 1rem; }
+    .nav { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
     .muted { opacity: .75; }
-    .small { font-size: .9em; }
-    .grid-2 { display: grid; gap: .75rem; }
-    .item { padding: .75rem; border-radius: .5rem; }
-    @media (min-width: 860px){
-      .resume-header { grid-template-columns: 2fr 1.2fr; }
-      .resume-grid { grid-template-columns: 1.4fr .9fr; }
-      .grid-2 { grid-template-columns: 1fr 1fr; }
-    }
+    .chips { display:flex; flex-wrap:wrap; gap:.5rem }
+    .chip { padding:.25rem .6rem; border:1px solid currentColor; border-radius:999px; opacity:.85 }
     @media print {
-      .resume { max-width: none; padding: 0; }
-      .resume-actions { display: none !important; }
+      .nav, .print-btn { display: none !important; }
       a[href]:after { content: " (" attr(href) ")"; font-size: .85em; }
-      .resume-section, .item { break-inside: avoid; page-break-inside: avoid; }
-      body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Oleksandr Sheniak",
-    "url": "https://sheniaks.com",
-    "jobTitle": "Cybersecurity & IT Professional",
-    "sameAs": ["https://ca.linkedin.com/in/sheniaks"],
-    "email": "mailto:sheniaks@gmail.com",
-    "telephone": "+16472424221",
-    "address": {"@type":"PostalAddress","addressLocality":"Winnipeg","addressRegion":"MB","addressCountry":"Canada"},
-    "knowsAbout": ["Cybersecurity","Cloud Security","DevSecOps","Virtualization","Risk Management","Front-end Development"]
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Oleksandr Sheniak",
+    "url":"https://www.sheniaks.com",
+    "jobTitle":"Cybersecurity & IT Professional",
+    "sameAs":["https://ca.linkedin.com/in/sheniaks"],
+    "email":"mailto:sheniaks@gmail.com",
+    "telephone":"+16472424221",
+    "address":{"@type":"PostalAddress","addressLocality":"Winnipeg","addressRegion":"MB","addressCountry":"Canada"}
   }
   </script>
 </head>
 <body>
-  <main class="resume" id="resume">
-    <header class="resume-header">
-      <section>
-        <h1>Oleksandr Sheniak</h1>
-        <p class="h5">Cybersecurity &amp; IT Professional · Cloud Security · Virtualization · Secure Development</p>
-        <p class="meta">
-          <span>Winnipeg, MB, Canada</span>
-          <a href="mailto:sheniaks@gmail.com" rel="nofollow">sheniaks@gmail.com</a>
-          <a href="tel:+16472424221" rel="nofollow">+1&nbsp;(647)&nbsp;242-4221</a>
-          <a href="https://ca.linkedin.com/in/sheniaks" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://sheniaks.com" target="_blank" rel="noopener">Website</a>
-        </p>
-        <div class="resume-actions">
-          <button type="button" onclick="window.print()">Print / Save PDF</button>
-          <a href="#certifications">Verify Certificates</a>
-        </div>
-      </section>
+  <div class="wrap">
 
-      <section class="resume-section">
-        <h2>Summary</h2>
-        <p>Cybersecurity and IT professional with dual Master’s degrees in <strong>Information &amp; Communications Systems Security</strong> and <strong>Public Management</strong>. Skilled in <strong>risk management</strong>, <strong>cloud platforms</strong>, <strong>virtualization</strong>, and <strong>secure development practices</strong>. Entrepreneurial leader with experience operating an e-commerce and cloud services company, plus roles in software development, IT operations, and production support. Advancing toward <strong>CompTIA Security+</strong> with a growing portfolio in <strong>cloud security</strong> and <strong>DevSecOps</strong>.</p>
-      </section>
+    <!-- Simple top nav to mirror the home page -->
+    <nav class="nav">
+      <a href="/">About</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact">Contact</a>
+      <strong>Resume</strong>
+      <a href="https://www.linkedin.com/in/sheniaks" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+
+    <!-- Header -->
+    <header class="topbar">
+      <div>
+        <h1>Oleksandr Sheniak</h1>
+        <p>Cybersecurity &amp; IT Professional · Cloud Security · Virtualization · Secure Development</p>
+        <p class="muted">
+          Winnipeg, MB, Canada · <a href="mailto:sheniaks@gmail.com">sheniaks@gmail.com</a> ·
+          <a href="tel:+16472424221">+1 (647) 242-4221</a>
+        </p>
+      </div>
+      <div>
+        <button class="print-btn" type="button" onclick="window.print()">Print / Save PDF</button><br/>
+        <a class="muted" href="#certifications">Verify Certificates</a>
+      </div>
     </header>
 
-    <div class="resume-grid">
-      <section class="resume-section">
-        <h2>Experience</h2>
+    <hr/>
 
-        <article class="item">
-          <header>
-            <h3>Production Team Member — New Flyer</h3>
-            <p class="muted">2024–2025 · Winnipeg, Canada</p>
-          </header>
-          <ul class="resume-list">
-            <li>Supported manufacturing with <strong>quality inspection</strong>, troubleshooting, and safety compliance.</li>
-            <li>Applied blueprint reading and problem-solving in a high-precision environment.</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <header>
-            <h3>CEO / Owner — TopWot Online Store</h3>
-            <p class="muted">2014–2022 · Ukraine</p>
-          </header>
-          <ul class="resume-list">
-            <li>Founded and scaled an e-commerce platform for <strong>digital goods</strong> and <strong>cloud services</strong>.</li>
-            <li>Managed up to <strong>120 VMware-based virtual machines</strong> across NA, EU, and CIS.</li>
-            <li>Implemented <strong>fraud prevention</strong> and customer trust measures for online transactions.</li>
-            <li>Coordinated global freelancers via Slack for development, design, and marketing.</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <header>
-            <h3>Front-End Developer — SoftServe</h3>
-            <p class="muted">2021–2022 · Ukraine</p>
-          </header>
-          <ul class="resume-list">
-            <li>Built responsive apps using <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>.</li>
-            <li>Delivered features in cross-functional Agile teams.</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <header>
-            <h3>Junior Android Developer — SmartIT-Ukraine</h3>
-            <p class="muted">2017 · Ukraine</p>
-          </header>
-          <ul class="resume-list">
-            <li>Developed and tested Android applications; gained foundation in mobile security.</li>
-          </ul>
-        </article>
-
-        <article class="item">
-          <header>
-            <h3>Additional Roles</h3>
-            <p class="muted">Let’s Do Moving — Crew Manager (2022–2023); Uber — Driver (2023–Present)</p>
-          </header>
-        </article>
+    <main>
+      <section>
+        <h2>Summary</h2>
+        <p>
+          Cybersecurity and IT professional with dual Master’s degrees in <strong>Information &amp; Communications Systems Security</strong>
+          and <strong>Public Management</strong>. Skilled in <strong>risk management</strong>, <strong>cloud platforms</strong>,
+          <strong>virtualization</strong>, and <strong>secure development practices</strong>. Entrepreneurial leader with experience
+          operating an e-commerce and cloud services company, plus roles in software development, IT operations, and production support.
+          Advancing toward <strong>CompTIA Security+</strong> with a growing portfolio in <strong>cloud security</strong> and
+          <strong>DevSecOps</strong>.
+        </p>
       </section>
 
-      <aside>
-        <section class="resume-section">
-          <h2>Key Skills</h2>
-          <div class="chips" role="list">
-            <span class="chip">NIST CSF 2.0</span>
-            <span class="chip">Threat &amp; Risk Analysis</span>
-            <span class="chip">Incident Response</span>
-            <span class="chip">AWS</span>
-            <span class="chip">Azure</span>
-            <span class="chip">Google Cloud</span>
-            <span class="chip">Oracle Cloud</span>
-            <span class="chip">VMware IaaS</span>
-            <span class="chip">Wireshark</span>
-            <span class="chip">Suricata</span>
-            <span class="chip">MITRE ATT&amp;CK / ATLAS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">HTML5/CSS3</span>
-            <span class="chip">Android</span>
-            <span class="chip">Python (basics)</span>
-            <span class="chip">Agile / PM</span>
-          </div>
-        </section>
+      <section>
+        <h2>Experience</h2>
 
-        <section id="education" class="resume-section">
-          <h2>Education</h2>
-          <div class="grid-2">
-            <div class="item">
-              <h3>M.A. — Information &amp; Communications Systems Security</h3>
-              <p class="muted">National Mining University, Dnipro, Ukraine</p>
-            </div>
-            <div class="item">
-              <h3>M.A. — Public Management &amp; Administration</h3>
-              <p class="muted">National Mining University, Dnipro, Ukraine</p>
-            </div>
-          </div>
-        </section>
+        <h3>Production Team Member — New Flyer</h3>
+        <p class="muted">2024–2025 · Winnipeg, Canada</p>
+        <ul>
+          <li>Supported manufacturing with <strong>quality inspection</strong>, troubleshooting, and safety compliance.</li>
+          <li>Applied blueprint reading and problem-solving in a high-precision environment.</li>
+        </ul>
 
-        <section id="certifications" class="resume-section">
-          <h2>Certifications</h2>
-          <ul class="resume-list">
-            <li><strong>Cybersecurity Fundamentals — SoftServe Academy</strong> <span class="small">(2025)</span> — <a href="https://career.softserveinc.com/certification/verification" target="_blank" rel="noopener">Verify</a></li>
-            <li>Foundations of Cybersecurity — Google (Coursera)</li>
-            <li>Play It Safe: Manage Security Risks — Google (Coursera)</li>
-            <li>Advanced Project Management — York University (Canada)</li>
-            <li>HTML5/CSS3/JavaScript Fundamentals</li>
-            <li>Supply Chain Fundamentals</li>
-            <li>CompTIA Security+ — <span class="muted">in progress</span></li>
-          </ul>
-        </section>
+        <h3>CEO / Owner — TopWot Online Store</h3>
+        <p class="muted">2014–2022 · Ukraine</p>
+        <ul>
+          <li>Founded and scaled an e-commerce platform for <strong>digital goods</strong> and <strong>cloud services</strong>.</li>
+          <li>Managed up to <strong>120 VMware-based virtual machines</strong> across NA, EU, and CIS.</li>
+          <li>Implemented <strong>fraud prevention</strong> and customer trust measures for online transactions.</li>
+          <li>Coordinated global freelancers via Slack for development, design, and marketing.</li>
+        </ul>
 
-        <section class="resume-section">
-          <h2>Languages</h2>
-          <div class="chips">
-            <span class="chip">English — Professional</span>
-            <span class="chip">Ukrainian — Native</span>
-            <span class="chip">Russian — Fluent</span>
-          </div>
-        </section>
-      </aside>
-    </div>
+        <h3>Front-End Developer — SoftServe</h3>
+        <p class="muted">2021–2022 · Ukraine</p>
+        <ul>
+          <li>Built responsive apps using <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>.</li>
+          <li>Delivered features in cross-functional Agile teams.</li>
+        </ul>
 
-    <footer class="small muted" style="margin-top: 1rem;">
+        <h3>Junior Android Developer — SmartIT-Ukraine</h3>
+        <p class="muted">2017 · Ukraine</p>
+        <ul>
+          <li>Developed and tested Android applications; gained foundation in mobile security.</li>
+        </ul>
+
+        <h3>Additional Roles</h3>
+        <p class="muted">Let’s Do Moving — Crew Manager (2022–2023); Uber — Driver (2023–Present)</p>
+      </section>
+
+      <section>
+        <h2>Key Skills</h2>
+        <p class="chips" role="list">
+          <span class="chip">NIST CSF 2.0</span>
+          <span class="chip">Threat &amp; Risk Analysis</span>
+          <span class="chip">Incident Response</span>
+          <span class="chip">AWS</span>
+          <span class="chip">Azure</span>
+          <span class="chip">Google Cloud</span>
+          <span class="chip">Oracle Cloud</span>
+          <span class="chip">VMware IaaS</span>
+          <span class="chip">Wireshark</span>
+          <span class="chip">Suricata</span>
+          <span class="chip">MITRE ATT&amp;CK / ATLAS</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">HTML5/CSS3</span>
+          <span class="chip">Android</span>
+          <span class="chip">Python (basics)</span>
+          <span class="chip">Agile / PM</span>
+        </p>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <h3>M.A. — Information &amp; Communications Systems Security</h3>
+        <p class="muted">National Mining University, Dnipro, Ukraine</p>
+
+        <h3>M.A. — Public Management &amp; Administration</h3>
+        <p class="muted">National Mining University, Dnipro, Ukraine</p>
+      </section>
+
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <ul>
+          <li><strong>Cybersecurity Fundamentals — SoftServe Academy</strong> (2025) — <a href="https://career.softserveinc.com/certification/verification" target="_blank" rel="noopener">Verify</a></li>
+          <li>Foundations of Cybersecurity — Google (Coursera)</li>
+          <li>Play It Safe: Manage Security Risks — Google (Coursera)</li>
+          <li>Advanced Project Management — York University (Canada)</li>
+          <li>HTML5/CSS3/JavaScript Fundamentals</li>
+          <li>Supply Chain Fundamentals</li>
+          <li>CompTIA Security+ — <span class="muted">in progress</span></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Languages</h2>
+        <p class="chips">
+          <span class="chip">English — Professional</span>
+          <span class="chip">Ukrainian — Native</span>
+          <span class="chip">Russian — Fluent</span>
+        </p>
+      </section>
+    </main>
+
+    <hr/>
+    <footer class="muted">
       Updated: September 7, 2025 — © Oleksandr Sheniak
     </footer>
-  </main>
+  </div>
 </body>
 </html>
