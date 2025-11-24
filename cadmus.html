@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadmus – A Better Way to Reduce Risk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Cadmus helps organizations reduce risk and improve their bottom line with a practical, data-driven approach in five simple steps." />
+  <style>
+    :root {
+      --bg: #050814;
+      --bg-alt: #0c1020;
+      --bg-soft: #12182a;
+      --accent: #4ac4ff;
+      --accent-soft: rgba(74, 196, 255, 0.14);
+      --text: #f5f7ff;
+      --muted: #a4adc7;
+      --border: #1f2940;
+      --danger: #ff4d6a;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.45);
+      --shadow-sm: 0 10px 25px rgba(0, 0, 0, 0.35);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top left, #151c3a, #050814 42%, #020308);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(5, 8, 20, 0.95), rgba(5, 8, 20, 0.65));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 40%;
+      background: radial-gradient(circle at 30% 20%, #ffffff, #4ac4ff 35%, #0060ff 70%, #050814 100%);
+      position: relative;
+      box-shadow: 0 0 22px rgba(74, 196, 255, 0.9);
+    }
+
+    .logo-mark::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 40%;
+      border: 1px solid rgba(5, 8, 20, 0.9);
+      box-shadow: inset 0 0 10px rgba(3, 5, 15, 1);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-text span:first-child {
+      letter-spacing: 0.12em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      font-weight: 650;
+    }
+
+    .logo-text span:last-child {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      padding: 0.1rem 0;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.25rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), #8df2ff);
+      border-radius: 999px;
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), #7df2ff);
+      color: #020308;
+      border: none;
+      font-size: 0.87rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 1.4rem;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    section {
+      padding: 4rem 0 3.5rem;
+    }
+
+    section:nth-of-type(even) {
+      background: radial-gradient(circle at top right, #181f3c, #050814 54%);
+    }
+
+    h1, h2 {
+      letter-spacing: 0.03em;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* Hero */
+    .hero {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-lede {
+      font-size: 0.98rem;
+      max-width: 34rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 205, 255, 0.3);
+      background: radial-gradient(circle at top left, rgba(148, 205, 255, 0.18), rgba(4, 9, 30, 0.5));
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(74, 196, 255, 0.9);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.35rem;
+      padding: 0.8rem 1.15rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #81f5ff);
+      color: #020308;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+    }
+
+    .btn-ghost {
+      border-color: var(--border);
+      background: rgba(9, 15, 40, 0.9);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(74, 196, 255, 0.4);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-block {
+      min-width: 130px;
+    }
+
+    .hero-meta-block strong {
+      display: block;
+      font-size: 1.1rem;
+      color: #ffffff;
+    }
+
+    .hero-card {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, #1b2848, #050814);
+      padding: 1.5rem 1.4rem;
+      border: 1px solid rgba(112, 170, 255, 0.28);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -120px;
+      background: radial-gradient(circle at 0 0, rgba(129, 245, 255, 0.16), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-card h2 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-steps {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .step-chip {
+      border-radius: 999px;
+      border: 1px solid rgba(190, 205, 255, 0.35);
+      background: rgba(6, 12, 36, 0.85);
+      padding: 0.45rem 0.7rem;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--muted);
+    }
+
+    .step-number {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(74, 196, 255, 0.7);
+    }
+
+    .badge-top-right {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.1rem;
+      font-size: 0.7rem;
+      color: var(--accent);
+      background: rgba(3, 10, 40, 0.8);
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(74, 196, 255, 0.6);
+    }
+
+    /* Section headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.6rem;
+    }
+
+    .section-header p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    /* Services */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(21, 28, 64, 0.9);
+      border: 1px solid rgba(110, 146, 227, 0.45);
+      color: var(--muted);
+    }
+
+    /* Approach */
+    .approach-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .timeline {
+      border-left: 1px dashed rgba(82, 130, 220, 0.7);
+      padding-left: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.35rem;
+    }
+
+    .step {
+      position: relative;
+    }
+
+    .step-dot {
+      position: absolute;
+      left: -1.6rem;
+      top: 0.2rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(74, 196, 255, 0.9);
+      box-shadow: 0 0 12px rgba(74, 196, 255, 0.7);
+    }
+
+    .step-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .step-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .metrics-card {
+      margin-top: 0.5rem;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+      margin-top: 0.8rem;
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .metric-value {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .metric-value span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-left: 0.15rem;
+    }
+
+    /* Industries */
+    .chip-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(118, 164, 238, 0.5);
+      background: rgba(12, 18, 44, 0.9);
+      color: var(--muted);
+    }
+
+    /* Insights */
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .insight-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-title {
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .list-check {
+      list-style: none;
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    .list-check li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+    }
+
+    .check-icon {
+      margin-top: 0.15rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      border: 1px solid rgba(129, 245, 255, 0.75);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: var(--accent);
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 1.75rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.15rem;
+      display: inline-block;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.6rem 0.7rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(4, 8, 26, 0.9);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(74, 196, 255, 0.4);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .help-text {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
+    .alert-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-radius: 10px;
+      border: 1px dashed rgba(125, 177, 255, 0.6);
+      padding: 0.5rem 0.7rem;
+      background: rgba(8, 14, 38, 0.95);
+      margin-bottom: 0.6rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 1.4rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid,
+      .approach-grid,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .grid-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .insights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.is-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 1.5rem;
+        top: 3.1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 12px;
+        background: rgba(6, 10, 32, 0.98);
+        border: 1px solid rgba(41, 67, 135, 0.9);
+        box-shadow: var(--shadow-soft);
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      section {
+        padding: 3.25rem 0 3rem;
+      }
+
+      .grid-3,
+      .insights-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-meta {
+        gap: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page" id="top">
+  <header>
+    <div class="shell">
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav-left">
+          <div class="logo-mark" aria-hidden="true"></div>
+          <a href="#top" class="logo-text" aria-label="Cadmus home">
+            <span>CADMUS</span>
+            <span>Risk • Resilience • Results</span>
+          </a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation" onclick="toggleNav()">☰</button>
+        <div class="nav-links" id="navLinks">
+          <a href="#services">Services</a>
+          <a href="#approach">Approach</a>
+          <a href="#industries">Industries</a>
+          <a href="#about">About</a>
+          <a href="#insights">Insights</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="nav-cta">Book a consultation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              A better way to reduce risk and improve your bottom line
+            </div>
+            <h1>Turn uncertainty into a measurable competitive advantage.</h1>
+            <p class="hero-lede">
+              Cadmus helps you identify, quantify, and reduce risk in five practical steps —
+              so you can protect what matters, unlock growth, and prove the impact in dollars,
+              not buzzwords.
+            </p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary">
+                Book a 30-minute discovery call →
+              </a>
+              <a href="#approach" class="btn btn-ghost">
+                See our 5-step method
+              </a>
+            </div>
+            <div class="hero-meta">
+              <div class="hero-meta-block">
+                <strong>10+ years</strong>
+                Complex risk & security projects delivered.
+              </div>
+              <div class="hero-meta-block">
+                <strong>20–40%</strong>
+                Typical reduction in critical risk exposure.
+              </div>
+              <div class="hero-meta-block">
+                <strong>4–6 weeks</strong>
+                From first workshop to action plan.
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-card" aria-label="Cadmus 5-step risk method">
+            <span class="badge-top-right">The Cadmus Method</span>
+            <h2>Five simple steps. One clear roadmap.</h2>
+            <p>
+              We replace vague reports with a concrete sequence of decisions:
+              where you stand, what to fix first, and how it moves the needle.
+            </p>
+            <div class="hero-steps">
+              <div class="step-chip">
+                <span class="step-number">1</span>
+                Map critical assets & threats
+              </div>
+              <div class="step-chip">
+                <span class="step-number">2</span>
+                Quantify business impact
+              </div>
+              <div class="step-chip">
+                <span class="step-number">3</span>
+                Prioritize high-leverage fixes
+              </div>
+              <div class="step-chip">
+                <span class="step-number">4</span>
+                Implement & coach teams
+              </div>
+              <div class="step-chip">
+                <span class="step-number">5</span>
+                Track results & iterate
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="eyebrow">Services</div>
+            <h2>What Cadmus helps you solve.</h2>
+          </div>
+          <p>
+            Whether you’re tightening controls, preparing for due diligence, or
+            scaling into new markets, Cadmus builds a risk strategy that fits
+            your reality — not a generic checklist.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Risk & Resilience Strategy</h3>
+            <p>
+              Holistic view of operational, financial, and technology risks with a
+              realistic roadmap your team can actually execute.
+            </p>
+            <div class="pill-list">
+              <span class="pill">Enterprise risk assessment</span>
+              <span class="pill">Risk appetite & KPIs</span>
+              <span class="pill">Board-ready reporting</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Cybersecurity & Privacy</h3>
+            <p>
+              Align security with your business model — from foundational controls
+              to stakeholder trust and regulatory requirements.
+            </p>
+            <div class="pill-list">
+              <span class="pill">Security posture review</span>
+              <span class="pill">Incident readiness</span>
+              <span class="pill">Privacy by design</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Operational Excellence</h3>
+            <p>
+              Streamline critical processes, reduce failure points, and embed a
+              culture of continuous improvement across teams.
+            </p>
+            <div class="pill-list">
+              <span class="pill">Process mapping</span>
+              <span class="pill">Controls design</span>
+              <span class="pill">Change management</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="eyebrow">Approach</div>
+            <h2>The Cadmus method in five practical steps.</h2>
+          </div>
+          <p>
+            No 200-page PDFs. No buzzword bingo. Just a structured method that shows
+            you where you stand today, what to prioritize, and how it pays off.
+          </p>
+        </div>
+
+        <div class="approach-grid">
+          <div>
+            <div class="timeline" aria-label="Five step process">
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-tag">Step 1</div>
+                <div class="step-title">Discover — map your risk landscape</div>
+                <div class="step-desc">
+                  We run focused interviews and workshops to map critical assets,
+                  key processes, and threat scenarios. The goal: a shared picture
+                  of reality, not a theoretical model.
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-tag">Step 2</div>
+                <div class="step-title">Quantify — put numbers behind impact</div>
+                <div class="step-desc">
+                  Using data you already have (and a few targeted assumptions),
+                  we translate risk into measurable financial and operational impact.
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-tag">Step 3</div>
+                <div class="step-title">Prioritize — focus on high-leverage moves</div>
+                <div class="step-desc">
+                  Together we build a ranked list of initiatives by risk reduction
+                  vs. effort, so your team knows exactly what to do first.
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-tag">Step 4</div>
+                <div class="step-title">Execute — support your teams in delivery</div>
+                <div class="step-desc">
+                  Cadmus can coach, co-deliver, or simply equip your internal teams
+                  with clear playbooks, controls, and metrics.
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-dot"></div>
+                <div class="step-tag">Step 5</div>
+                <div class="step-title">Evolve — measure, learn, and iterate</div>
+                <div class="step-desc">
+                  We build feedback loops and dashboards so risk becomes an ongoing,
+                  measurable discipline — not a one-off project.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="card metrics-card">
+            <h3>What clients typically see.</h3>
+            <p class="muted">
+              Every organization is different, but these are the kinds of outcomes
+              we design for.
+            </p>
+
+            <div class="metrics">
+              <div>
+                <div class="metric-label">Critical risk exposure</div>
+                <div class="metric-value">
+                  ↓ 25–40% <span>within 12–18 months</span>
+                </div>
+              </div>
+              <div>
+                <div class="metric-label">Process failure incidents</div>
+                <div class="metric-value">
+                  ↓ 30% <span>on average</span>
+                </div>
+              </div>
+              <div>
+                <div class="metric-label">Board & executive clarity</div>
+                <div class="metric-value">
+                  ↑ 2× <span>vs. previous reporting</span>
+                </div>
+              </div>
+              <div>
+                <div class="metric-label">Time to first wins</div>
+                <div class="metric-value">
+                  4–6 weeks <span>from kickoff</span>
+                </div>
+              </div>
+            </div>
+
+            <p class="help-text">
+              Want to see what this would look like for your organization?
+              <br />
+              Share a bit about your current situation and we’ll build a tailored
+              view in our first call.
+            </p>
+            <a href="#contact" class="btn btn-primary" style="margin-top:0.5rem;">
+              Talk to Cadmus about your risk roadmap →
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section id="industries">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="eyebrow">Industries</div>
+            <h2>Built for real-world complexity.</h2>
+          </div>
+          <p>
+            Cadmus works best where risk, regulation, and growth intersect — helping
+            leadership teams make confident, informed decisions under pressure.
+          </p>
+        </div>
+
+        <div class="chip-cloud">
+          <span class="chip">Financial & professional services</span>
+          <span class="chip">Technology & SaaS</span>
+          <span class="chip">Energy & critical infrastructure</span>
+          <span class="chip">Manufacturing & supply chain</span>
+          <span class="chip">Public sector & education</span>
+          <span class="chip">Healthcare & life sciences</span>
+          <span class="chip">Real estate & construction</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <div class="shell">
+        <div class="about-grid">
+          <div>
+            <div class="eyebrow">About Cadmus</div>
+            <h2>Independent, pragmatic, and unapologetically practical.</h2>
+            <p class="muted">
+              Cadmus was founded on a simple belief: risk work only matters if it
+              leads to better decisions. That means fewer buzzwords, more clarity,
+              and a relentless focus on what moves the needle.
+            </p>
+            <ul class="list-check">
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Deep technical and business experience in complex, regulated environments.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Comfortable with both strategy and hands-on implementation support.</span>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <span>Clear communication for boards, executives, and front-line teams.</span>
+              </li>
+            </ul>
+          </div>
+          <aside class="card">
+            <h3>What it’s like to work with us.</h3>
+            <p class="muted">
+              Clients describe Cadmus as a partner who “asks the hard questions
+              without the theatrics” — combining analytical depth with a calm,
+              collaborative style.
+            </p>
+            <p class="muted">
+              We’re happy to work alongside your existing advisors, vendors, and
+              internal teams. The goal is not to replace what works, but to
+              connect the dots and amplify it.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights -->
+    <section id="insights">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="eyebrow">Insights</div>
+            <h2>Perspectives from the front lines of risk.</h2>
+          </div>
+          <p>
+            Turn lessons from real incidents, audits, and transformations into
+            practical moves you can apply in your own organization.
+          </p>
+        </div>
+
+        <div class="insights-grid">
+          <article class="card">
+            <div class="insight-meta">Playbook • 8 min read</div>
+            <h3 class="insight-title">From red flags to ROI: communicating risk to your CFO.</h3>
+            <p class="muted">
+              How to translate risk scenarios into financial language that drives
+              investment — not eye-rolls.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="insight-meta">Case note • 6 min read</div>
+            <h3 class="insight-title">What one near-miss taught a leadership team about resilience.</h3>
+            <p class="muted">
+              A real-world story of a critical incident, and the three decisions
+              that prevented a multi-week outage.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="insight-meta">Guide • 10 min read</div>
+            <h3 class="insight-title">Designing a risk dashboard your board actually uses.</h3>
+            <p class="muted">
+              Principles for building a one-page view of risk that informs
+              strategy instead of just ticking a box.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="shell">
+        <div class="section-header">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Ready to see what Cadmus could do for you?</h2>
+          </div>
+          <p>
+            Share a bit about your organization and current priorities. We’ll
+            respond with proposed next steps and, if it makes sense, a time
+            for a short discovery call.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <div class="alert-note">
+              Prefer email? Reach us directly at
+              <strong>hello@cadmus.ca</strong> (replace with your real address).
+            </div>
+
+            <form>
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Organization name" />
+              </div>
+              <div>
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" placeholder="you@company.com" required />
+              </div>
+              <div>
+                <label for="topic">What do you want to discuss?</label>
+                <select id="topic" name="topic">
+                  <option value="">Select a focus area</option>
+                  <option value="risk">Risk & resilience strategy</option>
+                  <option value="cyber">Cybersecurity & privacy</option>
+                  <option value="ops">Operational excellence</option>
+                  <option value="board">Board & executive reporting</option>
+                  <option value="other">Other / not sure yet</option>
+                </select>
+              </div>
+              <div>
+                <label for="message">Context (optional)</label>
+                <textarea id="message" name="message" placeholder="Where are you today, and what would ‘better’ look like?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send message
+              </button>
+              <p class="help-text">
+                By submitting this form you agree that Cadmus may contact you about
+                your inquiry. You can opt out at any time.
+              </p>
+            </form>
+          </div>
+
+          <aside class="card">
+            <h3>Where we work.</h3>
+            <p class="muted">
+              Cadmus works with clients across Canada and internationally. If
+              you’d like to meet in person, mention your location and we’ll
+              coordinate the best option.
+            </p>
+            <p class="muted" style="margin-top:0.4rem;">
+              <strong>Typical engagement:</strong> 8–16 weeks for an initial assessment
+              and roadmap, with the option to support implementation longer-term.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell">
+      <div class="footer-row">
+        <div>© <span id="year"></span> Cadmus. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#top">Back to top ↑</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function toggleNav() {
+    const links = document.getElementById("navLinks");
+    links.classList.toggle("is-open");
+  }
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
