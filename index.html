@@ -1,180 +1,1156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Oleksandr Sheniak | Cybersecurity Professional</title>
-  <meta name="description" content="Cybersecurity professional focused on cloud security, IAM, SIEM, vulnerability management, secure architecture, and GRC." />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oleksandr Sheniak — Cybersecurity & Technology Professional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    :root{
-      --font-sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-      --font-mono: ui-monospace,Menlo,Monaco,Consolas,"Courier New",monospace;
-      --ink: #000; --bg:#fff; --line:#000;
-      --fs-400: 1rem; --fs-500:1.25rem; --fs-900:3rem;
-      --lh-text:1.6; --lh-head:1.25;
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #1c2128;
+      --border: #30363d;
+      --accent: #58a6ff;
+      --accent2: #3fb950;
+      --accent3: #f0883e;
+      --text: #e6edf3;
+      --text2: #8b949e;
+      --text3: #c9d1d9;
+      --pill-bg: #1f2937;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
     }
 
-    body{ margin:0; font-family:var(--font-sans); font-size:var(--fs-400); line-height:var(--lh-text); color:var(--ink); background:var(--bg);}
-    #matrix{ position:fixed; inset:0; z-index:-1; background:#fff; }
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13,17,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    nav .logo {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.95rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.6rem;
+    }
+    nav a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--text); }
 
-    .wrap{ max-width:900px; margin:0 auto; padding:0 20px; }
-    .block{ background:#fff; padding:24px; margin:32px auto; border:1px solid var(--line); border-radius:4px; }
+    /* HERO */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 2rem 4rem;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(88,166,255,0.08);
+      border: 1px solid rgba(88,166,255,0.25);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    h1 span { color: var(--accent); }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text2);
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+    }
+    .hero-desc {
+      color: var(--text3);
+      font-size: 0.95rem;
+      max-width: 560px;
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0d1117;
+    }
+    .btn-primary:hover { background: #79b8ff; }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-links {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+    .hero-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.84rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: color 0.2s;
+    }
+    .hero-links a:hover { color: var(--accent); }
+    .hero-avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1c2128, #0d1117);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-avatar-inner {
+      font-size: 5rem;
+      line-height: 1;
+    }
+    .hero-avatar::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      z-index: -1;
+    }
 
-    h1,h2{ line-height:var(--lh-head); font-weight:700; margin:0 0 1rem; }
-    h1{ font-size:2.5rem; text-align:center; }
-    h2{ font-size:var(--fs-900); font-family:var(--font-mono); }
+    /* SECTION */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
+    }
+    .section-desc {
+      color: var(--text2);
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+    }
 
-    header{ text-align:center; }
-    nav{ margin-top:1rem; display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-    a{ color:var(--ink); text-decoration:underline; }
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      margin-bottom: 0;
+    }
+    .stat-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      text-align: center;
+    }
+    .stat-card .num {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .stat-card .label {
+      font-size: 0.8rem;
+      color: var(--text2);
+      margin-top: 0.2rem;
+    }
 
-    ul{ margin:0 0 1rem; padding-left:20px; }
-    li{ margin:.25rem 0; }
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-group {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+    }
+    .skill-group-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .skill-group-title .icon { font-size: 1rem; }
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+    .pill {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text3);
+      font-size: 0.77rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      transition: all 0.2s;
+    }
+    .pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .pill.active {
+      background: rgba(88,166,255,0.1);
+      border-color: rgba(88,166,255,0.4);
+      color: var(--accent);
+    }
 
-    form{ display:grid; gap:12px; }
-    label{ font-weight:600; }
-    input,textarea{ font:inherit; padding:.75rem; border:1px solid var(--line); background:#fff; color:var(--ink); border-radius:4px; }
-    textarea{ min-height:140px; resize:vertical; }
-    button{ font:inherit; padding:.75rem 1rem; border:1px solid var(--line); background:#000; color:#fff; border-radius:4px; cursor:pointer; }
-    button:hover{ opacity:.85; }
-    .status{ font-size:.9rem; margin-top:.5rem; }
+    /* EXPERIENCE */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0 2rem;
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 148px;
+      top: 10px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-item:last-child::before { display: none; }
+    .timeline-date {
+      text-align: right;
+      padding-top: 2px;
+      padding-right: 0;
+    }
+    .timeline-date .date-range {
+      font-size: 0.78rem;
+      color: var(--text2);
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.4;
+    }
+    .timeline-date .date-dur {
+      font-size: 0.72rem;
+      color: var(--text2);
+      opacity: 0.6;
+    }
+    .timeline-content {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.5rem;
+      position: relative;
+    }
+    .timeline-content::before {
+      content: '';
+      position: absolute;
+      left: -9px;
+      top: 12px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .job-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .job-company {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+    .job-location {
+      font-size: 0.78rem;
+      color: var(--text2);
+      margin-bottom: 0.8rem;
+    }
+    .job-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .job-bullets li {
+      font-size: 0.85rem;
+      color: var(--text3);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .job-bullets li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent2);
+      font-size: 0.75rem;
+    }
+    .job-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.8rem;
+    }
+    .job-tag {
+      font-size: 0.72rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+    }
 
-    footer{ border-top:1px solid var(--line); padding:20px; text-align:center; background:#fff; }
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.2rem;
+    }
+    .project-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      transition: border-color 0.2s;
+      text-decoration: none;
+    }
+    .project-card:hover { border-color: var(--accent); }
+    .project-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+    .project-icon { font-size: 1.4rem; }
+    .project-link-icon { color: var(--text2); font-size: 0.9rem; }
+    .project-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .project-desc {
+      font-size: 0.83rem;
+      color: var(--text2);
+      flex: 1;
+    }
 
-    /* Expandable project details */
-    details{ border:1px solid var(--line); border-radius:4px; padding:12px 16px; background:#fff; margin:.75rem 0; }
-    details summary{ cursor:pointer; font-weight:600; list-style:none; }
-    details summary::marker{ display:none; }
+    /* CERTIFICATIONS */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+    .cert-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.3rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.9rem;
+      transition: border-color 0.2s;
+    }
+    .cert-card:hover { border-color: var(--accent2); }
+    .cert-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .cert-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+    .cert-issuer {
+      font-size: 0.78rem;
+      color: var(--text2);
+    }
+    .cert-date {
+      font-size: 0.72rem;
+      color: var(--accent2);
+      font-family: 'JetBrains Mono', monospace;
+      margin-top: 0.15rem;
+    }
+    .cert-badge-inprogress {
+      display: inline-block;
+      background: rgba(240,136,62,0.1);
+      border: 1px solid rgba(240,136,62,0.3);
+      color: var(--accent3);
+      font-size: 0.65rem;
+      padding: 0.1rem 0.5rem;
+      border-radius: 10px;
+      margin-top: 0.25rem;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* EDUCATION */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+    .edu-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+    }
+    .edu-degree {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+    .edu-school {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+    .edu-years {
+      font-size: 0.78rem;
+      color: var(--text2);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 0.5rem;
+    }
+    .edu-detail {
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+    .contact-item {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); }
+    .contact-item-icon { font-size: 1.3rem; }
+    .contact-label {
+      font-size: 0.72rem;
+      color: var(--text2);
+      margin-bottom: 0.1rem;
+    }
+    .contact-value {
+      font-size: 0.85rem;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--text2);
+      font-size: 0.8rem;
+    }
+    footer span { color: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero { flex-direction: column-reverse; align-items: flex-start; padding-top: 3rem; }
+      .hero-avatar { width: 140px; height: 140px; align-self: center; }
+      h1 { font-size: 2rem; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-item::before { display: none; }
+      .timeline-date { text-align: left; padding-bottom: 0.4rem; }
+      .timeline-content::before { display: none; }
+      nav ul { gap: 1rem; }
+    }
   </style>
 </head>
 <body>
-  <canvas id="matrix" aria-hidden="true"></canvas>
 
-  <header class="wrap block">
-    <h1>Oleksandr Sheniak</h1>
-    <p class="lead">Cybersecurity Professional — Cloud Security · IAM · SIEM · Vulnerability Management · Secure Architecture · GRC</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-      <a href="/resume" target="_blank">Resume</a>
-      <a href="https://www.linkedin.com/in/sheniaks" target="_blank">LinkedIn</a>
-    </nav>
-  </header>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#hero">~/sheniaks</a>
+    <ul>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <main class="wrap">
-    <section id="about" class="block">
-      <h2>&lt;about_me&gt;</h2>
-      <p>I am <strong>Oleksandr Sheniak</strong>, a cybersecurity professional with expertise in cloud security, enterprise risk management, and security operations. My background combines a Master’s degree in Information and Communications Systems Security with a Master’s in Public Management and Administration, giving me both the technical foundation and the strategic perspective to align security with business priorities.</p>
-      <p>I bring experience across technology, business leadership, and project management, having led teams, managed IT-driven operations, and delivered solutions in fast-paced environments. This blend of skills allows me to approach cybersecurity not only as a technical discipline but also as a business enabler.</p>
-      <ul>
-        <li>Cloud Security &amp; Identity Access Management (IAM)</li>
-        <li>Threat Detection, SIEM, and Incident Response</li>
-        <li>Vulnerability Management &amp; Risk Assessment</li>
-        <li>Secure System &amp; Network Architecture</li>
-        <li>Governance, Risk, and Compliance (GRC)</li>
-      </ul>
-      <p>I am actively building advanced expertise through <strong>CompTIA Security+</strong> certification, cloud security labs, and applied projects that demonstrate real-world security solutions.</p>
-      <p>With a strong foundation and a clear focus on enterprise security, my career goal is to contribute to global leaders in technology — such as AWS, Microsoft, Google, or Oracle — helping organizations build resilient, secure, and scalable infrastructures.</p>
-    </section>
+<!-- HERO -->
+<div class="hero" id="hero">
+  <div class="hero-text">
+    <div class="hero-badge">
+      <span class="dot"></span>
+      Open to opportunities in Canada &amp; USA
+    </div>
+    <h1>Oleksandr <span>Sheniak</span></h1>
+    <p class="hero-sub">Cybersecurity Professional · Project Manager · Full-Stack Background</p>
+    <p class="hero-desc">
+      Results-driven technology professional with 10+ years across cybersecurity, IT infrastructure,
+      project management, and software development. Transitioning into cloud security and SOC roles —
+      building hands-on skills through SoftServe's mentored training program and continuous self-study in threat detection, cloud security, and secure infrastructure.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="mailto:sheniaks@gmail.com">Get in Touch</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/sheniaks" target="_blank">LinkedIn</a>
+    </div>
+    <div class="hero-links">
+      <a href="mailto:sheniaks@gmail.com">✉ sheniaks@gmail.com</a>
+      <a href="#">📍 Winnipeg, MB, Canada</a>
+      <a href="tel:+16472424221">📞 +1 (647) 242-4221</a>
+    </div>
+  </div>
+  <div class="hero-avatar">
+    <div class="hero-avatar-inner">🛡️</div>
+  </div>
+</div>
 
-    <section id="projects" class="block">
-      <h2>&lt;projects&gt;</h2>
-      <p>Hands-on projects that showcase my applied cybersecurity skills. Click to expand each:</p>
+<!-- STATS -->
+<section id="stats" style="padding-top:0; border-top: none;">
+  <div class="stats">
+    <div class="stat-card">
+      <div class="num">10+</div>
+      <div class="label">Years in Tech & Management</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">20K+</div>
+      <div class="label">Orders Delivered (TopWot)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">120+</div>
+      <div class="label">VMs Managed (VMware IaaS)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">700+</div>
+      <div class="label">Contracts Managed</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">2×</div>
+      <div class="label">Master's Degrees</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">9+</div>
+      <div class="label">Certifications Earned</div>
+    </div>
+  </div>
+</section>
 
-      <details>
-        <summary>Security+ SY0-701 Lab & Study System</summary>
-        <p>Built a structured study plan for CompTIA Security+ (SY0-701), including domain-by-domain objectives, lab simulations, and hands-on exercises using Wireshark, Snort/Suricata, and SIEM platforms. Documented findings in GitHub repositories to demonstrate applied knowledge of CIA triad, Zero Trust, and incident response workflows.</p>
-      </details>
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">// skills</div>
+  <h2>Technical &amp; Professional Skills</h2>
+  <p class="section-desc">A broad foundation across cybersecurity, infrastructure, development, and business operations.</p>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="icon">🔐</span> Cybersecurity</div>
+      <div class="pills">
+        <span class="pill active">Wireshark</span>
+        <span class="pill active">tcpdump</span>
+        <span class="pill active">Kali Linux</span>
+        <span class="pill active">Nmap</span>
+        <span class="pill active">Nessus</span>
+        <span class="pill active">Metasploit</span>
+        <span class="pill active">Burp Suite</span>
+        <span class="pill active">Security Onion</span>
+        <span class="pill active">SIEM</span>
+        <span class="pill active">Zero Trust</span>
+        <span class="pill active">IAM</span>
+        <span class="pill active">NIST / ISO</span>
+        <span class="pill active">GRC Fundamentals</span>
+        <span class="pill active">Vulnerability Scanning</span>
+        <span class="pill active">Incident Response</span>
+        <span class="pill active">OWASP</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="icon">💻</span> Development</div>
+      <div class="pills">
+        <span class="pill">JavaScript</span>
+        <span class="pill">TypeScript</span>
+        <span class="pill">Vue.js / VueX</span>
+        <span class="pill">HTML5</span>
+        <span class="pill">CSS3 / Flex / Grid</span>
+        <span class="pill">SQL</span>
+        <span class="pill">Bash</span>
+        <span class="pill">WordPress</span>
+        <span class="pill">Git / GitHub</span>
+        <span class="pill">REST APIs</span>
+        <span class="pill">Android (Java)</span>
+        <span class="pill">NPM / Bootstrap</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="icon">🖥️</span> Infrastructure</div>
+      <div class="pills">
+        <span class="pill">VMware IaaS</span>
+        <span class="pill">Linux (Ubuntu/Kali)</span>
+        <span class="pill">Windows Server</span>
+        <span class="pill">Oracle DB</span>
+        <span class="pill">AWS CLI (intro)</span>
+        <span class="pill">SSL/TLS</span>
+        <span class="pill">2FA / Auth</span>
+        <span class="pill">Network Monitoring</span>
+        <span class="pill">CI/CD Pipelines</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="icon">📋</span> Project Management</div>
+      <div class="pills">
+        <span class="pill">Agile / Scrum</span>
+        <span class="pill">Jira</span>
+        <span class="pill">Confluence</span>
+        <span class="pill">Trello</span>
+        <span class="pill">Asana</span>
+        <span class="pill">Notion</span>
+        <span class="pill">Risk Management</span>
+        <span class="pill">Stakeholder Reporting</span>
+        <span class="pill">Sprint Planning</span>
+        <span class="pill">Budget Management</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="icon">🛠️</span> Tools &amp; Platforms</div>
+      <div class="pills">
+        <span class="pill">MS Office 365</span>
+        <span class="pill">Google Workspace</span>
+        <span class="pill">Slack</span>
+        <span class="pill">Zoom</span>
+        <span class="pill">Obsidian</span>
+        <span class="pill">ERP Systems</span>
+        <span class="pill">CRM Tools</span>
+        <span class="pill">Andon / Oracle DB</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span class="icon">🌐</span> Languages</div>
+      <div class="pills">
+        <span class="pill active">English — Advanced</span>
+        <span class="pill active">Ukrainian — Fluent</span>
+        <span class="pill active">Russian — Native</span>
+      </div>
+      <div style="margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid var(--border);">
+        <div class="skill-group-title" style="margin-bottom: 0.6rem;"><span class="icon">🚗</span> Other</div>
+        <div class="pills">
+          <span class="pill">Driver's License 5F</span>
+          <span class="pill">Personal Vehicle</span>
+          <span class="pill">Work Auth — All Provinces</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <details>
-        <summary>Threat Intelligence Briefings</summary>
-        <p>Produced concise intelligence reports on major cyber incidents (e.g., SolarWinds, WormGPT, AI-driven attacks), mapping them to MITRE ATT&CK tactics and techniques. Focused on adversary motivations, attack surfaces, and enterprise-level mitigations.</p>
-      </details>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">// experience</div>
+  <h2>Work Experience</h2>
+  <p class="section-desc">10+ years across cybersecurity training, manufacturing, logistics, e-commerce, and software development.</p>
+  <div class="timeline">
 
-      <details>
-        <summary>SOC Analyst & Incident Response Labs</summary>
-        <p>Completed hands-on simulations with TryHackMe and custom labs, analyzing logs, triaging incidents, investigating phishing attempts, and tuning SIEM queries. Created post-incident reports to practice professional communication of technical findings.</p>
-      </details>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="date-range">Jun 2025<br/>Sep 2025</div>
+        <div class="date-dur">4 months · Remote</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">Cybersecurity Trainee</div>
+        <div class="job-company">SoftServe</div>
+        <div class="job-location">Remote</div>
+        <ul class="job-bullets">
+          <li>Executed structured security testing across application environments following secure SDLC frameworks.</li>
+          <li>Collaborated in Agile sprints to coordinate vulnerability assessments and track remediation actions.</li>
+          <li>Gained hands-on experience with SIEM platforms, threat analysis pipelines, and cloud security deployment.</li>
+          <li>Completed SoftServe Academy Cybersecurity Fundamentals certification (Aug 2025).</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">SIEM</span><span class="job-tag">Vulnerability Assessment</span>
+          <span class="job-tag">Secure SDLC</span><span class="job-tag">Agile</span>
+          <span class="job-tag">Cloud Security</span>
+        </div>
+      </div>
+    </div>
 
-      <details>
-        <summary>DevSecOps Portfolio Development</summary>
-        <p>Designed a learning and career roadmap around secure cloud and DevOps practices, including AWS IAM, GuardDuty, Terraform for Infrastructure as Code (IaC), and container security. Initial labs included securing Docker/Kubernetes environments and deploying least-privilege IAM policies.</p>
-      </details>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="date-range">Jan 2025<br/>Present</div>
+        <div class="date-dur">Winnipeg, MB</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">E-Commerce &amp; Digital Operations Specialist</div>
+        <div class="job-company">Independent / Thrift Store</div>
+        <div class="job-location">Winnipeg, MB, Canada</div>
+        <ul class="job-bullets">
+          <li>Designed and deployed AI-driven automation pipelines for inventory management and content generation.</li>
+          <li>Coordinated multi-vendor digital workflows ensuring quality control and operational continuity.</li>
+          <li>Maintained deployment documentation and tracked ETL pipeline performance using KPI analysis.</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">AI Automation</span><span class="job-tag">ETL Pipelines</span>
+          <span class="job-tag">Operations</span><span class="job-tag">KPI Tracking</span>
+        </div>
+      </div>
+    </div>
 
-      <details>
-        <summary>System Hardening & Baseline Security</summary>
-        <p>Configured and documented secure baselines for Windows and Linux virtual machines. Implemented firewall rules, endpoint protection, VPN access, and system monitoring. Tested host-based IDS/IPS, encryption policies, and password management solutions.</p>
-      </details>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="date-range">Jun 2024<br/>Jan 2025</div>
+        <div class="date-dur">8 months · Winnipeg</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">Production Specialist / Team Member</div>
+        <div class="job-company">New Flyer Industries</div>
+        <div class="job-location">Winnipeg, MB, Canada</div>
+        <ul class="job-bullets">
+          <li>Installed electrical components per technical blueprints in a safety-critical manufacturing environment.</li>
+          <li>Conducted in-process quality inspections and logged non-conformance issues via Oracle DB and Andon system.</li>
+          <li>Collaborated cross-functionally with QA, Manufacturing Engineering, and Supply Chain teams.</li>
+          <li>Performed daily inventory verification against bill of materials for production compliance.</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">Quality Assurance</span><span class="job-tag">Oracle DB</span>
+          <span class="job-tag">WHMIS</span><span class="job-tag">Blueprint Reading</span>
+        </div>
+      </div>
+    </div>
 
-      <details>
-        <summary>OSINT & Investigation Exercises</summary>
-        <p>Practiced open-source intelligence (OSINT) investigations using PhoneInfoga, Truecaller, and OSINT Framework tools. Simulated phishing risk analysis, identity verification, and brand impersonation detection, producing written playbooks for enterprise application.</p>
-      </details>
-    </section>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="date-range">Jun 2022<br/>Nov 2023</div>
+        <div class="date-dur">1.5 yrs · Etobicoke</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">Crew Manager</div>
+        <div class="job-company">Special Force Movers / Let's Do Moving</div>
+        <div class="job-location">Etobicoke, ON, Canada</div>
+        <ul class="job-bullets">
+          <li>Generated CAD $350K in new revenue through collaboration with sales and marketing teams.</li>
+          <li>Managed 700+ contracts: scope, scheduling, logistics coordination, and client reporting.</li>
+          <li>Reduced safety incidents by 25% through implementation of rigorous training and risk protocols.</li>
+          <li>Handled confidential client data and payment documentation in cloud-based CRM systems.</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">Team Leadership</span><span class="job-tag">Operations PM</span>
+          <span class="job-tag">CRM</span><span class="job-tag">Risk Assessment</span>
+        </div>
+      </div>
+    </div>
 
-    <section id="contact" class="block">
-      <h2>&lt;contact&gt;</h2>
-      <form id="contact-form" action="https://formspree.io/f/xldwbzyl" method="POST">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required />
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="date-range">Mar 2014<br/>Jun 2022</div>
+        <div class="date-dur">8.3 yrs · UA/PL/DE</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">CEO &amp; Owner</div>
+        <div class="job-company">TopWot Online Store</div>
+        <div class="job-location">Ukraine / Poland / Germany</div>
+        <ul class="job-bullets">
+          <li>Built and scaled an e-commerce platform — 20,000+ orders, 4,000+ clients over 8 years.</li>
+          <li>Deployed and managed IaaS infrastructure with VMware: 120+ virtual machines with automated updates and monitoring.</li>
+          <li>Implemented SSL, 2FA, anti-fraud controls, and secure payment integrations (PayPal, Stripe).</li>
+          <li>Led an international team of freelancers — hiring, onboarding, performance reviews, salary administration.</li>
+          <li>Maintained 98% positive customer feedback across all platforms.</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">VMware IaaS</span><span class="job-tag">Entrepreneurship</span>
+          <span class="job-tag">Team Management</span><span class="job-tag">SSL/2FA</span>
+          <span class="job-tag">Budget Management</span>
+        </div>
+      </div>
+    </div>
 
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required />
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="date-range">Nov 2021<br/>Apr 2022</div>
+        <div class="date-dur">6 months · Dnipro</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">Front-End Developer</div>
+        <div class="job-company">SoftServe</div>
+        <div class="job-location">Dnipro, Ukraine</div>
+        <ul class="job-bullets">
+          <li>Built responsive UIs using HTML5, CSS3 (FlexBox/Grid), JavaScript/TypeScript, and Vue.js.</li>
+          <li>Participated in CI/CD pipeline deployments and code reviews within Agile/Scrum framework.</li>
+          <li>Mentored junior team members; reported on user stories and milestones via Zenhub and Asana.</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">Vue.js</span><span class="job-tag">TypeScript</span>
+          <span class="job-tag">CSS Grid/Flex</span><span class="job-tag">CI/CD</span>
+          <span class="job-tag">Agile/Scrum</span>
+        </div>
+      </div>
+    </div>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
+    <div class="timeline-item">
+      <div class="timeline-date">
+        <div class="date-range">Mar 2017<br/>Sep 2017</div>
+        <div class="date-dur">7 months · Dnipro</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">Junior Android Developer</div>
+        <div class="job-company">SmartIT-Ukraine</div>
+        <div class="job-location">Dnipro, Ukraine</div>
+        <ul class="job-bullets">
+          <li>Developed Android app features and performed QA, compatibility testing across devices.</li>
+          <li>Documented release notes and escalated faults for resolution within structured team environment.</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">Android</span><span class="job-tag">Java</span>
+          <span class="job-tag">QA Testing</span>
+        </div>
+      </div>
+    </div>
 
-        <button type="submit">Send Message</button>
-        <div id="form-status" class="status"></div>
-      </form>
-    </section>
-  </main>
+  </div>
+</section>
 
-  <footer>
-    <small>&copy; 2025 Oleksandr Sheniak · <a href="mailto:work@sheniaks.com">work@sheniaks.com</a></small>
-  </footer>
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">// projects & labs</div>
+  <h2>Projects &amp; Labs</h2>
+  <p class="section-desc">Hands-on cybersecurity and development work built across training programs and professional experience.</p>
+  <div class="projects-grid">
 
-  <script>
-    // Matrix rain with extended chars
-    (function(){
-      const canvas=document.getElementById('matrix'),ctx=canvas.getContext('2d');
-      let w,h,cols,drops; 
-      const size=16; 
-      const chars="アイウエオカキクケコｱｲｳｴｵｶｷｸｹｺ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&*+-/<=>".split('');
-      function resize(){ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; cols=Math.floor(w/size); drops=Array(cols).fill(0); }
-      function draw(){
-        ctx.fillStyle="rgba(255,255,255,0.08)";
-        ctx.fillRect(0,0,w,h);
-        ctx.fillStyle="#000"; ctx.font=size+"px monospace";
-        drops.forEach((y,i)=>{
-          const text=chars[Math.floor(Math.random()*chars.length)];
-          ctx.fillText(text,i*size,y*size);
-          drops[i]=y*size>h && Math.random()>0.975?0:y+1;
-        });
-        requestAnimationFrame(draw);
-      }
-      window.addEventListener('resize',resize);
-      resize(); draw();
-    })();
 
-    // Formspree handler
-    (function(){
-      const form=document.getElementById('contact-form');
-      const status=document.getElementById('form-status');
-      form.addEventListener('submit',async e=>{
-        e.preventDefault();
-        status.textContent="Sending…";
-        const data=new FormData(form);
-        try{
-          const res=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}});
-          if(res.ok){ status.textContent="Message sent. Thank you!"; form.reset(); }
-          else{ status.textContent="Error sending message."; }
-        }catch{ status.textContent="Network error."; }
-      });
-    })();
-  </script>
+    <div class="project-card" style="cursor:default;">
+      <div class="project-card-top">
+        <div class="project-icon">🏫</div>
+      </div>
+      <div class="project-title">SoftServe Cybersecurity Bootcamp</div>
+      <div class="project-desc">
+        Mentored training program — threat analysis, cloud security fundamentals, SIEM basics, and secure application deployment.
+      </div>
+      <div class="pills">
+        <span class="pill">SIEM</span><span class="pill">Cloud Security</span>
+        <span class="pill">Threat Analysis</span>
+      </div>
+    </div>
+
+    <div class="project-card" style="cursor:default;">
+      <div class="project-card-top">
+        <div class="project-icon">🛒</div>
+      </div>
+      <div class="project-title">TopWot IaaS Infrastructure</div>
+      <div class="project-desc">
+        Self-built IaaS platform using VMware — 120+ virtual machines with automated updates, monitoring, and security controls (SSL, 2FA, anti-fraud).
+      </div>
+      <div class="pills">
+        <span class="pill">VMware</span><span class="pill">IaaS</span>
+        <span class="pill">Automation</span><span class="pill">SSL/2FA</span>
+      </div>
+    </div>
+
+    <div class="project-card" style="cursor:default;">
+      <div class="project-card-top">
+        <div class="project-icon">🤖</div>
+      </div>
+      <div class="project-title">AI-Driven Inventory Automation</div>
+      <div class="project-desc">
+        Designed and deployed AI automation pipelines for e-commerce inventory management, content generation, and ETL data processing.
+      </div>
+      <div class="pills">
+        <span class="pill">AI Automation</span><span class="pill">ETL</span>
+        <span class="pill">Data Pipelines</span>
+      </div>
+    </div>
+
+    <div class="project-card" style="cursor:default;">
+      <div class="project-card-top">
+        <div class="project-icon">📱</div>
+      </div>
+      <div class="project-title">Android App Development</div>
+      <div class="project-desc">
+        Developed and deployed Android application features at SmartIT-Ukraine — QA testing, compatibility checks, and release documentation.
+      </div>
+      <div class="pills">
+        <span class="pill">Android</span><span class="pill">Java</span>
+        <span class="pill">QA</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-label">// certifications</div>
+  <h2>Certifications</h2>
+  <p class="section-desc">Professional and technical certifications across cybersecurity, project management, and development.</p>
+  <div class="certs-grid">
+
+    <div class="cert-card">
+      <div class="cert-icon">🛡️</div>
+      <div>
+        <div class="cert-name">Cybersecurity Fundamentals</div>
+        <div class="cert-issuer">SoftServe Academy</div>
+        <div class="cert-date">August 2025</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🌐</div>
+      <div>
+        <div class="cert-name">Foundations of Cybersecurity</div>
+        <div class="cert-issuer">Google / Coursera</div>
+        <div class="cert-date">November 2023</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">⚠️</div>
+      <div>
+        <div class="cert-name">Play It Safe: Manage Security Risks</div>
+        <div class="cert-issuer">Google / Coursera</div>
+        <div class="cert-date">November 2023</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-name">Certificate in Advanced Project Management</div>
+        <div class="cert-issuer">York University (ABMP)</div>
+        <div class="cert-date">November 2022</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🔗</div>
+      <div>
+        <div class="cert-name">Supply Chain Fundamentals</div>
+        <div class="cert-issuer">York University (ABMP)</div>
+        <div class="cert-date">July 2022</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <div>
+        <div class="cert-name">JavaScript (ScriptJedi42)</div>
+        <div class="cert-issuer">ScriptJedi42 / programmingmentor.com</div>
+        <div class="cert-date">June 2022</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🖥️</div>
+      <div>
+        <div class="cert-name">HTML5 / CSS3 / JavaScript Fundamentals</div>
+        <div class="cert-issuer">SoftServe IT Academy</div>
+        <div class="cert-date">November 2021</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">☣️</div>
+      <div>
+        <div class="cert-name">Canadian WHMIS 2015 (2024 Edition)</div>
+        <div class="cert-issuer">Workplace Hazardous Materials</div>
+        <div class="cert-date">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🏗️</div>
+      <div>
+        <div class="cert-name">Production Lane Crane Operator Training</div>
+        <div class="cert-issuer">New Flyer Industries</div>
+        <div class="cert-date">2024</div>
+      </div>
+    </div>
+
+    <div class="cert-card">
+      <div class="cert-icon">🍁</div>
+      <div>
+        <div class="cert-name">Canadian Employment Readiness (P2, P3, P4)</div>
+        <div class="cert-issuer">Immigrant Centre Manitoba</div>
+        <div class="cert-date">2022</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">// education</div>
+  <h2>Education</h2>
+  <p class="section-desc">Two Master's degrees spanning information security and public administration.</p>
+  <div class="edu-grid">
+
+    <div class="edu-card">
+      <div class="edu-degree">M.Sc. — Information &amp; Communication Systems Security</div>
+      <div class="edu-school">National Mining University</div>
+      <div class="edu-years">2010 – 2016 · Dnipro, Ukraine</div>
+      <div class="edu-detail">Qualification 2149.2: Expert in Organisation of Information Security. Core study: electronics, networked systems, signal analysis, cryptography, and system architecture.</div>
+    </div>
+
+    <div class="edu-card">
+      <div class="edu-degree">M.Sc. — Public Management &amp; Administration</div>
+      <div class="edu-school">NAPA / Dnipropetrovsk Regional Institute for Public Administration</div>
+      <div class="edu-years">2017 – 2019 · Dnipro, Ukraine</div>
+      <div class="edu-detail">National Academy for Public Administration under the President of Ukraine. Focus on governance, policy, and public sector management.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">// contact</div>
+  <h2>Get in Touch</h2>
+  <p class="section-desc">Open to cybersecurity, SOC analyst, GRC, cloud security, and project management roles in Canada and the USA.</p>
+  <div class="contact-grid">
+    <a class="contact-item" href="mailto:sheniaks@gmail.com">
+      <div class="contact-item-icon">✉️</div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value">sheniaks@gmail.com</div>
+      </div>
+    </a>
+    <a class="contact-item" href="https://www.linkedin.com/in/sheniaks" target="_blank">
+      <div class="contact-item-icon">💼</div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value">linkedin.com/in/sheniaks</div>
+      </div>
+    </a>
+    <a class="contact-item" href="tel:+16472424221">
+      <div class="contact-item-icon">📞</div>
+      <div>
+        <div class="contact-label">Phone</div>
+        <div class="contact-value">+1 (647) 242-4221</div>
+      </div>
+    </a>
+    <div class="contact-item">
+      <div class="contact-item-icon">📍</div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Winnipeg, MB, Canada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Built with care · <span>Oleksandr Sheniak</span> · 2026 · Winnipeg, Canada</p>
+  <p style="margin-top:0.4rem; font-size:0.72rem;">Eligible to work in Canada — all provinces · Class 5F driver's license</p>
+</footer>
+
 </body>
 </html>
