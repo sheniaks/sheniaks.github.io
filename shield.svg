@@ -1,0 +1,14 @@
+<svg viewBox="0 0 100 115" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff4500"/>
+      <stop offset="100%" stop-color="#ff8c00"/>
+    </linearGradient>
+    <linearGradient id="sGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#6b6b6b"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 4 L93 22 L93 58 C93 84 50 112 50 112 C50 112 7 84 7 58 L7 22 Z" fill="url(#shieldGrad)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  <text x="50" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="62" font-weight="700" fill="url(#sGrad)">S</text>
+</svg>
