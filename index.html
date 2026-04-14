@@ -67,8 +67,35 @@
     }
     nav ul {
       list-style: none;
-      display: flex;
-      gap: 1.6rem;
+      flex-direction: column;
+      gap: 0;
+      position: absolute;
+      top: 60px;
+      right: 1rem;
+      width: max-content;
+      background: rgba(13,17,23,0.97);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.6rem 0;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      opacity: 0;
+      transform: translateY(-12px) scale(0.94);
+      transform-origin: top right;
+      pointer-events: none;
+      transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1),
+                  transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    nav ul.open {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      pointer-events: auto;
+    }
+    nav ul li a {
+      display: block;
+      padding: 0.75rem 1.6rem;
+      font-size: 0.95rem;
+      text-align: right;
     }
     nav a {
       color: var(--text2);
@@ -79,7 +106,7 @@
     }
     nav a:hover { color: var(--text); }
     .nav-toggle {
-      display: none;
+      display: flex;
       flex-direction: row;
       align-items: center;
       gap: 6px;
@@ -116,10 +143,11 @@
     .hero {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 5rem 2rem 4rem;
+      padding: 3rem 2rem 2rem;
       display: flex;
-      align-items: center;
-      gap: 3rem;
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      gap: 2rem;
     }
     .hero-text { flex: 1; }
     .hero-badge {
@@ -147,7 +175,7 @@
       50% { opacity: 0.4; }
     }
     h1 {
-      font-size: 2.8rem;
+      font-size: 2rem;
       font-weight: 700;
       line-height: 1.2;
       letter-spacing: -0.02em;
@@ -212,8 +240,9 @@
     }
     .hero-links a:hover { color: var(--accent); }
     .hero-avatar {
-      width: 220px;
-      height: 220px;
+      width: 140px;
+      height: 140px;
+      align-self: center;
       border-radius: 50%;
       background: linear-gradient(135deg, #1c2128, #0d1117);
       border: 2px solid var(--border);
@@ -349,26 +378,18 @@
     .timeline { display: flex; flex-direction: column; gap: 0; }
     .timeline-item {
       display: grid;
-      grid-template-columns: 140px 1fr;
-      gap: 0 2rem;
+      grid-template-columns: 1fr;
+      gap: 0;
       position: relative;
       padding-bottom: 2.5rem;
     }
     .timeline-item:last-child { padding-bottom: 0; }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 148px;
-      top: 10px;
-      bottom: 0;
-      width: 1px;
-      background: var(--border);
-    }
+    .timeline-item::before { display: none; }
     .timeline-item:last-child::before { display: none; }
     .timeline-date {
-      text-align: right;
+      text-align: left;
       padding-top: 2px;
-      padding-right: 0;
+      padding-bottom: 0.4rem;
     }
     .timeline-date .date-range {
       font-size: 0.78rem;
@@ -390,6 +411,7 @@
     }
     .timeline-content::before {
       content: '';
+      display: none;
       position: absolute;
       left: -9px;
       top: 12px;
@@ -615,48 +637,57 @@
     }
     footer span { color: var(--accent); }
 
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero { flex-direction: column-reverse; align-items: flex-start; padding-top: 3rem; }
-      .hero-avatar { width: 140px; height: 140px; align-self: center; }
-      h1 { font-size: 2rem; }
-      .timeline-item { grid-template-columns: 1fr; }
-      .timeline-item::before { display: none; }
-      .timeline-date { text-align: left; padding-bottom: 0.4rem; }
-      .timeline-content::before { display: none; }
-      .nav-toggle { display: flex; }
+    /* DESKTOP */
+    @media (min-width: 769px) {
+      .nav-toggle { display: none; }
       nav ul {
-        list-style: none;
-        flex-direction: column;
-        gap: 0;
-        position: absolute;
-        top: 60px;
-        right: 1rem;
-        width: max-content;
-        background: rgba(13,17,23,0.97);
-        border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 0.6rem 0;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-        opacity: 0;
-        transform: translateY(-12px) scale(0.94);
-        transform-origin: top right;
-        pointer-events: none;
-        transition: opacity 0.35s cubic-bezier(0.34,1.56,0.64,1),
-                    transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
-      }
-      nav ul.open {
+        display: flex;
+        flex-direction: row;
+        gap: 1.6rem;
+        position: static;
+        width: auto;
+        background: none;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        backdrop-filter: none;
+        box-shadow: none;
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: none;
         pointer-events: auto;
+        transition: none;
       }
       nav ul li a {
-        display: block;
-        padding: 0.75rem 1.6rem;
-        font-size: 0.95rem;
-        text-align: right;
+        display: inline;
+        padding: 0;
+        font-size: 0.88rem;
+        text-align: left;
       }
+      .hero {
+        flex-direction: row;
+        align-items: center;
+        padding: 5rem 2rem 4rem;
+        gap: 3rem;
+      }
+      .hero-avatar { width: 220px; height: 220px; align-self: auto; }
+      h1 { font-size: 2.8rem; }
+      .timeline-item {
+        grid-template-columns: 140px 1fr;
+        gap: 0 2rem;
+      }
+      .timeline-item::before {
+        display: block;
+        content: '';
+        position: absolute;
+        left: 148px;
+        top: 10px;
+        bottom: 0;
+        width: 1px;
+        background: var(--border);
+      }
+      .timeline-item:last-child::before { display: none; }
+      .timeline-date { text-align: right; padding-bottom: 0; }
+      .timeline-content::before { display: block; }
     }
   </style>
 </head>
@@ -708,11 +739,9 @@
       Open to opportunities in Canada &amp; USA
     </div>
     <h1>Oleksandr <span>Sheniak</span></h1>
-    <p class="hero-sub">Cybersecurity Professional · Project Manager · Full-Stack Background</p>
+    <p class="hero-sub">M.Sc. Information Security · Former E-Commerce Founder &amp; CEO · Front-End Developer · Project Manager</p>
     <p class="hero-desc">
-      Results-driven technology professional with 10+ years across cybersecurity, IT infrastructure,
-      project management, and software development. Transitioning into cloud security and SOC roles —
-      building hands-on skills through SoftServe's mentored training program and continuous self-study in threat detection, cloud security, and secure infrastructure.
+      Dual M.Sc. graduate in Information Security and Public Administration with 10+ years building and securing technology systems. Founded and scaled a multi-country e-commerce platform backed by self-built VMware IaaS infrastructure (120+ VMs), SSL/2FA controls, and secure payment integrations. Developed front-end applications at SoftServe (Vue.js, TypeScript) and led 700+ client contracts as a Crew Manager. Currently deepening hands-on expertise in SIEM, threat detection, cloud security, and secure SDLC — targeting SOC analyst, GRC, and cloud security roles in Canada and the USA.
     </p>
     <div class="hero-links">
       <a href="mailto:sheniaks@gmail.com">✉ sheniaks@gmail.com</a>
@@ -886,6 +915,27 @@
 
     <div class="timeline-item">
       <div class="timeline-date">
+        <div class="date-range">Jan 2025<br/>Present</div>
+        <div class="date-dur">Winnipeg, MB</div>
+      </div>
+      <div class="timeline-content">
+        <div class="job-title">E-Commerce &amp; Digital Operations Specialist</div>
+        <div class="job-company">Independent / Thrift Store</div>
+        <div class="job-location">Winnipeg, MB, Canada</div>
+        <ul class="job-bullets">
+          <li>Designed and deployed AI-driven automation pipelines for inventory management and content generation.</li>
+          <li>Coordinated multi-vendor digital workflows ensuring quality control and operational continuity.</li>
+          <li>Maintained deployment documentation and tracked ETL pipeline performance using KPI analysis.</li>
+        </ul>
+        <div class="job-tags">
+          <span class="job-tag">AI Automation</span><span class="job-tag">ETL Pipelines</span>
+          <span class="job-tag">Operations</span><span class="job-tag">KPI Tracking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">
         <div class="date-range">Jun 2025<br/>Sep 2025</div>
         <div class="date-dur">4 months · Remote</div>
       </div>
@@ -903,27 +953,6 @@
           <span class="job-tag">SIEM</span><span class="job-tag">Vulnerability Assessment</span>
           <span class="job-tag">Secure SDLC</span><span class="job-tag">Agile</span>
           <span class="job-tag">Cloud Security</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <div class="timeline-date">
-        <div class="date-range">Jan 2025<br/>Present</div>
-        <div class="date-dur">Winnipeg, MB</div>
-      </div>
-      <div class="timeline-content">
-        <div class="job-title">E-Commerce &amp; Digital Operations Specialist</div>
-        <div class="job-company">Independent / Thrift Store</div>
-        <div class="job-location">Winnipeg, MB, Canada</div>
-        <ul class="job-bullets">
-          <li>Designed and deployed AI-driven automation pipelines for inventory management and content generation.</li>
-          <li>Coordinated multi-vendor digital workflows ensuring quality control and operational continuity.</li>
-          <li>Maintained deployment documentation and tracked ETL pipeline performance using KPI analysis.</li>
-        </ul>
-        <div class="job-tags">
-          <span class="job-tag">AI Automation</span><span class="job-tag">ETL Pipelines</span>
-          <span class="job-tag">Operations</span><span class="job-tag">KPI Tracking</span>
         </div>
       </div>
     </div>
