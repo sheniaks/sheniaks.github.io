@@ -3,715 +3,402 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Russian Lesson – Mike – 26 April 2026</title>
+<title>Russian with Oleks — 26 April 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink:      #1a1412;
-    --paper:    #f5f0e8;
-    --cream:    #ede6d6;
-    --red:      #b03a2e;
-    --gold:     #c8922a;
-    --blue:     #2c4a7c;
-    --soft:     #7a8c6e;
-    --border:   #d4c9b0;
+    --ink:     #1a1412;
+    --paper:   #f5f0e8;
+    --cream:   #ede6d6;
+    --red:     #b03a2e;
+    --gold:    #c8922a;
+    --blue:    #2c4a7c;
+    --green:   #3a6b4a;
+    --border:  #d4c9b0;
+    --muted:   #7a7060;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     background: var(--paper);
     color: var(--ink);
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 14.5px;
+    line-height: 1.65;
   }
 
-  /* ── Header ── */
   header {
     background: var(--ink);
     color: var(--paper);
-    padding: 36px 48px 28px;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    gap: 24px;
-  }
-  header .title-block h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.6rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    line-height: 1.1;
-  }
-  header .title-block h1 span { color: var(--gold); }
-  header .title-block p {
-    margin-top: 6px;
-    font-size: 0.85rem;
-    color: #b0a898;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  header .meta {
-    text-align: right;
-    font-size: 0.8rem;
-    color: #b0a898;
-    line-height: 2;
-  }
-  header .meta strong { color: var(--gold); font-size: 1rem; }
-
-  /* ── Layout ── */
-  .page { max-width: 860px; margin: 0 auto; padding: 40px 40px 60px; }
-
-  /* ── Timeline bar ── */
-  .timeline {
+    padding: 32px 48px 26px;
     display: flex;
-    gap: 0;
-    margin-bottom: 44px;
-    border-radius: 6px;
-    overflow: hidden;
-    border: 1px solid var(--border);
+    justify-content: space-between;
+    align-items: flex-end;
   }
-  .tl-seg {
-    flex: 1;
-    padding: 10px 14px;
-    text-align: center;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    border-right: 1px solid var(--border);
-  }
-  .tl-seg:last-child { border-right: none; }
-  .tl-seg .mins { font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 600; display: block; }
-  .tl-seg.warm   { background: #e8f0e0; color: var(--soft); }
-  .tl-seg.core1  { background: #f0e8d8; color: var(--gold); }
-  .tl-seg.core2  { background: #e8eaf4; color: var(--blue); }
-  .tl-seg.core3  { background: #f5e8e8; color: var(--red); }
-  .tl-seg.wrap   { background: var(--cream); color: #666; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
 
-  /* ── Section ── */
-  .section {
-    margin-bottom: 38px;
-    border-left: 3px solid var(--border);
-    padding-left: 20px;
-  }
-  .section.green  { border-color: var(--soft); }
-  .section.amber  { border-color: var(--gold); }
-  .section.blue   { border-color: var(--blue); }
-  .section.red    { border-color: var(--red); }
-  .section.grey   { border-color: #aaa; }
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
 
-  .section-header {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 14px;
-  }
-  .section-header .num {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 800;
-    opacity: 0.18;
-    line-height: 1;
-  }
-  .section-header h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-  .badge {
-    margin-left: auto;
-    font-size: 0.7rem;
-    padding: 3px 9px;
-    border-radius: 20px;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-  .badge.green { background:#e8f0e0; color: var(--soft); }
-  .badge.amber { background:#fdf0d8; color: var(--gold); }
-  .badge.blue  { background:#e8eaf4; color: var(--blue); }
-  .badge.red   { background:#fde8e8; color: var(--red); }
-  .badge.grey  { background:#eee;    color: #777; }
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
 
-  /* ── Teacher note ── */
-  .note {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 10px 14px;
-    font-size: 0.82rem;
-    color: #5a5040;
-    margin-bottom: 14px;
-  }
-  .note strong { color: var(--ink); }
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
 
-  /* ── Pronunciation table ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 10px 0 16px;
-    font-size: 0.88rem;
-  }
-  th {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 7px 12px;
-    text-align: left;
-    font-family: 'Playfair Display', serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    font-weight: 600;
-  }
-  td {
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--border);
-    vertical-align: top;
-  }
-  tr:nth-child(even) td { background: #f0ece2; }
-  td.russian {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--red);
-    font-family: 'Playfair Display', serif;
-  }
-  td.pron { color: var(--blue); font-style: italic; }
-  td.eng { color: #444; }
-  td.tip { font-size: 0.78rem; color: #777; }
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
 
-  /* ── Drill box ── */
-  .drill {
-    background: white;
-    border: 1.5px solid var(--border);
-    border-radius: 6px;
-    padding: 16px 18px;
-    margin-top: 12px;
-  }
-  .drill h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    margin-bottom: 10px;
-    color: var(--ink);
-  }
-  .drill ol, .drill ul { padding-left: 18px; }
-  .drill li { margin-bottom: 6px; font-size: 0.88rem; }
-  .drill .ans { color: var(--red); font-weight: 600; }
-  .blank {
-    display: inline-block;
-    min-width: 80px;
-    border-bottom: 1.5px solid var(--ink);
-    margin: 0 4px;
-  }
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  .gram-box table { font-size: 0.82rem; }
+  .gram-box table th { background: #2c4a7c; }
+  .gram-box table td { padding: 6px 10px; }
+  .gram-box table td.r { color: var(--red); font-weight: 600; font-size: 0.95rem; }
+  .gram-box table td.p { color: var(--blue); font-style: italic; }
 
-  /* ── Dialogue ── */
-  .dialogue {
-    background: #f8f4ec;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 16px 18px;
-    margin-top: 12px;
-  }
-  .dialogue .line { display: grid; grid-template-columns: 80px 1fr; gap: 8px; margin-bottom: 8px; font-size: 0.88rem; }
-  .dialogue .speaker { font-weight: 600; color: var(--blue); }
-  .dialogue .russian-line { color: var(--red); font-size: 1rem; font-weight: 600; }
-  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.82rem; }
-  .dialogue .eng-line { color: #555; font-size: 0.82rem; }
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
 
-  /* ── Vocab box ── */
-  .vocab-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-    gap: 8px;
-    margin: 10px 0;
-  }
-  .vocab-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    padding: 10px 12px;
-  }
-  .vocab-card .v-ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
-  .vocab-card .v-pr { font-size: 0.75rem; color: var(--blue); font-style: italic; }
-  .vocab-card .v-en { font-size: 0.78rem; color: #555; margin-top: 2px; }
+  .aspect-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+  .aspect-card { border-radius: 5px; padding: 10px 13px; font-size: 0.81rem; }
+  .aspect-card.imp { background: #e8f0e4; border: 1px solid #a8c8a0; }
+  .aspect-card.pfv { background: #fde8e0; border: 1px solid #e0a898; }
+  .aspect-card h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; font-weight: 700; }
+  .aspect-card.imp h5 { color: var(--green); }
+  .aspect-card.pfv h5 { color: var(--red); }
+  .aspect-card .verb { font-size: 1.05rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .aspect-card.imp .verb { color: var(--green); }
+  .aspect-card.pfv .verb { color: var(--red); }
 
-  /* ── Tip block ── */
-  .tip-box {
-    border-left: 3px solid var(--gold);
-    background: #fdf8ee;
-    padding: 10px 14px;
-    margin: 12px 0;
-    font-size: 0.85rem;
-    color: #4a3c20;
-    border-radius: 0 4px 4px 0;
-  }
-  .tip-box strong { color: var(--gold); }
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
 
-  /* ── Footer ── */
-  footer {
-    background: var(--ink);
-    color: #888;
-    font-size: 0.75rem;
-    text-align: center;
-    padding: 18px 40px;
-    letter-spacing: 0.05em;
-  }
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
   footer span { color: var(--gold); }
-
-  /* ── Divider ── */
-  hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
-
-  /* print */
-  @media print {
-    header { break-inside: avoid; }
-    .section { break-inside: avoid; }
-  }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="title-block">
-    <h1>Russian Lesson<br><span>for Mike</span></h1>
-    <p>Beginner · Session 1 · QuickStudy Reference</p>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 26 апреля 2026 · Winnipeg</div>
   </div>
   <div class="meta">
     <strong>Sunday, 26 April 2026</strong><br>
-    воскресенье, 26 апреля 2026<br>
-    Duration: 35–45 min<br>
-    Level: Beginner
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min
   </div>
 </header>
 
 <div class="page">
 
-  <!-- Objectives -->
-  <div class="note" style="margin-bottom:28px; font-size:0.88rem;">
-    <strong>Lesson Objectives:</strong> By the end of today Mike will be able to (1) say and understand the days of the week,
-    (2) count from 1 to 10, (3) use the personal pronouns я, ты, он, она, (4) build two simple sentences about today.
+  <!-- PART 1: REVIEW -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — From Last Week (April 19)</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
   </div>
 
-  <!-- Timeline -->
-  <div class="timeline">
-    <div class="tl-seg warm"><span class="mins">5'</span>Warm-Up</div>
-    <div class="tl-seg core1"><span class="mins">10'</span>Days of the Week</div>
-    <div class="tl-seg core2"><span class="mins">8'</span>Numbers 1–10</div>
-    <div class="tl-seg core3"><span class="mins">10'</span>Pronouns</div>
-    <div class="tl-seg wrap"><span class="mins">7'</span>Mini Dialogue</div>
+  <div class="tip">
+    <strong>Teacher:</strong> Read each Russian sentence aloud; Mike translates. Then swap — Mike reads, you correct pronunciation. Focus on ё/о vowel reduction and rolling р.
   </div>
 
-  <!-- ── SECTION 1: Warm-Up ── -->
-  <div class="section green">
-    <div class="section-header">
-      <span class="num">01</span>
-      <h2>Warm-Up — The Russian Alphabet &amp; Key Sounds</h2>
-      <span class="badge green">5 min</span>
-    </div>
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">It snowed here in Toronto!</td>
+        <td class="ru">В Торонто выпал снег!</td>
+        <td class="pr">V To-RON-tuh VYH-puhl snyek!</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">How was your flight home?</td>
+        <td class="ru">Как прошёл ваш перелёт домой?</td>
+        <td class="pr">Kak pra-SHYOL vash pee-ree-LYOT da-MOY?</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">We all loved the Ukrainian cake. It was delicious.</td>
+        <td class="ru">Нам всем очень понравился украинский пирог. Он был восхитительным.</td>
+        <td class="pr">Nam fsyem OH-chen' pan-RAH-veel-sya uk-rah-EEN-skiy pee-ROK. On byl vas-hee-TEEL'-nym.</td>
+      </tr>
+    </tbody>
+  </table>
 
-    <div class="note">
-      <strong>Teacher:</strong> Mike can already read Cyrillic. Use these 5 minutes to review the sounds he'll need
-      most in today's lesson. Focus on letters that trip up English speakers.
-    </div>
+  <div class="gram">
+    <strong>Quick Recall — Aspect:</strong> <span class="ru-ex">прошёл</span> <span class="pr-ex">(pra-SHYOL)</span> is past tense of <span class="ru-ex">пройти</span> (perfective) — the flight is <em>completed</em>.
+    Compare: <span class="ru-ex">проходил</span> (imperfective) — "was going on, in progress." We build on this today.
+  </div>
 
-    <table>
-      <tr><th>Letter</th><th>Sounds Like</th><th>Memory Trick for Mike</th><th>Example</th></tr>
+  <!-- PART 2: WEATHER -->
+  <div class="sec-label">
+    <span class="icon">🌤</span>
+    <h2>Погода и природа — Weather &amp; Nature</h2>
+    <div class="line"></div>
+    <span class="tag green">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Context:</strong> It's late April in Winnipeg — still cold, maybe patchy snow. These phrases connect to Mike's daily life and build on <em>выпал снег</em> from last week.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
       <tr>
-        <td class="russian">Е / е</td>
-        <td class="pron">yeh</td>
-        <td>Like "ye" in "yes"</td>
-        <td>неделя (week)</td>
+        <td class="num">1</td>
+        <td class="en">In Winnipeg, spring comes late.</td>
+        <td class="ru">В Виннипеге весна приходит поздно.</td>
+        <td class="pr">V Vee-nee-PEH-gyeh vees-NAH pree-HOH-deet POHZ-dnuh.</td>
       </tr>
       <tr>
-        <td class="russian">Ё / ё</td>
-        <td class="pron">yoh</td>
-        <td>Like "yo" in "yoga" — always stressed</td>
-        <td>её (her)</td>
+        <td class="num">2</td>
+        <td class="en">It's still cold outside, but the sun is already shining.</td>
+        <td class="ru">На улице ещё холодно, но солнце уже светит.</td>
+        <td class="pr">Na OO-lee-tseh yee-SHCHOH HOH-lud-nuh, no SOHN-tseh oo-ZHEH SVYEH-teet.</td>
       </tr>
       <tr>
-        <td class="russian">Ы / ы</td>
-        <td class="pron">ɨ</td>
-        <td>Clench your jaw, say "ee" — sounds murky. Like "i" in "ill" said with pursed lips</td>
-        <td>мы (we), вы (you pl.)</td>
+        <td class="num">3</td>
+        <td class="en">Yesterday it snowed, but today it is sunny.</td>
+        <td class="ru">Вчера шёл снег, а сегодня солнечно.</td>
+        <td class="pr">Vchee-RAH shyol snyek, a see-VOHD-nyuh SOHL-neech-nuh.</td>
       </tr>
       <tr>
-        <td class="russian">Р / р</td>
-        <td class="pron">r (rolled)</td>
-        <td>Tap/trill like a soft Spanish R — not English R</td>
-        <td>среда (Wednesday)</td>
+        <td class="num">4</td>
+        <td class="en">What is the weather like tomorrow?</td>
+        <td class="ru">Какая завтра погода?</td>
+        <td class="pr">Kah-KAH-yah ZAHF-truh pah-GOH-duh?</td>
       </tr>
       <tr>
-        <td class="russian">Ж / ж</td>
-        <td class="pron">zh</td>
-        <td>Like the "s" in "measure" or "treasure"</td>
-        <td>воскресенье (Sunday)</td>
+        <td class="num">5</td>
+        <td class="en">They say it will be warmer on Wednesday.</td>
+        <td class="ru">Говорят, в среду будет теплее.</td>
+        <td class="pr">Guh-vah-RYAT, v SRYEH-doo BOO-deet tep-LYEH-yeh.</td>
       </tr>
+    </tbody>
+  </table>
+
+  <div class="gram-box">
+    <h4>Grammar Focus — Impersonal Weather Sentences</h4>
+    In Russian, weather expressions use <strong>no subject</strong> — just an adverb or short adjective. There is no "it" equivalent.
+    <br><br>
+    <table class="phrase-table" style="margin:0;">
+      <thead><tr><th>Russian</th><th>Pronunciation</th><th>English</th></tr></thead>
+      <tbody>
+        <tr><td class="r">Холодно.</td><td class="p">HOH-lud-nuh.</td><td>It is cold.</td></tr>
+        <tr><td class="r">Тепло.</td><td class="p">tep-LOH.</td><td>It is warm.</td></tr>
+        <tr><td class="r">Солнечно.</td><td class="p">SOHL-neech-nuh.</td><td>It is sunny.</td></tr>
+        <tr><td class="r">Облачно.</td><td class="p">OH-bluch-nuh.</td><td>It is cloudy.</td></tr>
+        <tr><td class="r">Ветрено.</td><td class="p">VYEH-tree-nuh.</td><td>It is windy.</td></tr>
+        <tr><td class="r">Идёт снег.</td><td class="p">ee-DYOT snyek.</td><td>It is snowing. (lit. "snow goes")</td></tr>
+        <tr><td class="r">Идёт дождь.</td><td class="p">ee-DYOT dohshch'.</td><td>It is raining. (lit. "rain goes")</td></tr>
+      </tbody>
     </table>
-
-    <div class="tip-box">
-      <strong>Tip for Mike:</strong> Russian vowels reduce when unstressed.
-      The letter <strong>о</strong> sounds like "ah" when not stressed — so <em>воскресенье</em> sounds like <em>vuh-skree-SYEN-yeh</em>, not "voh-SKRYE-SEN-ye".
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>Note:</strong> <span class="ru-ex">Идёт снег / дождь</span> literally means "snow/rain goes" — Russian uses <em>to go</em> for precipitation. From the verb <span class="ru-ex">идти</span> <span class="pr-ex">(eed-TEE)</span> = to go (on foot). Same verb pattern as Verbs of Motion (QuickStudy p. 5).
     </div>
   </div>
 
-  <hr>
+  <!-- PART 3: WEEKEND -->
+  <div class="sec-label">
+    <span class="icon">📅</span>
+    <h2>Выходные — The Weekend</h2>
+    <div class="line"></div>
+    <span class="tag gold">10 min</span>
+  </div>
 
-  <!-- ── SECTION 2: Days of the Week ── -->
-  <div class="section amber">
-    <div class="section-header">
-      <span class="num">02</span>
-      <h2>Дни недели — Days of the Week</h2>
-      <span class="badge amber">10 min</span>
+  <div class="tip">
+    <strong>Teacher:</strong> Today is Sunday — воскресенье. These phrases let Mike talk about his weekend. Introduce perfective vs. imperfective gently through the examples below.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">This weekend I stayed home and read a book.</td>
+        <td class="ru">На этих выходных я остался дома и читал книгу.</td>
+        <td class="pr">Na EH-teekh vy-HOD-nyh ya as-TAL-sya DOH-mah ee chee-TAL KNEE-goo.</td>
+      </tr>
+      <tr>
+        <td class="num">7</td>
+        <td class="en">I finished the book by Saturday evening.</td>
+        <td class="ru">К субботнему вечеру я дочитал книгу.</td>
+        <td class="pr">K soob-BOT-nye-moo VYEH-chee-roo ya da-chee-TAL KNEE-goo.</td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td class="en">On Sundays I usually have a coffee and go for a walk.</td>
+        <td class="ru">По воскресеньям я обычно пью кофе и гуляю.</td>
+        <td class="pr">Pa vas-kree-SYEN'-yam ya a-BYCH-nuh p'yoo KOH-feh ee goo-LYA-yoo.</td>
+      </tr>
+      <tr>
+        <td class="num">9</td>
+        <td class="en">Next week I have a lot of work to do.</td>
+        <td class="ru">На следующей неделе у меня много работы.</td>
+        <td class="pr">Na SLYED-oo-yoo-shchey nee-DYEH-leh oo mee-NYA MNOH-guh ra-BOH-ty.</td>
+      </tr>
+      <tr>
+        <td class="num">10</td>
+        <td class="en">But today I am resting and learning Russian!</td>
+        <td class="ru">Но сегодня я отдыхаю и учу русский!</td>
+        <td class="pr">No see-VOHD-nyah ya at-dy-HA-yoo ee oo-CHOO ROOS-kiy!</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram-box">
+    <h4>Grammar Focus — Imperfective vs. Perfective Aspect (Вид глагола)</h4>
+    Every Russian verb has two forms — this is the core concept of the verb system (QuickStudy p. 4, Aspect).
+    <div class="aspect-pair">
+      <div class="aspect-card imp">
+        <h5>Imperfective (несовершенный вид)</h5>
+        <div class="verb">читал</div>
+        <div style="font-size:0.78rem; margin-top:4px; color:#3a6b4a;"><em>chee-TAL</em></div>
+        <div style="margin-top:6px; color:#2a4a32;">→ was reading, kept reading<br><strong>ongoing, repeated, unfinished</strong></div>
+      </div>
+      <div class="aspect-card pfv">
+        <h5>Perfective (совершенный вид)</h5>
+        <div class="verb">дочитал</div>
+        <div style="font-size:0.78rem; margin-top:4px; color:#b03a2e;"><em>da-chee-TAL</em></div>
+        <div style="margin-top:6px; color:#6a2018;">→ finished reading, read it through<br><strong>completed, whole event</strong></div>
+      </div>
     </div>
-
-    <div class="note">
-      <strong>Teacher:</strong> Point out that today (26 Apr 2026) is Sunday = воскресенье.
-      Russian week starts on Monday. Days are <em>not</em> capitalised (unlike English or French).
-      Draw attention to the -к pattern in the middle of the week and the Slavic roots.
-    </div>
-
-    <table>
-      <tr><th>#</th><th>Russian</th><th>Pronunciation</th><th>English</th><th>Memory Hook</th></tr>
-      <tr>
-        <td>1</td><td class="russian">понедельник</td>
-        <td class="pron">puh-nee-DYEL-neek</td>
-        <td class="eng">Monday</td>
-        <td class="tip">From "после недели" — after the week</td>
-      </tr>
-      <tr>
-        <td>2</td><td class="russian">вторник</td>
-        <td class="pron">FTOR-neek</td>
-        <td class="eng">Tuesday</td>
-        <td class="tip">второй = second; "B" → "V" sound!</td>
-      </tr>
-      <tr>
-        <td>3</td><td class="russian">среда</td>
-        <td class="pron">sree-DAH</td>
-        <td class="eng">Wednesday</td>
-        <td class="tip">середина = middle — mid-week!</td>
-      </tr>
-      <tr>
-        <td>4</td><td class="russian">четверг</td>
-        <td class="pron">chet-VYERK</td>
-        <td class="eng">Thursday</td>
-        <td class="tip">четыре = four</td>
-      </tr>
-      <tr>
-        <td>5</td><td class="russian">пятница</td>
-        <td class="pron">PYAT-nee-tsuh</td>
-        <td class="eng">Friday</td>
-        <td class="tip">пять = five</td>
-      </tr>
-      <tr>
-        <td>6</td><td class="russian">суббота</td>
-        <td class="pron">soo-BOH-tuh</td>
-        <td class="eng">Saturday</td>
-        <td class="tip">Same root as "Sabbath"</td>
-      </tr>
-      <tr>
-        <td>7</td><td class="russian"><strong>воскресенье</strong></td>
-        <td class="pron">vuh-skree-SYEN-yeh</td>
-        <td class="eng"><strong>Sunday ← Today!</strong></td>
-        <td class="tip">воскресение = resurrection (Easter roots)</td>
-      </tr>
-    </table>
-
-    <div class="tip-box">
-      <strong>Key phrase:</strong> Сегодня <em>(see-VOHD-nyuh)</em> = "Today" &nbsp;|&nbsp;
-      <strong>Сегодня воскресенье.</strong> = "Today is Sunday."
-    </div>
-
-    <div class="drill">
-      <h4>📋 Quick Drill — Teacher asks, Mike answers</h4>
-      <ol>
-        <li>Point to Thursday on a calendar and ask: "Это вторник?" (Is this Tuesday?) — Mike should say <span class="ans">Нет, это четверг.</span></li>
-        <li>Ask: "Какой сегодня день?" (What day is today?) — Expected: <span class="ans">Сегодня воскресенье.</span></li>
-        <li>Ask Mike to spell out <em>среда</em> aloud letter by letter.</li>
-        <li>Say the day in Russian; Mike translates to English. Do all 7.</li>
-      </ol>
+    <div class="gram" style="margin-bottom:0;">
+      <strong>Sentences 6 vs. 7:</strong> <span class="ru-ex">читал книгу</span> = was reading (ongoing activity).
+      <span class="ru-ex">дочитал книгу</span> = finished the book (completed).
+      The prefix <span class="ru-ex">до-</span> adds the meaning of "completion." Many perfectives are formed this way — by adding a prefix to an imperfective verb.
     </div>
   </div>
 
-  <hr>
-
-  <!-- ── SECTION 3: Numbers ── -->
-  <div class="section blue">
-    <div class="section-header">
-      <span class="num">03</span>
-      <h2>Числа 1–10 — Numbers 1 to 10</h2>
-      <span class="badge blue">8 min</span>
-    </div>
-
-    <div class="note">
-      <strong>Teacher:</strong> Russian numbers 1 and 2 change for gender (один/одна/одно; два/две).
-      Keep it simple today — introduce the masculine forms. Connect numbers to days (пять = пятница, etc.).
-      Numbers are in the QuickStudy guide, Page 1, Cardinal Numbers section.
-    </div>
-
-    <div class="vocab-grid">
-      <div class="vocab-card">
-        <div class="v-ru">один</div>
-        <div class="v-pr">ah-DEEN</div>
-        <div class="v-en">1 — one</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">два</div>
-        <div class="v-pr">dvah</div>
-        <div class="v-en">2 — two</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">три</div>
-        <div class="v-pr">tree</div>
-        <div class="v-en">3 — three</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">четыре</div>
-        <div class="v-pr">chet-IH-reh</div>
-        <div class="v-en">4 — four</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">пять</div>
-        <div class="v-pr">pyat'</div>
-        <div class="v-en">5 — five</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">шесть</div>
-        <div class="v-pr">shest'</div>
-        <div class="v-en">6 — six</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">семь</div>
-        <div class="v-pr">syem'</div>
-        <div class="v-en">7 — seven</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">восемь</div>
-        <div class="v-pr">VOH-seem'</div>
-        <div class="v-en">8 — eight</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">девять</div>
-        <div class="v-pr">DYEH-veet'</div>
-        <div class="v-en">9 — nine</div>
-      </div>
-      <div class="vocab-card">
-        <div class="v-ru">десять</div>
-        <div class="v-pr">DYEH-seet'</div>
-        <div class="v-en">10 — ten</div>
-      </div>
-    </div>
-
-    <div class="tip-box">
-      <strong>Pronunciation note:</strong> The soft sign <strong>ь</strong> at the end of пять, шесть, семь, etc.
-      softens the preceding consonant — hold the tongue against the roof of the mouth briefly before releasing.
-      English has no exact equivalent; think of the "t" in "ature" (nat-ure).
-    </div>
-
-    <div class="drill">
-      <h4>📋 Quick Drill</h4>
-      <ul>
-        <li>Count 1–10 aloud together, then Mike counts alone.</li>
-        <li>Teacher says a number in English; Mike responds in Russian.</li>
-        <li>Connection game: "пять" → what day? <span class="ans">пятница!</span></li>
-        <li>Write today's date: 26 апреля — "двадцать шесть" (twenty-six). Sounds like: <em>dvah-TSUT' shest'</em>. Just for fun — don't drill yet.</li>
-      </ul>
-    </div>
+  <!-- PART 4: PERSONAL -->
+  <div class="sec-label">
+    <span class="icon">🇨🇦</span>
+    <h2>Личные фразы — Personal Phrases</h2>
+    <div class="line"></div>
+    <span class="tag red">8 min</span>
   </div>
 
-  <hr>
-
-  <!-- ── SECTION 4: Pronouns ── -->
-  <div class="section red">
-    <div class="section-header">
-      <span class="num">04</span>
-      <h2>Личные местоимения — Personal Pronouns</h2>
-      <span class="badge red">10 min</span>
-    </div>
-
-    <div class="note">
-      <strong>Teacher:</strong> Introduce only the nominative (subject) pronouns today. The QuickStudy guide
-      (Page 2, Personal Pronouns table) shows all six cases — reassure Mike that for now we only need the top row.
-      Note: Russian has no verb "to be" in the present tense — "I am a student" = literally "I student."
-    </div>
-
-    <table>
-      <tr><th>Russian</th><th>Pronunciation</th><th>English</th><th>Notes for Mike</th></tr>
-      <tr>
-        <td class="russian">я</td>
-        <td class="pron">yah</td>
-        <td class="eng">I</td>
-        <td class="tip">Always lowercase, even at start — wait, actually always lowercase mid-sentence. Capitalised only at sentence start.</td>
-      </tr>
-      <tr>
-        <td class="russian">ты</td>
-        <td class="pron">tih</td>
-        <td class="eng">you (singular, informal)</td>
-        <td class="tip">Use with friends, family, children.</td>
-      </tr>
-      <tr>
-        <td class="russian">он</td>
-        <td class="pron">ohn</td>
-        <td class="eng">he / it (masc. noun)</td>
-        <td class="tip">Also used for masculine nouns</td>
-      </tr>
-      <tr>
-        <td class="russian">она</td>
-        <td class="pron">ah-NAH</td>
-        <td class="eng">she / it (fem. noun)</td>
-        <td class="tip">Also used for feminine nouns</td>
-      </tr>
-      <tr>
-        <td class="russian">мы</td>
-        <td class="pron">mih</td>
-        <td class="eng">we</td>
-        <td class="tip">The ы sound — jaw clenched "ee"</td>
-      </tr>
-      <tr>
-        <td class="russian">вы</td>
-        <td class="pron">vih</td>
-        <td class="eng">you (plural OR formal sing.)</td>
-        <td class="tip">Always capitalised <strong>Вы</strong> when formal/polite.</td>
-      </tr>
-      <tr>
-        <td class="russian">они</td>
-        <td class="pron">ah-NEE</td>
-        <td class="eng">they</td>
-        <td class="tip">Looks like "they" written backwards almost!</td>
-      </tr>
-    </table>
-
-    <div class="tip-box">
-      <strong>The "Zero Copula" Rule:</strong> In the present tense, Russian drops the verb "to be."<br>
-      Я студент. = <em>Yah stoo-DYENT.</em> = "I <del>am a</del> student." — "I student."<br>
-      Она канадка. = <em>Ah-NAH kah-NAHT-kuh.</em> = "She <del>is</del> Canadian." (female)<br>
-      This is one of the most important patterns Mike will keep using!
-    </div>
-
-    <div class="drill">
-      <h4>📋 Fill in the Pronoun</h4>
-      <ol>
-        <li>___ канадец. (Mike, about himself) → <span class="ans">Я канадец.</span> <em>(I am Canadian.)</em></li>
-        <li>___ студент? (asking Mike) → <span class="ans">Ты студент?</span> <em>(Are you a student?)</em></li>
-        <li>Это Анна. ___ русская. → <span class="ans">Она русская.</span> <em>(She is Russian.)</em></li>
-        <li>___ учим русский. → <span class="ans">Мы учим русский.</span> <em>(We are learning Russian.)</em></li>
-      </ol>
-    </div>
+  <div class="tip">
+    <strong>Teacher:</strong> Adapt these to Mike's actual life. Replace details as needed — these are <em>his</em> sentences to own. Let him suggest edits and build his own versions.
   </div>
 
-  <hr>
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">11</td>
+        <td class="en">I am Canadian, but I am learning Russian.</td>
+        <td class="ru">Я канадец, но я учу русский язык.</td>
+        <td class="pr">Ya kah-NAH-deets, no ya oo-CHOO ROOS-kiy ya-ZYK.</td>
+      </tr>
+      <tr>
+        <td class="num">12</td>
+        <td class="en">I have been studying Russian for a few weeks already.</td>
+        <td class="ru">Я учу русский уже несколько недель.</td>
+        <td class="pr">Ya oo-CHOO ROOS-kiy oo-ZHEH NYEHS-kol'-kuh nee-DYEL'.</td>
+      </tr>
+      <tr>
+        <td class="num">13</td>
+        <td class="en">Russian is difficult, but very interesting.</td>
+        <td class="ru">Русский трудный, но очень интересный.</td>
+        <td class="pr">ROOS-kiy TROOD-nyy, no OH-chen' een-tee-RYEHS-nyy.</td>
+      </tr>
+      <tr>
+        <td class="num">14</td>
+        <td class="en">I find the grammar especially challenging.</td>
+        <td class="ru">Грамматика мне особенно трудна.</td>
+        <td class="pr">Gra-MAH-tee-kah mnye a-SOH-been-nuh trood-NAH.</td>
+      </tr>
+      <tr>
+        <td class="num">15</td>
+        <td class="en">My teacher is very patient and explains everything clearly.</td>
+        <td class="ru">Мой учитель очень терпелив и объясняет всё ясно.</td>
+        <td class="pr">Moy oo-CHEE-tyel' OH-chen' teer-pee-LEEV ee ab-yas-NYA-yet fsyo YAHS-nuh.</td>
+      </tr>
+    </tbody>
+  </table>
 
-  <!-- ── SECTION 5: Mini Dialogue ── -->
-  <div class="section grey">
-    <div class="section-header">
-      <span class="num">05</span>
-      <h2>Мини-диалог — Mini Dialogue &amp; Wrap-Up</h2>
-      <span class="badge grey">7 min</span>
-    </div>
-
-    <div class="note">
-      <strong>Teacher:</strong> Role-play this short dialogue. Teacher plays Анна; Mike plays himself.
-      All vocabulary has been covered in today's lesson. Run it twice — once with prompts, once without.
-    </div>
-
-    <div class="dialogue">
-      <div class="line">
-        <span class="speaker">Анна:</span>
-        <span>
-          <div class="russian-line">Привет, Майк! Как дела?</div>
-          <div class="pron-line">Pree-VYET, Mayk! Kak dee-LAH?</div>
-          <div class="eng-line">Hi, Mike! How are you?</div>
-        </span>
-      </div>
-      <div class="line">
-        <span class="speaker">Майк:</span>
-        <span>
-          <div class="russian-line">Привет! Хорошо, спасибо. А ты?</div>
-          <div class="pron-line">Pree-VYET! Hah-rah-SHOH, spuh-SEE-buh. Ah tih?</div>
-          <div class="eng-line">Hi! Good, thanks. And you?</div>
-        </span>
-      </div>
-      <div class="line">
-        <span class="speaker">Анна:</span>
-        <span>
-          <div class="russian-line">Тоже хорошо! Какой сегодня день?</div>
-          <div class="pron-line">TOH-zheh hah-rah-SHOH! Kah-KOY see-VOHD-nyuh dyen'?</div>
-          <div class="eng-line">Good too! What day is today?</div>
-        </span>
-      </div>
-      <div class="line">
-        <span class="speaker">Майк:</span>
-        <span>
-          <div class="russian-line">Сегодня воскресенье.</div>
-          <div class="pron-line">See-VOHD-nyuh vuh-skree-SYEN-yeh.</div>
-          <div class="eng-line">Today is Sunday.</div>
-        </span>
-      </div>
-      <div class="line">
-        <span class="speaker">Анна:</span>
-        <span>
-          <div class="russian-line">Отлично! Ты канадец?</div>
-          <div class="pron-line">At-LEECH-nuh! Tih kah-NAH-deets?</div>
-          <div class="eng-line">Excellent! Are you Canadian?</div>
-        </span>
-      </div>
-      <div class="line">
-        <span class="speaker">Майк:</span>
-        <span>
-          <div class="russian-line">Да, я канадец. Я учу русский.</div>
-          <div class="pron-line">Dah, yah kah-NAH-deets. Yah oo-CHOO ROOS-kiy.</div>
-          <div class="eng-line">Yes, I am Canadian. I am learning Russian.</div>
-        </span>
-      </div>
-      <div class="line">
-        <span class="speaker">Анна:</span>
-        <span>
-          <div class="russian-line">Молодец! До свидания!</div>
-          <div class="pron-line">Muh-lah-DYETS! Duh svee-DAH-nee-yuh!</div>
-          <div class="eng-line">Well done! Goodbye!</div>
-        </span>
-      </div>
-      <div class="line">
-        <span class="speaker">Майк:</span>
-        <span>
-          <div class="russian-line">До свидания!</div>
-          <div class="pron-line">Duh svee-DAH-nee-yuh!</div>
-          <div class="eng-line">Goodbye!</div>
-        </span>
-      </div>
-    </div>
-
-    <!-- Homework -->
-    <div class="drill" style="margin-top: 20px;">
-      <h4>📚 Homework for Mike (before next lesson)</h4>
-      <ol>
-        <li>Memorise all 7 days of the week — say them aloud every morning.</li>
-        <li>Count to 10 in Russian, then count backwards from 10 to 1.</li>
-        <li>Write a 3-sentence "diary entry" in Russian using today's template:<br>
-          <em>Сегодня [день]. Я [profession/name]. Я учу русский.</em></li>
-        <li>Find the days of the week on a Russian calendar app — notice they start on Monday!</li>
-      </ol>
-    </div>
+  <div class="gram">
+    <strong>Notice — Short-form Adjective:</strong> In sentence 14, <span class="ru-ex">трудна</span>
+    <span class="pr-ex">(trood-NAH)</span> is the short form of <span class="ru-ex">трудный</span>, used as a predicate.
+    Compare: <span class="ru-ex">трудная задача</span> (a difficult task — long form, attribute) vs.
+    <span class="ru-ex">задача трудна</span> (the task is difficult — short form, predicate). See QuickStudy p. 4, Short Form of the Adjective.
   </div>
 
-  <!-- Summary -->
-  <div style="background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 24px; margin-top: 32px;">
-    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); margin-bottom: 12px;">✓ Today Mike Learned</h3>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.85rem; color: #c8c0b0;">
-      <div>✓ 5 key pronunciation sounds (е, ё, ы, р, ж)</div>
-      <div>✓ All 7 days of the week</div>
-      <div>✓ Numbers 1–10</div>
-      <div>✓ 7 personal pronouns (nominative)</div>
-      <div>✓ The zero-copula rule (no "to be")</div>
-      <div>✓ A complete mini-dialogue</div>
-    </div>
-    <div style="margin-top: 14px; font-size: 0.8rem; color: #888;">
-      Next lesson: Introduce verbs <strong style="color:#c8c0b0">быть</strong> (to be, past/future) &amp; <strong style="color:#c8c0b0">иметь</strong> (to have); numbers 11–20; months of the year.
+  <!-- Vocab -->
+  <div style="margin-top: 16px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">Key Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">погода</div><div class="p">pah-GOH-duh</div><div class="e">weather</div></div>
+    <div class="vocab-pill"><div class="r">весна</div><div class="p">vees-NAH</div><div class="e">spring</div></div>
+    <div class="vocab-pill"><div class="r">снег</div><div class="p">snyek</div><div class="e">snow</div></div>
+    <div class="vocab-pill"><div class="r">солнце</div><div class="p">SOHN-tseh</div><div class="e">sun</div></div>
+    <div class="vocab-pill"><div class="r">холодно</div><div class="p">HOH-lud-nuh</div><div class="e">it's cold</div></div>
+    <div class="vocab-pill"><div class="r">тепло</div><div class="p">tep-LOH</div><div class="e">it's warm</div></div>
+    <div class="vocab-pill"><div class="r">выходные</div><div class="p">vy-hud-NY-yeh</div><div class="e">weekend</div></div>
+    <div class="vocab-pill"><div class="r">отдыхать</div><div class="p">at-dy-HAT'</div><div class="e">to rest</div></div>
+    <div class="vocab-pill"><div class="r">читать</div><div class="p">chee-TAT'</div><div class="e">to read (imperf.)</div></div>
+    <div class="vocab-pill"><div class="r">дочитать</div><div class="p">duh-chee-TAT'</div><div class="e">to finish reading (perf.)</div></div>
+    <div class="vocab-pill"><div class="r">гулять</div><div class="p">goo-LYAT'</div><div class="e">to go for a walk</div></div>
+    <div class="vocab-pill"><div class="r">трудный</div><div class="p">TROOD-nyy</div><div class="e">difficult</div></div>
+  </div>
+
+  <!-- Homework -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write 3 sentences about your weekend in Russian using today's phrases. Use past tense — include at least one perfective and one imperfective verb.</li>
+      <li>Memorise the 7 weather expressions from the grammar box. Say one aloud every morning when you look outside.</li>
+      <li>Translate aloud without looking: <em>"On Sundays I usually drink coffee and read."</em> Then check against sentence 8.</li>
+      <li>Review sentences R1–R3 from last week — can you say all three from memory?</li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Telling time (Который час?) · Numbers 11–30 · Future tense with perfective verbs · Months of the year
     </div>
   </div>
 
 </div>
 
 <footer>
-  Russian Lesson for Mike &nbsp;·&nbsp; <span>26 апреля 2026</span> &nbsp;·&nbsp; Based on QuickStudy Russian Grammar (BarCharts, Inc.) &nbsp;·&nbsp; Pages 1, 2 &amp; 5
+  Russian with Oleks &nbsp;·&nbsp; <span>26 апреля 2026</span> &nbsp;·&nbsp;
+  Based on QuickStudy Russian Grammar (BarCharts, Inc.) · Pages 1, 2, 4 &amp; 5 &nbsp;·&nbsp; Student: Mike
 </footer>
 
 </body>
