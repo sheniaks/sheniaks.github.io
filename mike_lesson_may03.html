@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 3 May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #1a1412;
+    --paper:   #f5f0e8;
+    --cream:   #ede6d6;
+    --red:     #b03a2e;
+    --gold:    #c8922a;
+    --blue:    #2c4a7c;
+    --green:   #3a6b4a;
+    --border:  #d4c9b0;
+    --muted:   #7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 48px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  .gram-box table { font-size: 0.82rem; }
+  .gram-box table th { background: #2c4a7c; }
+  .gram-box table td { padding: 6px 10px; }
+  .gram-box table td.r { color: var(--red); font-weight: 600; font-size: 0.95rem; }
+  .gram-box table td.p { color: var(--blue); font-style: italic; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* Iotated vowel pair layout */
+  .iotated-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .iotated-card {
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 12px;
+    background: white;
+    text-align: center;
+  }
+  .iotated-card .pair {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .iotated-card .hard {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #999;
+    font-weight: 600;
+  }
+  .iotated-card .arrow { color: #ccc; font-size: 1rem; }
+  .iotated-card .soft {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--red);
+    font-weight: 800;
+  }
+  .iotated-card .sound {
+    font-size: 0.72rem;
+    color: var(--blue);
+    font-style: italic;
+    margin-bottom: 4px;
+  }
+  .iotated-card .gloss {
+    font-size: 0.72rem;
+    color: #666;
+  }
+
+  /* Letter focus card */
+  .letter-focus {
+    background: white;
+    border: 2px solid var(--red);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .letter-focus.ye { border-color: var(--green); }
+  .letter-focus.yo { border-color: var(--gold); }
+  .letter-focus.ya { border-color: #5a3a7a; }
+  .letter-focus.yu { border-color: var(--blue); }
+  .letter-focus.y-vowel { border-color: var(--red); }
+
+  .letter-focus .header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  .letter-focus .big-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .letter-focus.ye .big-letter { color: var(--green); }
+  .letter-focus.yo .big-letter { color: var(--gold); }
+  .letter-focus.ya .big-letter { color: #5a3a7a; }
+  .letter-focus.yu .big-letter { color: var(--blue); }
+  .letter-focus.y-vowel .big-letter { color: var(--red); }
+
+  .letter-focus .name { font-size: 0.85rem; color: var(--muted); margin-bottom: 2px; }
+  .letter-focus .description { font-size: 0.92rem; font-weight: 600; }
+  .letter-focus .trick {
+    background: var(--cream);
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-size: 0.83rem;
+    margin: 10px 0;
+  }
+  .letter-focus .trick strong { color: var(--ink); }
+
+  .drill-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .drill-word {
+    background: var(--cream);
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+  .drill-word .w { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .drill-word .pn { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .drill-word .en { color: #555; font-size: 0.74rem; }
+
+  /* Minimal pairs */
+  .minimal-pairs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .pair-row {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+  }
+  .pair-row .left, .pair-row .right {
+    flex: 1;
+  }
+  .pair-row .word { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 1rem; }
+  .pair-row .gloss { color: #666; font-size: 0.75rem; display: block; }
+  .pair-row .vs { color: #ccc; font-size: 0.85rem; font-weight: 700; }
+
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .iotated-grid { grid-template-columns: repeat(2, 1fr); }
+    .minimal-pairs { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 3 мая 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 3 May 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Pronunciation</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- LESSON OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Focus:</strong> Russian sounds that don't exist in English — the iotated vowels
+    <span style="color:var(--red); font-weight:600;">я, ю, е, ё</span> and the unique vowel
+    <span style="color:var(--red); font-weight:600;">ы</span>. By the end of the lesson Mike will pronounce
+    <em>выходные, ещё, шёл,</em> and <em>восхитительный</em> with confidence.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 1 — REVIEW: Tough Words from Last Week
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Words That Tripped You Up Last Time</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike struggled with these four words on April 26. Don't drill yet — just say each one slowly,
+    point out which sound caused the trouble, and tell him we'll fix all of them today.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>Word</th><th>Pronunciation</th><th>The Tricky Sound</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="ru">выходные</td>
+        <td class="pr">vy-had-NY-yeh</td>
+        <td class="en"><strong style="color:var(--red);">ы</strong> twice + iotated <strong style="color:var(--red);">ые</strong></td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="ru">восхитительный</td>
+        <td class="pr">vas-hee-TEE-teel'-nyy</td>
+        <td class="en">soft <strong style="color:var(--red);">ть</strong> + final <strong style="color:var(--red);">ый</strong></td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="ru">ещё</td>
+        <td class="pr">yee-SHCHOH</td>
+        <td class="en">opening <strong style="color:var(--red);">е</strong> (yeh) + щ + <strong style="color:var(--red);">ё</strong> (yoh)</td>
+      </tr>
+      <tr>
+        <td class="num">R4</td>
+        <td class="ru">шёл</td>
+        <td class="pr">shol</td>
+        <td class="en">special rule: <strong style="color:var(--red);">ё</strong> after ш = "o"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Big Insight Coming:</strong> Russian has 10 vowel letters but only 5 vowel <em>sounds</em>.
+    Each sound has a "hard" partner and a "soft" (iotated) partner. Once Mike sees the pattern,
+    these letters stop being random. Let's build it.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 2 — THE IOTATED VOWEL SYSTEM
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🧩</span>
+    <h2>The Iotated Vowel System — е, ё, я, ю</h2>
+    <div class="line"></div>
+    <span class="tag green">12 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Show this grid first. Each "iotated" vowel = a "y" sound + its hard partner.
+    They are not new sounds — they are <em>combinations</em> Mike already knows from English.
+  </div>
+
+  <div class="iotated-grid">
+    <div class="iotated-card">
+      <div class="pair">
+        <span class="hard">а</span><span class="arrow">→</span><span class="soft">я</span>
+      </div>
+      <div class="sound">"ah" → "yah"</div>
+      <div class="gloss">like "ya" in <em>yard</em></div>
+    </div>
+    <div class="iotated-card">
+      <div class="pair">
+        <span class="hard">у</span><span class="arrow">→</span><span class="soft">ю</span>
+      </div>
+      <div class="sound">"oo" → "yoo"</div>
+      <div class="gloss">like "you" or <em>Yule</em></div>
+    </div>
+    <div class="iotated-card">
+      <div class="pair">
+        <span class="hard">э</span><span class="arrow">→</span><span class="soft">е</span>
+      </div>
+      <div class="sound">"eh" → "yeh"</div>
+      <div class="gloss">like "ye" in <em>yes</em></div>
+    </div>
+    <div class="iotated-card">
+      <div class="pair">
+        <span class="hard">о</span><span class="arrow">→</span><span class="soft">ё</span>
+      </div>
+      <div class="sound">"oh" → "yoh"</div>
+      <div class="gloss">like "yo" in <em>yoga</em></div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>Three Rules of Iotated Vowels:</strong><br>
+    <strong>1.</strong> At the start of a word — pure "y + vowel" sound: <span class="ru-ex">я, юг, ель, ёлка</span><br>
+    <strong>2.</strong> After another vowel — same: <span class="ru-ex">моя</span> (ma-YA), <span class="ru-ex">моё</span> (ma-YOH)<br>
+    <strong>3.</strong> After a consonant — the "y" disappears, the consonant is <em>softened</em> instead:
+    <span class="ru-ex">тётя</span> (TYO-tya) — the т is softened, no separate "y" sound.
+  </div>
+
+  <!-- LETTER е -->
+  <div class="letter-focus ye">
+    <div class="header-row">
+      <div class="big-letter">Е е</div>
+      <div>
+        <div class="name">"yeh" — the most common iotated vowel</div>
+        <div class="description">Sounds like "ye" in <em>yes</em></div>
+      </div>
+    </div>
+    <div class="trick">
+      <strong>Trick for Mike:</strong> Whenever you see <strong>е</strong>, say "ye" as in <em>yes</em>.
+      When unstressed, it reduces to a softer "ee" sound: <span class="ru-ex">неделя</span> sounds like <em>nee-DYEL-ya</em>.
+    </div>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">если</span><span class="pn">YES-lee</span><span class="en">if</span></div>
+      <div class="drill-word"><span class="w">день</span><span class="pn">dyen'</span><span class="en">day</span></div>
+      <div class="drill-word"><span class="w">неделя</span><span class="pn">nee-DYEL-ya</span><span class="en">week</span></div>
+      <div class="drill-word"><span class="w">небо</span><span class="pn">NYE-buh</span><span class="en">sky</span></div>
+      <div class="drill-word"><span class="w">хлеб</span><span class="pn">hlyep</span><span class="en">bread</span></div>
+      <div class="drill-word"><span class="w">меню</span><span class="pn">mee-NYU</span><span class="en">menu</span></div>
+    </div>
+  </div>
+
+  <!-- LETTER ё -->
+  <div class="letter-focus yo">
+    <div class="header-row">
+      <div class="big-letter">Ё ё</div>
+      <div>
+        <div class="name">"yoh" — always stressed</div>
+        <div class="description">Sounds like "yo" in <em>yoga</em></div>
+      </div>
+    </div>
+    <div class="trick">
+      <strong>Two key rules:</strong><br>
+      <strong>1.</strong> Ё is <em>always stressed</em>. If you see ё, that syllable is the loudest.<br>
+      <strong>2.</strong> After <strong>ш, ж, ч, щ</strong> the "y" disappears — ё just sounds like "o".
+      That's why <span class="ru-ex">шёл</span> = <em>shol</em>, not "shyol."
+    </div>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">ёлка</span><span class="pn">YOL-kuh</span><span class="en">fir tree</span></div>
+      <div class="drill-word"><span class="w">моё</span><span class="pn">mah-YO</span><span class="en">my (neut.)</span></div>
+      <div class="drill-word"><span class="w">всё</span><span class="pn">fsyo</span><span class="en">everything</span></div>
+      <div class="drill-word"><span class="w">тётя</span><span class="pn">TYO-tya</span><span class="en">aunt</span></div>
+      <div class="drill-word"><span class="w">идёт</span><span class="pn">ee-DYOT</span><span class="en">goes</span></div>
+      <div class="drill-word"><span class="w" style="background:#fdf0d8;">шёл</span><span class="pn">shol</span><span class="en">walked (m.)</span></div>
+      <div class="drill-word"><span class="w" style="background:#fdf0d8;">ещё</span><span class="pn">yee-SHCHO</span><span class="en">still / more</span></div>
+    </div>
+  </div>
+
+  <!-- LETTER я -->
+  <div class="letter-focus ya">
+    <div class="header-row">
+      <div class="big-letter">Я я</div>
+      <div>
+        <div class="name">"yah"</div>
+        <div class="description">Sounds like "ya" in <em>yard</em></div>
+      </div>
+    </div>
+    <div class="trick">
+      <strong>Trick for Mike:</strong> The word <span class="ru-ex">я</span> means "I" and is itself just one letter.
+      When unstressed, я reduces to a soft "yi" sound: <span class="ru-ex">язык</span> sounds like <em>yi-ZYK</em>, not "ya-ZYK."
+    </div>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">я</span><span class="pn">ya</span><span class="en">I</span></div>
+      <div class="drill-word"><span class="w">мясо</span><span class="pn">MYA-suh</span><span class="en">meat</span></div>
+      <div class="drill-word"><span class="w">пять</span><span class="pn">pyat'</span><span class="en">five</span></div>
+      <div class="drill-word"><span class="w">семья</span><span class="pn">seem-YA</span><span class="en">family</span></div>
+      <div class="drill-word"><span class="w">ясно</span><span class="pn">YAS-nuh</span><span class="en">clear</span></div>
+      <div class="drill-word"><span class="w">тётя</span><span class="pn">TYO-tya</span><span class="en">aunt</span></div>
+    </div>
+  </div>
+
+  <!-- LETTER ю -->
+  <div class="letter-focus yu">
+    <div class="header-row">
+      <div class="big-letter">Ю ю</div>
+      <div>
+        <div class="name">"yoo"</div>
+        <div class="description">Sounds like "you" or "yule"</div>
+      </div>
+    </div>
+    <div class="trick">
+      <strong>Trick for Mike:</strong> The English word "you" is exactly the sound ю. Easy! Watch for it
+      in verb endings (<span class="ru-ex">учу, гуляю, отдыхаю</span>) where it means "I do something."
+    </div>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">юг</span><span class="pn">yook</span><span class="en">south</span></div>
+      <div class="drill-word"><span class="w">июнь</span><span class="pn">ee-YUN'</span><span class="en">June</span></div>
+      <div class="drill-word"><span class="w">люблю</span><span class="pn">lyub-LYU</span><span class="en">I love</span></div>
+      <div class="drill-word"><span class="w">учу</span><span class="pn">oo-CHU</span><span class="en">I study</span></div>
+      <div class="drill-word"><span class="w">гуляю</span><span class="pn">goo-LYA-yu</span><span class="en">I walk</span></div>
+      <div class="drill-word"><span class="w">меню</span><span class="pn">mee-NYU</span><span class="en">menu</span></div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 3 — THE LETTER Ы
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🎯</span>
+    <h2>The Sound of Ы — Russia's Unique Vowel</h2>
+    <div class="line"></div>
+    <span class="tag red">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> This is the only Russian vowel with no English equivalent. Spend real time here.
+    Have Mike feel the position of his tongue.
+  </div>
+
+  <div class="letter-focus y-vowel">
+    <div class="header-row">
+      <div class="big-letter">Ы ы</div>
+      <div>
+        <div class="name">"ɨ" — the murky vowel</div>
+        <div class="description">No English equivalent. Made deep in the back of the mouth.</div>
+      </div>
+    </div>
+    <div class="trick">
+      <strong>How to make the sound — three steps:</strong><br>
+      <strong>1.</strong> Smile slightly and start saying "ee" (as in <em>see</em>).<br>
+      <strong>2.</strong> Without changing your lips, pull your tongue <em>back</em> in your mouth — like saying "oo" but with the lips of "ee."<br>
+      <strong>3.</strong> The result is murky, like the "i" in <em>ill</em> said with clenched teeth, or the "u" in Russian <em>but</em>.<br><br>
+      <strong>English approximation:</strong> The vowel in <em>roses</em> (the second one), or the "i" in <em>bit</em> said with the tongue pulled way back.
+    </div>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">ты</span><span class="pn">ty</span><span class="en">you (sing.)</span></div>
+      <div class="drill-word"><span class="w">мы</span><span class="pn">my</span><span class="en">we</span></div>
+      <div class="drill-word"><span class="w">вы</span><span class="pn">vy</span><span class="en">you (pl./formal)</span></div>
+      <div class="drill-word"><span class="w">сын</span><span class="pn">syn</span><span class="en">son</span></div>
+      <div class="drill-word"><span class="w">сыр</span><span class="pn">syr</span><span class="en">cheese</span></div>
+      <div class="drill-word"><span class="w">рыба</span><span class="pn">RY-ba</span><span class="en">fish</span></div>
+      <div class="drill-word"><span class="w">был</span><span class="pn">byl</span><span class="en">was (m.)</span></div>
+      <div class="drill-word"><span class="w" style="background:#fde8e8;">выходные</span><span class="pn">vy-had-NY-yeh</span><span class="en">weekend</span></div>
+    </div>
+  </div>
+
+  <!-- Minimal Pairs ы vs и -->
+  <div class="gram-box">
+    <h4>Minimal Pairs — Ы vs И (Critical Distinction)</h4>
+    Mike will be tempted to pronounce ы as и (English "ee"). These pairs change meaning.
+    Practise saying both — feel the tongue moving forward (и) and back (ы).
+    <div class="minimal-pairs" style="margin-top:12px;">
+      <div class="pair-row">
+        <div class="left">
+          <span class="word">был</span>
+          <span class="gloss">was (м.)</span>
+        </div>
+        <div class="vs">vs.</div>
+        <div class="right">
+          <span class="word">бил</span>
+          <span class="gloss">was hitting</span>
+        </div>
+      </div>
+      <div class="pair-row">
+        <div class="left">
+          <span class="word">мы</span>
+          <span class="gloss">we</span>
+        </div>
+        <div class="vs">vs.</div>
+        <div class="right">
+          <span class="word">ми</span>
+          <span class="gloss">(musical note)</span>
+        </div>
+      </div>
+      <div class="pair-row">
+        <div class="left">
+          <span class="word">ты</span>
+          <span class="gloss">you</span>
+        </div>
+        <div class="vs">vs.</div>
+        <div class="right">
+          <span class="word">ти</span>
+          <span class="gloss">(name letter)</span>
+        </div>
+      </div>
+      <div class="pair-row">
+        <div class="left">
+          <span class="word">сыр</span>
+          <span class="gloss">cheese</span>
+        </div>
+        <div class="vs">vs.</div>
+        <div class="right">
+          <span class="word">сир</span>
+          <span class="gloss">sire</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 4 — PUTTING IT TOGETHER
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🗣</span>
+    <h2>Putting It Together — Real Sentences</h2>
+    <div class="line"></div>
+    <span class="tag gold">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Each sentence below is loaded with the sounds we drilled. After Mike reads each one,
+    underline the iotated vowels and circle every ы. Have him read it again, paying attention to those marks.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">I love my family very much.</td>
+        <td class="ru">Я очень люблю свою семью.</td>
+        <td class="pr">Ya OH-chen' lyub-LYU svah-YU seem-YU.</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">On the weekend we were resting at home.</td>
+        <td class="ru">В выходные мы отдыхали дома.</td>
+        <td class="pr">V vy-had-NY-yeh my at-dy-HA-lee DOH-ma.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">Yesterday he walked to the store.</td>
+        <td class="ru">Вчера он шёл в магазин.</td>
+        <td class="pr">Vchee-RA on shol v ma-ga-ZIN.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">Do you still want some tea?</td>
+        <td class="ru">Ты ещё хочешь чай?</td>
+        <td class="pr">Ty yee-SHCHO HOH-chesh' chai?</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">My aunt lives in the south.</td>
+        <td class="ru">Моя тётя живёт на юге.</td>
+        <td class="pr">Mah-YA TYO-tya zhi-VYOT na YU-gye.</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">The cake was delicious — give me one more piece.</td>
+        <td class="ru">Пирог был восхитительный — дай мне ещё кусок.</td>
+        <td class="pr">Pee-ROK byl vas-hee-TEE-teel'-nyy — day mnye yee-SHCHO koo-SOK.</td>
+      </tr>
+      <tr>
+        <td class="num">7</td>
+        <td class="en">We were learning Russian and we managed to clean up.</td>
+        <td class="ru">Мы учили русский и успели убраться.</td>
+        <td class="pr">My oo-CHEE-lee ROOS-kiy ee oos-PYE-lee oo-BRA-tsa.</td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td class="en">The sun is shining and everything is light.</td>
+        <td class="ru">Солнце светит и всё светло.</td>
+        <td class="pr">SOHN-tseh SVYE-teet ee fsyo svet-LO.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Did you notice?</strong> Sentence 6 contains all four words from last week's struggle list:
+    <span class="ru-ex">был</span> (ы), <span class="ru-ex">восхитительный</span>, <span class="ru-ex">ещё</span>, and the rhythm of <span class="ru-ex">пирог</span>.
+    Sentence 3 has <span class="ru-ex">шёл</span>. If Mike can read sentences 3 and 6 cleanly, today is a victory.
+  </div>
+
+
+  <!-- VOCAB STRIP -->
+  <div style="margin-top: 16px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">Today's Sound-Drill Vocabulary</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">я</div><div class="p">ya</div><div class="e">I</div></div>
+    <div class="vocab-pill"><div class="r">мы</div><div class="p">my</div><div class="e">we</div></div>
+    <div class="vocab-pill"><div class="r">ты</div><div class="p">ty</div><div class="e">you (s.)</div></div>
+    <div class="vocab-pill"><div class="r">вы</div><div class="p">vy</div><div class="e">you (pl./formal)</div></div>
+    <div class="vocab-pill"><div class="r">всё</div><div class="p">fsyo</div><div class="e">everything</div></div>
+    <div class="vocab-pill"><div class="r">ещё</div><div class="p">yee-SHCHO</div><div class="e">still / more</div></div>
+    <div class="vocab-pill"><div class="r">тётя</div><div class="p">TYO-tya</div><div class="e">aunt</div></div>
+    <div class="vocab-pill"><div class="r">семья</div><div class="p">seem-YA</div><div class="e">family</div></div>
+    <div class="vocab-pill"><div class="r">люблю</div><div class="p">lyub-LYU</div><div class="e">I love</div></div>
+    <div class="vocab-pill"><div class="r">сыр</div><div class="p">syr</div><div class="e">cheese</div></div>
+    <div class="vocab-pill"><div class="r">рыба</div><div class="p">RY-ba</div><div class="e">fish</div></div>
+    <div class="vocab-pill"><div class="r">сын</div><div class="p">syn</div><div class="e">son</div></div>
+    <div class="vocab-pill"><div class="r">юг</div><div class="p">yook</div><div class="e">south</div></div>
+    <div class="vocab-pill"><div class="r">июнь</div><div class="p">ee-YUN'</div><div class="e">June</div></div>
+    <div class="vocab-pill"><div class="r">небо</div><div class="p">NYE-buh</div><div class="e">sky</div></div>
+    <div class="vocab-pill"><div class="r">хлеб</div><div class="p">hlyep</div><div class="e">bread</div></div>
+  </div>
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Practise the four problem words from April 26 — <strong>выходные, восхитительный, ещё, шёл</strong> — three times each, every day. Record yourself if you can.</li>
+      <li>Read sentences 1–8 aloud, slowly, then at normal speed. Mark the iotated vowels (е, ё, я, ю) with one colour and every ы with another.</li>
+      <li>Practise the ы–и minimal pairs (был/бил, мы/ми, ты/ти, сыр/сир). Feel your tongue move forward and back.</li>
+      <li>Memory challenge: write 3 sentences about your weekend that include at least one word with ы, one with ё, and one with я.</li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Soft consonants and the soft sign ь (мать, день, есть) · Hard consonants ж, ш, ц · Stress and vowel reduction
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>3 мая 2026</span> &nbsp;·&nbsp;
+  Phonetics Focus · ы, ё, е, я, ю &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
