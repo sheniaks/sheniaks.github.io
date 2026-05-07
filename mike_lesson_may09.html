@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 9 May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #1a1412;
+    --paper:   #f5f0e8;
+    --cream:   #ede6d6;
+    --red:     #b03a2e;
+    --gold:    #c8922a;
+    --blue:    #2c4a7c;
+    --green:   #3a6b4a;
+    --border:  #d4c9b0;
+    --muted:   #7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 48px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Letter focus card (re-used from May 3) ── */
+  .letter-focus {
+    background: white;
+    border: 2px solid var(--red);
+    border-radius: 8px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .letter-focus .header-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  .letter-focus .big-letter {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--red);
+  }
+  .letter-focus .name { font-size: 0.85rem; color: var(--muted); margin-bottom: 2px; }
+  .letter-focus .description { font-size: 0.92rem; font-weight: 600; }
+  .letter-focus .trick {
+    background: var(--cream);
+    padding: 10px 14px;
+    border-radius: 5px;
+    font-size: 0.83rem;
+    margin: 10px 0;
+  }
+  .letter-focus .trick strong { color: var(--ink); }
+
+  .drill-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .drill-word {
+    background: var(--cream);
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+  .drill-word .w { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .drill-word .pn { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .drill-word .en { color: #555; font-size: 0.74rem; }
+
+  /* ── Word-pair (look-alike) cards ── */
+  .pair-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 14px 0;
+  }
+  .pair-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .pair-card h5 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .pair-card .pair-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .pair-card .pair-row:last-child { margin-bottom: 0; }
+  .pair-card .word-block {
+    text-align: center;
+  }
+  .pair-card .ru-word {
+    font-family: 'Playfair Display', serif;
+    color: var(--red);
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .pair-card .pron-line {
+    font-size: 0.72rem;
+    color: var(--blue);
+    font-style: italic;
+    display: block;
+    margin: 1px 0;
+  }
+  .pair-card .gloss-line {
+    font-size: 0.74rem;
+    color: #555;
+    display: block;
+  }
+  .pair-card .vs {
+    font-size: 0.7rem;
+    color: #ccc;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* ── Dog walking dialogue ── */
+  .dialogue {
+    background: #f8f4ec;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-top: 12px;
+  }
+  .dialogue .line {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e0d8c0;
+  }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker {
+    font-weight: 600;
+    color: var(--blue);
+    font-size: 0.85rem;
+  }
+  .dialogue .russian-line {
+    color: var(--red);
+    font-size: 1.02rem;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+  }
+  .dialogue .pron-line {
+    color: var(--blue);
+    font-style: italic;
+    font-size: 0.78rem;
+  }
+  .dialogue .eng-line {
+    color: #555;
+    font-size: 0.8rem;
+  }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .pair-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">суббота · 9 мая 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Saturday, 9 May 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">ы · Look-alikes · Walking the dog</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- LESSON OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) deeper drill on the <span style="color:var(--red); font-weight:600;">ы</span> sound,
+    (2) untangle Russian look-alike words that confuse English speakers
+    (<em>вчера / вечером</em>, <em>меня / мне</em>, etc.), and
+    (3) build a complete vocabulary kit for <strong>walking the dog</strong> — phrases Mike can use every day.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 1 — REVIEW & WARM-UP
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Last Week's Hard Sounds</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Read each word slowly. Mike repeats. Mark a ✓ for clean ones, ✗ for words still tough.
+    These are the words from May 3 — we want to see real progress on <em>выходные</em> and <em>ещё</em>.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>Word</th><th>Pronunciation</th><th>Sound</th></tr></thead>
+    <tbody>
+      <tr><td class="num">R1</td><td class="ru">выходные</td><td class="pr">vy-had-NY-yeh</td><td class="en">ы + ые</td></tr>
+      <tr><td class="num">R2</td><td class="ru">ещё</td><td class="pr">yee-SHCHO</td><td class="en">е + щ + ё</td></tr>
+      <tr><td class="num">R3</td><td class="ru">шёл</td><td class="pr">shol</td><td class="en">ш + ё (= "o")</td></tr>
+      <tr><td class="num">R4</td><td class="ru">тётя</td><td class="pr">TYO-tya</td><td class="en">ё + я (softening)</td></tr>
+      <tr><td class="num">R5</td><td class="ru">люблю</td><td class="pr">lyub-LYU</td><td class="en">ю twice</td></tr>
+    </tbody>
+  </table>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 2 — Ы DEEP DIVE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🎯</span>
+    <h2>The Ы Sound — Deeper Practice</h2>
+    <div class="line"></div>
+    <span class="tag red">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Last week we introduced ы. This week we make it a reflex. The trick: smile slightly,
+    pull your tongue <em>back</em>, like saying "oo" with the lips of "ee." Have Mike put a finger on his jaw to feel the position.
+  </div>
+
+  <!-- Letter focus -->
+  <div class="letter-focus">
+    <div class="header-row">
+      <div class="big-letter">Ы ы</div>
+      <div>
+        <div class="name">"ɨ" — the Russian back vowel</div>
+        <div class="description">Tongue back, lips relaxed, no smile</div>
+      </div>
+    </div>
+    <div class="trick">
+      <strong>Quick test:</strong> Say "ee" — your tongue is forward, lips wide. Now say "oo" — your tongue is back, lips rounded.
+      For ы, keep the tongue <em>back</em> like "oo" but the lips <em>spread</em> like "ee." It feels weird. That means you're doing it right.
+    </div>
+  </div>
+
+  <!-- Common ы words -->
+  <div class="gram-box">
+    <h4>Common Words With Ы — Group 1: Pronouns &amp; Function Words</h4>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">ты</span><span class="pn">ty</span><span class="en">you (sing.)</span></div>
+      <div class="drill-word"><span class="w">мы</span><span class="pn">my</span><span class="en">we</span></div>
+      <div class="drill-word"><span class="w">вы</span><span class="pn">vy</span><span class="en">you (formal/pl.)</span></div>
+      <div class="drill-word"><span class="w">был</span><span class="pn">byl</span><span class="en">was (m.)</span></div>
+      <div class="drill-word"><span class="w">была</span><span class="pn">by-LA</span><span class="en">was (f.)</span></div>
+      <div class="drill-word"><span class="w">были</span><span class="pn">BY-lee</span><span class="en">were</span></div>
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Common Words With Ы — Group 2: Everyday Nouns</h4>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">сын</span><span class="pn">syn</span><span class="en">son</span></div>
+      <div class="drill-word"><span class="w">сыр</span><span class="pn">syr</span><span class="en">cheese</span></div>
+      <div class="drill-word"><span class="w">рыба</span><span class="pn">RY-ba</span><span class="en">fish</span></div>
+      <div class="drill-word"><span class="w">дым</span><span class="pn">dym</span><span class="en">smoke</span></div>
+      <div class="drill-word"><span class="w">мыло</span><span class="pn">MY-luh</span><span class="en">soap</span></div>
+      <div class="drill-word"><span class="w">цветы</span><span class="pn">tsvee-TY</span><span class="en">flowers</span></div>
+      <div class="drill-word"><span class="w">часы</span><span class="pn">chee-SY</span><span class="en">clock / watch</span></div>
+      <div class="drill-word"><span class="w">сады</span><span class="pn">sa-DY</span><span class="en">gardens</span></div>
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Common Words With Ы — Group 3: Verb Endings (-ыть, -ывать)</h4>
+    <div class="drill-words">
+      <div class="drill-word"><span class="w">мыть</span><span class="pn">myt'</span><span class="en">to wash</span></div>
+      <div class="drill-word"><span class="w">забыть</span><span class="pn">za-BYT'</span><span class="en">to forget</span></div>
+      <div class="drill-word"><span class="w">закрыть</span><span class="pn">za-KRYT'</span><span class="en">to close</span></div>
+      <div class="drill-word"><span class="w">открыть</span><span class="pn">at-KRYT'</span><span class="en">to open</span></div>
+      <div class="drill-word"><span class="w">отдыхать</span><span class="pn">at-dy-HAT'</span><span class="en">to rest</span></div>
+      <div class="drill-word"><span class="w">показывать</span><span class="pn">pa-KA-zy-vat'</span><span class="en">to show</span></div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>Pattern Insight:</strong> The plural of many nouns ends in <span class="ru-ex">-ы</span>:
+    цветок → <span class="ru-ex">цветы</span>, час → <span class="ru-ex">часы</span>, сад → <span class="ru-ex">сады</span>.
+    Most past-tense plurals also end in <span class="ru-ex">-ы</span>: <span class="ru-ex">были, читали, жили</span> (+ и).
+    This means Mike will hit ы every single day. Worth getting right.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 3 — LOOK-ALIKE WORDS
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🔍</span>
+    <h2>Easily Confused Words — The "False Friends" of Russian</h2>
+    <div class="line"></div>
+    <span class="tag purple">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> These pairs trip up every English speaker because they look or sound similar.
+    For each pair, say both words, point at the page, and ask Mike to translate. The goal is recognition, not memorisation.
+  </div>
+
+  <div class="pair-grid">
+
+    <!-- Pair 1 -->
+    <div class="pair-card">
+      <h5>⏰ Time words</h5>
+      <div class="pair-row">
+        <div class="word-block">
+          <span class="ru-word">вчера</span>
+          <span class="pron-line">vchee-RA</span>
+          <span class="gloss-line">yesterday</span>
+        </div>
+        <span class="vs">vs</span>
+        <div class="word-block">
+          <span class="ru-word">вечером</span>
+          <span class="pron-line">VYE-chee-rum</span>
+          <span class="gloss-line">in the evening</span>
+        </div>
+      </div>
+      <div class="trick" style="margin-top: 10px; padding: 8px 12px; font-size: 0.78rem;">
+        Both start with <strong>вчер-/вечер-</strong> but mean different things.
+        <strong>Вчера</strong> = yesterday (past day). <strong>Вечером</strong> = in the evening (time of day).
+        Tip: <em>вечер</em> = evening (cf. "vespers"); вчер<em>а</em> stresses the last syllable.
+      </div>
+    </div>
+
+    <!-- Pair 2 -->
+    <div class="pair-card">
+      <h5>👤 Pronoun cases (I / me)</h5>
+      <div class="pair-row">
+        <div class="word-block">
+          <span class="ru-word">меня</span>
+          <span class="pron-line">mee-NYA</span>
+          <span class="gloss-line">me (acc./gen.)</span>
+        </div>
+        <span class="vs">vs</span>
+        <div class="word-block">
+          <span class="ru-word">мне</span>
+          <span class="pron-line">mnye</span>
+          <span class="gloss-line">to me (dat.)</span>
+        </div>
+      </div>
+      <div class="trick" style="margin-top: 10px; padding: 8px 12px; font-size: 0.78rem;">
+        Both come from <strong>я</strong> (I). <strong>Меня</strong> = direct object ("he sees me") or possession ("I have"
+        = literally "by me"). <strong>Мне</strong> = "to/for me" — when something is given, told, or felt by me.
+      </div>
+    </div>
+
+    <!-- Pair 3 -->
+    <div class="pair-card">
+      <h5>🎯 Pronoun cases (you / her)</h5>
+      <div class="pair-row">
+        <div class="word-block">
+          <span class="ru-word">тебя</span>
+          <span class="pron-line">tee-BYA</span>
+          <span class="gloss-line">you (acc.)</span>
+        </div>
+        <span class="vs">vs</span>
+        <div class="word-block">
+          <span class="ru-word">тебе</span>
+          <span class="pron-line">tee-BYE</span>
+          <span class="gloss-line">to you (dat.)</span>
+        </div>
+      </div>
+      <div class="trick" style="margin-top: 10px; padding: 8px 12px; font-size: 0.78rem;">
+        Same pattern as меня/мне. <strong>Тебя</strong> = "you" as object. <strong>Тебе</strong> = "to you" — same -е ending as <em>мне</em>.
+        Question: <em>Как тебя зовут?</em> = "What's your name?" (lit. "How do they call you?")
+      </div>
+    </div>
+
+    <!-- Pair 4 -->
+    <div class="pair-card">
+      <h5>🌅 Time of day</h5>
+      <div class="pair-row">
+        <div class="word-block">
+          <span class="ru-word">утром</span>
+          <span class="pron-line">OOT-rum</span>
+          <span class="gloss-line">in the morning</span>
+        </div>
+        <span class="vs">vs</span>
+        <div class="word-block">
+          <span class="ru-word">завтра</span>
+          <span class="pron-line">ZAHF-truh</span>
+          <span class="gloss-line">tomorrow</span>
+        </div>
+      </div>
+      <div class="trick" style="margin-top: 10px; padding: 8px 12px; font-size: 0.78rem;">
+        These confuse many learners because <em>завтрак</em> = breakfast (morning meal). But <strong>завтра</strong> alone = tomorrow!
+        <strong>Утром</strong> = in the morning (any morning). <em>Завтра утром</em> = "tomorrow morning."
+      </div>
+    </div>
+
+    <!-- Pair 5 -->
+    <div class="pair-card">
+      <h5>📍 "Here" words</h5>
+      <div class="pair-row">
+        <div class="word-block">
+          <span class="ru-word">здесь</span>
+          <span class="pron-line">zdyes'</span>
+          <span class="gloss-line">here (location)</span>
+        </div>
+        <span class="vs">vs</span>
+        <div class="word-block">
+          <span class="ru-word">сюда</span>
+          <span class="pron-line">syu-DA</span>
+          <span class="gloss-line">to here (motion)</span>
+        </div>
+      </div>
+      <div class="trick" style="margin-top: 10px; padding: 8px 12px; font-size: 0.78rem;">
+        Russian splits "here" into <em>position</em> and <em>direction</em>.
+        <strong>Здесь</strong> = "I am here." <strong>Сюда</strong> = "Come here." (motion toward)
+        Same with там/туда (there/to there).
+      </div>
+    </div>
+
+    <!-- Pair 6 -->
+    <div class="pair-card">
+      <h5>🏠 "At home" / "to home"</h5>
+      <div class="pair-row">
+        <div class="word-block">
+          <span class="ru-word">дома</span>
+          <span class="pron-line">DOH-ma</span>
+          <span class="gloss-line">at home</span>
+        </div>
+        <span class="vs">vs</span>
+        <div class="word-block">
+          <span class="ru-word">домой</span>
+          <span class="pron-line">da-MOY</span>
+          <span class="gloss-line">homeward</span>
+        </div>
+      </div>
+      <div class="trick" style="margin-top: 10px; padding: 8px 12px; font-size: 0.78rem;">
+        Same root <strong>дом</strong> (house/home). <strong>Дома</strong> = "I am at home" (location).
+        <strong>Домой</strong> = "I'm going home" (motion). <em>Я иду домой</em> NOT <em>Я иду дома</em>.
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gram">
+    <strong>The Big Pattern:</strong> Russian distinguishes <em>where you ARE</em> from <em>where you're GOING</em>.
+    English uses "home" or "here" for both — Russian uses different words.
+    This will keep coming back as we learn cases. Don't memorise; absorb through use.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 4 — WALKING THE DOG
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🐕</span>
+    <h2>Прогулка с собакой — Walking the Dog</h2>
+    <div class="line"></div>
+    <span class="tag green">12 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> A practical mini-vocabulary Mike can use every day. Many phrases here repeat the ы sound
+    (<em>выходи, гулять идём, пошли</em>) so we keep drilling without it feeling like a drill.
+  </div>
+
+  <!-- Vocabulary -->
+  <div class="gram-box">
+    <h4>Core Vocabulary — The Walk</h4>
+    <div class="vocab-row">
+      <div class="vocab-pill"><div class="r">собака</div><div class="p">sa-BA-ka</div><div class="e">dog (always fem.)</div></div>
+      <div class="vocab-pill"><div class="r">пёс</div><div class="p">pyos</div><div class="e">dog (masc.)</div></div>
+      <div class="vocab-pill"><div class="r">щенок</div><div class="p">shchee-NOK</div><div class="e">puppy</div></div>
+      <div class="vocab-pill"><div class="r">поводок</div><div class="p">pa-va-DOK</div><div class="e">leash</div></div>
+      <div class="vocab-pill"><div class="r">ошейник</div><div class="p">a-SHEY-neek</div><div class="e">collar</div></div>
+      <div class="vocab-pill"><div class="r">прогулка</div><div class="p">pra-GOOL-ka</div><div class="e">a walk</div></div>
+      <div class="vocab-pill"><div class="r">парк</div><div class="p">park</div><div class="e">park</div></div>
+      <div class="vocab-pill"><div class="r">улица</div><div class="p">OO-lee-tsa</div><div class="e">street</div></div>
+      <div class="vocab-pill"><div class="r">мяч</div><div class="p">myach</div><div class="e">ball</div></div>
+      <div class="vocab-pill"><div class="r">палка</div><div class="p">PAL-ka</div><div class="e">stick</div></div>
+      <div class="vocab-pill"><div class="r">вода</div><div class="p">va-DA</div><div class="e">water</div></div>
+    </div>
+    <div class="gram" style="margin-top: 10px; margin-bottom: 0;">
+      <strong>Mabo is male!</strong> Russian has two words for "dog":
+      <span class="ru-ex">собака</span> is grammatically <em>feminine</em> regardless of the dog's actual sex
+      (you'd still say <em>моя собака</em> for Mabo). <span class="ru-ex">пёс</span> is the masculine word —
+      use it when you want to emphasise he's a male dog: <em>мой пёс Мабо</em> = "my dog Mabo."
+    </div>
+  </div>
+
+  <!-- Commands -->
+  <div class="gram-box">
+    <h4>Commands &amp; Calls — What You Say to the Dog</h4>
+    <table class="phrase-table" style="margin-top: 4px;">
+      <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+      <tbody>
+        <tr><td class="num">1</td><td class="en">Come here!</td><td class="ru">Ко мне!</td><td class="pr">Ka MNYE!</td></tr>
+        <tr><td class="num">2</td><td class="en">Sit!</td><td class="ru">Сидеть!</td><td class="pr">See-DYET'!</td></tr>
+        <tr><td class="num">3</td><td class="en">Lie down!</td><td class="ru">Лежать!</td><td class="pr">Lee-ZHAT'!</td></tr>
+        <tr><td class="num">4</td><td class="en">Stay! / Wait!</td><td class="ru">Ждать!</td><td class="pr">Zhdat'!</td></tr>
+        <tr><td class="num">5</td><td class="en">Give me your paw!</td><td class="ru">Дай лапу!</td><td class="pr">Day LA-poo!</td></tr>
+        <tr><td class="num">6</td><td class="en">Fetch!</td><td class="ru">Принеси!</td><td class="pr">Pree-nee-SEE!</td></tr>
+        <tr><td class="num">7</td><td class="en">No! / Don't!</td><td class="ru">Нельзя!</td><td class="pr">Neel'-ZYA!</td></tr>
+        <tr><td class="num">8</td><td class="en">Good boy / good girl!</td><td class="ru">Хороший мальчик / хорошая девочка!</td><td class="pr">Hah-ROH-shyy MAL'-cheek / hah-ROH-sha-ya DYE-vach-ka!</td></tr>
+        <tr><td class="num">9</td><td class="en">Let's go!</td><td class="ru">Пошли!</td><td class="pr">Pash-LEE!</td></tr>
+        <tr><td class="num">10</td><td class="en">Come out! / Get up!</td><td class="ru">Выходи!</td><td class="pr">Vy-ha-DEE!</td></tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top: 10px; margin-bottom: 0;">
+      <strong>Notice:</strong> <span class="ru-ex">Ко мне!</span> uses <strong>мне</strong> — the dative we just practised.
+      Literally "to me." The dog comes <em>to</em> you. Russian grammar is everywhere — even in dog commands!
+    </div>
+  </div>
+
+  <!-- Sentences for human conversation -->
+  <div class="gram-box">
+    <h4>Sentences for Humans — Talking About the Dog</h4>
+    <table class="phrase-table" style="margin-top: 4px;">
+      <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">11</td>
+          <td class="en">I'm going to walk the dog.</td>
+          <td class="ru">Я иду гулять с собакой.</td>
+          <td class="pr">Ya ee-DOO goo-LYAT' s sa-BA-koy.</td>
+        </tr>
+        <tr>
+          <td class="num">12</td>
+          <td class="en">Do you want to go for a walk?</td>
+          <td class="ru">Хочешь гулять?</td>
+          <td class="pr">HOH-cheesh' goo-LYAT'?</td>
+        </tr>
+        <tr>
+          <td class="num">13</td>
+          <td class="en">In the morning we go to the park.</td>
+          <td class="ru">Утром мы идём в парк.</td>
+          <td class="pr">OOT-rum my ee-DYOM v park.</td>
+        </tr>
+        <tr>
+          <td class="num">14</td>
+          <td class="en">Yesterday evening we walked for an hour.</td>
+          <td class="ru">Вчера вечером мы гуляли час.</td>
+          <td class="pr">Vchee-RA VYE-chee-rum my goo-LYA-lee chas.</td>
+        </tr>
+        <tr>
+          <td class="num">15</td>
+          <td class="en">Give me the leash, please.</td>
+          <td class="ru">Дай мне поводок, пожалуйста.</td>
+          <td class="pr">Day mnye pa-va-DOK, pa-ZHA-loo-sta.</td>
+        </tr>
+        <tr>
+          <td class="num">16</td>
+          <td class="en">My dog loves the park.</td>
+          <td class="ru">Мой пёс любит парк.</td>
+          <td class="pr">Moy pyos LYU-beet park.</td>
+        </tr>
+        <tr>
+          <td class="num">17</td>
+          <td class="en">It's time to go home.</td>
+          <td class="ru">Пора домой.</td>
+          <td class="pr">Pa-RA da-MOY.</td>
+        </tr>
+        <tr>
+          <td class="num">18</td>
+          <td class="en">He's tired. Let's rest.</td>
+          <td class="ru">Он устал. Давай отдохнём.</td>
+          <td class="pr">On oos-TAL. Da-VAY at-dah-NYOM.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top: 10px; margin-bottom: 0;">
+      <strong>Confused-words spotting:</strong> Sentence 14 has <em>вчера</em> AND <em>вечером</em> — yesterday in the evening.
+      Sentence 15 uses <em>мне</em> ("to me"). Sentence 17 uses <em>домой</em> (motion: homeward), not <em>дома</em>.
+      All from today's lesson!
+    </div>
+  </div>
+
+  <!-- Mini Dialogue -->
+  <div class="sec-label" style="margin-top: 28px;">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — A Walk Around the Block</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Мабо, хочешь гулять?</div>
+        <div class="pron-line">MA-bo, HOH-cheesh' goo-LYAT'?</div>
+        <div class="eng-line">Mabo, do you want to go for a walk?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">(Мабо:)</span>
+      <span>
+        <div class="russian-line">Гав! Гав!</div>
+        <div class="pron-line">Gahf! Gahf!</div>
+        <div class="eng-line">Woof! Woof!</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Хороший мальчик. Иди ко мне, дай мне надеть тебе ошейник.</div>
+        <div class="pron-line">Hah-ROH-shyy MAL'-cheek. Ee-DEE ka MNYE, day mnye na-DYET' tee-BYE a-SHEY-neek.</div>
+        <div class="eng-line">Good boy. Come to me, let me put your collar on.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Пошли! Сегодня вечером гуляем в парке.</div>
+        <div class="pron-line">Pash-LEE! See-VOHD-nyuh VYE-chee-rum goo-LYA-yem v PAR-ke.</div>
+        <div class="eng-line">Let's go! Tonight we're walking in the park.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Сидеть! Машина едет.</div>
+        <div class="pron-line">See-DYET'! Ma-SHY-na YE-deet.</div>
+        <div class="eng-line">Sit! A car is coming.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Молодец! Теперь пора домой.</div>
+        <div class="pron-line">Muh-lah-DYETS! Tee-PYER' pa-RA da-MOY.</div>
+        <div class="eng-line">Well done! Now it's time to go home.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Every time you walk the dog this week, say <strong>three commands in Russian</strong>: <em>Пошли! Сидеть! Ко мне!</em> Out loud. The dog won't judge.</li>
+      <li>Drill the ы words from Group 1 (ты, мы, вы, был, была, были) — say each five times. Tongue back, lips relaxed.</li>
+      <li>Translate without looking: <em>"Yesterday evening we walked in the park."</em> Then check sentence 14.</li>
+      <li>Pick three look-alike pairs (вчера/вечером, меня/мне, дома/домой) and write one sentence using each correctly.</li>
+      <li>Bonus: take a photo of <strong>Мабо</strong> and label it in Russian — <em>пёс, поводок, ошейник, мяч</em>.</li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Soft consonants &amp; the soft sign ь · Verbs of motion (идти / ходить / ехать) · Telling time (Который час?)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>9 мая 2026</span> &nbsp;·&nbsp;
+  Ы Drill · Look-alikes · Walking the Dog &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
