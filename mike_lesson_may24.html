@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 24 May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #1a1412;
+    --paper:   #f5f0e8;
+    --cream:   #ede6d6;
+    --red:     #b03a2e;
+    --gold:    #c8922a;
+    --blue:    #2c4a7c;
+    --green:   #3a6b4a;
+    --border:  #d4c9b0;
+    --muted:   #7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 48px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Past tense table ── */
+  .past-tense-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 10px 0;
+    font-size: 0.85rem;
+  }
+  .past-tense-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-align: left;
+  }
+  .past-tense-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .past-tense-table tr:nth-child(even) td { background: #f0ece2; }
+  .past-tense-table .gender-cell {
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+  }
+  .past-tense-table .verb-form {
+    font-family: 'Playfair Display', serif;
+    color: var(--red);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .past-tense-table .ending {
+    background: #fde8e8;
+    padding: 2px 6px;
+    border-radius: 3px;
+    color: var(--red);
+    font-weight: 700;
+  }
+  .past-tense-table .pron {
+    color: var(--blue);
+    font-style: italic;
+    font-size: 0.78rem;
+  }
+  .past-tense-table .example {
+    color: #555;
+    font-size: 0.78rem;
+  }
+
+  /* ── Temperature card ── */
+  .temp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .temp-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .temp-card.freezing { background: #e8eef8; border-color: #a8c4e0; }
+  .temp-card.cold     { background: #eef2f8; border-color: #c0d0e0; }
+  .temp-card.cool     { background: #f0f4ec; border-color: #c8d0b8; }
+  .temp-card.warm     { background: #fdf0d8; border-color: #e0c890; }
+  .temp-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .temp-card .word {
+    font-family: 'Playfair Display', serif;
+    color: var(--red);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 6px;
+  }
+  .temp-card .pn {
+    color: var(--blue);
+    font-style: italic;
+    font-size: 0.72rem;
+    margin-top: 2px;
+  }
+  .temp-card .en {
+    color: #555;
+    font-size: 0.72rem;
+    margin-top: 4px;
+  }
+
+  /* ── Possessive grid ── */
+  .poss-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+  .poss-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .poss-card h5 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .poss-card .row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: 0.82rem;
+    align-items: baseline;
+  }
+  .poss-card .row .gender {
+    color: var(--muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .poss-card .row .form {
+    font-family: 'Playfair Display', serif;
+    color: var(--red);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .poss-card .row .pron {
+    color: var(--blue);
+    font-style: italic;
+    font-size: 0.72rem;
+    display: block;
+    margin-top: 1px;
+  }
+
+  /* ── Drill words ── */
+  .drill-words {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .drill-word {
+    background: var(--cream);
+    padding: 7px 12px;
+    border-radius: 4px;
+    font-size: 0.82rem;
+  }
+  .drill-word .w { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .drill-word .pn { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .drill-word .en { color: #555; font-size: 0.74rem; }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Dialogue ── */
+  .dialogue {
+    background: #f8f4ec;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-top: 12px;
+  }
+  .dialogue .line {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e0d8c0;
+  }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .temp-grid { grid-template-columns: repeat(2, 1fr); }
+    .poss-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 24 мая 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 24 May 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Past tense · Weather · Commands</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- LESSON OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) Master the <span style="color:var(--red); font-weight:600;">past tense pattern</span> — every verb agrees with gender,
+    (2) Build out <span style="color:var(--red); font-weight:600;">weather &amp; temperature</span> vocabulary so Mike can talk about any day,
+    (3) Lock in possessive pronouns (<em>мой, моя, моё, мои</em>), and
+    (4) Practise the Mabo command set Mike already uses daily.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 1 — REVIEW
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Sentences You Built Last Week</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike built all of these sentences on his own on May 17. Read each in Russian and have him translate.
+    Then have him try to say them again from the English prompt. These are <em>his</em> sentences now.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">I lost my voice.</td>
+        <td class="ru">Я потерял свой голос.</td>
+        <td class="pr">Ya pa-tee-RYAL svoy GOH-luhs.</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">It's cold enough in Winnipeg.</td>
+        <td class="ru">В Виннипеге достаточно холодно.</td>
+        <td class="pr">V Vee-nee-PEH-gyeh das-TAH-tuch-nuh HOH-lud-nuh.</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">Yesterday evening I walked with Mabo in the park.</td>
+        <td class="ru">Вчера вечером я гулял с Мабо в парке.</td>
+        <td class="pr">Vchee-RA VYE-chee-rum ya goo-LYAL s MA-bo v PAR-ke.</td>
+      </tr>
+      <tr>
+        <td class="num">R4</td>
+        <td class="en">Mabo doesn't like water but he loves taking a shower.</td>
+        <td class="ru">Мабо не любит воду, но он любит принимать душ.</td>
+        <td class="pr">MA-bo nye LYU-beet VOH-doo, no on LYU-beet pree-nee-MAT' doosh.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Spot the pattern:</strong> Look at R1 (<span class="ru-ex">потерял</span>) and R3 (<span class="ru-ex">гулял</span>).
+    Both end in <span class="ru-ex">-л</span>. That's the past-tense marker for masculine subjects. We're going to break this open today.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 2 — THE PAST TENSE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">⏳</span>
+    <h2>The Past Tense — Прошедшее время</h2>
+    <div class="line"></div>
+    <span class="tag gold">12 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Russian past tense is <em>simpler</em> than English — no auxiliary verbs, no "did," no "have done."
+    Just one ending that agrees with the <strong>subject's gender</strong>. Show Mike that he already knows several past-tense forms.
+  </div>
+
+  <div class="gram-box">
+    <h4>The Universal Pattern — Drop -ть, Add the Ending</h4>
+    Take the infinitive, drop the <strong>-ть</strong>, and add one of four endings based on who did the action.
+    <table class="past-tense-table" style="margin-top:12px;">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Ending</th>
+          <th>Example: гулять (to walk)</th>
+          <th>Sample sentence</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="gender-cell">Masculine (он, я♂)</td>
+          <td><span class="ending">-л</span></td>
+          <td><span class="verb-form">гулял</span> <span class="pron">goo-LYAL</span></td>
+          <td class="example"><em>Я гулял с Мабо.</em><br>I walked with Mabo. (male speaker)</td>
+        </tr>
+        <tr>
+          <td class="gender-cell">Feminine (она, я♀)</td>
+          <td><span class="ending">-ла</span></td>
+          <td><span class="verb-form">гуляла</span> <span class="pron">goo-LYA-la</span></td>
+          <td class="example"><em>Она гуляла с собакой.</em><br>She walked with the dog.</td>
+        </tr>
+        <tr>
+          <td class="gender-cell">Neuter (оно)</td>
+          <td><span class="ending">-ло</span></td>
+          <td><span class="verb-form">гуляло</span> <span class="pron">goo-LYA-luh</span></td>
+          <td class="example"><em>Солнце гуляло по небу.</em><br>The sun travelled across the sky.</td>
+        </tr>
+        <tr>
+          <td class="gender-cell">Plural (мы, вы, они)</td>
+          <td><span class="ending">-ли</span></td>
+          <td><span class="verb-form">гуляли</span> <span class="pron">goo-LYA-lee</span></td>
+          <td class="example"><em>Мы гуляли в парке.</em><br>We walked in the park.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top: 10px; margin-bottom: 0;">
+      <strong>Important — gender follows the speaker, not the verb:</strong>
+      Mike says <span class="ru-ex">я гулял</span> (м.) because <em>he</em> is male.
+      If a woman says it, she says <span class="ru-ex">я гуляла</span> (ж.).
+      The verb tracks the person doing it.
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Drill — Common Verbs You Already Know in Past Tense</h4>
+    <table class="phrase-table" style="margin-top:4px;">
+      <thead><tr><th>Infinitive</th><th>он (m.)</th><th>она (f.)</th><th>они (pl.)</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="ru">потерять</td>
+          <td class="ru">потерял</td>
+          <td class="ru">потеряла</td>
+          <td class="ru">потеряли</td>
+          <td class="en">to lose</td>
+        </tr>
+        <tr>
+          <td class="ru">гулять</td>
+          <td class="ru">гулял</td>
+          <td class="ru">гуляла</td>
+          <td class="ru">гуляли</td>
+          <td class="en">to walk</td>
+        </tr>
+        <tr>
+          <td class="ru">любить</td>
+          <td class="ru">любил</td>
+          <td class="ru">любила</td>
+          <td class="ru">любили</td>
+          <td class="en">to love</td>
+        </tr>
+        <tr>
+          <td class="ru">видеть</td>
+          <td class="ru">видел</td>
+          <td class="ru">видела</td>
+          <td class="ru">видели</td>
+          <td class="en">to see</td>
+        </tr>
+        <tr>
+          <td class="ru">взять</td>
+          <td class="ru">взял</td>
+          <td class="ru">взяла</td>
+          <td class="ru">взяли</td>
+          <td class="en">to take</td>
+        </tr>
+        <tr>
+          <td class="ru">быть</td>
+          <td class="ru">был</td>
+          <td class="ru">была</td>
+          <td class="ru">были</td>
+          <td class="en">to be</td>
+        </tr>
+        <tr>
+          <td class="ru">пойти</td>
+          <td class="ru">пошёл</td>
+          <td class="ru">пошла</td>
+          <td class="ru">пошли</td>
+          <td class="en">to go (a bit irregular)</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>Notice:</strong> <span class="ru-ex">пошёл / пошла / пошли</span> are slightly irregular —
+      the masculine form drops the vowel and adds ё. That's why <em>Пошли!</em> ("let's go") is technically the plural past tense:
+      "we went" = used as "let's go!"
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 3 — WEATHER & TEMPERATURE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🌡</span>
+    <h2>Погода и температура — Weather &amp; Temperature</h2>
+    <div class="line"></div>
+    <span class="tag green">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike asked <em>Какая температура сегодня?</em> last week — that's the perfect doorway into
+    a fuller weather conversation. Russians say temperatures in plus/minus, not "degrees above/below zero."
+  </div>
+
+  <div class="gram-box">
+    <h4>How Russians Talk About Temperature</h4>
+    The format is always: <span class="ru-ex">плюс / минус</span> + number.
+    The word <span class="ru-ex">градусов</span> (degrees) is usually dropped in conversation.
+    <div class="temp-grid" style="margin-top:12px;">
+      <div class="temp-card freezing">
+        <div class="num">−20</div>
+        <div class="word">очень холодно</div>
+        <div class="pn">OH-chen' HOH-lud-nuh</div>
+        <div class="en">very cold</div>
+      </div>
+      <div class="temp-card cold">
+        <div class="num">−5</div>
+        <div class="word">холодно</div>
+        <div class="pn">HOH-lud-nuh</div>
+        <div class="en">cold</div>
+      </div>
+      <div class="temp-card cool">
+        <div class="num">+10</div>
+        <div class="word">прохладно</div>
+        <div class="pn">prah-HLAD-nuh</div>
+        <div class="en">cool / fresh</div>
+      </div>
+      <div class="temp-card warm">
+        <div class="num">+22</div>
+        <div class="word">тепло</div>
+        <div class="pn">tep-LOH</div>
+        <div class="en">warm</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">What is the temperature today?</td>
+        <td class="ru">Какая сегодня температура?</td>
+        <td class="pr">Ka-KA-ya see-VOHD-nyuh teem-pee-ra-TOO-ra?</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">Today it's plus ten.</td>
+        <td class="ru">Сегодня плюс десять.</td>
+        <td class="pr">See-VOHD-nyuh plyus DYE-syat'.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">But there was a strong wind, so it felt much colder.</td>
+        <td class="ru">Но был сильный ветер, поэтому было намного холоднее.</td>
+        <td class="pr">No byl SEEL'-nyy VYE-teer, pa-EH-tah-moo BY-luh nam-NOH-guh hah-lad-NYE-yeh.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">Tomorrow they say it will be warmer.</td>
+        <td class="ru">Завтра, говорят, будет теплее.</td>
+        <td class="pr">ZAHF-truh, guh-vah-RYAT, BOO-deet tep-LYE-yeh.</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">I saw smoke on the horizon.</td>
+        <td class="ru">Я видел дым на горизонте.</td>
+        <td class="pr">Ya VEE-deel dym na guh-ree-ZON-tye.</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">There were wildfires nearby — the air smelled smoky.</td>
+        <td class="ru">Рядом были пожары — воздух был копчёный.</td>
+        <td class="pr">RYA-dum BY-lee pa-ZHA-ry — VOZ-dukh byl kup-CHO-nyy.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Comparative -ee/-ей:</strong> <span class="ru-ex">холодно</span> → <span class="ru-ex">холоднее</span> (colder),
+    <span class="ru-ex">тепло</span> → <span class="ru-ex">теплее</span> (warmer).
+    Most weather adverbs form their comparative by adding <span class="ru-ex">-ее</span>. Easy pattern!
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 4 — POSSESSIVE PRONOUNS
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🏷</span>
+    <h2>Possessive Pronouns — Мой, моя, моё, мои</h2>
+    <div class="line"></div>
+    <span class="tag purple">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike already used <em>мой пёс</em> and <em>моя семья</em>. Now he sees why the endings change —
+    they agree with the gender of the thing owned, not with the owner. From QuickStudy p. 2, Possessive Pronouns.
+  </div>
+
+  <div class="poss-grid">
+
+    <div class="poss-card">
+      <h5>My (mine)</h5>
+      <div class="row">
+        <span class="gender">m.</span>
+        <span><span class="form">мой</span><span class="pron">moy</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">f.</span>
+        <span><span class="form">моя</span><span class="pron">ma-YA</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">n.</span>
+        <span><span class="form">моё</span><span class="pron">ma-YO</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">pl.</span>
+        <span><span class="form">мои</span><span class="pron">ma-EE</span></span>
+      </div>
+    </div>
+
+    <div class="poss-card">
+      <h5>Your (informal)</h5>
+      <div class="row">
+        <span class="gender">m.</span>
+        <span><span class="form">твой</span><span class="pron">tvoy</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">f.</span>
+        <span><span class="form">твоя</span><span class="pron">tva-YA</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">n.</span>
+        <span><span class="form">твоё</span><span class="pron">tva-YO</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">pl.</span>
+        <span><span class="form">твои</span><span class="pron">tva-EE</span></span>
+      </div>
+    </div>
+
+    <div class="poss-card">
+      <h5>Our</h5>
+      <div class="row">
+        <span class="gender">m.</span>
+        <span><span class="form">наш</span><span class="pron">nash</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">f.</span>
+        <span><span class="form">наша</span><span class="pron">NA-sha</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">n.</span>
+        <span><span class="form">наше</span><span class="pron">NA-sheh</span></span>
+      </div>
+      <div class="row">
+        <span class="gender">pl.</span>
+        <span><span class="form">наши</span><span class="pron">NA-shi</span></span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gram-box">
+    <h4>Examples in Mike's Life</h4>
+    <table class="phrase-table" style="margin-top:4px;">
+      <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Why this ending?</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">7</td>
+          <td class="en">My dog (Mabo)</td>
+          <td class="ru">мой пёс</td>
+          <td class="en"><em>пёс</em> is masculine → <strong>мой</strong></td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td class="en">My family</td>
+          <td class="ru">моя семья</td>
+          <td class="en"><em>семья</em> is feminine → <strong>моя</strong></td>
+        </tr>
+        <tr>
+          <td class="num">9</td>
+          <td class="en">My voice</td>
+          <td class="ru">мой голос</td>
+          <td class="en"><em>голос</em> is masculine → <strong>мой</strong></td>
+        </tr>
+        <tr>
+          <td class="num">10</td>
+          <td class="en">My wall clock</td>
+          <td class="ru">мои настенные часы</td>
+          <td class="en"><em>часы</em> is plural → <strong>мои</strong></td>
+        </tr>
+        <tr>
+          <td class="num">11</td>
+          <td class="en">My garden / vegetable plot</td>
+          <td class="ru">мой огород</td>
+          <td class="en"><em>огород</em> is masculine → <strong>мой</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>The trick:</strong> Don't ask "what's <em>my</em> gender?" — ask "what's the gender of the <em>thing</em> I own?"
+      Then match the ending: -й (m.), -я (f.), -ё (n.), -и (pl.).
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 5 — MABO COMMANDS (review + new)
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🐕</span>
+    <h2>Команды Мабо — Mabo Commands (Review + New)</h2>
+    <div class="line"></div>
+    <span class="tag red">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike has been using these daily. Here's the full set now, including the new ones from last week
+    (<em>Стоять, Взять, Фу</em>). The infinitive form (<em>сидеть, лежать, стоять</em>) is used as a command — very Russian.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr><td class="num">12</td><td class="en">Come here!</td><td class="ru">Ко мне!</td><td class="pr">Ka MNYE!</td></tr>
+      <tr><td class="num">13</td><td class="en">Sit!</td><td class="ru">Сидеть!</td><td class="pr">See-DYET'!</td></tr>
+      <tr><td class="num">14</td><td class="en">Stand! / Halt!</td><td class="ru">Стоять!</td><td class="pr">Sta-YAT'!</td></tr>
+      <tr><td class="num">15</td><td class="en">Lie down!</td><td class="ru">Лежать!</td><td class="pr">Lee-ZHAT'!</td></tr>
+      <tr><td class="num">16</td><td class="en">Take it! / Fetch!</td><td class="ru">Взять!</td><td class="pr">Vzyat'!</td></tr>
+      <tr><td class="num">17</td><td class="en">No! Don't!</td><td class="ru">Нельзя!</td><td class="pr">Neel'-ZYA!</td></tr>
+      <tr><td class="num">18</td><td class="en">Drop it! / Yuck!</td><td class="ru">Фу!</td><td class="pr">Foo!</td></tr>
+      <tr><td class="num">19</td><td class="en">Let's go!</td><td class="ru">Пошли! / Идём!</td><td class="pr">Pash-LEE! / Ee-DYOM!</td></tr>
+      <tr><td class="num">20</td><td class="en">Good boy!</td><td class="ru">Молодец! / Хороший мальчик!</td><td class="pr">Muh-lah-DYETS! / Hah-ROH-shyy MAL'-cheek!</td></tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Pошли vs Идём:</strong> Both mean "let's go," but with a flavour difference.
+    <span class="ru-ex">Пошли!</span> = "we've already started moving" (more urgent, energetic).
+    <span class="ru-ex">Идём!</span> = "we are going / let's go" (present-tense, more neutral).
+    For Mabo at the door, both work.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 6 — MINI DIALOGUE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — Sunday Afternoon</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> This dialogue pulls past tense, weather, possessives, and Mabo commands together.
+    Read it through once, then swap roles. The goal is fluency, not perfection.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Привет, Майк! Как дела? Какая у вас сегодня температура?</div>
+        <div class="pron-line">Pree-VYET, Mayk! Kak dee-LA? Ka-KA-ya oo vas see-VOHD-nyuh teem-pee-ra-TOO-ra?</div>
+        <div class="eng-line">Hi, Mike! How are you? What's the temperature at your place today?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Привет! Сегодня плюс пятнадцать, но был сильный ветер.</div>
+        <div class="pron-line">Pree-VYET! See-VOHD-nyuh plyus peet-NAT-tsut', no byl SEEL'-nyy VYE-teer.</div>
+        <div class="eng-line">Hi! Today it's plus fifteen, but there was a strong wind.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Понятно. А что вы делали утром?</div>
+        <div class="pron-line">Pa-NYAT-nuh. A shto vy DYE-la-lee OOT-rum?</div>
+        <div class="eng-line">I see. And what did you do in the morning?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я гулял с Мабо в парке. Он любит бегать.</div>
+        <div class="pron-line">Ya goo-LYAL s MA-bo v PAR-ke. On LYU-beet BYE-gat'.</div>
+        <div class="eng-line">I walked with Mabo in the park. He loves to run.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">А где сейчас Мабо?</div>
+        <div class="pron-line">A gdye see-CHAS MA-bo?</div>
+        <div class="eng-line">And where is Mabo now?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Мабо спит. Он устал после прогулки.</div>
+        <div class="pron-line">MA-bo speet. On oos-TAL POS-leh pra-GOOL-kee.</div>
+        <div class="eng-line">Mabo is sleeping. He's tired after the walk.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Хорошо! Тогда пошли возьмём кофе после урока.</div>
+        <div class="pron-line">Hah-rah-SHOH! Tag-DA pash-LEE vahz'-MYOM KOH-feh POS-leh oo-ROH-ka.</div>
+        <div class="eng-line">Good! Then let's go grab a coffee after the lesson.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- TODAY'S VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">New Vocabulary from Today &amp; Last Week</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">температура</div><div class="p">teem-pee-ra-TOO-ra</div><div class="e">temperature</div></div>
+    <div class="vocab-pill"><div class="r">плюс / минус</div><div class="p">plyus / MEE-noos</div><div class="e">plus / minus</div></div>
+    <div class="vocab-pill"><div class="r">ветер</div><div class="p">VYE-teer</div><div class="e">wind</div></div>
+    <div class="vocab-pill"><div class="r">сильный</div><div class="p">SEEL'-nyy</div><div class="e">strong</div></div>
+    <div class="vocab-pill"><div class="r">холоднее</div><div class="p">hah-lad-NYE-yeh</div><div class="e">colder</div></div>
+    <div class="vocab-pill"><div class="r">теплее</div><div class="p">tep-LYE-yeh</div><div class="e">warmer</div></div>
+    <div class="vocab-pill"><div class="r">голос</div><div class="p">GOH-luhs</div><div class="e">voice</div></div>
+    <div class="vocab-pill"><div class="r">дым</div><div class="p">dym</div><div class="e">smoke</div></div>
+    <div class="vocab-pill"><div class="r">горизонт</div><div class="p">guh-ree-ZONT</div><div class="e">horizon</div></div>
+    <div class="vocab-pill"><div class="r">копчёный</div><div class="p">kup-CHO-nyy</div><div class="e">smoked / smoky</div></div>
+    <div class="vocab-pill"><div class="r">часы</div><div class="p">chee-SY</div><div class="e">clock / watch</div></div>
+    <div class="vocab-pill"><div class="r">настенные</div><div class="p">na-STYEN-ny-yeh</div><div class="e">wall (adj.)</div></div>
+    <div class="vocab-pill"><div class="r">огород</div><div class="p">a-ga-ROD</div><div class="e">veggie garden</div></div>
+    <div class="vocab-pill"><div class="r">палисадник</div><div class="p">pa-lee-SAD-neek</div><div class="e">front-yard garden</div></div>
+    <div class="vocab-pill"><div class="r">душ</div><div class="p">doosh</div><div class="e">shower</div></div>
+    <div class="vocab-pill"><div class="r">кошка / кот</div><div class="p">KOSH-ka / kot</div><div class="e">cat (f./m.)</div></div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write 5 past-tense sentences about your week using these verbs: <em>гулять, видеть, любить, взять, быть</em>. Use Mabo, your family, the weather — whatever feels real.</li>
+      <li>Every morning this week, ask yourself in Russian: <em>Какая сегодня температура?</em> Then answer aloud with <em>плюс</em> or <em>минус</em> + the number.</li>
+      <li>Pick five items in your house and label them with the correct possessive: <em>мой телефон, моя книга, моё окно, мои часы…</em></li>
+      <li>Drill the Mabo command set out loud — including the new ones: <strong>Стоять! Взять! Фу!</strong></li>
+      <li>Translate without looking: <em>"Yesterday it was cold but today it's warmer."</em> Then check sentence 4.</li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Verbs of motion (идти vs ходить vs ехать) · Days of the week revisited · Talking about hobbies (настольный теннис, гулять, читать)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>24 мая 2026</span> &nbsp;·&nbsp;
+  Past tense · Weather · Possessives · Mabo &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
