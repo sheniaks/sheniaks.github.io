@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 31 May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #1a1412;
+    --paper:   #f5f0e8;
+    --cream:   #ede6d6;
+    --red:     #b03a2e;
+    --gold:    #c8922a;
+    --blue:    #2c4a7c;
+    --green:   #3a6b4a;
+    --border:  #d4c9b0;
+    --muted:   #7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 48px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Motion verb cards ── */
+  .motion-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .motion-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+  .motion-card.foot-multi { border-color: var(--green); }
+  .motion-card.foot-single { border-color: var(--blue); }
+  .motion-card.vehicle { border-color: var(--gold); }
+  .motion-card .verb {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--red);
+    line-height: 1;
+  }
+  .motion-card .pn { color: var(--blue); font-style: italic; font-size: 0.74rem; margin-top: 4px; }
+  .motion-card .use { font-size: 0.78rem; color: #444; margin-top: 8px; }
+  .motion-card .label {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 700;
+    margin-top: 8px;
+    padding: 3px 0;
+    border-radius: 3px;
+  }
+  .motion-card.foot-multi .label { color: var(--green); }
+  .motion-card.foot-single .label { color: var(--blue); }
+  .motion-card.vehicle .label { color: var(--gold); }
+
+  /* ── Days of week strip ── */
+  .days-strip {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin: 14px 0;
+  }
+  .day-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px 6px;
+    text-align: center;
+  }
+  .day-card.weekend { background: #fdf0d8; border-color: #e0c890; }
+  .day-card .ru {
+    font-family: 'Playfair Display', serif;
+    color: var(--red);
+    font-weight: 600;
+    font-size: 0.82rem;
+    display: block;
+  }
+  .day-card .pn { color: var(--blue); font-style: italic; font-size: 0.62rem; display: block; margin-top: 3px; }
+  .day-card .en { color: #777; font-size: 0.65rem; display: block; margin-top: 2px; }
+
+  /* ── Library / book scene ── */
+  .library-box {
+    background: linear-gradient(135deg, #f8f4ec 0%, #fdf8ee 100%);
+    border: 1.5px solid var(--gold);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 14px 0;
+  }
+  .library-box .feature-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--red);
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .library-box .feature-pron {
+    text-align: center;
+    color: var(--blue);
+    font-style: italic;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+  }
+  .library-box .feature-en {
+    text-align: center;
+    color: #555;
+    font-size: 0.82rem;
+  }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Dialogue ── */
+  .dialogue {
+    background: #f8f4ec;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-top: 12px;
+  }
+  .dialogue .line {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e0d8c0;
+  }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .motion-grid { grid-template-columns: 1fr; }
+    .days-strip { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 31 мая 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 31 May 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Motion verbs · Days · Books</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- LESSON OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) Untangle the <span style="color:var(--red); font-weight:600;">verbs of motion</span> —
+    идти vs ходить vs ехать (the famous Russian headache), (2) revisit the <span style="color:var(--red); font-weight:600;">days of the week</span>
+    and learn how to say "on Monday," and (3) build a rich vocabulary around Mike's real passion —
+    <span style="color:var(--red); font-weight:600;">books and languages</span>.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 1 — REVIEW
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Past Tense &amp; Possessives</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike built these last week. Read each aloud; Mike translates. Watch the past-tense endings
+    and the possessive agreement. He nailed <em>Они гуляли и потеряли свои ключи</em> — make sure it's still solid.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">In the morning it was plus nine.</td>
+        <td class="ru">С утра было плюс девять.</td>
+        <td class="pr">S oot-RA BY-luh plyus DYE-veet'.</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">They walked in the park and lost their keys.</td>
+        <td class="ru">Они гуляли в парке и потеряли свои ключи.</td>
+        <td class="pr">A-NEE goo-LYA-lee v PAR-ke ee pa-tee-RYA-lee svah-EE klyu-CHEE.</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">During the workout yesterday I was tired.</td>
+        <td class="ru">Во время тренировки вчера я был уставший.</td>
+        <td class="pr">Va VRYE-mya tree-nee-ROF-kee vchee-RA ya byl oos-TAV-shyy.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Word-family bonus from last week:</strong> <span class="ru-ex">горизонт</span> (horizon) ·
+    <span class="ru-ex">зонт</span> (umbrella) · <span class="ru-ex">зонтик</span> (little umbrella) ·
+    <span class="ru-ex">зонд</span> (probe). They sound alike but only share sound, not meaning — a good ear-training set.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 2 — VERBS OF MOTION
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🚶</span>
+    <h2>Глаголы движения — Verbs of Motion</h2>
+    <div class="line"></div>
+    <span class="tag gold">14 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> This is one of Russian's trickiest topics, so go slowly. The key split: <em>on foot</em> vs
+    <em>by vehicle</em>, and within "on foot," <em>one direction now</em> vs <em>repeatedly / generally</em>.
+    Don't aim for mastery today — aim for the concept clicking. (QuickStudy p. 5, Verbs of Motion.)
+  </div>
+
+  <div class="gram-box">
+    <h4>The Big Three — On Foot vs By Vehicle</h4>
+    <div class="motion-grid">
+      <div class="motion-card foot-single">
+        <div class="verb">идти</div>
+        <div class="pn">eed-TEE</div>
+        <div class="use">to be going (on foot), right now, in one direction</div>
+        <div class="label">FOOT · ONE TRIP</div>
+      </div>
+      <div class="motion-card foot-multi">
+        <div class="verb">ходить</div>
+        <div class="pn">hah-DEET'</div>
+        <div class="use">to go (on foot) regularly, repeatedly, there &amp; back</div>
+        <div class="label">FOOT · HABIT</div>
+      </div>
+      <div class="motion-card vehicle">
+        <div class="verb">ехать</div>
+        <div class="pn">YE-hat'</div>
+        <div class="use">to go by vehicle (car, bus, train, plane)</div>
+        <div class="label">VEHICLE</div>
+      </div>
+    </div>
+    <div class="gram" style="margin-top: 10px; margin-bottom: 0;">
+      <strong>The golden rule:</strong> If your feet touch the ground the whole way → <span class="ru-ex">идти / ходить</span>.
+      If you sit in something that moves → <span class="ru-ex">ехать</span>.
+      Even if you "go" to Toronto, you say <span class="ru-ex">ехать</span> (or fly: <span class="ru-ex">лететь</span>) because you're not walking there!
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>идти vs ходить — One Trip vs A Habit</h4>
+    <table class="phrase-table" style="margin-top:4px;">
+      <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">1</td>
+          <td class="en">I am going to the park now. (one trip, happening now)</td>
+          <td class="ru">Я иду в парк сейчас.</td>
+          <td class="pr">Ya ee-DOO v park see-CHAS.</td>
+        </tr>
+        <tr>
+          <td class="num">2</td>
+          <td class="en">I go to the park every day. (habit, repeated)</td>
+          <td class="ru">Я хожу в парк каждый день.</td>
+          <td class="pr">Ya ha-ZHOO v park KAZH-dyy dyen'.</td>
+        </tr>
+        <tr>
+          <td class="num">3</td>
+          <td class="en">Mabo and I are walking home. (one trip, now)</td>
+          <td class="ru">Мы с Мабо идём домой.</td>
+          <td class="pr">My s MA-bo ee-DYOM da-MOY.</td>
+        </tr>
+        <tr>
+          <td class="num">4</td>
+          <td class="en">We are driving to Toronto on Friday. (by vehicle)</td>
+          <td class="ru">В пятницу мы едем в Торонто.</td>
+          <td class="pr">V PYAT-nee-tsoo my YE-deem v ta-RON-tuh.</td>
+        </tr>
+        <tr>
+          <td class="num">5</td>
+          <td class="en">I often fly to Toronto. (habit, by air)</td>
+          <td class="ru">Я часто летаю в Торонто.</td>
+          <td class="pr">Ya CHAS-tuh lee-TA-yu v ta-RON-tuh.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>Mike already knows this verb!</strong> Remember <span class="ru-ex">Идёт снег</span> ("it's snowing," lit. "snow goes")
+      and <span class="ru-ex">Пошли!</span> ("let's go")? Both come from <span class="ru-ex">идти</span>. You've been using motion verbs since lesson one.
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 3 — DAYS OF THE WEEK
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">📅</span>
+    <h2>Дни недели — Days of the Week, Revisited</h2>
+    <div class="line"></div>
+    <span class="tag green">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike has seen the days before. Today we add the crucial pattern: how to say
+    <em>"on"</em> a day. Russian uses <span style="color:var(--red);">в</span> + accusative. Point out that the days are not capitalised.
+  </div>
+
+  <div class="days-strip">
+    <div class="day-card">
+      <span class="ru">понедельник</span>
+      <span class="pn">puh-nee-DYEL'-neek</span>
+      <span class="en">Monday</span>
+    </div>
+    <div class="day-card">
+      <span class="ru">вторник</span>
+      <span class="pn">FTOR-neek</span>
+      <span class="en">Tuesday</span>
+    </div>
+    <div class="day-card">
+      <span class="ru">среда</span>
+      <span class="pn">sree-DA</span>
+      <span class="en">Wednesday</span>
+    </div>
+    <div class="day-card">
+      <span class="ru">четверг</span>
+      <span class="pn">chet-VYERK</span>
+      <span class="en">Thursday</span>
+    </div>
+    <div class="day-card">
+      <span class="ru">пятница</span>
+      <span class="pn">PYAT-nee-tsa</span>
+      <span class="en">Friday</span>
+    </div>
+    <div class="day-card weekend">
+      <span class="ru">суббота</span>
+      <span class="pn">soo-BOH-ta</span>
+      <span class="en">Saturday</span>
+    </div>
+    <div class="day-card weekend">
+      <span class="ru">воскресенье</span>
+      <span class="pn">vus-kree-SYEN'-ye</span>
+      <span class="en">Sunday</span>
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Saying "On" a Day — в + Accusative</h4>
+    <table class="phrase-table" style="margin-top:4px;">
+      <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">6</td>
+          <td class="en">On Monday I study Russian.</td>
+          <td class="ru">В понедельник я учу русский.</td>
+          <td class="pr">V puh-nee-DYEL'-neek ya oo-CHOO ROOS-kiy.</td>
+        </tr>
+        <tr>
+          <td class="num">7</td>
+          <td class="en">On Wednesday we go to the library.</td>
+          <td class="ru">В среду мы ходим в библиотеку.</td>
+          <td class="pr">V SRYE-doo my HOH-deem v beeb-lee-a-TYE-koo.</td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td class="en">On Sunday we have a lesson.</td>
+          <td class="ru">В воскресенье у нас урок.</td>
+          <td class="pr">V vus-kree-SYEN'-ye oo nas oo-ROK.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>Watch the spelling shift:</strong> среда → в <span class="ru-ex">среду</span>, пятница → в <span class="ru-ex">пятницу</span>.
+      The feminine <em>-а</em> ending becomes <em>-у</em> in the accusative. The other days don't change.
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 4 — BOOKS & LANGUAGES (Mike's theme)
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">📚</span>
+    <h2>Книги и языки — Books &amp; Languages</h2>
+    <div class="line"></div>
+    <span class="tag purple">12 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> This is Mike's world — he loves languages and reading, and he has a big library.
+    Build the whole section around <em>his</em> hobby so the vocabulary sticks. Let him describe his own shelves.
+  </div>
+
+  <div class="library-box">
+    <div class="feature-quote">Майк любит изучать языки и читать. У него большая библиотека.</div>
+    <div class="feature-pron">Mayk LYU-beet ee-zoo-CHAT' ya-zy-KEE ee chee-TAT'. Oo nee-VO bal'-SHA-ya beeb-lee-a-TYE-ka.</div>
+    <div class="feature-en">Mike loves learning languages and reading. He has a large library.</div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Core Vocabulary — The Bookworm's Kit</h4>
+    <div class="vocab-row">
+      <div class="vocab-pill"><div class="r">книга</div><div class="p">KNEE-ga</div><div class="e">book</div></div>
+      <div class="vocab-pill"><div class="r">библиотека</div><div class="p">beeb-lee-a-TYE-ka</div><div class="e">library</div></div>
+      <div class="vocab-pill"><div class="r">полка</div><div class="p">POL-ka</div><div class="e">shelf</div></div>
+      <div class="vocab-pill"><div class="r">страница</div><div class="p">stra-NEE-tsa</div><div class="e">page</div></div>
+      <div class="vocab-pill"><div class="r">обложка</div><div class="p">ab-LOSH-ka</div><div class="e">cover</div></div>
+      <div class="vocab-pill"><div class="r">автор</div><div class="p">AF-tur</div><div class="e">author</div></div>
+      <div class="vocab-pill"><div class="r">роман</div><div class="p">ra-MAN</div><div class="e">novel</div></div>
+      <div class="vocab-pill"><div class="r">словарь</div><div class="p">sla-VAR'</div><div class="e">dictionary</div></div>
+      <div class="vocab-pill"><div class="r">язык</div><div class="p">ya-ZYK</div><div class="e">language</div></div>
+      <div class="vocab-pill"><div class="r">перевод</div><div class="p">pee-ree-VOD</div><div class="e">translation</div></div>
+      <div class="vocab-pill"><div class="r">читатель</div><div class="p">chee-TA-teel'</div><div class="e">reader</div></div>
+      <div class="vocab-pill"><div class="r">глава</div><div class="p">gla-VA</div><div class="e">chapter</div></div>
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">9</td>
+        <td class="en">I love reading and learning languages.</td>
+        <td class="ru">Я люблю читать и изучать языки.</td>
+        <td class="pr">Ya lyub-LYU chee-TAT' ee ee-zoo-CHAT' ya-zy-KEE.</td>
+      </tr>
+      <tr>
+        <td class="num">10</td>
+        <td class="en">I have a large library at home.</td>
+        <td class="ru">У меня дома большая библиотека.</td>
+        <td class="pr">Oo mee-NYA DOH-ma bal'-SHA-ya beeb-lee-a-TYE-ka.</td>
+      </tr>
+      <tr>
+        <td class="num">11</td>
+        <td class="en">How many languages do you speak?</td>
+        <td class="ru">Сколько языков вы знаете?</td>
+        <td class="pr">SKOL'-ka ya-zy-KOF vy ZNA-ye-tye?</td>
+      </tr>
+      <tr>
+        <td class="num">12</td>
+        <td class="en">I am reading a novel in Russian.</td>
+        <td class="ru">Я читаю роман на русском.</td>
+        <td class="pr">Ya chee-TA-yu ra-MAN na ROOS-kum.</td>
+      </tr>
+      <tr>
+        <td class="num">13</td>
+        <td class="en">This book is on the top shelf.</td>
+        <td class="ru">Эта книга на верхней полке.</td>
+        <td class="pr">EH-ta KNEE-ga na VYERH-ney POL-kye.</td>
+      </tr>
+      <tr>
+        <td class="num">14</td>
+        <td class="en">I need a good dictionary.</td>
+        <td class="ru">Мне нужен хороший словарь.</td>
+        <td class="pr">Mnye NOO-zhen hah-ROH-shyy sla-VAR'.</td>
+      </tr>
+      <tr>
+        <td class="num">15</td>
+        <td class="en">What are you reading now?</td>
+        <td class="ru">Что вы сейчас читаете?</td>
+        <td class="pr">Shto vy see-CHAS chee-TA-ye-tye?</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Two verbs for "study/read":</strong> <span class="ru-ex">читать</span> = to read (text, books).
+    <span class="ru-ex">изучать</span> = to study / learn deeply (a subject, a language).
+    <span class="ru-ex">учить</span> = to learn / memorise. Mike <em>изучает</em> русский (studies it deeply)
+    and <em>учит</em> новые слова (memorises new words).
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 5 — MINI DIALOGUE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — In the Library</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> This dialogue pulls together motion verbs, a day of the week, and Mike's book vocabulary.
+    Read once, then swap roles.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, куда вы идёте?</div>
+        <div class="pron-line">Mayk, koo-DA vy ee-DYO-tye?</div>
+        <div class="eng-line">Mike, where are you going?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я иду в библиотеку. Я хожу туда каждую среду.</div>
+        <div class="pron-line">Ya ee-DOO v beeb-lee-a-TYE-koo. Ya ha-ZHOO too-DA KAZH-doo-yu SRYE-doo.</div>
+        <div class="eng-line">I'm going to the library. I go there every Wednesday.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Что вы читаете сейчас?</div>
+        <div class="pron-line">Shto vy chee-TA-ye-tye see-CHAS?</div>
+        <div class="eng-line">What are you reading now?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я читаю роман на русском. Это трудно, но интересно.</div>
+        <div class="pron-line">Ya chee-TA-yu ra-MAN na ROOS-kum. EH-ta TROOD-nuh, no een-tee-RYES-nuh.</div>
+        <div class="eng-line">I'm reading a novel in Russian. It's hard, but interesting.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Сколько языков вы знаете?</div>
+        <div class="pron-line">SKOL'-ka ya-zy-KOF vy ZNA-ye-tye?</div>
+        <div class="eng-line">How many languages do you know?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Английский, французский, немецкий, и теперь я изучаю русский.</div>
+        <div class="pron-line">An-GLEE-skiy, fran-TSOOZ-skiy, nee-MYETS-kiy, ee tee-PYER' ya ee-zoo-CHA-yu ROOS-kiy.</div>
+        <div class="eng-line">English, French, German, and now I'm learning Russian.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Молодец! У вас дома большая библиотека?</div>
+        <div class="pron-line">Muh-lah-DYETS! Oo vas DOH-ma bal'-SHA-ya beeb-lee-a-TYE-ka?</div>
+        <div class="eng-line">Well done! Do you have a big library at home?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Да, очень большая. Я люблю книги.</div>
+        <div class="pron-line">Da, OH-chen' bal'-SHA-ya. Ya lyub-LYU KNEE-gee.</div>
+        <div class="eng-line">Yes, very big. I love books.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write 3 sentences using motion verbs: one with <em>иду</em> (going now), one with <em>хожу</em> (a habit), one with <em>еду</em> (by vehicle).</li>
+      <li>For each day of the week, write one short sentence: <em>В понедельник я…, во вторник я…</em> Use the "в + day" pattern.</li>
+      <li>Describe your library in Russian — 3 sentences. Use: <em>книга, полка, словарь, язык, читать, изучать</em>.</li>
+      <li>Translate without looking: <em>"On Wednesday I go to the library and read a novel in Russian."</em> Then check sentences 7 &amp; 12.</li>
+      <li>Pick five books off your shelf and say each author aloud: <em>Это книга, автор — …</em></li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> The accusative case (where motion verbs &amp; "в + day" come from) · Numbers 11–30 · More on изучать / учить / читать
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>31 мая 2026</span> &nbsp;·&nbsp;
+  Motion Verbs · Days of the Week · Books &amp; Languages &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
