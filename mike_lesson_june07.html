@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 7 June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #1a1412;
+    --paper:   #f5f0e8;
+    --cream:   #ede6d6;
+    --red:     #b03a2e;
+    --gold:    #c8922a;
+    --blue:    #2c4a7c;
+    --green:   #3a6b4a;
+    --border:  #d4c9b0;
+    --muted:   #7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 48px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Case transformation cards ── */
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .case-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .case-card h5 {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .case-card .transform {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 0.85rem;
+  }
+  .case-card .transform:last-child { margin-bottom: 0; }
+  .case-card .nom { color: #666; text-align: center; }
+  .case-card .acc { color: var(--red); font-weight: 600; text-align: center; font-family: 'Playfair Display', serif; }
+  .case-card .arrow { color: var(--gold); font-weight: 700; }
+  .case-card .nom . end, .case-card .acc .end {
+    background: #fde8e8;
+    padding: 1px 4px;
+    border-radius: 3px;
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  /* ── Routine table ── */
+  .routine-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 12px 0; font-size: 0.85rem; }
+  .routine-table th { background: var(--ink); color: var(--paper); padding: 9px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; text-align: left; }
+  .routine-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .routine-table tr:nth-child(even) td { background: #f0ece2; }
+  .routine-table .day { font-family: 'Playfair Display', serif; color: var(--gold); font-weight: 600; white-space: nowrap; }
+  .routine-table .ru { color: var(--red); font-weight: 600; }
+  .routine-table .pr { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+
+  /* ── Word family ── */
+  .family-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .family-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .family-card .root {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+  }
+  .family-card .root .root-mark { color: var(--gold); }
+  .family-card .member {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    font-size: 0.82rem;
+    margin-bottom: 5px;
+  }
+  .family-card .member .w { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .family-card .member .g { color: #555; }
+  .family-card .member .p { color: var(--blue); font-style: italic; font-size: 0.72rem; display: block; }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Dialogue ── */
+  .dialogue {
+    background: #f8f4ec;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-top: 12px;
+  }
+  .dialogue .line {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e0d8c0;
+  }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .case-grid { grid-template-columns: 1fr; }
+    .family-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 7 июня 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 7 June 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Accusative · Routines · Word families</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- LESSON OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) Understand the <span style="color:var(--red); font-weight:600;">accusative case</span> —
+    the "destination" case behind <em>в парк, на работу, к другу</em>, (2) make the
+    <span style="color:var(--red); font-weight:600;">по + days</span> pattern explicit for talking about a weekly routine, and
+    (3) sharpen the ear with Russian <span style="color:var(--red); font-weight:600;">word families</span> Mike spotted last week.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 1 — REVIEW
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Motion Verbs in Action</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike used all of these last week — the motion verbs really clicked. Read each aloud; Mike translates.
+    Pay attention to <em>хожу / езжу / иду / еду</em> and which one fits.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">I go to school every day. (on foot, habit)</td>
+        <td class="ru">Я хожу в школу каждый день.</td>
+        <td class="pr">Ya ha-ZHOO v SHKOH-loo KAZH-dyy dyen'.</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">I go to work by car. (vehicle, habit)</td>
+        <td class="ru">Я езжу на работу на машине.</td>
+        <td class="pr">Ya YEZ-zhoo na ra-BOH-too na ma-SHY-nye.</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">Today I went to a friend's place. (vehicle, one trip, past)</td>
+        <td class="ru">Сегодня я поехал к другу.</td>
+        <td class="pr">See-VOHD-nyuh ya pa-YE-hal k DROO-goo.</td>
+      </tr>
+      <tr>
+        <td class="num">R4</td>
+        <td class="en">In Winnipeg it's very hot and sunny — plus thirty.</td>
+        <td class="ru">В Виннипеге очень жарко и солнечно — плюс тридцать.</td>
+        <td class="pr">V Vee-nee-PEH-gye OH-chen' ZHAR-kuh ee SOHL-neech-nuh — plyus TREED-tsut'.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Did you notice?</strong> Every destination last week took a special ending:
+    в шко<span class="ru-ex">лу</span>, на рабо<span class="ru-ex">ту</span>, к дру<span class="ru-ex">гу</span>.
+    Those endings aren't random — they're the <em>accusative</em> and <em>dative</em> cases. Today we crack the first one open.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 2 — THE ACCUSATIVE CASE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🎯</span>
+    <h2>The Accusative Case — Винительный падеж</h2>
+    <div class="line"></div>
+    <span class="tag gold">14 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> The accusative answers two questions: <em>"whom/what?"</em> (the direct object) and
+    <em>"where to?"</em> (the destination, with в/на). Don't overload Mike — focus on the two patterns he already uses every day.
+    (QuickStudy p. 2–3, Accusative.)
+  </div>
+
+  <div class="gram-box">
+    <h4>What the Accusative Does</h4>
+    Two everyday jobs:
+    <br><br>
+    <strong>1. The direct object</strong> — the thing receiving the action:
+    <span class="ru-ex">Я читаю кни<span style="background:#fde8e8;padding:1px 4px;border-radius:3px;">гу</span>.</span> (I read a book.)
+    <br>
+    <strong>2. The destination</strong> — where you're going, after в / на:
+    <span class="ru-ex">Я иду в шко<span style="background:#fde8e8;padding:1px 4px;border-radius:3px;">лу</span>.</span> (I'm going to school.)
+  </div>
+
+  <div class="case-grid">
+    <div class="case-card">
+      <h5>Feminine nouns: -а → -у, -я → -ю</h5>
+      <div class="transform">
+        <span class="nom">шко<span class="end">ла</span></span>
+        <span class="arrow">→</span>
+        <span class="acc">в шко<span class="end">лу</span></span>
+      </div>
+      <div class="transform">
+        <span class="nom">рабо<span class="end">та</span></span>
+        <span class="arrow">→</span>
+        <span class="acc">на рабо<span class="end">ту</span></span>
+      </div>
+      <div class="transform">
+        <span class="nom">кни<span class="end">га</span></span>
+        <span class="arrow">→</span>
+        <span class="acc">кни<span class="end">гу</span></span>
+      </div>
+      <div class="transform">
+        <span class="nom">среда</span>
+        <span class="arrow">→</span>
+        <span class="acc">в сре<span class="end">ду</span></span>
+      </div>
+    </div>
+    <div class="case-card">
+      <h5>Masculine &amp; neuter inanimate: no change!</h5>
+      <div class="transform">
+        <span class="nom">парк</span>
+        <span class="arrow">→</span>
+        <span class="acc">в парк</span>
+      </div>
+      <div class="transform">
+        <span class="nom">магазин</span>
+        <span class="arrow">→</span>
+        <span class="acc">в магазин</span>
+      </div>
+      <div class="transform">
+        <span class="nom">кафе</span>
+        <span class="arrow">→</span>
+        <span class="acc">в кафе</span>
+      </div>
+      <div class="transform">
+        <span class="nom">окно</span>
+        <span class="arrow">→</span>
+        <span class="acc">в окно</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>The big relief for Mike:</strong> For <em>inanimate</em> masculine and neuter nouns, the accusative looks
+    exactly like the dictionary form — <span class="ru-ex">парк → в парк</span>, no change at all!
+    Only feminine <span class="ru-ex">-а/-я</span> words shift (to <span class="ru-ex">-у/-ю</span>).
+    That's why <em>в парк</em> was easy but <em>в школу</em> changed.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">I'm going to the park on foot.</td>
+        <td class="ru">Я иду ногами в парк.</td>
+        <td class="pr">Ya ee-DOO na-GA-mee v park.</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">I'm going to the park by bus.</td>
+        <td class="ru">Я еду на автобусе в парк.</td>
+        <td class="pr">Ya YE-doo na af-TOH-boo-sye v park.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">I go to the café on the corner of my house.</td>
+        <td class="ru">Я хожу в кафе на углу моего дома.</td>
+        <td class="pr">Ya ha-ZHOO v ka-FE na oog-LOO ma-ye-VO DOH-ma.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">I go to the bookstore.</td>
+        <td class="ru">Я хожу в книжный магазин.</td>
+        <td class="pr">Ya ha-ZHOO v KNEEZH-nyy ma-ga-ZEEN.</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">I go to buy groceries.</td>
+        <td class="ru">Я хожу покупать продукты.</td>
+        <td class="pr">Ya ha-ZHOO pa-koo-PAT' pra-DOOK-ty.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 3 — WEEKLY ROUTINE (по + days)
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🗓</span>
+    <h2>Мой распорядок недели — My Weekly Routine</h2>
+    <div class="line"></div>
+    <span class="tag green">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Last week Mike used <em>по + days</em> beautifully — even ahead of the lesson. Let's make it explicit.
+    <strong>В + day</strong> = one specific day ("on Monday"). <strong>По + plural day</strong> = something recurring ("on Mondays, every Monday").
+    This is Mike's actual weekly schedule.
+  </div>
+
+  <div class="gram-box">
+    <h4>В vs ПО — Two Ways to Say "On" a Day</h4>
+    <div class="case-grid">
+      <div class="case-card">
+        <h5>В + accusative — one time</h5>
+        <div class="transform"><span class="nom">в понедельник</span><span class="arrow">=</span><span class="acc">on Monday</span></div>
+        <div class="transform"><span class="nom">во вторник</span><span class="arrow">=</span><span class="acc">on Tuesday</span></div>
+        <div class="transform"><span class="nom">в воскресенье</span><span class="arrow">=</span><span class="acc">on Sunday</span></div>
+      </div>
+      <div class="case-card">
+        <h5>По + dative plural — recurring</h5>
+        <div class="transform"><span class="nom">по средам</span><span class="arrow">=</span><span class="acc">on Wednesdays</span></div>
+        <div class="transform"><span class="nom">по четвергам</span><span class="arrow">=</span><span class="acc">on Thursdays</span></div>
+        <div class="transform"><span class="nom">по субботам</span><span class="arrow">=</span><span class="acc">on Saturdays</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Mike's Real Week — Майк рассказывает о своей неделе</h4>
+    <table class="routine-table">
+      <thead><tr><th>Day</th><th>Russian</th><th>English</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="day">Понедельник</td>
+          <td><span class="ru">В понедельник я готовлю план урока.</span><br><span class="pr">v puh-nee-DYEL'-neek ya ga-TOV-lyu plan oo-ROH-ka</span></td>
+          <td>On Monday I prepare the lesson plan.</td>
+        </tr>
+        <tr>
+          <td class="day">Вторник</td>
+          <td><span class="ru">Во вторник Аня проверяет мой урок.</span><br><span class="pr">va FTOR-neek A-nya pra-vee-RYA-yet moy oo-ROK</span></td>
+          <td>On Tuesday Anya checks my lesson.</td>
+        </tr>
+        <tr>
+          <td class="day">По средам</td>
+          <td><span class="ru">По средам я провожу урок английского.</span><br><span class="pr">pa SRYE-dam ya pra-va-ZHOO oo-ROK an-GLEE-skuh-vuh</span></td>
+          <td>On Wednesdays I teach an English lesson.</td>
+        </tr>
+        <tr>
+          <td class="day">По четвергам</td>
+          <td><span class="ru">По четвергам я получаю фидбек от студента.</span><br><span class="pr">pa chet-veer-GAM ya pa-loo-CHA-yu FEED-bek at stoo-DYEN-ta</span></td>
+          <td>On Thursdays I get feedback from a student.</td>
+        </tr>
+        <tr>
+          <td class="day">По пятницам</td>
+          <td><span class="ru">По пятницам я готовлюсь к уроку русского.</span><br><span class="pr">pa PYAT-nee-tsam ya ga-TOV-lyus' k oo-ROH-koo ROOS-kuh-vuh</span></td>
+          <td>On Fridays I prepare for the Russian lesson.</td>
+        </tr>
+        <tr>
+          <td class="day">По субботам</td>
+          <td><span class="ru">По субботам я смотрю ютуб на русском.</span><br><span class="pr">pa soo-BOH-tam ya sma-TRYU yu-TOOB na ROOS-kum</span></td>
+          <td>On Saturdays I watch YouTube in Russian.</td>
+        </tr>
+        <tr>
+          <td class="day">Воскресенье</td>
+          <td><span class="ru">В воскресенье у меня урок русского с Олексом.</span><br><span class="pr">v vus-kree-SYEN'-ye oo mee-NYA oo-ROK ROOS-kuh-vuh s a-LEK-sum</span></td>
+          <td>On Sunday I have a Russian lesson with Oleks.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>Spelling note:</strong> "во вторник" gets an extra <span class="ru-ex">-о</span> (во, not в) because вторник
+      starts with two consonants (вт-) — Russian adds the vowel to make it easier to say. Same reason we say
+      <span class="ru-ex">во вторник</span> but <span class="ru-ex">в среду</span>.
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 4 — WORD FAMILIES
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🌳</span>
+    <h2>Семьи слов — Word Families &amp; Roots</h2>
+    <div class="line"></div>
+    <span class="tag purple">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike has a great ear for these — he spotted them himself. Russian builds huge families from a single root.
+    Recognising the root unlocks dozens of words. Here are the ones from last week, plus how they connect.
+  </div>
+
+  <div class="family-grid">
+
+    <div class="family-card">
+      <div class="root">Root <span class="root-mark">-крес-/-воскрес-</span> — rising, resurrection</div>
+      <div class="member"><span class="w">воскресенье</span><span class="g">Sunday <span class="p">vus-kree-SYEN'-ye</span></span></div>
+      <div class="member"><span class="w">воскрес</span><span class="g">rose / resurrected <span class="p">vus-KRYES</span></span></div>
+      <div class="member"><span class="w">воскрешать</span><span class="g">to resurrect <span class="p">vus-kree-SHAT'</span></span></div>
+      <div class="member"><span class="w">Христос воскрес</span><span class="g">"Christ is risen" <span class="p">hrees-TOS vus-KRYES</span></span></div>
+    </div>
+
+    <div class="family-card">
+      <div class="root">Look-alikes: <span class="root-mark">глава / голова</span></div>
+      <div class="member"><span class="w">глава</span><span class="g">chapter; head (of org.) <span class="p">gla-VA</span></span></div>
+      <div class="member"><span class="w">голова</span><span class="g">head (body part) <span class="p">guh-la-VA</span></span></div>
+      <div class="member" style="grid-column:1/3; color:#777; font-size:0.76rem; margin-top:4px;">
+        Same ancient root (head → leader → chapter). <strong>Глава государства</strong> = head of state.
+        <strong>Болит голова</strong> = my head hurts.
+      </div>
+    </div>
+
+    <div class="family-card">
+      <div class="root">Root <span class="root-mark">верх-</span> — top, upper</div>
+      <div class="member"><span class="w">верх</span><span class="g">top <span class="p">vyerkh</span></span></div>
+      <div class="member"><span class="w">верхний</span><span class="g">upper (m.) <span class="p">VYERH-niy</span></span></div>
+      <div class="member"><span class="w">верхняя</span><span class="g">upper (f.) <span class="p">VYERH-nya-ya</span></span></div>
+      <div class="member"><span class="w">наверху</span><span class="g">up above <span class="p">na-veer-HOO</span></span></div>
+    </div>
+
+    <div class="family-card">
+      <div class="root">From last month: <span class="root-mark">-зонт-/-зонд-</span></div>
+      <div class="member"><span class="w">горизонт</span><span class="g">horizon <span class="p">guh-ree-ZONT</span></span></div>
+      <div class="member"><span class="w">зонт</span><span class="g">umbrella <span class="p">zont</span></span></div>
+      <div class="member"><span class="w">зонтик</span><span class="g">little umbrella <span class="p">ZON-teek</span></span></div>
+      <div class="member"><span class="w">зонд</span><span class="g">probe <span class="p">zond</span></span></div>
+    </div>
+
+  </div>
+
+  <div class="gram">
+    <strong>The takeaway:</strong> When Mike meets a new word, the move is to ask "what root do I recognise?"
+    <span class="ru-ex">верхняя полка</span> (upper shelf) is instantly clear once he knows <span class="ru-ex">верх</span> = top.
+    His language-learner instinct is exactly right here.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 5 — MINI DIALOGUE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — Talking About the Week</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> This pulls together the accusative (destinations), the routine pattern, and motion verbs.
+    Mike is always addressed with <strong>вы</strong>. Read once, then swap roles.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, какая у вас сегодня погода?</div>
+        <div class="pron-line">Mayk, ka-KA-ya oo vas see-VOHD-nyuh pa-GOH-da?</div>
+        <div class="eng-line">Mike, what's the weather like at your place today?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Сегодня прекрасный день — солнечно и тепло.</div>
+        <div class="pron-line">See-VOHD-nyuh pree-KRAS-nyy dyen' — SOHL-neech-nuh ee tep-LOH.</div>
+        <div class="eng-line">Today is a beautiful day — sunny and warm.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Что вы делаете по средам?</div>
+        <div class="pron-line">Shto vy DYE-la-ye-tye pa SRYE-dam?</div>
+        <div class="eng-line">What do you do on Wednesdays?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">По средам я провожу урок английского языка.</div>
+        <div class="pron-line">Pa SRYE-dam ya pra-va-ZHOO oo-ROK an-GLEE-skuh-vuh ya-zy-KA.</div>
+        <div class="eng-line">On Wednesdays I teach an English lesson.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">А куда вы идёте сейчас?</div>
+        <div class="pron-line">A koo-DA vy ee-DYO-tye see-CHAS?</div>
+        <div class="eng-line">And where are you going now?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я иду в книжный магазин, потом в кафе.</div>
+        <div class="pron-line">Ya ee-DOO v KNEEZH-nyy ma-ga-ZEEN, pa-TOM v ka-FE.</div>
+        <div class="eng-line">I'm going to the bookstore, then to a café.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Отлично! А в воскресенье у нас урок русского.</div>
+        <div class="pron-line">At-LEECH-nuh! A v vus-kree-SYEN'-ye oo nas oo-ROK ROOS-kuh-vuh.</div>
+        <div class="eng-line">Excellent! And on Sunday we have a Russian lesson.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Да! Я уже готовлюсь.</div>
+        <div class="pron-line">Da! Ya oo-ZHE ga-TOV-lyus'.</div>
+        <div class="eng-line">Yes! I'm already preparing.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- TODAY'S VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">New Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">школа</div><div class="p">SHKOH-la</div><div class="e">school</div></div>
+    <div class="vocab-pill"><div class="r">работа</div><div class="p">ra-BOH-ta</div><div class="e">work</div></div>
+    <div class="vocab-pill"><div class="r">машина</div><div class="p">ma-SHY-na</div><div class="e">car</div></div>
+    <div class="vocab-pill"><div class="r">автобус</div><div class="p">af-TOH-boos</div><div class="e">bus</div></div>
+    <div class="vocab-pill"><div class="r">магазин</div><div class="p">ma-ga-ZEEN</div><div class="e">store</div></div>
+    <div class="vocab-pill"><div class="r">книжный магазин</div><div class="p">KNEEZH-nyy</div><div class="e">bookstore</div></div>
+    <div class="vocab-pill"><div class="r">кафе</div><div class="p">ka-FE</div><div class="e">café</div></div>
+    <div class="vocab-pill"><div class="r">продукты</div><div class="p">pra-DOOK-ty</div><div class="e">groceries</div></div>
+    <div class="vocab-pill"><div class="r">урок</div><div class="p">oo-ROK</div><div class="e">lesson</div></div>
+    <div class="vocab-pill"><div class="r">план</div><div class="p">plan</div><div class="e">plan</div></div>
+    <div class="vocab-pill"><div class="r">проводить</div><div class="p">pra-va-DEET'</div><div class="e">to conduct / hold</div></div>
+    <div class="vocab-pill"><div class="r">готовиться</div><div class="p">ga-TOH-vee-tsa</div><div class="e">to prepare (oneself)</div></div>
+    <div class="vocab-pill"><div class="r">проверять</div><div class="p">pra-vee-RYAT'</div><div class="e">to check</div></div>
+    <div class="vocab-pill"><div class="r">получать</div><div class="p">pa-loo-CHAT'</div><div class="e">to receive</div></div>
+    <div class="vocab-pill"><div class="r">прекрасный</div><div class="p">pree-KRAS-nyy</div><div class="e">beautiful / lovely</div></div>
+    <div class="vocab-pill"><div class="r">жарко</div><div class="p">ZHAR-kuh</div><div class="e">hot (weather)</div></div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write your own weekly routine — one sentence per day. Use <strong>в + day</strong> for one-offs and <strong>по + days</strong> for things you do regularly.</li>
+      <li>Take five feminine nouns ending in -а (книга, школа, работа, машина, газета) and put each into the accusative after <em>Я вижу…</em> ("I see…"): <em>Я вижу книгу.</em></li>
+      <li>Say three destinations out loud: one on foot (<em>иду в…</em>), one by vehicle (<em>еду в… на машине</em>), one habitual (<em>хожу в…</em>).</li>
+      <li>Word-family hunt: find one more word built on each root — <em>верх-, глав-/голов-, воскрес-</em>. Bring them Sunday.</li>
+      <li>Translate without looking: <em>"On Wednesdays I teach English, and on Sundays I have a Russian lesson."</em></li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> The prepositional case (где? — в школе, на работе) · Numbers 11–30 · The dative (к другу, мне) revisited
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>7 июня 2026</span> &nbsp;·&nbsp;
+  Accusative Case · Weekly Routine · Word Families &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
