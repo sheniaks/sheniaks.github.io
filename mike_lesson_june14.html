@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 14 June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:     #1a1412;
+    --paper:   #f5f0e8;
+    --cream:   #ede6d6;
+    --red:     #b03a2e;
+    --gold:    #c8922a;
+    --blue:    #2c4a7c;
+    --green:   #3a6b4a;
+    --border:  #d4c9b0;
+    --muted:   #7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 32px 48px 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Case contrast (куда vs где) ── */
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .case-card {
+    background: white;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .case-card.kuda { border-color: var(--gold); }
+  .case-card.gde { border-color: var(--green); }
+  .case-card h5 {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    font-weight: 700;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+  }
+  .case-card.kuda h5 { color: var(--gold); }
+  .case-card.gde h5 { color: var(--green); }
+  .case-card .row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 7px;
+    font-size: 0.85rem;
+  }
+  .case-card .row:last-child { margin-bottom: 0; }
+  .case-card .q { text-align: center; color: #888; font-size: 0.8rem; }
+  .case-card .a { text-align: center; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .case-card .end { background: #fde8e8; padding: 1px 4px; border-radius: 3px; color: var(--red); font-weight: 700; }
+  .case-card .arrow { color: var(--gold); font-weight: 700; }
+
+  /* ── Word family ── */
+  .family-card {
+    background: white;
+    border: 1.5px solid var(--gold);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .family-card .root {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: var(--ink);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .family-card .root .root-mark { color: var(--gold); }
+  .family-members {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .family-members .member { font-size: 0.83rem; }
+  .family-members .member .w { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .family-members .member .p { color: var(--blue); font-style: italic; font-size: 0.72rem; display: block; }
+  .family-members .member .g { color: #555; font-size: 0.78rem; }
+
+  /* ── Aspect pair ── */
+  .aspect-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+  .aspect-card { border-radius: 5px; padding: 11px 14px; font-size: 0.82rem; }
+  .aspect-card.imp { background: #e8f0e4; border: 1px solid #a8c8a0; }
+  .aspect-card.pfv { background: #fde8e0; border: 1px solid #e0a898; }
+  .aspect-card h5 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 5px; font-weight: 700; }
+  .aspect-card.imp h5 { color: var(--green); }
+  .aspect-card.pfv h5 { color: var(--red); }
+  .aspect-card .verb { font-size: 1.05rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .aspect-card.imp .verb { color: var(--green); }
+  .aspect-card.pfv .verb { color: var(--red); }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Garden scene box ── */
+  .scene-box {
+    background: linear-gradient(135deg, #eef4e8 0%, #f8f4ec 100%);
+    border: 1.5px solid var(--green);
+    border-radius: 8px;
+    padding: 18px 22px;
+    margin: 14px 0;
+  }
+  .scene-box .feature-quote { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--red); font-style: italic; text-align: center; margin-bottom: 6px; }
+  .scene-box .feature-pron { text-align: center; color: var(--blue); font-style: italic; font-size: 0.8rem; margin-bottom: 4px; }
+  .scene-box .feature-en { text-align: center; color: #555; font-size: 0.82rem; }
+
+  /* ── Dialogue ── */
+  .dialogue {
+    background: #f8f4ec;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-top: 12px;
+  }
+  .dialogue .line {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #e0d8c0;
+  }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .case-grid { grid-template-columns: 1fr; }
+    .family-members { grid-template-columns: 1fr; }
+    .aspect-pair { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 14 июня 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 14 June 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Summer · Garden · Plans</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- LESSON OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) Learn to say <span style="color:var(--red); font-weight:600;">where things ARE</span> —
+    the "где?" pattern (в саду, на даче), the natural partner to the "куда?" Mike already uses,
+    (2) build summer &amp; <span style="color:var(--red); font-weight:600;">garden</span> vocabulary for the season,
+    and (3) make <span style="color:var(--red); font-weight:600;">plans to meet</span> using the встреча word family from last week.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 1 — REVIEW
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Opinions &amp; Recommendations</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike worked on opinion phrases last week. Read each aloud; Mike translates, then makes the sentence his own
+    by swapping in a different book, author, or language.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">I recommend this book.</td>
+        <td class="ru">Я рекомендую эту книгу.</td>
+        <td class="pr">Ya ree-ka-meen-DOO-yu EH-too KNEE-goo.</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">I prefer to read in the evening.</td>
+        <td class="ru">Я предпочитаю читать вечером.</td>
+        <td class="pr">Ya preet-pa-chee-TA-yu chee-TAT' VYE-chee-rum.</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">Mabo often meets other dogs on the walk.</td>
+        <td class="ru">Мабо часто встречает других собак на прогулке.</td>
+        <td class="pr">MA-bo CHAS-tuh fstree-CHA-yet droo-GEEKH sa-BAK na pra-GOOL-kye.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 2 — WHERE THINGS ARE (где?)
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">📍</span>
+    <h2>Где? — Saying Where Things Are</h2>
+    <div class="line"></div>
+    <span class="tag green">12 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike already says <em>куда</em> (где to?) — <em>иду в парк</em>. Today's partner is <em>где</em> (location).
+    The difference is the ending: motion <em>в парк</em> (no change), but location <em>в парке</em> (adds -е). This is the prepositional case.
+  </div>
+
+  <div class="case-grid">
+    <div class="case-card kuda">
+      <h5>↗ Куда? — Motion (where to)</h5>
+      <div class="row"><span class="q">go to the park</span><span class="arrow">→</span><span class="a">в парк</span></div>
+      <div class="row"><span class="q">go to the garden</span><span class="arrow">→</span><span class="a">в сад</span></div>
+      <div class="row"><span class="q">go to work</span><span class="arrow">→</span><span class="a">на работу</span></div>
+    </div>
+    <div class="case-card gde">
+      <h5>📍 Где? — Location (where at)</h5>
+      <div class="row"><span class="q">in the park</span><span class="arrow">→</span><span class="a">в парк<span class="end">е</span></span></div>
+      <div class="row"><span class="q">in the garden</span><span class="arrow">→</span><span class="a">в сад<span class="end">у</span></span></div>
+      <div class="row"><span class="q">at work</span><span class="arrow">→</span><span class="a">на работ<span class="end">е</span></span></div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>The pattern:</strong> For "where at," most nouns add <span class="ru-ex">-е</span> (парк → в парке, работа → на работе).
+    A few short masculine words take <span class="ru-ex">-у</span> instead (сад → в саду, угол → на углу) — Mike already said <em>на углу</em>!
+    Same question word <span class="ru-ex">где?</span>, same prepositions в/на, just the location ending.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">In summer I spend a lot of time in the garden.</td>
+        <td class="ru">Летом я провожу много времени в саду.</td>
+        <td class="pr">LYE-tum ya pra-va-ZHOO MNOH-guh VRYE-mee-nee v sa-DOO.</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">Mabo is sleeping in the shade under a tree.</td>
+        <td class="ru">Мабо спит в тени под деревом.</td>
+        <td class="pr">MA-bo speet v tee-NEE pad DYE-ree-vum.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">My books are on the shelf in the living room.</td>
+        <td class="ru">Мои книги на полке в гостиной.</td>
+        <td class="pr">Ma-EE KNEE-gee na POL-kye v gas-TEE-nuy.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">We are sitting in the garden and drinking tea.</td>
+        <td class="ru">Мы сидим в саду и пьём чай.</td>
+        <td class="pr">My see-DEEM v sa-DOO ee p'yom chai.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 3 — SUMMER & THE GARDEN
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🌱</span>
+    <h2>Лето и сад — Summer &amp; the Garden</h2>
+    <div class="line"></div>
+    <span class="tag gold">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> It's June — summer has arrived in Winnipeg. Mike has met garden words before (огород, палисадник, газон);
+    today they come alive in full sentences about the season. Let him describe his own yard.
+  </div>
+
+  <div class="scene-box">
+    <div class="feature-quote">Наконец-то лето! Сад полон цветов.</div>
+    <div class="feature-pron">Na-ka-NYETS-ta LYE-tuh! Sad POH-lun tsvee-TOF.</div>
+    <div class="feature-en">Summer at last! The garden is full of flowers.</div>
+  </div>
+
+  <div class="gram-box">
+    <h4>The Garden — Сад и огород</h4>
+    <div class="vocab-row">
+      <div class="vocab-pill"><div class="r">сад</div><div class="p">sad</div><div class="e">garden (flowers/trees)</div></div>
+      <div class="vocab-pill"><div class="r">огород</div><div class="p">a-ga-ROD</div><div class="e">vegetable plot</div></div>
+      <div class="vocab-pill"><div class="r">газон</div><div class="p">ga-ZON</div><div class="e">lawn</div></div>
+      <div class="vocab-pill"><div class="r">цветок</div><div class="p">tsvee-TOK</div><div class="e">flower</div></div>
+      <div class="vocab-pill"><div class="r">цветы</div><div class="p">tsvee-TY</div><div class="e">flowers (pl.)</div></div>
+      <div class="vocab-pill"><div class="r">дерево</div><div class="p">DYE-ree-vuh</div><div class="e">tree</div></div>
+      <div class="vocab-pill"><div class="r">трава</div><div class="p">tra-VA</div><div class="e">grass</div></div>
+      <div class="vocab-pill"><div class="r">овощи</div><div class="p">OH-va-shchee</div><div class="e">vegetables</div></div>
+      <div class="vocab-pill"><div class="r">помидор</div><div class="p">pa-mee-DOR</div><div class="e">tomato</div></div>
+      <div class="vocab-pill"><div class="r">грядка</div><div class="p">GRYAT-ka</div><div class="e">garden bed</div></div>
+      <div class="vocab-pill"><div class="r">солнце</div><div class="p">SOHN-tse</div><div class="e">sun</div></div>
+      <div class="vocab-pill"><div class="r">тень</div><div class="p">tyen'</div><div class="e">shade</div></div>
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">I love working in the garden in the morning.</td>
+        <td class="ru">Я люблю работать в саду утром.</td>
+        <td class="pr">Ya lyub-LYU ra-BOH-tat' v sa-DOO OOT-rum.</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">In the vegetable plot tomatoes are growing.</td>
+        <td class="ru">В огороде растут помидоры.</td>
+        <td class="pr">V a-ga-ROH-dye ras-TOOT pa-mee-DOH-ry.</td>
+      </tr>
+      <tr>
+        <td class="num">7</td>
+        <td class="en">The flowers need water and sun.</td>
+        <td class="ru">Цветам нужна вода и солнце.</td>
+        <td class="pr">Tsvee-TAM noozh-NA va-DA ee SOHN-tse.</td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td class="en">In the evening it's pleasant to sit on the lawn.</td>
+        <td class="ru">Вечером приятно сидеть на газоне.</td>
+        <td class="pr">VYE-chee-rum pree-YAT-nuh see-DYET' na ga-ZOH-nye.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 4 — MAKING PLANS TO MEET
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">🤝</span>
+    <h2>Встречи и планы — Meeting &amp; Plans</h2>
+    <div class="line"></div>
+    <span class="tag purple">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike noticed the встречать / встретить / встреча family last week. Let's put it to work —
+    making plans to meet people. This introduces a clean aspect pair (process vs. result) without heavy theory.
+  </div>
+
+  <div class="family-card">
+    <div class="root">Word family: root <span class="root-mark">-встреч-</span> — meeting, encounter</div>
+    <div class="family-members">
+      <div class="member"><span class="w">встречать</span><span class="p">fstree-CHAT'</span><span class="g">to meet (imperfective)</span></div>
+      <div class="member"><span class="w">встретить</span><span class="p">FSTRYE-teet'</span><span class="g">to meet (perfective)</span></div>
+      <div class="member"><span class="w">встреча</span><span class="p">FSTRYE-cha</span><span class="g">a meeting (noun)</span></div>
+      <div class="member"><span class="w">встретиться</span><span class="p">FSTRYE-tee-tsa</span><span class="g">to meet up (with someone)</span></div>
+    </div>
+  </div>
+
+  <div class="aspect-pair">
+    <div class="aspect-card imp">
+      <h5>Imperfective — встречать</h5>
+      <div class="verb">Я часто встречаю друзей.</div>
+      <div style="margin-top:5px; color:#2a4a32;">I often meet friends. <em>(repeated, habitual)</em></div>
+    </div>
+    <div class="aspect-card pfv">
+      <h5>Perfective — встретить</h5>
+      <div class="verb">Завтра я встречу друга.</div>
+      <div style="margin-top:5px; color:#6a2018;">Tomorrow I'll meet a friend. <em>(one specific time)</em></div>
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">9</td>
+        <td class="en">Let's meet on Saturday.</td>
+        <td class="ru">Давайте встретимся в субботу.</td>
+        <td class="pr">Da-VAI-tye FSTRYE-teem-sya v soo-BOH-too.</td>
+      </tr>
+      <tr>
+        <td class="num">10</td>
+        <td class="en">Where shall we meet?</td>
+        <td class="ru">Где мы встретимся?</td>
+        <td class="pr">Gdye my FSTRYE-teem-sya?</td>
+      </tr>
+      <tr>
+        <td class="num">11</td>
+        <td class="en">Let's meet in the park near my house.</td>
+        <td class="ru">Давайте встретимся в парке рядом с моим домом.</td>
+        <td class="pr">Da-VAI-tye FSTRYE-teem-sya v PAR-kye RYA-dum s ma-EEM DOH-mum.</td>
+      </tr>
+      <tr>
+        <td class="num">12</td>
+        <td class="en">I'm looking forward to our meeting.</td>
+        <td class="ru">Я жду нашу встречу.</td>
+        <td class="pr">Ya zhdoo NA-shoo FSTRYE-choo.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Where they meet uses "где":</strong> Notice sentences 10–11 use the location ending from Part 2 —
+    <span class="ru-ex">в парке</span>, not в парк. They'll <em>meet</em> at a location, so it's где. The grammar threads connect.
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       PART 5 — MINI DIALOGUE
+  ══════════════════════════════════════════ -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — A Summer Afternoon</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Pulls together location (где), the garden, and making plans. Mike is addressed with <strong>вы</strong>.
+    Read once, then swap roles and let Mike answer about his own garden and week.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, где вы сейчас?</div>
+        <div class="pron-line">Mayk, gdye vy see-CHAS?</div>
+        <div class="eng-line">Mike, where are you now?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я в саду. Сегодня тепло и солнечно.</div>
+        <div class="pron-line">Ya v sa-DOO. See-VOHD-nyuh tep-LOH ee SOHL-neech-nuh.</div>
+        <div class="eng-line">I'm in the garden. Today it's warm and sunny.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Что вы там делаете?</div>
+        <div class="pron-line">Shto vy tam DYE-la-ye-tye?</div>
+        <div class="eng-line">What are you doing there?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я работаю в огороде. Растут помидоры. Мабо спит в тени.</div>
+        <div class="pron-line">Ya ra-BOH-ta-yu v a-ga-ROH-dye. Ras-TOOT pa-mee-DOH-ry. MA-bo speet v tee-NEE.</div>
+        <div class="eng-line">I'm working in the vegetable plot. Tomatoes are growing. Mabo is sleeping in the shade.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Прекрасно! Давайте встретимся в субботу в парке?</div>
+        <div class="pron-line">Pree-KRAS-nuh! Da-VAI-tye FSTRYE-teem-sya v soo-BOH-too v PAR-kye?</div>
+        <div class="eng-line">Wonderful! Shall we meet on Saturday in the park?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">С удовольствием! Я возьму Мабо.</div>
+        <div class="pron-line">S oo-da-VOL'-stvee-yem! Ya vahz'-MOO MA-bo.</div>
+        <div class="eng-line">With pleasure! I'll bring Mabo.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Отлично. Жду нашу встречу!</div>
+        <div class="pron-line">At-LEECH-nuh. Zhdoo NA-shoo FSTRYE-choo!</div>
+        <div class="eng-line">Great. Looking forward to our meeting!</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- TODAY'S VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">Key Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">лето</div><div class="p">LYE-tuh</div><div class="e">summer</div></div>
+    <div class="vocab-pill"><div class="r">летом</div><div class="p">LYE-tum</div><div class="e">in summer</div></div>
+    <div class="vocab-pill"><div class="r">сад</div><div class="p">sad</div><div class="e">garden</div></div>
+    <div class="vocab-pill"><div class="r">расти</div><div class="p">ras-TEE</div><div class="e">to grow</div></div>
+    <div class="vocab-pill"><div class="r">тень</div><div class="p">tyen'</div><div class="e">shade</div></div>
+    <div class="vocab-pill"><div class="r">гостиная</div><div class="p">gas-TEE-na-ya</div><div class="e">living room</div></div>
+    <div class="vocab-pill"><div class="r">встретиться</div><div class="p">FSTRYE-tee-tsa</div><div class="e">to meet up</div></div>
+    <div class="vocab-pill"><div class="r">встреча</div><div class="p">FSTRYE-cha</div><div class="e">a meeting</div></div>
+    <div class="vocab-pill"><div class="r">давайте</div><div class="p">da-VAI-tye</div><div class="e">let's (suggestion)</div></div>
+    <div class="vocab-pill"><div class="r">рядом с</div><div class="p">RYA-dum s</div><div class="e">next to</div></div>
+    <div class="vocab-pill"><div class="r">приятно</div><div class="p">pree-YAT-nuh</div><div class="e">pleasant</div></div>
+    <div class="vocab-pill"><div class="r">наконец-то</div><div class="p">na-ka-NYETS-ta</div><div class="e">at last</div></div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write 4 "где" sentences about where things are in your home and garden — use в/на + the -е ending (<em>в саду, на полке, в гостиной, на газоне</em>).</li>
+      <li>Describe your garden in summer — 3 sentences. Use: <em>цветы, помидоры, дерево, солнце, тень</em>.</li>
+      <li>Make a plan: write one sentence inviting someone to meet, using <em>Давайте встретимся в… (day) в… (place)</em>.</li>
+      <li>Practise the pair: <em>Я часто встречаю…</em> (habit) vs <em>Завтра я встречу…</em> (one time).</li>
+      <li>Translate without looking: <em>"In summer I sit in the garden and read a book in the shade."</em></li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Adjective endings in detail (красивый сад, красивая книга) · Numbers 11–30 · Telling time (Который час?)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>14 июня 2026</span> &nbsp;·&nbsp;
+  Summer · The Garden · Making Plans &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
