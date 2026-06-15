@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 21 June 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1412; --paper:#f5f0e8; --cream:#ede6d6; --red:#b03a2e;
+    --gold:#c8922a; --blue:#2c4a7c; --green:#3a6b4a; --border:#d4c9b0; --muted:#7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 14.5px; line-height: 1.65; }
+
+  header { background: var(--ink); color: var(--paper); padding: 32px 48px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Adjective agreement table ── */
+  .adj-table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 12px 0; font-size: 0.85rem; }
+  .adj-table th { background: var(--ink); color: var(--paper); padding: 9px 12px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; text-align: left; }
+  .adj-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  .adj-table tr:nth-child(even) td { background: #f0ece2; }
+  .adj-table .gender { font-weight: 600; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); white-space: nowrap; }
+  .adj-table .end { background: #fde8e8; padding: 1px 5px; border-radius: 3px; color: var(--red); font-weight: 700; }
+  .adj-table .adj-form { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; font-size: 1rem; }
+  .adj-table .ex { color: #555; font-size: 0.8rem; }
+  .adj-table .pr { color: var(--blue); font-style: italic; font-size: 0.76rem; }
+
+  /* ── Color swatches ── */
+  .color-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
+  .color-card { background: white; border: 1.5px solid var(--border); border-radius: 6px; overflow: hidden; }
+  .color-card .swatch { height: 38px; width: 100%; }
+  .color-card .body { padding: 9px 11px; }
+  .color-card .ru-word { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 0.95rem; }
+  .color-card .pr { color: var(--blue); font-style: italic; font-size: 0.7rem; display: block; }
+  .color-card .en-word { color: #666; font-size: 0.72rem; }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Word family ── */
+  .family-card { background: white; border: 1.5px solid var(--gold); border-radius: 6px; padding: 14px 18px; margin: 14px 0; }
+  .family-card .root { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--ink); font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 6px; margin-bottom: 10px; }
+  .family-card .root .root-mark { color: var(--gold); }
+  .family-members { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .family-members .member { font-size: 0.83rem; }
+  .family-members .member .w { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .family-members .member .p { color: var(--blue); font-style: italic; font-size: 0.72rem; display: block; }
+  .family-members .member .g { color: #555; font-size: 0.78rem; }
+
+  /* ── Dialogue ── */
+  .dialogue { background: #f8f4ec; border: 1px solid var(--border); border-radius: 6px; padding: 16px 18px; margin-top: 12px; }
+  .dialogue .line { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e0d8c0; }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .color-grid { grid-template-columns: repeat(2, 1fr); }
+    .family-members { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 21 июня 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 21 June 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Adjectives · Colours · Describing</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) Learn how <span style="color:var(--red); font-weight:600;">adjectives agree</span> with their noun
+    (красивый / красивая / красивое / красивые), (2) build a kit of <span style="color:var(--red); font-weight:600;">colours</span>
+    (the цвет / цвета family from last week), and (3) put them to work
+    <span style="color:var(--red); font-weight:600;">describing your world</span> — your apartment, your city, your things.
+  </div>
+
+
+  <!-- PART 1 — REVIEW -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Location &amp; Small Talk</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike handled these well last week. Read each aloud; Mike translates and then answers naturally about his own home.
+    Pay special attention to the встреч- family — Mike used all three forms in chat.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">Where is your office located?</td>
+        <td class="ru">Где находится ваш офис?</td>
+        <td class="pr">Gdye na-HOH-dee-tsa vash OH-fees?</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">In what part of the city?</td>
+        <td class="ru">В какой части города?</td>
+        <td class="pr">V ka-KOY CHAS-tee GOH-ra-da?</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">Flowers grow on my balcony.</td>
+        <td class="ru">У меня на балконе растут цветы.</td>
+        <td class="pr">Oo mee-NYA na bal-KOH-nye ras-TOOT tsvee-TY.</td>
+      </tr>
+      <tr>
+        <td class="num">R4</td>
+        <td class="en">I prefer to meet friends at my place.</td>
+        <td class="ru">Я предпочитаю встречать друзей у себя дома.</td>
+        <td class="pr">Ya preet-pa-chee-TA-yu fstree-CHAT' droo-ZYEY oo see-BYA DOH-ma.</td>
+      </tr>
+      <tr>
+        <td class="num">R5</td>
+        <td class="en">I often meet the neighbours and their dog.</td>
+        <td class="ru">Я часто встречаю соседей и их собаку.</td>
+        <td class="pr">Ya CHAS-tuh fstree-CHA-yu sa-SYE-dyey ee eekh sa-BA-koo.</td>
+      </tr>
+      <tr>
+        <td class="num">R6</td>
+        <td class="en">Tomorrow I will meet a friend.</td>
+        <td class="ru">Завтра я встречу друга.</td>
+        <td class="pr">ZAHF-truh ya FSTRYE-choo DROO-ga.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>The встреч- family — three forms, three jobs:</strong>
+    <span class="ru-ex">встреча</span> <span class="pr-ex">(FSTRYE-cha)</span> = a meeting (the noun) ·
+    <span class="ru-ex">встречаю</span> <span class="pr-ex">(fstree-CHA-yu)</span> = "I meet" (imperfective — habit, repeated) ·
+    <span class="ru-ex">встречу</span> <span class="pr-ex">(FSTRYE-choo)</span> = "I will meet" (perfective — one specific time).
+    Same root, but the ending tells you whether it's a thing, a habit, or a one-time future event.
+  </div>
+
+  <div class="gram" style="border-color: var(--gold);">
+    <strong>Bridge to today:</strong> Last week you asked <span class="ru-ex">в какой части города?</span> — notice
+    <span class="ru-ex">какой</span> ("which / what kind") already changes its ending to match <span class="ru-ex">часть</span>.
+    That's adjective agreement, and today we make it a system.
+  </div>
+
+
+  <!-- PART 2 — ADJECTIVES -->
+  <div class="sec-label">
+    <span class="icon">🎨</span>
+    <h2>Прилагательные — How Adjectives Agree</h2>
+    <div class="line"></div>
+    <span class="tag gold">14 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> An adjective in Russian must match its noun in gender and number. Mike's French and German already
+    trained this instinct — Russian just has its own set of endings. Show the four forms of one adjective, then drill.
+    (QuickStudy p. 4, Adjectives.)
+  </div>
+
+  <div class="gram-box">
+    <h4>One Adjective, Four Endings — красивый (beautiful)</h4>
+    <table class="adj-table">
+      <thead><tr><th>Goes with…</th><th>Ending</th><th>Form</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="gender">Masculine</td>
+          <td><span class="end">-ый / -ий</span></td>
+          <td><span class="adj-form">красивый</span> <span class="pr">kra-SEE-vyy</span></td>
+          <td class="ex">красивый <strong>сад</strong> — a beautiful garden</td>
+        </tr>
+        <tr>
+          <td class="gender">Feminine</td>
+          <td><span class="end">-ая / -яя</span></td>
+          <td><span class="adj-form">красивая</span> <span class="pr">kra-SEE-va-ya</span></td>
+          <td class="ex">красивая <strong>книга</strong> — a beautiful book</td>
+        </tr>
+        <tr>
+          <td class="gender">Neuter</td>
+          <td><span class="end">-ое / -ee</span></td>
+          <td><span class="adj-form">красивое</span> <span class="pr">kra-SEE-va-ye</span></td>
+          <td class="ex">красивое <strong>озеро</strong> — a beautiful lake</td>
+        </tr>
+        <tr>
+          <td class="gender">Plural (all genders)</td>
+          <td><span class="end">-ые / -ие</span></td>
+          <td><span class="adj-form">красивые</span> <span class="pr">kra-SEE-vy-ye</span></td>
+          <td class="ex">красивые <strong>цветы</strong> — beautiful flowers</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>The trick Mike already knows:</strong> first find the noun's gender (the same question as with <em>мой / моя / моё / мои</em>),
+      then give the adjective the matching ending. Possessives and adjectives follow the very same logic.
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">I live in a tall building.</td>
+        <td class="ru">Я живу в высоком доме.</td>
+        <td class="pr">Ya zhy-VOO v vy-SOH-kum DOH-mye.</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">It's an interesting book.</td>
+        <td class="ru">Это интересная книга.</td>
+        <td class="pr">EH-ta een-tee-RYES-na-ya KNEE-ga.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">Toronto is a big city.</td>
+        <td class="ru">Торонто — большой город.</td>
+        <td class="pr">Ta-RON-tuh — bal'-SHOY GOH-rut.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">We have a small but cosy apartment.</td>
+        <td class="ru">У нас маленькая, но уютная квартира.</td>
+        <td class="pr">Oo nas MA-leen'-ka-ya, no oo-YUT-na-ya kvar-TEE-ra.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- PART 3 — COLOURS -->
+  <div class="sec-label">
+    <span class="icon">🌈</span>
+    <h2>Цвета — Colours</h2>
+    <div class="line"></div>
+    <span class="tag red">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike met цвет / цвета / цветы last week. Colours are adjectives — perfect practice for the endings we just learned.
+    The base forms below are masculine; they change ending to match the noun, just like красивый.
+  </div>
+
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="swatch" style="background:#c0392b;"></div>
+      <div class="body"><div class="ru-word">красный</div><span class="pr">KRAS-nyy</span><div class="en-word">red</div></div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background:#e67e22;"></div>
+      <div class="body"><div class="ru-word">оранжевый</div><span class="pr">a-RAN-zhe-vyy</span><div class="en-word">orange</div></div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background:#f1c40f;"></div>
+      <div class="body"><div class="ru-word">жёлтый</div><span class="pr">ZHOL-tyy</span><div class="en-word">yellow</div></div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background:#27ae60;"></div>
+      <div class="body"><div class="ru-word">зелёный</div><span class="pr">zee-LYO-nyy</span><div class="en-word">green</div></div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background:#2980b9;"></div>
+      <div class="body"><div class="ru-word">синий</div><span class="pr">SEE-niy</span><div class="en-word">blue (dark)</div></div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background:#85c1e9;"></div>
+      <div class="body"><div class="ru-word">голубой</div><span class="pr">ga-loo-BOY</span><div class="en-word">light blue</div></div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background:#000000;"></div>
+      <div class="body"><div class="ru-word">чёрный</div><span class="pr">CHOR-nyy</span><div class="en-word">black</div></div>
+    </div>
+    <div class="color-card">
+      <div class="swatch" style="background:#ffffff; border-bottom:1px solid var(--border);"></div>
+      <div class="body"><div class="ru-word">белый</div><span class="pr">BYE-lyy</span><div class="en-word">white</div></div>
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Colours Agree, Too — синий changes like any adjective</h4>
+    <table class="adj-table">
+      <thead><tr><th>Gender</th><th>Form</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="gender">Masc.</td><td><span class="adj-form">синий</span></td><td class="ex">синий <strong>зонт</strong> — a blue umbrella</td></tr>
+        <tr><td class="gender">Fem.</td><td><span class="adj-form">синяя</span></td><td class="ex">синяя <strong>книга</strong> — a blue book</td></tr>
+        <tr><td class="gender">Neut.</td><td><span class="adj-form">синее</span></td><td class="ex">синее <strong>небо</strong> — a blue sky</td></tr>
+        <tr><td class="gender">Plur.</td><td><span class="adj-form">синие</span></td><td class="ex">синие <strong>цветы</strong> — blue flowers</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">What is your favourite colour?</td>
+        <td class="ru">Какой ваш любимый цвет?</td>
+        <td class="pr">Ka-KOY vash lyu-BEE-myy tsvyet?</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">On the balcony there are red and yellow flowers.</td>
+        <td class="ru">На балконе красные и жёлтые цветы.</td>
+        <td class="pr">Na bal-KOH-nye KRAS-ny-ye ee ZHOL-ty-ye tsvee-TY.</td>
+      </tr>
+      <tr>
+        <td class="num">7</td>
+        <td class="en">Mabo has a black collar.</td>
+        <td class="ru">У Мабо чёрный ошейник.</td>
+        <td class="pr">Oo MA-bo CHOR-nyy a-SHEY-neek.</td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td class="en">Today the sky is grey — it recently rained.</td>
+        <td class="ru">Сегодня небо серое — недавно шёл дождь.</td>
+        <td class="pr">See-VOHD-nyuh NYE-buh SYE-ra-ye — nee-DAV-nuh shol dozhd'.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- PART 4 — WORD FAMILY + DESCRIBING -->
+  <div class="sec-label">
+    <span class="icon">🏙</span>
+    <h2>Описываем мир — Describing Your World</h2>
+    <div class="line"></div>
+    <span class="tag purple">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Now adjectives go to work. Let Mike describe his real apartment, his city, his things.
+    First, a quick word family from last week to sharpen the ear.
+  </div>
+
+  <div class="family-card">
+    <div class="root">Last week's look-alikes: root <span class="root-mark">гост-</span> (guest) &amp; the цвет family</div>
+    <div class="family-members">
+      <div class="member"><span class="w">гостиная</span><span class="p">gas-TEE-na-ya</span><span class="g">living room</span></div>
+      <div class="member"><span class="w">гостиница</span><span class="p">gas-TEE-nee-tsa</span><span class="g">hotel</span></div>
+      <div class="member"><span class="w">господин</span><span class="p">gas-pa-DEEN</span><span class="g">Mr. / sir</span></div>
+      <div class="member"><span class="w">госпожа</span><span class="p">gas-pa-ZHA</span><span class="g">Mrs. / madam</span></div>
+      <div class="member"><span class="w">цвет</span><span class="p">tsvyet</span><span class="g">colour</span></div>
+      <div class="member"><span class="w">цвета</span><span class="p">tsvee-TA</span><span class="g">colours (pl.)</span></div>
+      <div class="member"><span class="w">цветы</span><span class="p">tsvee-TY</span><span class="g">flowers</span></div>
+      <div class="member"><span class="w">цветной</span><span class="p">tsvet-NOY</span><span class="g">colourful (adj.)</span></div>
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">9</td>
+        <td class="en">My office is in the downtown area.</td>
+        <td class="ru">Мой офис в центре города.</td>
+        <td class="pr">Moy OH-fees v TSEN-trye GOH-ra-da.</td>
+      </tr>
+      <tr>
+        <td class="num">10</td>
+        <td class="en">We live in a modern high-rise.</td>
+        <td class="ru">Мы живём в современной многоэтажке.</td>
+        <td class="pr">My zhy-VYOM v sa-vree-MYEN-nuy mna-ga-e-TASH-kye.</td>
+      </tr>
+      <tr>
+        <td class="num">11</td>
+        <td class="en">We have a beautiful view of the city.</td>
+        <td class="ru">У нас красивый вид на город.</td>
+        <td class="pr">Oo nas kra-SEE-vyy veed na GOH-rut.</td>
+      </tr>
+      <tr>
+        <td class="num">12</td>
+        <td class="en">I have many old and interesting books.</td>
+        <td class="ru">У меня много старых и интересных книг.</td>
+        <td class="pr">Oo mee-NYA MNOH-guh STA-rykh ee een-tee-RYES-nykh kneeg.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Useful describing adjectives:</strong> <span class="ru-ex">большой</span> (big) ·
+    <span class="ru-ex">маленький</span> (small) · <span class="ru-ex">новый</span> (new) ·
+    <span class="ru-ex">старый</span> (old) · <span class="ru-ex">высокий</span> (tall) ·
+    <span class="ru-ex">уютный</span> (cosy) · <span class="ru-ex">современный</span> (modern). All take the four endings from today.
+  </div>
+
+
+  <!-- PART 5 — DIALOGUE -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — Describing Home &amp; City</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Pulls together adjectives, colours, and describing places. Mike is addressed with <strong>вы</strong>.
+    Read once, then swap roles and let Mike describe his real apartment and view.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, в какой части города вы живёте?</div>
+        <div class="pron-line">Mayk, v ka-KOY CHAS-tee GOH-ra-da vy zhy-VYO-tye?</div>
+        <div class="eng-line">Mike, what part of the city do you live in?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Мы живём в центре, в высокой современной многоэтажке.</div>
+        <div class="pron-line">My zhy-VYOM v TSEN-trye, v vy-SOH-kuy sa-vree-MYEN-nuy mna-ga-e-TASH-kye.</div>
+        <div class="eng-line">We live downtown, in a tall modern high-rise.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Красиво! Какой у вас вид?</div>
+        <div class="pron-line">Kra-SEE-vuh! Ka-KOY oo vas veed?</div>
+        <div class="eng-line">Lovely! What's your view like?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">У нас красивый вид на город. На балконе красные и жёлтые цветы.</div>
+        <div class="pron-line">Oo nas kra-SEE-vyy veed na GOH-rut. Na bal-KOH-nye KRAS-ny-ye ee ZHOL-ty-ye tsvee-TY.</div>
+        <div class="eng-line">We have a beautiful view of the city. On the balcony there are red and yellow flowers.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">А какой ваш любимый цвет?</div>
+        <div class="pron-line">A ka-KOY vash lyu-BEE-myy tsvyet?</div>
+        <div class="eng-line">And what's your favourite colour?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Синий. У меня синий зонт и синяя машина.</div>
+        <div class="pron-line">SEE-niy. Oo mee-NYA SEE-niy zont ee SEE-nya-ya ma-SHY-na.</div>
+        <div class="eng-line">Blue. I have a blue umbrella and a blue car.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Отлично! Вы прекрасно описываете.</div>
+        <div class="pron-line">At-LEECH-nuh! Vy pree-KRAS-nuh a-PEE-sy-va-ye-tye.</div>
+        <div class="eng-line">Excellent! You describe things wonderfully.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">Key Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">красивый</div><div class="p">kra-SEE-vyy</div><div class="e">beautiful</div></div>
+    <div class="vocab-pill"><div class="r">большой</div><div class="p">bal'-SHOY</div><div class="e">big</div></div>
+    <div class="vocab-pill"><div class="r">маленький</div><div class="p">MA-leen'-kiy</div><div class="e">small</div></div>
+    <div class="vocab-pill"><div class="r">высокий</div><div class="p">vy-SOH-kiy</div><div class="e">tall / high</div></div>
+    <div class="vocab-pill"><div class="r">новый</div><div class="p">NOH-vyy</div><div class="e">new</div></div>
+    <div class="vocab-pill"><div class="r">старый</div><div class="p">STA-ryy</div><div class="e">old</div></div>
+    <div class="vocab-pill"><div class="r">уютный</div><div class="p">oo-YUT-nyy</div><div class="e">cosy</div></div>
+    <div class="vocab-pill"><div class="r">современный</div><div class="p">sa-vree-MYEN-nyy</div><div class="e">modern</div></div>
+    <div class="vocab-pill"><div class="r">цвет</div><div class="p">tsvyet</div><div class="e">colour</div></div>
+    <div class="vocab-pill"><div class="r">любимый</div><div class="p">lyu-BEE-myy</div><div class="e">favourite</div></div>
+    <div class="vocab-pill"><div class="r">вид</div><div class="p">veed</div><div class="e">view</div></div>
+    <div class="vocab-pill"><div class="r">центр</div><div class="p">tsentr</div><div class="e">centre / downtown</div></div>
+    <div class="vocab-pill"><div class="r">город</div><div class="p">GOH-rut</div><div class="e">city</div></div>
+    <div class="vocab-pill"><div class="r">квартира</div><div class="p">kvar-TEE-ra</div><div class="e">apartment</div></div>
+    <div class="vocab-pill"><div class="r">многоэтажка</div><div class="p">mna-ga-e-TASH-ka</div><div class="e">high-rise</div></div>
+    <div class="vocab-pill"><div class="r">офис</div><div class="p">OH-fees</div><div class="e">office</div></div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Take one adjective (красивый, большой, новый) and write it in all four forms with a noun: masculine, feminine, neuter, plural.</li>
+      <li>Describe 5 things in your apartment with a colour: <em>чёрный ошейник, синий зонт, красные цветы…</em> Match the colour ending to the noun.</li>
+      <li>Describe your city in 3 sentences. Use: <em>большой, красивый, современный, центр, вид</em>.</li>
+      <li>Answer in Russian: <em>Какой ваш любимый цвет? Почему?</em> ("What's your favourite colour? Why?")</li>
+      <li>Translate without looking: <em>"We live in a tall modern building and have a beautiful view of the city."</em></li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Numbers 11–30 · Telling time (Который час?) · Adjectives in the prepositional (в большом городе)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>21 июня 2026</span> &nbsp;·&nbsp;
+  Adjectives · Colours · Describing Your World &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
