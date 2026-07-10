@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 12 July 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1412; --paper:#f5f0e8; --cream:#ede6d6; --red:#b03a2e;
+    --gold:#c8922a; --blue:#2c4a7c; --green:#3a6b4a; --border:#d4c9b0; --muted:#7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 14.5px; line-height: 1.65; }
+
+  header { background: var(--ink); color: var(--paper); padding: 32px 48px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Number grid ── */
+  .num-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 12px 0; }
+  .num-card { background: white; border: 1px solid var(--border); border-radius: 6px; padding: 10px 6px; text-align: center; }
+  .num-card.tens { background: #fdf0d8; border-color: #e0c890; }
+  .num-card .digit { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 800; color: var(--ink); line-height: 1; }
+  .num-card .ru-word { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 0.78rem; margin-top: 5px; display: block; }
+  .num-card .pr { color: var(--blue); font-style: italic; font-size: 0.6rem; display: block; margin-top: 2px; }
+
+  /* ── Clock forms ── */
+  .clock-forms { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0; }
+  .clock-card { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 12px 14px; }
+  .clock-card.one { border-color: var(--green); }
+  .clock-card.few { border-color: var(--gold); }
+  .clock-card.many { border-color: var(--red); }
+  .clock-card h5 { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 6px; }
+  .clock-card.one h5 { color: var(--green); }
+  .clock-card.few h5 { color: var(--gold); }
+  .clock-card.many h5 { color: var(--red); }
+  .clock-card .form { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 1.05rem; }
+  .clock-card .pr { color: var(--blue); font-style: italic; font-size: 0.72rem; display: block; margin: 2px 0; }
+  .clock-card .nums { color: #555; font-size: 0.76rem; }
+
+  /* ── Ordinal / floor list ── */
+  .ord-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 12px 0; }
+  .ord-row { background: white; border: 1px solid var(--border); border-radius: 5px; padding: 8px 12px; display: flex; align-items: baseline; gap: 10px; font-size: 0.85rem; }
+  .ord-row .n { font-family: 'Playfair Display', serif; font-weight: 800; color: var(--gold); font-size: 1rem; width: 26px; }
+  .ord-row .ru { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .ord-row .pr { color: var(--blue); font-style: italic; font-size: 0.72rem; }
+  .ord-row .en { color: #777; font-size: 0.74rem; margin-left: auto; }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Dialogue ── */
+  .dialogue { background: #f8f4ec; border: 1px solid var(--border); border-radius: 6px; padding: 16px 18px; margin-top: 12px; }
+  .dialogue .line { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e0d8c0; }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .num-grid { grid-template-columns: repeat(3, 1fr); }
+    .clock-forms { grid-template-columns: 1fr; }
+    .ord-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 12 июля 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 12 July 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Numbers · Time · Floors</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) Master <span style="color:var(--red); font-weight:600;">numbers 11–42</span>
+    (Mike already reached «сорок два этажа» on his own!), (2) learn to <span style="color:var(--red); font-weight:600;">tell time</span>
+    (Который час?), and (3) use <span style="color:var(--red); font-weight:600;">ordinals &amp; floors</span> —
+    на каком этаже вы живёте? — to talk about his 42-storey building.
+  </div>
+
+
+  <!-- PART 1 — REVIEW -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Describing Home &amp; the Building</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min warm-up</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike produced all of these himself last time — including the floors vocabulary and «сорок два». Read each aloud; Mike translates.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">We live in the centre, in an apartment.</td>
+        <td class="ru">Мы живём в центре, в квартире.</td>
+        <td class="pr">My zhy-VYOM v TSEN-trye, v kvar-TEE-rye.</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">There are forty-two floors in our building.</td>
+        <td class="ru">В нашем здании сорок два этажа.</td>
+        <td class="pr">V NA-shem ZDA-nee-ee SOH-ruk dva e-ta-ZHA.</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">Mabo is a smart dog — he knows all the floors.</td>
+        <td class="ru">Мабо умный пёс — он знает все этажи.</td>
+        <td class="pr">MA-bo OOM-nyy pyos — on ZNA-yet vsye e-ta-ZHEE.</td>
+      </tr>
+      <tr>
+        <td class="num">R4</td>
+        <td class="en">With time you'll begin to understand Russian.</td>
+        <td class="ru">Со временем вы начнёте понимать русский язык.</td>
+        <td class="pr">Sa VRYE-mee-nem vy nach-NYO-tye pa-nee-MAT' ROOS-kiy ya-ZYK.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Bridge to today:</strong> «сорок два <span class="ru-ex">этажа</span>» — why not <em>этаж</em>? Because after 2, 3, 4 the noun changes.
+    That's the number-counting system, and today we build it properly. You're already using it by instinct — let's make it conscious.
+  </div>
+
+
+  <!-- PART 2 — NUMBERS 11–42 -->
+  <div class="sec-label">
+    <span class="icon">🔢</span>
+    <h2>Числа 11–42 — Numbers</h2>
+    <div class="line"></div>
+    <span class="tag gold">12 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike knows 1–10. The teens are built on them with <em>-надцать</em> ("-teen"). Point out the logic — he'll spot his old friends пять, шесть, семь inside them.
+  </div>
+
+  <div class="gram-box">
+    <h4>The Teens — just add -надцать</h4>
+    <div class="num-grid">
+      <div class="num-card"><div class="digit">11</div><span class="ru-word">одиннадцать</span><span class="pr">a-DEE-na-tsat'</span></div>
+      <div class="num-card"><div class="digit">12</div><span class="ru-word">двенадцать</span><span class="pr">dvee-NA-tsat'</span></div>
+      <div class="num-card"><div class="digit">13</div><span class="ru-word">тринадцать</span><span class="pr">tree-NA-tsat'</span></div>
+      <div class="num-card"><div class="digit">14</div><span class="ru-word">четырнадцать</span><span class="pr">chee-TYR-na-tsat'</span></div>
+      <div class="num-card"><div class="digit">15</div><span class="ru-word">пятнадцать</span><span class="pr">peet-NA-tsat'</span></div>
+      <div class="num-card"><div class="digit">16</div><span class="ru-word">шестнадцать</span><span class="pr">shest-NA-tsat'</span></div>
+      <div class="num-card"><div class="digit">17</div><span class="ru-word">семнадцать</span><span class="pr">seem-NA-tsat'</span></div>
+      <div class="num-card"><div class="digit">18</div><span class="ru-word">восемнадцать</span><span class="pr">va-seem-NA-tsat'</span></div>
+      <div class="num-card"><div class="digit">19</div><span class="ru-word">девятнадцать</span><span class="pr">dee-veet-NA-tsat'</span></div>
+      <div class="num-card tens"><div class="digit">20</div><span class="ru-word">двадцать</span><span class="pr">DVA-tsat'</span></div>
+    </div>
+    <div class="gram" style="margin-bottom:0;">
+      <strong>See the pattern?</strong> <span class="ru-ex">пят-</span> (5) → <span class="ru-ex">пят-надцать</span> (15),
+      <span class="ru-ex">шест-</span> (6) → <span class="ru-ex">шест-надцать</span> (16). The <span class="ru-ex">-надцать</span> ending literally comes from "on ten."
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>The Tens &amp; Building Compounds</h4>
+    <div class="num-grid">
+      <div class="num-card tens"><div class="digit">20</div><span class="ru-word">двадцать</span><span class="pr">DVA-tsat'</span></div>
+      <div class="num-card tens"><div class="digit">30</div><span class="ru-word">тридцать</span><span class="pr">TREE-tsat'</span></div>
+      <div class="num-card tens"><div class="digit">40</div><span class="ru-word">сорок</span><span class="pr">SOH-ruk</span></div>
+      <div class="num-card"><div class="digit">21</div><span class="ru-word">двадцать один</span><span class="pr">…a-DEEN</span></div>
+      <div class="num-card"><div class="digit">42</div><span class="ru-word">сорок два</span><span class="pr">…dva</span></div>
+    </div>
+    <div class="gram" style="margin-bottom:0;">
+      <strong>Compounds are easy:</strong> just say the tens, then the ones — exactly like English.
+      <span class="ru-ex">двадцать пять</span> = twenty-five, <span class="ru-ex">сорок два</span> = forty-two. No hyphen, no change.
+      Note: <span class="ru-ex">сорок</span> (40) is the odd one out — it doesn't follow the -дцать pattern.
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>The Counting Rule — why «сорок два этажа»</h4>
+    The noun after a number changes depending on the last digit:
+    <table class="phrase-table" style="margin-top:8px;">
+      <thead><tr><th>Last digit</th><th>Noun form</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td class="ru">1</td><td class="en">singular</td><td class="ru">один этаж <span style="color:#888;font-weight:400;">(1 floor)</span></td></tr>
+        <tr><td class="ru">2, 3, 4</td><td class="en">"of a floor" (gen. sing.)</td><td class="ru">два / три / четыре этаж<strong style="color:var(--red);">а</strong></td></tr>
+        <tr><td class="ru">5–20, 0</td><td class="en">"of floors" (gen. pl.)</td><td class="ru">пять этаж<strong style="color:var(--red);">ей</strong></td></tr>
+      </tbody>
+    </table>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      So: <span class="ru-ex">сорок <strong>два</strong> этажа</span> (ends in 2 → -а), but
+      <span class="ru-ex">сорок <strong>пять</strong> этажей</span> (ends in 5 → -ей). Mike already got this right by ear!
+    </div>
+  </div>
+
+
+  <!-- PART 3 — TELLING TIME -->
+  <div class="sec-label">
+    <span class="icon">🕐</span>
+    <h2>Который час? — Telling Time</h2>
+    <div class="line"></div>
+    <span class="tag red">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> The same counting rule applies to <em>час</em> (hour/o'clock). Once Mike sees час / часа / часов,
+    telling the hour becomes easy. Keep it to whole hours today.
+  </div>
+
+  <div class="gram-box">
+    <h4>час · часа · часов — The Three Forms of "o'clock"</h4>
+    <div class="clock-forms">
+      <div class="clock-card one">
+        <h5>1 o'clock</h5>
+        <div class="form">час</div>
+        <span class="pr">chas</span>
+        <div class="nums">just "час" — no number needed for 1:00</div>
+      </div>
+      <div class="clock-card few">
+        <h5>2, 3, 4 o'clock</h5>
+        <div class="form">часа</div>
+        <span class="pr">chee-SA</span>
+        <div class="nums">два, три, четыре часа</div>
+      </div>
+      <div class="clock-card many">
+        <h5>5–12 o'clock</h5>
+        <div class="form">часов</div>
+        <span class="pr">chee-SOF</span>
+        <div class="nums">пять … двенадцать часов</div>
+      </div>
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">What time is it now?</td>
+        <td class="ru">Который час?</td>
+        <td class="pr">Ka-TOH-ryy chas?</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">It's one o'clock.</td>
+        <td class="ru">Сейчас час.</td>
+        <td class="pr">See-CHAS chas.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">It's three o'clock.</td>
+        <td class="ru">Сейчас три часа.</td>
+        <td class="pr">See-CHAS tree chee-SA.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">It's seven o'clock.</td>
+        <td class="ru">Сейчас семь часов.</td>
+        <td class="pr">See-CHAS syem' chee-SOF.</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">At what time is our lesson?</td>
+        <td class="ru">В котором часу наш урок?</td>
+        <td class="pr">V ka-TOH-rum chee-SOO nash oo-ROK?</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">Our lesson is at seven in the evening.</td>
+        <td class="ru">Наш урок в семь часов вечера.</td>
+        <td class="pr">Nash oo-ROK v syem' chee-SOF VYE-chee-ra.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Time of day:</strong> add <span class="ru-ex">утра</span> (in the morning), <span class="ru-ex">дня</span> (afternoon),
+    <span class="ru-ex">вечера</span> (evening), <span class="ru-ex">ночи</span> (night). So <span class="ru-ex">семь часов вечера</span> = 7 p.m.
+    Russian often uses this instead of a.m./p.m.
+  </div>
+
+
+  <!-- PART 4 — ORDINALS & FLOORS -->
+  <div class="sec-label">
+    <span class="icon">🏢</span>
+    <h2>Этажи — Ordinals &amp; Floors</h2>
+    <div class="line"></div>
+    <span class="tag purple">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> To say <em>which</em> floor, Russian uses ordinals (first, second…), which behave like adjectives — they agree, and они change after «на … этаже». Mike met на каком этаже last week.
+  </div>
+
+  <div class="ord-grid">
+    <div class="ord-row"><span class="n">1</span><span class="ru">первый</span><span class="pr">PYER-vyy</span><span class="en">first</span></div>
+    <div class="ord-row"><span class="n">2</span><span class="ru">второй</span><span class="pr">fta-ROY</span><span class="en">second</span></div>
+    <div class="ord-row"><span class="n">3</span><span class="ru">третий</span><span class="pr">TRYE-tiy</span><span class="en">third</span></div>
+    <div class="ord-row"><span class="n">4</span><span class="ru">четвёртый</span><span class="pr">chet-VYOR-tyy</span><span class="en">fourth</span></div>
+    <div class="ord-row"><span class="n">5</span><span class="ru">пятый</span><span class="pr">PYA-tyy</span><span class="en">fifth</span></div>
+    <div class="ord-row"><span class="n">10</span><span class="ru">десятый</span><span class="pr">dee-SYA-tyy</span><span class="en">tenth</span></div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">7</td>
+        <td class="en">On which floor do you live?</td>
+        <td class="ru">На каком этаже вы живёте?</td>
+        <td class="pr">Na ka-KOM e-ta-ZHE vy zhy-VYO-tye?</td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td class="en">We live on the twentieth floor.</td>
+        <td class="ru">Мы живём на двадцатом этаже.</td>
+        <td class="pr">My zhy-VYOM na dva-TSA-tum e-ta-ZHE.</td>
+      </tr>
+      <tr>
+        <td class="num">9</td>
+        <td class="en">The lobby is on the first floor.</td>
+        <td class="ru">Холл находится на первом этаже.</td>
+        <td class="pr">Hol na-HOH-dee-tsa na PYER-vum e-ta-ZHE.</td>
+      </tr>
+      <tr>
+        <td class="num">10</td>
+        <td class="en">From the balcony there's a beautiful view.</td>
+        <td class="ru">С балкона красивый вид.</td>
+        <td class="pr">S bal-KOH-na kra-SEE-vyy veed.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Notice the shift:</strong> первый → на <span class="ru-ex">первом</span> этаже, двадцатый → на <span class="ru-ex">двадцатом</span> этаже.
+    The ordinal takes the <span class="ru-ex">-ом</span> ending after «на» because it's answering <em>где?</em> — the prepositional case, just like «в центре». Grammar threads connecting again!
+  </div>
+
+
+  <!-- PART 5 — DIALOGUE -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — Time &amp; the Building</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Numbers, time, and floors together. Mike is addressed with <strong>вы</strong>. Read once, then swap roles.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, на каком этаже вы живёте?</div>
+        <div class="pron-line">Mayk, na ka-KOM e-ta-ZHE vy zhy-VYO-tye?</div>
+        <div class="eng-line">Mike, what floor do you live on?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Мы живём на двадцатом этаже. В здании сорок два этажа.</div>
+        <div class="pron-line">My zhy-VYOM na dva-TSA-tum e-ta-ZHE. V ZDA-nee-ee SOH-ruk dva e-ta-ZHA.</div>
+        <div class="eng-line">We live on the twentieth floor. There are forty-two floors in the building.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Высоко! А который сейчас час у вас?</div>
+        <div class="pron-line">Vy-sa-KOH! A ka-TOH-ryy see-CHAS chas oo vas?</div>
+        <div class="eng-line">High up! And what time is it at your place now?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Сейчас семь часов вечера. Мабо ждёт прогулку.</div>
+        <div class="pron-line">See-CHAS syem' chee-SOF VYE-chee-ra. MA-bo zhdyot pra-GOOL-koo.</div>
+        <div class="eng-line">It's seven in the evening. Mabo is waiting for a walk.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">В котором часу вы обычно гуляете?</div>
+        <div class="pron-line">V ka-TOH-rum chee-SOO vy a-BYCH-nuh goo-LYA-ye-tye?</div>
+        <div class="eng-line">What time do you usually walk?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Обычно в восемь. Мабо знает время лучше меня!</div>
+        <div class="pron-line">A-BYCH-nuh v VOH-seem'. MA-bo ZNA-yet VRYE-mya LOOCH-she mee-NYA!</div>
+        <div class="eng-line">Usually at eight. Mabo knows the time better than me!</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Умный пёс! Тогда до встречи в воскресенье.</div>
+        <div class="pron-line">OOM-nyy pyos! Tag-DA da FSTRYE-chee v vus-kree-SYEN'-ye.</div>
+        <div class="eng-line">Smart dog! Then see you on Sunday.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">Key Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">число</div><div class="p">chees-LOH</div><div class="e">number</div></div>
+    <div class="vocab-pill"><div class="r">час</div><div class="p">chas</div><div class="e">hour / o'clock</div></div>
+    <div class="vocab-pill"><div class="r">время</div><div class="p">VRYE-mya</div><div class="e">time</div></div>
+    <div class="vocab-pill"><div class="r">который</div><div class="p">ka-TOH-ryy</div><div class="e">which / what</div></div>
+    <div class="vocab-pill"><div class="r">сейчас</div><div class="p">see-CHAS</div><div class="e">now</div></div>
+    <div class="vocab-pill"><div class="r">этаж</div><div class="p">e-TASH</div><div class="e">floor / storey</div></div>
+    <div class="vocab-pill"><div class="r">здание</div><div class="p">ZDA-nee-ye</div><div class="e">building</div></div>
+    <div class="vocab-pill"><div class="r">первый</div><div class="p">PYER-vyy</div><div class="e">first</div></div>
+    <div class="vocab-pill"><div class="r">второй</div><div class="p">fta-ROY</div><div class="e">second</div></div>
+    <div class="vocab-pill"><div class="r">холл</div><div class="p">hol</div><div class="e">lobby</div></div>
+    <div class="vocab-pill"><div class="r">обычно</div><div class="p">a-BYCH-nuh</div><div class="e">usually</div></div>
+    <div class="vocab-pill"><div class="r">ждать</div><div class="p">zhdat'</div><div class="e">to wait</div></div>
+    <div class="vocab-pill"><div class="r">сорок</div><div class="p">SOH-ruk</div><div class="e">forty</div></div>
+    <div class="vocab-pill"><div class="r">двадцать</div><div class="p">DVA-tsat'</div><div class="e">twenty</div></div>
+    <div class="vocab-pill"><div class="r">тридцать</div><div class="p">TREE-tsat'</div><div class="e">thirty</div></div>
+    <div class="vocab-pill"><div class="r">лучше</div><div class="p">LOOCH-she</div><div class="e">better</div></div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write out these numbers in Russian: 13, 17, 24, 31, 42. Say each aloud.</li>
+      <li>Practise the counting rule with <em>этаж</em>: <em>один этаж, два этажа, пять этажей</em>. Then do the same with <em>час</em>.</li>
+      <li>Write the time for four different hours: <em>Сейчас … час / часа / часов.</em> Include one with «вечера» or «утра».</li>
+      <li>Answer in Russian: <em>На каком этаже вы живёте? В котором часу вы гуляете с Мабо?</em></li>
+      <li>Translate without looking: <em>"It's eight in the evening, and Mabo is waiting for a walk."</em></li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Half-hours &amp; minutes (полвторого, половина) · Numbers 50–100 · Adjectives in the prepositional (в высоком доме)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>12 июля 2026</span> &nbsp;·&nbsp;
+  Numbers · Telling Time · Floors &amp; Ordinals &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
