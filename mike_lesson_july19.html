@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 19 July 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1412; --paper:#f5f0e8; --cream:#ede6d6; --red:#b03a2e;
+    --gold:#c8922a; --blue:#2c4a7c; --green:#3a6b4a; --border:#d4c9b0; --muted:#7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 14.5px; line-height: 1.65; }
+
+  header { background: var(--ink); color: var(--paper); padding: 32px 48px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 36px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 11px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── High-frequency word bank ── */
+  .freq-bank { background: white; border: 1.5px solid var(--gold); border-radius: 8px; padding: 16px 18px; margin: 14px 0; }
+  .freq-bank h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 4px; color: var(--ink); }
+  .freq-bank .sub { font-size: 0.76rem; color: var(--muted); margin-bottom: 12px; }
+  .freq-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .freq-item { background: #fdf8ee; border: 1px solid var(--border); border-radius: 5px; padding: 8px 11px; }
+  .freq-item .w { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 0.95rem; }
+  .freq-item .count { font-size: 0.6rem; color: var(--gold); background: white; border: 1px solid var(--border); padding: 1px 5px; border-radius: 10px; float: right; margin-top: 3px; }
+  .freq-item .p { color: var(--blue); font-style: italic; font-size: 0.7rem; display: block; }
+  .freq-item .e { color: #666; font-size: 0.72rem; }
+
+  /* ── Weather cards ── */
+  .weather-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 12px 0; }
+  .weather-card { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 12px 8px; text-align: center; }
+  .weather-card .icon { font-size: 1.6rem; line-height: 1; }
+  .weather-card .ru-word { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 0.92rem; margin-top: 6px; }
+  .weather-card .pr { color: var(--blue); font-style: italic; font-size: 0.66rem; margin-top: 2px; }
+  .weather-card .en-word { color: #666; font-size: 0.7rem; margin-top: 3px; }
+
+  /* ── Impersonal vs noun table ── */
+  .contrast-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .contrast-card { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 14px 16px; }
+  .contrast-card.a { border-color: var(--green); }
+  .contrast-card.b { border-color: var(--blue); }
+  .contrast-card h5 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; margin-bottom: 8px; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+  .contrast-card.a h5 { color: var(--green); }
+  .contrast-card.b h5 { color: var(--blue); }
+  .contrast-card .ex { font-size: 0.85rem; margin-bottom: 6px; }
+  .contrast-card .ex:last-child { margin-bottom: 0; }
+  .contrast-card .ex .r { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .contrast-card .ex .g { color: #666; font-size: 0.76rem; display: block; }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Dialogue ── */
+  .dialogue { background: #f8f4ec; border: 1px solid var(--border); border-radius: 6px; padding: 16px 18px; margin-top: 12px; }
+  .dialogue .line { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e0d8c0; }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 22px 26px; margin-top: 36px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .freq-grid { grid-template-columns: repeat(2, 1fr); }
+    .weather-grid { grid-template-columns: repeat(2, 1fr); }
+    .contrast-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 19 июля 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 19 July 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: 35–45 min<br>
+    Focus: <span style="color:#fff;">Weather · Core Word Review</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> (1) Lock in the <span style="color:var(--red); font-weight:600;">core words</span> that keep coming back
+    week after week — the true high-frequency set, (2) go deep on <span style="color:var(--red); font-weight:600;">weather</span> —
+    every condition, not just warm and cold, and (3) learn the grammar behind weather sentences:
+    <span style="color:var(--red); font-weight:600;">impersonal forms</span> (тепло) vs. <span style="color:var(--red); font-weight:600;">nouns + verbs</span> (идёт дождь).
+  </div>
+
+
+  <!-- PART 1 — HIGH FREQUENCY REVIEW -->
+  <div class="sec-label">
+    <span class="icon">🔁</span>
+    <h2>Самые частые слова — The Words That Keep Coming Back</h2>
+    <div class="line"></div>
+    <span class="tag blue">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> These are the words Mike has produced most often across all lessons — the backbone of his Russian.
+    Don't explain them; just fire them off and have Mike give the meaning instantly. Speed is the goal, not analysis.
+  </div>
+
+  <div class="freq-bank">
+    <h4>Твой основной словарь — Your Core Vocabulary</h4>
+    <div class="sub">Words that have appeared again and again in your lessons and chats</div>
+    <div class="freq-grid">
+      <div class="freq-item"><span class="count">★★★</span><div class="w">погода</div><span class="p">pah-GOH-da</span><span class="e">weather</span></div>
+      <div class="freq-item"><span class="count">★★★</span><div class="w">время</div><span class="p">VRYE-mya</span><span class="e">time</span></div>
+      <div class="freq-item"><span class="count">★★★</span><div class="w">гулять</div><span class="p">goo-LYAT'</span><span class="e">to walk</span></div>
+      <div class="freq-item"><span class="count">★★★</span><div class="w">встречать</div><span class="p">fstree-CHAT'</span><span class="e">to meet</span></div>
+      <div class="freq-item"><span class="count">★★★</span><div class="w">книга</div><span class="p">KNEE-ga</span><span class="e">book</span></div>
+      <div class="freq-item"><span class="count">★★★</span><div class="w">язык</div><span class="p">ya-ZYK</span><span class="e">language</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">этаж</div><span class="p">e-TASH</span><span class="e">floor</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">дождь</div><span class="p">dozhd'</span><span class="e">rain</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">обычно</div><span class="p">a-BYCH-nuh</span><span class="e">usually</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">сейчас</div><span class="p">see-CHAS</span><span class="e">now</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">жить</div><span class="p">zhyt'</span><span class="e">to live</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">читать</div><span class="p">chee-TAT'</span><span class="e">to read</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">любить</div><span class="p">lyu-BEET'</span><span class="e">to love</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">нравиться</div><span class="p">NRA-vee-tsa</span><span class="e">to be pleasing</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">красивый</div><span class="p">kra-SEE-vyy</span><span class="e">beautiful</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">ждать</div><span class="p">zhdat'</span><span class="e">to wait</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">город</div><span class="p">GOH-rut</span><span class="e">city</span></div>
+      <div class="freq-item"><span class="count">★★</span><div class="w">неделя</div><span class="p">nee-DYEL-ya</span><span class="e">week</span></div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>Word pair from last time:</strong> <span class="ru-ex">обычно</span> (usually) and
+    <span class="ru-ex">обычай</span> <span class="pr-ex">(a-BY-chai)</span> (a custom, tradition) — same root
+    <span class="ru-ex">-обыч-</span> ("what is habitual"). A custom is simply what people <em>usually</em> do.
+  </div>
+
+
+  <!-- PART 2 — ALL THE WEATHER -->
+  <div class="sec-label">
+    <span class="icon">🌦</span>
+    <h2>Погода — Every Weather Condition</h2>
+    <div class="line"></div>
+    <span class="tag gold">14 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike knows тепло / холодно / солнечно / облачно. Today we fill in the whole picture —
+    fog, storms, hail, humidity, frost. This is the vocabulary he needs to describe a Winnipeg winter or a Toronto summer properly.
+  </div>
+
+  <div class="weather-grid">
+    <div class="weather-card"><div class="icon">☀️</div><div class="ru-word">солнечно</div><div class="pr">SOHL-neech-nuh</div><div class="en-word">sunny</div></div>
+    <div class="weather-card"><div class="icon">☁️</div><div class="ru-word">облачно</div><div class="pr">OH-bluch-nuh</div><div class="en-word">cloudy</div></div>
+    <div class="weather-card"><div class="icon">🌧</div><div class="ru-word">дождь</div><div class="pr">dozhd'</div><div class="en-word">rain</div></div>
+    <div class="weather-card"><div class="icon">⛈</div><div class="ru-word">гроза</div><div class="pr">gra-ZA</div><div class="en-word">thunderstorm</div></div>
+    <div class="weather-card"><div class="icon">🌫</div><div class="ru-word">туман</div><div class="pr">too-MAN</div><div class="en-word">fog</div></div>
+    <div class="weather-card"><div class="icon">❄️</div><div class="ru-word">снег</div><div class="pr">snyek</div><div class="en-word">snow</div></div>
+    <div class="weather-card"><div class="icon">🧊</div><div class="ru-word">град</div><div class="pr">grad</div><div class="en-word">hail</div></div>
+    <div class="weather-card"><div class="icon">💨</div><div class="ru-word">ветер</div><div class="pr">VYE-teer</div><div class="en-word">wind</div></div>
+    <div class="weather-card"><div class="icon">🥵</div><div class="ru-word">жара</div><div class="pr">zha-RA</div><div class="en-word">heat</div></div>
+    <div class="weather-card"><div class="icon">🥶</div><div class="ru-word">мороз</div><div class="pr">ma-ROS</div><div class="en-word">frost / hard freeze</div></div>
+    <div class="weather-card"><div class="icon">💧</div><div class="ru-word">влажно</div><div class="pr">VLAZH-nuh</div><div class="en-word">humid</div></div>
+    <div class="weather-card"><div class="icon">🌈</div><div class="ru-word">радуга</div><div class="pr">RA-doo-ga</div><div class="en-word">rainbow</div></div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Two Ways to Say the Weather — the key grammar</h4>
+    <div class="contrast-grid">
+      <div class="contrast-card a">
+        <h5>1. Impersonal — no subject at all</h5>
+        <div class="ex"><span class="r">Сегодня тепло.</span><span class="g">It's warm today.</span></div>
+        <div class="ex"><span class="r">Вчера было холодно.</span><span class="g">It was cold yesterday.</span></div>
+        <div class="ex"><span class="r">Завтра будет солнечно.</span><span class="g">It will be sunny tomorrow.</span></div>
+        <div class="ex" style="color:#666; font-size:0.76rem; margin-top:8px;">
+          These end in <strong>-о</strong>. There's no "it" — just <em>было / будет</em> for past and future.
+        </div>
+      </div>
+      <div class="contrast-card b">
+        <h5>2. Noun + verb — for things that fall or blow</h5>
+        <div class="ex"><span class="r">Идёт дождь.</span><span class="g">It's raining. (lit. "rain is going")</span></div>
+        <div class="ex"><span class="r">Шёл снег.</span><span class="g">It was snowing.</span></div>
+        <div class="ex"><span class="r">Дует ветер.</span><span class="g">The wind is blowing.</span></div>
+        <div class="ex" style="color:#666; font-size:0.76rem; margin-top:8px;">
+          Rain and snow <em>go</em> in Russian — <strong>идёт</strong>. The verb agrees with the noun, like any sentence.
+        </div>
+      </div>
+    </div>
+    <div class="gram" style="margin-bottom:0;">
+      <strong>Mike already knows this!</strong> You wrote <span class="ru-ex">«недавно шёл дождь»</span> — that's pattern 2, past tense, perfectly formed.
+      And <span class="ru-ex">«сегодня облачно»</span> is pattern 1. You were using both by instinct.
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">What's the weather like today?</td>
+        <td class="ru">Какая сегодня погода?</td>
+        <td class="pr">Ka-KA-ya see-VOHD-nyuh pa-GOH-da?</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">It's raining and the wind is blowing.</td>
+        <td class="ru">Идёт дождь и дует ветер.</td>
+        <td class="pr">Ee-DYOT dozhd' ee DOO-yet VYE-teer.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">In the morning there was thick fog.</td>
+        <td class="ru">Утром был густой туман.</td>
+        <td class="pr">OOT-rum byl goos-TOY too-MAN.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">A thunderstorm is coming.</td>
+        <td class="ru">Надвигается гроза.</td>
+        <td class="pr">Nad-vee-GA-ye-tsa gra-ZA.</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">It's very humid — hard to breathe.</td>
+        <td class="ru">Очень влажно — трудно дышать.</td>
+        <td class="pr">OH-chen' VLAZH-nuh — TROOD-nuh dy-SHAT'.</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">In winter in Winnipeg there's a hard frost.</td>
+        <td class="ru">Зимой в Виннипеге сильный мороз.</td>
+        <td class="pr">Zee-MOY v Vee-nee-PYE-gye SEEL'-nyy ma-ROS.</td>
+      </tr>
+      <tr>
+        <td class="num">7</td>
+        <td class="en">After the rain a rainbow appeared.</td>
+        <td class="ru">После дождя появилась радуга.</td>
+        <td class="pr">POS-lye dazh-DYA pa-ya-VEE-las' RA-doo-ga.</td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td class="en">We were unlucky with the weather.</td>
+        <td class="ru">Нам не повезло с погодой.</td>
+        <td class="pr">Nam nye pa-veez-LOH s pa-GOH-duy.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Sentence 8 is yours:</strong> you wrote <span class="ru-ex">«Нам не очень повезло с погодой»</span> —
+    <span class="ru-ex">повезти</span> (to be lucky) is an impersonal verb that takes the dative: <span class="ru-ex">мне повезло</span> (I was lucky),
+    <span class="ru-ex">нам не повезло</span> (we were unlucky). Excellent, natural Russian.
+  </div>
+
+
+  <!-- WILDFIRE & AIR QUALITY -->
+  <div class="gram-box" style="border-color: var(--red);">
+    <h4>🔥 Пожары и качество воздуха — Wildfires &amp; Air Quality</h4>
+    <div style="font-size:0.8rem; color:#555; margin-bottom:12px;">
+      A real part of Canadian summers — and something you touched on back in May with <em>дым</em> and <em>копоть</em>. Here's the fuller kit.
+    </div>
+    <div class="weather-grid">
+      <div class="weather-card" style="border-color:#d88;"><div class="icon">🔥</div><div class="ru-word">пожар</div><div class="pr">pa-ZHAR</div><div class="en-word">wildfire / fire</div></div>
+      <div class="weather-card" style="border-color:#d88;"><div class="icon">🌫</div><div class="ru-word">дым</div><div class="pr">dym</div><div class="en-word">smoke</div></div>
+      <div class="weather-card" style="border-color:#d88;"><div class="icon">😷</div><div class="ru-word">смог</div><div class="pr">smog</div><div class="en-word">smog</div></div>
+      <div class="weather-card" style="border-color:#d88;"><div class="icon">💨</div><div class="ru-word">гарь</div><div class="pr">gar'</div><div class="en-word">burnt smell</div></div>
+    </div>
+    <div class="vocab-row" style="margin-top:10px;">
+      <div class="vocab-pill"><div class="r">качество воздуха</div><div class="p">KA-chest-vuh VOZ-doo-ha</div><div class="e">air quality</div></div>
+      <div class="vocab-pill"><div class="r">воздух</div><div class="p">VOZ-doo-h</div><div class="e">air</div></div>
+      <div class="vocab-pill"><div class="r">дышать</div><div class="p">dy-SHAT'</div><div class="e">to breathe</div></div>
+      <div class="vocab-pill"><div class="r">вредный</div><div class="p">VRYED-nyy</div><div class="e">harmful</div></div>
+      <div class="vocab-pill"><div class="r">опасно</div><div class="p">a-PAS-nuh</div><div class="e">dangerous</div></div>
+      <div class="vocab-pill"><div class="r">маска</div><div class="p">MAS-ka</div><div class="e">mask</div></div>
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">W1</td>
+        <td class="en">Because of the wildfires the air is smoky.</td>
+        <td class="ru">Из-за пожаров воздух в дыму.</td>
+        <td class="pr">Eez-za pa-ZHA-ruf VOZ-doo-h v dy-MOO.</td>
+      </tr>
+      <tr>
+        <td class="num">W2</td>
+        <td class="en">Today the air quality is poor.</td>
+        <td class="ru">Сегодня плохое качество воздуха.</td>
+        <td class="pr">See-VOHD-nyuh pla-HOH-ye KA-chest-vuh VOZ-doo-ha.</td>
+      </tr>
+      <tr>
+        <td class="num">W3</td>
+        <td class="en">The smoke smells of burning.</td>
+        <td class="ru">Дым пахнет гарью.</td>
+        <td class="pr">Dym PAH-nyet GAR'-yu.</td>
+      </tr>
+      <tr>
+        <td class="num">W4</td>
+        <td class="en">It's dangerous to breathe — better to stay home.</td>
+        <td class="ru">Дышать опасно — лучше остаться дома.</td>
+        <td class="pr">Dy-SHAT' a-PAS-nuh — LOOCH-she as-TA-tsa DOH-ma.</td>
+      </tr>
+      <tr>
+        <td class="num">W5</td>
+        <td class="en">Because of the smoke we didn't go for a walk.</td>
+        <td class="ru">Из-за дыма мы не пошли гулять.</td>
+        <td class="pr">Eez-za DY-ma my nye pash-LEE goo-LYAT'.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Grammar you already own:</strong> <span class="ru-ex">из-за</span> (because of) takes the genitive —
+    из-за пожар<span class="ru-ex">ов</span>, из-за дым<span class="ru-ex">а</span>. You used exactly this in
+    <span class="ru-ex">«из-за дождей города подтоплены»</span>. And <span class="ru-ex">пахнет гарью</span> ("smells of burning")
+    is the same instrumental you met in May with <span class="ru-ex">«воздух пах копотью»</span>. It all connects.
+  </div>
+
+
+  <!-- PART 3 — TALKING ABOUT WEATHER OVER TIME -->
+  <div class="sec-label">
+    <span class="icon">📉</span>
+    <h2>Погода меняется — Weather Over Time</h2>
+    <div class="line"></div>
+    <span class="tag green">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Weather is naturally about change and comparison — perfect for practising past/future and comparatives Mike already knows.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">9</td>
+        <td class="en">Yesterday it was hot, but today it's cooler.</td>
+        <td class="ru">Вчера было жарко, а сегодня прохладнее.</td>
+        <td class="pr">Vchee-RA BY-luh ZHAR-kuh, a see-VOHD-nyuh prah-HLAD-nye-ye.</td>
+      </tr>
+      <tr>
+        <td class="num">10</td>
+        <td class="en">The weather changes very quickly here.</td>
+        <td class="ru">Здесь погода меняется очень быстро.</td>
+        <td class="pr">Zdyes' pa-GOH-da mee-NYA-ye-tsa OH-chen' BYST-ruh.</td>
+      </tr>
+      <tr>
+        <td class="num">11</td>
+        <td class="en">What will the weather be tomorrow?</td>
+        <td class="ru">Какая погода будет завтра?</td>
+        <td class="pr">Ka-KA-ya pa-GOH-da BOO-deet ZAHF-truh?</td>
+      </tr>
+      <tr>
+        <td class="num">12</td>
+        <td class="en">They promise rain all week.</td>
+        <td class="ru">Обещают дождь всю неделю.</td>
+        <td class="pr">A-bee-SHCHA-yut dozhd' fsyu nee-DYEL-yu.</td>
+      </tr>
+      <tr>
+        <td class="num">13</td>
+        <td class="en">Because of the rain many cities are flooded.</td>
+        <td class="ru">Из-за дождей многие города подтоплены.</td>
+        <td class="pr">Eez-za dazh-DYEY MNOH-gee-ye ga-ra-DA pat-TOP-lee-ny.</td>
+      </tr>
+      <tr>
+        <td class="num">14</td>
+        <td class="en">Despite the rain, we go for a walk.</td>
+        <td class="ru">Несмотря на дождь, мы идём гулять.</td>
+        <td class="pr">Nees-mat-RYA na dozhd', my ee-DYOM goo-LYAT'.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>Weather comparatives</strong> (built on what you know): тепло → <span class="ru-ex">теплее</span> (warmer) ·
+    холодно → <span class="ru-ex">холоднее</span> (colder) · жарко → <span class="ru-ex">жарче</span> (hotter) ·
+    прохладно → <span class="ru-ex">прохладнее</span> (cooler). Same <span class="ru-ex">-ее</span> pattern as труднее.
+  </div>
+
+
+  <!-- PART 4 — DIALOGUE -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — Weather &amp; the Trip</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Uses Mike's real trip to the US. He is addressed with <strong>вы</strong>. Read once, then swap roles
+    and let Mike describe the weather on his actual vacation.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, какая сегодня погода в Торонто?</div>
+        <div class="pron-line">Mayk, ka-KA-ya see-VOHD-nyuh pa-GOH-da v Ta-RON-tuh?</div>
+        <div class="eng-line">Mike, what's the weather like in Toronto today?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Облачно и влажно. Утром шёл дождь, но сейчас дождя нет.</div>
+        <div class="pron-line">OH-bluch-nuh ee VLAZH-nuh. OOT-rum shol dozhd', no see-CHAS dazh-DYA nyet.</div>
+        <div class="eng-line">Cloudy and humid. It rained in the morning, but now there's no rain.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">А какая погода была в отпуске, в Америке?</div>
+        <div class="pron-line">A ka-KA-ya pa-GOH-da by-LA v OT-poos-kye, v A-mee-ree-kye?</div>
+        <div class="eng-line">And what was the weather like on your vacation, in America?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Нам не повезло с погодой. Часто шли дожди и была гроза.</div>
+        <div class="pron-line">Nam nye pa-veez-LOH s pa-GOH-duy. CHAS-tuh shlee dazh-DEE ee by-LA gra-ZA.</div>
+        <div class="eng-line">We were unlucky with the weather. It rained often and there was a thunderstorm.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Жаль! А в горах было холоднее?</div>
+        <div class="pron-line">Zhal'! A v ga-RAKH BY-luh hah-lad-NYE-ye?</div>
+        <div class="eng-line">A shame! And was it colder in the mountains?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Да, в горах было прохладно, а в полях очень жарко.</div>
+        <div class="pron-line">Da, v ga-RAKH BY-luh prah-HLAD-nuh, a v pa-LYAKH OH-chen' ZHAR-kuh.</div>
+        <div class="eng-line">Yes, in the mountains it was cool, but in the fields it was very hot.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">А Мабо? Он гулял, несмотря на дождь?</div>
+        <div class="pron-line">A MA-bo? On goo-LYAL, nees-mat-RYA na dozhd'?</div>
+        <div class="eng-line">And Mabo? Did he walk despite the rain?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Конечно! Мабо любит гулять в любую погоду.</div>
+        <div class="pron-line">Ka-NYESH-nuh! MA-bo LYU-beet goo-LYAT' v lyu-BOO-yu pa-GOH-doo.</div>
+        <div class="eng-line">Of course! Mabo loves walking in any weather.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">New Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">гроза</div><div class="p">gra-ZA</div><div class="e">thunderstorm</div></div>
+    <div class="vocab-pill"><div class="r">туман</div><div class="p">too-MAN</div><div class="e">fog</div></div>
+    <div class="vocab-pill"><div class="r">град</div><div class="p">grad</div><div class="e">hail</div></div>
+    <div class="vocab-pill"><div class="r">жара</div><div class="p">zha-RA</div><div class="e">heat</div></div>
+    <div class="vocab-pill"><div class="r">мороз</div><div class="p">ma-ROS</div><div class="e">frost</div></div>
+    <div class="vocab-pill"><div class="r">влажно</div><div class="p">VLAZH-nuh</div><div class="e">humid</div></div>
+    <div class="vocab-pill"><div class="r">радуга</div><div class="p">RA-doo-ga</div><div class="e">rainbow</div></div>
+    <div class="vocab-pill"><div class="r">прохладно</div><div class="p">prah-HLAD-nuh</div><div class="e">cool</div></div>
+    <div class="vocab-pill"><div class="r">дуть</div><div class="p">doot'</div><div class="e">to blow (wind)</div></div>
+    <div class="vocab-pill"><div class="r">меняться</div><div class="p">mee-NYA-tsa</div><div class="e">to change</div></div>
+    <div class="vocab-pill"><div class="r">обещать</div><div class="p">a-bee-SHCHAT'</div><div class="e">to promise</div></div>
+    <div class="vocab-pill"><div class="r">повезти</div><div class="p">pa-veez-TEE</div><div class="e">to be lucky</div></div>
+    <div class="vocab-pill"><div class="r">несмотря на</div><div class="p">nees-mat-RYA na</div><div class="e">despite</div></div>
+    <div class="vocab-pill"><div class="r">из-за</div><div class="p">EEZ-za</div><div class="e">because of</div></div>
+    <div class="vocab-pill"><div class="r">отпуск</div><div class="p">OT-poosk</div><div class="e">vacation</div></div>
+    <div class="vocab-pill"><div class="r">обычай</div><div class="p">a-BY-chai</div><div class="e">custom / tradition</div></div>
+    <div class="vocab-pill"><div class="r">пожар</div><div class="p">pa-ZHAR</div><div class="e">wildfire / fire</div></div>
+    <div class="vocab-pill"><div class="r">дым</div><div class="p">dym</div><div class="e">smoke</div></div>
+    <div class="vocab-pill"><div class="r">гарь</div><div class="p">gar'</div><div class="e">burnt smell</div></div>
+    <div class="vocab-pill"><div class="r">воздух</div><div class="p">VOZ-doo-h</div><div class="e">air</div></div>
+    <div class="vocab-pill"><div class="r">качество</div><div class="p">KA-chest-vuh</div><div class="e">quality</div></div>
+    <div class="vocab-pill"><div class="r">дышать</div><div class="p">dy-SHAT'</div><div class="e">to breathe</div></div>
+    <div class="vocab-pill"><div class="r">опасно</div><div class="p">a-PAS-nuh</div><div class="e">dangerous</div></div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write the weather for 5 days this week — use the <strong>impersonal</strong> form (<em>солнечно, влажно, прохладно</em>) at least twice, and the <strong>noun+verb</strong> form (<em>идёт дождь, дует ветер</em>) at least twice.</li>
+      <li>Describe the weather on your American vacation in 3 sentences. Use: <em>гроза, дождь, жарко, повезло / не повезло</em>.</li>
+      <li>Compare two days: <em>Вчера было…, а сегодня…</em> Use a comparative (<em>теплее, холоднее, жарче, прохладнее</em>).</li>
+      <li>Write 2 sentences about wildfire smoke and air quality. Use: <em>дым, пожар, качество воздуха, дышать, опасно</em>.</li>
+      <li>From memory, give the English for these core words: <em>погода, время, гулять, встречать, обычно, ждать, нравиться, красивый</em>.</li>
+      <li>Translate without looking: <em>"Despite the rain, Mabo loves walking in any weather."</em></li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Seasons (зима, весна, осень) · Travel &amp; the trip vocabulary (штат, граница, горы, леса, поля) · Numbers 50–100
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>19 июля 2026</span> &nbsp;·&nbsp;
+  Weather · Core Word Review &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
