@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 2 August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1412; --paper:#f5f0e8; --cream:#ede6d6; --red:#b03a2e;
+    --gold:#c8922a; --blue:#2c4a7c; --green:#3a6b4a; --border:#d4c9b0; --muted:#7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 14.5px; line-height: 1.65; }
+
+  header { background: var(--ink); color: var(--paper); padding: 32px 48px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 32px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 10px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Word family chain: verb → noun → adjective ── */
+  .chain-card { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 12px 15px; margin-bottom: 10px; }
+  .chain-row { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 6px; align-items: center; }
+  .chain-item { text-align: center; }
+  .chain-item .label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 700; margin-bottom: 3px; }
+  .chain-item .w { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 0.95rem; }
+  .chain-item .p { color: var(--blue); font-style: italic; font-size: 0.66rem; display: block; }
+  .chain-item .e { color: #666; font-size: 0.7rem; }
+  .chain-arrow { color: var(--gold); font-weight: 700; font-size: 1.1rem; }
+
+  /* ── Variation grid (same meaning, different phrasing) ── */
+  .variation-box { background: white; border: 1.5px solid var(--gold); border-radius: 6px; padding: 14px 16px; margin: 12px 0; }
+  .variation-row { display: flex; align-items: baseline; gap: 10px; padding: 6px 0; border-bottom: 1px dashed var(--border); }
+  .variation-row:last-child { border-bottom: none; }
+  .variation-row .ru { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; font-size: 0.95rem; }
+  .variation-row .pr { color: var(--blue); font-style: italic; font-size: 0.72rem; }
+  .variation-row .note { color: #888; font-size: 0.72rem; margin-left: auto; white-space: nowrap; }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Dialogue ── */
+  .dialogue { background: #f8f4ec; border: 1px solid var(--border); border-radius: 6px; padding: 16px 18px; margin-top: 12px; }
+  .dialogue .line { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e0d8c0; }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 20px 24px; margin-top: 32px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .chain-row { grid-template-columns: 1fr; }
+    .chain-arrow { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 2 августа 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 2 August 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: ~45 min<br>
+    Focus: <span style="color:#fff;">Word Families · Quick Review</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> A shorter, focused session — (1) turn last week's scattered words into complete
+    <span style="color:var(--red); font-weight:600;">verb → noun → adjective chains</span>, and (2) sort out the four ways
+    Mike asked <span style="color:var(--red); font-weight:600;">"when is the meeting?"</span>.
+  </div>
+
+
+  <!-- PART 2 — WORD FAMILIES -->
+  <div class="sec-label">
+    <span class="icon">🌳</span>
+    <h2>Цепочки слов — Verb → Noun → Adjective</h2>
+    <div class="line"></div>
+    <span class="tag gold">28 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Last week Mike gathered pieces of several families without seeing the full chain. Today we complete them —
+    one root, three jobs: an action, a thing, and a description.
+  </div>
+
+  <div class="chain-card">
+    <div class="chain-row">
+      <div class="chain-item"><div class="label">Verb</div><div class="w">ненавидеть</div><span class="p">nee-na-VEE-deet'</span><span class="e">to hate</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Noun</div><div class="w">ненависть</div><span class="p">NYE-na-vees't'</span><span class="e">hatred</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Adjective</div><div class="w">ненавистный</div><span class="p">nee-na-VEEST-nyy</span><span class="e">hated / hateful</span></div>
+    </div>
+  </div>
+
+  <div class="chain-card">
+    <div class="chain-row">
+      <div class="chain-item"><div class="label">Verb</div><div class="w">обещать</div><span class="p">a-bee-SHCHAT'</span><span class="e">to promise</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Noun</div><div class="w">обещание</div><span class="p">a-bee-SHCHA-nee-ye</span><span class="e">a promise</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Adjective</div><div class="w">обещанный</div><span class="p">a-BYE-shchan-nyy</span><span class="e">promised</span></div>
+    </div>
+  </div>
+
+  <div class="chain-card">
+    <div class="chain-row">
+      <div class="chain-item"><div class="label">Verb</div><div class="w">воспитывать</div><span class="p">vas-PEE-ty-vat'</span><span class="e">to raise / bring up</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Noun</div><div class="w">воспитание</div><span class="p">vas-pee-TA-nee-ye</span><span class="e">upbringing</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Adjective</div><div class="w">воспитанный</div><span class="p">vas-PEE-tan-nyy</span><span class="e">well-mannered</span></div>
+    </div>
+  </div>
+
+  <div class="chain-card">
+    <div class="chain-row">
+      <div class="chain-item"><div class="label">Verb</div><div class="w">любить</div><span class="p">lyu-BEET'</span><span class="e">to love</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Noun</div><div class="w">любовь</div><span class="p">lyu-BOF'</span><span class="e">love</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Adjective</div><div class="w">любимый</div><span class="p">lyu-BEE-myy</span><span class="e">favourite / beloved</span></div>
+    </div>
+  </div>
+
+  <div class="chain-card">
+    <div class="chain-row">
+      <div class="chain-item"><div class="label">Verb</div><div class="w">интересовать</div><span class="p">een-tee-ree-sa-VAT'</span><span class="e">to interest</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Noun</div><div class="w">интерес</div><span class="p">een-tee-RYES</span><span class="e">interest</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Adjective</div><div class="w">интересный</div><span class="p">een-tee-RYES-nyy</span><span class="e">interesting</span></div>
+    </div>
+  </div>
+
+  <div class="chain-card">
+    <div class="chain-row">
+      <div class="chain-item"><div class="label">Verb</div><div class="w">удивлять</div><span class="p">oo-deev-LYAT'</span><span class="e">to surprise</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Noun</div><div class="w">удивление</div><span class="p">oo-deev-LYE-nee-ye</span><span class="e">surprise</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Adjective</div><div class="w">удивительный</div><span class="p">oo-dee-VEE-teel'-nyy</span><span class="e">amazing / surprising</span></div>
+    </div>
+  </div>
+
+  <div class="chain-card">
+    <div class="chain-row">
+      <div class="chain-item"><div class="label">Verb</div><div class="w">уставать</div><span class="p">oo-sta-VAT'</span><span class="e">to get tired</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Noun</div><div class="w">усталость</div><span class="p">oos-TA-lust'</span><span class="e">tiredness</span></div>
+      <div class="chain-arrow">→</div>
+      <div class="chain-item"><div class="label">Adjective</div><div class="w">уставший</div><span class="p">oos-TAV-shyy</span><span class="e">tired</span></div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>счастье → счастливый → счастливого:</strong> <span class="ru-ex">счастье</span> (happiness, noun) gives
+    <span class="ru-ex">счастливый</span> (happy, adjective), which becomes <span class="ru-ex">счастливого</span> in
+    <span class="ru-ex">«Счастливого пути!»</span> — the genitive after an implied "I wish you…" Mike already uses this perfectly.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">Mabo is a very well-mannered dog.</td>
+        <td class="ru">Мабо очень воспитанный пёс.</td>
+        <td class="pr">MA-bo OH-chen' vas-PEE-tan-nyy pyos.</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">Keep your promise!</td>
+        <td class="ru">Держите своё обещание!</td>
+        <td class="pr">Deer-ZHY-tye sva-YO a-bee-SHCHA-nee-ye!</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">He doesn't feel hatred, only tiredness.</td>
+        <td class="ru">Он не чувствует ненависть, только усталость.</td>
+        <td class="pr">On nye CHOOST-voo-yet NYE-na-vees't', TOL'-kuh oos-TA-lust'.</td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td class="en">This is my favourite book.</td>
+        <td class="ru">Это моя любимая книга.</td>
+        <td class="pr">EH-ta ma-YA lyu-BEE-ma-ya KNEE-ga.</td>
+      </tr>
+      <tr>
+        <td class="num">5</td>
+        <td class="en">This is a very interesting phenomenon.</td>
+        <td class="ru">Это очень интересное явление.</td>
+        <td class="pr">EH-ta OH-chen' een-tee-RYES-na-ye yav-LYE-nee-ye.</td>
+      </tr>
+      <tr>
+        <td class="num">6</td>
+        <td class="en">I was tired, but the trip was amazing.</td>
+        <td class="ru">Я был уставший, но поездка была удивительная.</td>
+        <td class="pr">Ya byl oos-TAV-shyy, no pa-YEZD-ka by-LA oo-dee-VEE-teel'-na-ya.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- PART 3 — MEETING TIME VARIATIONS + EXTRAS -->
+  <div class="sec-label">
+    <span class="icon">🤝</span>
+    <h2>«Когда встреча?» — Four Ways to Ask</h2>
+    <div class="line"></div>
+    <span class="tag green">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike tried four versions of the same question last week — all correct, each with a slightly different feel. Worth comparing side by side.
+  </div>
+
+  <div class="variation-box">
+    <div class="variation-row">
+      <span class="ru">Когда у нас встреча?</span>
+      <span class="pr">Kag-DA oo nas FSTRYE-cha?</span>
+      <span class="note">"our" meeting — shared</span>
+    </div>
+    <div class="variation-row">
+      <span class="ru">Когда мы встречаемся?</span>
+      <span class="pr">Kag-DA my fstree-CHA-yem-sya?</span>
+      <span class="note">the action itself</span>
+    </div>
+    <div class="variation-row">
+      <span class="ru">Когда ваша встреча?</span>
+      <span class="pr">Kag-DA VA-sha FSTRYE-cha?</span>
+      <span class="note">"your" meeting (formal)</span>
+    </div>
+    <div class="variation-row">
+      <span class="ru">Во сколько ваша встреча?</span>
+      <span class="pr">Va SKOL'-kuh VA-sha FSTRYE-cha?</span>
+      <span class="note">asks for exact time</span>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>Когда</strong> = "when" (general). <strong>Во сколько</strong> = "at what time" (specific clock time) — more precise,
+    like the difference between "when's the meeting?" and "what time exactly?" Both are natural; во сколько just narrows the answer.
+  </div>
+
+  <div class="gram-box">
+    <h4>Also from last week — quick notes</h4>
+    <div class="vocab-row">
+      <div class="vocab-pill"><div class="r">международный</div><div class="p">meezh-doo-na-ROD-nyy</div><div class="e">international</div></div>
+      <div class="vocab-pill"><div class="r">между</div><div class="p">MYEZH-doo</div><div class="e">between</div></div>
+      <div class="vocab-pill"><div class="r">народ</div><div class="p">na-ROT</div><div class="e">people / nation</div></div>
+      <div class="vocab-pill"><div class="r">бывший</div><div class="p">BYV-shyy</div><div class="e">former</div></div>
+      <div class="vocab-pill"><div class="r">возникнуть</div><div class="p">vaz-NEEK-noot'</div><div class="e">to arise / come up</div></div>
+      <div class="vocab-pill"><div class="r">почтальон</div><div class="p">pach-tal'-YON</div><div class="e">mailman</div></div>
+    </div>
+    <div class="gram" style="margin-top:10px; margin-bottom:0;">
+      <strong>международный</strong> is literally <span class="ru-ex">между</span> (between) + <span class="ru-ex">народами</span> (nations) —
+      "between nations." Once you see it split apart, it's impossible to forget.
+    </div>
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">7</td>
+        <td class="en">We met yesterday evening.</td>
+        <td class="ru">Мы встречались вчера вечером.</td>
+        <td class="pr">My fstree-CHA-lees' vchee-RA VYE-chee-rum.</td>
+      </tr>
+      <tr>
+        <td class="num">8</td>
+        <td class="en">I prefer to meet in the evenings.</td>
+        <td class="ru">Я предпочитаю встречаться по вечерам.</td>
+        <td class="pr">Ya preet-pa-chee-TA-yu fstree-CHA-tsa pa vee-chee-RAM.</td>
+      </tr>
+      <tr>
+        <td class="num">9</td>
+        <td class="en">If a problem arises, call me.</td>
+        <td class="ru">Если возникнет проблема, позвоните мне.</td>
+        <td class="pr">YES-lee vaz-NEEK-nyet prab-LYE-ma, paz-va-NEE-tye mnye.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- SHORT DIALOGUE -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог</h2>
+    <div class="line"></div>
+    <span class="tag purple">5 min</span>
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, во сколько ваша встреча сегодня?</div>
+        <div class="pron-line">Mayk, va SKOL'-kuh VA-sha FSTRYE-cha see-VOHD-nyuh?</div>
+        <div class="eng-line">Mike, what time is your meeting today?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">В шесть вечера. Я предпочитаю встречаться по вечерам.</div>
+        <div class="pron-line">V shest' VYE-chee-ra. Ya preet-pa-chee-TA-yu fstree-CHA-tsa pa vee-chee-RAM.</div>
+        <div class="eng-line">At six in the evening. I prefer to meet in the evenings.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Разумно. Мабо, наверное, уже ждёт вас дома.</div>
+        <div class="pron-line">Ra-ZOOM-nuh. MA-bo, na-VYER-na-ye, oo-ZHE zhdyot vas DOH-ma.</div>
+        <div class="eng-line">Sensible. Mabo's probably already waiting for you at home.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Конечно! Он очень воспитанный пёс, но всегда ждёт с нетерпением.</div>
+        <div class="pron-line">Ka-NYESH-nuh! On OH-chen' vas-PEE-tan-nyy pyos, no fseeg-DA zhdyot s nee-teer-PYE-nee-yem.</div>
+        <div class="eng-line">Of course! He's a very well-mannered dog, but always waits impatiently.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">New Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">ненависть</div><div class="p">NYE-na-vees't'</div><div class="e">hatred</div></div>
+    <div class="vocab-pill"><div class="r">обещание</div><div class="p">a-bee-SHCHA-nee-ye</div><div class="e">a promise</div></div>
+    <div class="vocab-pill"><div class="r">воспитание</div><div class="p">vas-pee-TA-nee-ye</div><div class="e">upbringing</div></div>
+    <div class="vocab-pill"><div class="r">воспитанный</div><div class="p">vas-PEE-tan-nyy</div><div class="e">well-mannered</div></div>
+    <div class="vocab-pill"><div class="r">счастье</div><div class="p">SHCHAS-tye</div><div class="e">happiness</div></div>
+    <div class="vocab-pill"><div class="r">любовь</div><div class="p">lyu-BOF'</div><div class="e">love</div></div>
+    <div class="vocab-pill"><div class="r">интерес</div><div class="p">een-tee-RYES</div><div class="e">interest</div></div>
+    <div class="vocab-pill"><div class="r">интересный</div><div class="p">een-tee-RYES-nyy</div><div class="e">interesting</div></div>
+    <div class="vocab-pill"><div class="r">удивление</div><div class="p">oo-deev-LYE-nee-ye</div><div class="e">surprise</div></div>
+    <div class="vocab-pill"><div class="r">удивительный</div><div class="p">oo-dee-VEE-teel'-nyy</div><div class="e">amazing</div></div>
+    <div class="vocab-pill"><div class="r">усталость</div><div class="p">oos-TA-lust'</div><div class="e">tiredness</div></div>
+    <div class="vocab-pill"><div class="r">уставший</div><div class="p">oos-TAV-shyy</div><div class="e">tired</div></div>
+    <div class="vocab-pill"><div class="r">между</div><div class="p">MYEZH-doo</div><div class="e">between</div></div>
+    <div class="vocab-pill"><div class="r">народ</div><div class="p">na-ROT</div><div class="e">people / nation</div></div>
+    <div class="vocab-pill"><div class="r">бывший</div><div class="p">BYV-shyy</div><div class="e">former</div></div>
+    <div class="vocab-pill"><div class="r">возникнуть</div><div class="p">vaz-NEEK-noot'</div><div class="e">to arise</div></div>
+    <div class="vocab-pill"><div class="r">почтальон</div><div class="p">pach-tal'-YON</div><div class="e">mailman</div></div>
+  </div>
+
+
+  <!-- HOMEWORK (light) -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Pick one chain (ненавидеть/ненависть/ненавистный or обещать/обещание/обещанный) and write one sentence for each of the three words.</li>
+      <li>Write one sentence using <em>«Во сколько…»</em> to ask about a real plan this week.</li>
+      <li>One sentence about Mabo using <em>воспитанный</em>.</li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Seasons (зима, весна, осень) · Numbers 50–100 · Hotel vocabulary (гостиница, номер, бронировать)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>2 августа 2026</span> &nbsp;·&nbsp;
+  Word Families · Quick Review &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
