@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 9 August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1412; --paper:#f5f0e8; --cream:#ede6d6; --red:#b03a2e;
+    --gold:#c8922a; --blue:#2c4a7c; --green:#3a6b4a; --border:#d4c9b0; --muted:#7a7060;
+    --purple:#5a3a7a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 14.5px; line-height: 1.65; }
+
+  header { background: var(--ink); color: var(--paper); padding: 32px 48px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 32px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: var(--purple); }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table td { padding: 10px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  /* ── Morpheme legend ── */
+  .legend-box { background: white; border: 1.5px solid var(--border); border-radius: 8px; padding: 16px 18px; margin: 14px 0; }
+  .legend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 10px; }
+  .legend-item { border-radius: 6px; padding: 10px 12px; text-align: center; }
+  .legend-item.prefix { background: #e8eaf4; border: 1.5px solid var(--blue); }
+  .legend-item.root { background: #fde8e8; border: 1.5px solid var(--red); }
+  .legend-item.suffix { background: #fdf0d8; border: 1.5px solid var(--gold); }
+  .legend-item.ending { background: #e4f0e8; border: 1.5px solid var(--green); }
+  .legend-item .ru-name { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 0.88rem; }
+  .legend-item.prefix .ru-name { color: var(--blue); }
+  .legend-item.root .ru-name { color: var(--red); }
+  .legend-item.suffix .ru-name { color: var(--gold); }
+  .legend-item.ending .ru-name { color: var(--green); }
+  .legend-item .en-name { font-size: 0.7rem; color: #666; margin-top: 2px; }
+  .legend-item .symbol { font-size: 0.65rem; color: #888; margin-top: 4px; }
+
+  /* ── Morpheme breakdown card ── */
+  .morph-card { background: white; border: 1.5px solid var(--border); border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+  .morph-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .morph-meaning { font-size: 0.78rem; color: #666; }
+  .morph-meaning strong { color: var(--ink); }
+  .morph-word {
+    display: inline-flex; font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+    border-radius: 5px; overflow: hidden; margin: 6px 0;
+  }
+  .morph-seg { padding: 4px 3px; position: relative; }
+  .morph-seg.prefix { background: #e8eaf4; color: var(--blue); }
+  .morph-seg.root { background: #fde8e8; color: var(--red); }
+  .morph-seg.suffix { background: #fdf0d8; color: var(--gold); }
+  .morph-seg.ending { background: #e4f0e8; color: var(--green); }
+  .morph-labels { display: inline-flex; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); margin-top: 2px; }
+  .morph-labels span { padding: 0 3px; }
+  .morph-pron { color: var(--blue); font-style: italic; font-size: 0.76rem; margin-top: 4px; }
+
+  /* ── Common affixes grid ── */
+  .affix-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 12px 0; }
+  .affix-card { border-radius: 6px; padding: 10px 13px; font-size: 0.82rem; }
+  .affix-card.prefix-card { background: #e8eaf4; border: 1px solid #b8c0e0; }
+  .affix-card.suffix-card { background: #fdf0d8; border: 1px solid #e0c890; }
+  .affix-card .affix-item { display: flex; justify-content: space-between; padding: 3px 0; }
+  .affix-card .affix-item .m { font-family: 'Playfair Display', serif; font-weight: 700; }
+  .affix-card.prefix-card .affix-item .m { color: var(--blue); }
+  .affix-card.suffix-card .affix-item .m { color: var(--gold); }
+  .affix-card .affix-item .meaning { color: #555; font-size: 0.76rem; }
+
+  /* ── Quiz / practice box ── */
+  .quiz-box { background: #f8f4ec; border: 1.5px dashed var(--gold); border-radius: 8px; padding: 16px 18px; margin: 14px 0; }
+  .quiz-box .qw { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--red); font-weight: 700; margin-bottom: 4px; }
+  .quiz-box .qe { color: #666; font-size: 0.8rem; }
+
+  .dialogue { background: #f8f4ec; border: 1px solid var(--border); border-radius: 6px; padding: 16px 18px; margin-top: 12px; }
+  .dialogue .line { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e0d8c0; }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 20px 24px; margin-top: 32px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .legend-grid { grid-template-columns: repeat(2, 1fr); }
+    .affix-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресе́нье · 9 а́вгуста 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 9 August 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: ~45 min<br>
+    Focus: <span style="color:#fff;">Word Structure — Morpheme Breakdown</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> Same words as last week — <em>ненавидеть, обещать, воспитывать, любить, интересовать,
+    удивлять, уставать</em> and their families — but this time we open each one up and look at its
+    <span style="color:var(--red); font-weight:600;">internal structure</span>: prefix, root, suffix, ending.
+    Once Mike can spot these four parts, new words stop being random strings of letters and start being puzzles he can solve.
+  </div>
+
+
+  <!-- PART 1 — THE FOUR PARTS -->
+  <div class="sec-label">
+    <span class="icon">🧩</span>
+    <h2>Приставка · Корень · Суффикс · Окончание</h2>
+    <div class="line"></div>
+    <span class="tag blue">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Every Russian word (roughly) breaks into up to four building blocks. Not every word has all four —
+    but every word has a root. Introduce the four colours; Mike will see them used consistently for the rest of the lesson.
+  </div>
+
+  <div class="legend-box">
+    <h4 style="font-family:'Playfair Display',serif; font-size:0.95rem; margin-bottom:2px;">The Four Building Blocks</h4>
+    <div class="legend-grid">
+      <div class="legend-item prefix">
+        <div class="ru-name">приста́вка</div>
+        <div class="en-name">prefix</div>
+        <div class="symbol">goes before the root</div>
+      </div>
+      <div class="legend-item root">
+        <div class="ru-name">ко́рень</div>
+        <div class="en-name">root</div>
+        <div class="symbol">carries the core meaning</div>
+      </div>
+      <div class="legend-item suffix">
+        <div class="ru-name">су́ффикс</div>
+        <div class="en-name">suffix</div>
+        <div class="symbol">shapes word type</div>
+      </div>
+      <div class="legend-item ending">
+        <div class="ru-name">оконча́ние</div>
+        <div class="en-name">ending</div>
+        <div class="symbol">shows grammar (gender, case…)</div>
+      </div>
+    </div>
+    <div class="gram" style="margin-top:12px; margin-bottom:0;">
+      <strong>The one rule that matters most:</strong> the <span class="ru-ex">ко́рень</span> (root) is the part that stays
+      constant across the whole family and carries the real meaning. Everything else — prefix, suffix, ending — just adjusts
+      that meaning or fits it into a sentence.
+    </div>
+  </div>
+
+
+  <!-- PART 2 — THE FAMILIES, TAKEN APART -->
+  <div class="sec-label">
+    <span class="icon">🔬</span>
+    <h2>Разбира́ем сло́во по соста́ву — Taking Words Apart</h2>
+    <div class="line"></div>
+    <span class="tag gold">22 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Go family by family. For each word, first let Mike guess where the breaks are, then reveal the card.
+    The root stays the same colour and (mostly) the same letters across all three words in a family — that repetition is the whole point.
+  </div>
+
+  <!-- ненавидеть family -->
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>ненави́деть</strong> — to hate</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">не</span><span class="morph-seg root">навид</span><span class="morph-seg suffix">е</span><span class="morph-seg ending">ть</span>
+    </div>
+    <div class="morph-labels"><span style="width:22%">prefix</span><span style="width:38%">root</span><span style="width:18%">suffix</span><span style="width:18%">ending</span></div>
+    <div class="morph-pron">nee-na-VEE-deet' — не- ("not") + -вид- (an old root tied to "seeing/regarding") + verb suffix/ending</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>не́нависть</strong> — hatred</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">не</span><span class="morph-seg root">навис</span><span class="morph-seg suffix">ть</span>
+    </div>
+    <div class="morph-labels"><span style="width:22%">prefix</span><span style="width:48%">root</span><span style="width:30%">suffix (∅ ending)</span></div>
+    <div class="morph-pron">NYE-na-vees't' — same не- and root, now with the noun-forming suffix -ть and a zero ending</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>ненави́стный</strong> — hateful</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">не</span><span class="morph-seg root">навист</span><span class="morph-seg suffix">н</span><span class="morph-seg ending">ый</span>
+    </div>
+    <div class="morph-labels"><span style="width:20%">prefix</span><span style="width:42%">root</span><span style="width:14%">suffix</span><span style="width:24%">ending</span></div>
+    <div class="morph-pron">nee-na-VEEST-nyy — the adjective suffix -н- is the same one from краси́вый-type words</div>
+  </div>
+
+  <div class="gram">
+    <strong>See the pattern?</strong> The root <span class="ru-ex">-навид-/-навис-</span> barely changes — same letters, same
+    core meaning, three grammatical jobs. This is why word families are worth learning as a set.
+  </div>
+
+  <!-- обещать family -->
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>обеща́ть</strong> — to promise</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">об</span><span class="morph-seg root">ещ</span><span class="morph-seg suffix">а</span><span class="morph-seg ending">ть</span>
+    </div>
+    <div class="morph-labels"><span style="width:22%">prefix</span><span style="width:22%">root</span><span style="width:28%">suffix</span><span style="width:28%">ending</span></div>
+    <div class="morph-pron">a-bee-SHCHAT' — об- ("around/about") + an old root related to "speaking, declaring"</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>обеща́ние</strong> — a promise</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">об</span><span class="morph-seg root">ещ</span><span class="morph-seg suffix">ани</span><span class="morph-seg ending">е</span>
+    </div>
+    <div class="morph-labels"><span style="width:18%">prefix</span><span style="width:18%">root</span><span style="width:38%">suffix</span><span style="width:26%">ending</span></div>
+    <div class="morph-pron">a-bee-SHCHA-nee-ye — the very common noun suffix -ани-/-ени- you've now seen in движение, явление…</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>обе́щанный</strong> — promised</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">об</span><span class="morph-seg root">ещ</span><span class="morph-seg suffix">анн</span><span class="morph-seg ending">ый</span>
+    </div>
+    <div class="morph-labels"><span style="width:16%">prefix</span><span style="width:16%">root</span><span style="width:36%">suffix</span><span style="width:32%">ending</span></div>
+    <div class="morph-pron">a-BYE-shchan-nyy — double -нн- is the signature of a "passive participle" (an adjective made from a verb)</div>
+  </div>
+
+  <!-- воспитывать family -->
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>воспи́тывать</strong> — to raise / bring up</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">вос</span><span class="morph-seg root">пит</span><span class="morph-seg suffix">ыва</span><span class="morph-seg ending">ть</span>
+    </div>
+    <div class="morph-labels"><span style="width:20%">prefix</span><span style="width:18%">root</span><span style="width:32%">suffix</span><span style="width:30%">ending</span></div>
+    <div class="morph-pron">vas-PEE-ty-vat' — вос- ("up/completion") + root related to "пита́ть" (to feed/nourish)</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>воспита́ние</strong> — upbringing</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">вос</span><span class="morph-seg root">пит</span><span class="morph-seg suffix">ани</span><span class="morph-seg ending">е</span>
+    </div>
+    <div class="morph-labels"><span style="width:20%">prefix</span><span style="width:18%">root</span><span style="width:34%">suffix</span><span style="width:28%">ending</span></div>
+    <div class="morph-pron">vas-pee-TA-nee-ye — same -ани-/-ени- noun suffix again</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>воспи́танный</strong> — well-mannered</div></div>
+    <div class="morph-word">
+      <span class="morph-seg prefix">вос</span><span class="morph-seg root">пит</span><span class="morph-seg suffix">анн</span><span class="morph-seg ending">ый</span>
+    </div>
+    <div class="morph-labels"><span style="width:18%">prefix</span><span style="width:16%">root</span><span style="width:36%">suffix</span><span style="width:30%">ending</span></div>
+    <div class="morph-pron">vas-PEE-tan-nyy — the same -нн- passive-participle signature as обе́щанный</div>
+  </div>
+
+  <div class="gram">
+    <strong>Two families, same skeleton:</strong> обеща́ние and воспита́ние; обе́щанный and воспи́танный — different roots,
+    identical suffix/ending pattern. Once Mike recognises the pattern -ани/-ени-+-е (noun) and -нн-+-ый (participle-adjective),
+    he can build them onto almost any verb.
+  </div>
+
+  <!-- любить family — no prefix, simplest example -->
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>люби́ть</strong> — to love <span style="color:#999; font-weight:400;">(no prefix here!)</span></div></div>
+    <div class="morph-word">
+      <span class="morph-seg root">люб</span><span class="morph-seg suffix">и</span><span class="morph-seg ending">ть</span>
+    </div>
+    <div class="morph-labels"><span style="width:35%">root</span><span style="width:30%">suffix</span><span style="width:35%">ending</span></div>
+    <div class="morph-pron">lyu-BEET' — a good example of a word with no prefix at all: root + suffix + ending is enough</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>любо́вь</strong> — love</div></div>
+    <div class="morph-word">
+      <span class="morph-seg root">люб</span><span class="morph-seg suffix">овь</span>
+    </div>
+    <div class="morph-labels"><span style="width:35%">root</span><span style="width:65%">suffix (∅ ending)</span></div>
+    <div class="morph-pron">lyu-BOF' — same root люб-, zero ending (typical for feminine nouns ending in a soft consonant)</div>
+  </div>
+
+  <div class="morph-card">
+    <div class="morph-top"><div class="morph-meaning"><strong>люби́мый</strong> — favourite / beloved</div></div>
+    <div class="morph-word">
+      <span class="morph-seg root">люб</span><span class="morph-seg suffix">им</span><span class="morph-seg ending">ый</span>
+    </div>
+    <div class="morph-labels"><span style="width:30%">root</span><span style="width:30%">suffix</span><span style="width:40%">ending</span></div>
+    <div class="morph-pron">lyu-BEE-myy — suffix -им- makes a "present passive participle": literally "being loved"</div>
+  </div>
+
+
+  <!-- PART 3 — COMMON BUILDING BLOCKS -->
+  <div class="sec-label">
+    <span class="icon">🧱</span>
+    <h2>Часто встреча́ющиеся кирпи́чики — Common Prefixes &amp; Suffixes</h2>
+    <div class="line"></div>
+    <span class="tag purple">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> These pieces reappear everywhere. Mike doesn't need to memorise a list — just recognise them on sight from now on.
+  </div>
+
+  <div class="affix-grid">
+    <div class="affix-card prefix-card">
+      <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--blue); margin-bottom:6px;">Prefixes — приста́вки</div>
+      <div class="affix-item"><span class="m">не-</span><span class="meaning">not / un-</span></div>
+      <div class="affix-item"><span class="m">об-</span><span class="meaning">around / about</span></div>
+      <div class="affix-item"><span class="m">вос-/воз-</span><span class="meaning">up / arising</span></div>
+      <div class="affix-item"><span class="m">у-</span><span class="meaning">away / completion</span></div>
+      <div class="affix-item"><span class="m">на-</span><span class="meaning">onto / accumulation</span></div>
+      <div class="affix-item"><span class="m">меж-</span><span class="meaning">between</span></div>
+    </div>
+    <div class="affix-card suffix-card">
+      <div style="font-family:'Playfair Display',serif; font-weight:700; color:var(--gold); margin-bottom:6px;">Suffixes — су́ффиксы</div>
+      <div class="affix-item"><span class="m">-ани-/-ени-</span><span class="meaning">action → noun</span></div>
+      <div class="affix-item"><span class="m">-нн-/-анн-</span><span class="meaning">verb → passive adj.</span></div>
+      <div class="affix-item"><span class="m">-н-</span><span class="meaning">noun → adjective</span></div>
+      <div class="affix-item"><span class="m">-ость</span><span class="meaning">adj. → abstract noun</span></div>
+      <div class="affix-item"><span class="m">-им-/-ем-</span><span class="meaning">"able to be ___ed"</span></div>
+      <div class="affix-item"><span class="m">-ива-/-ыва-</span><span class="meaning">repeated action</span></div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>Try it yourself:</strong> <span class="ru-ex">возни́кнуть</span> (to arise) → prefix <span class="ru-ex">воз-</span>
+    ("upward/arising," matches вос-/воз- above) + root <span class="ru-ex">-ник-</span> + suffix <span class="ru-ex">-ну-</span> + ending
+    <span class="ru-ex">-ть</span>. <span class="ru-ex">Междунаро́дный</span> (international) → prefix
+    <span class="ru-ex">меж-</span> ("between") + root <span class="ru-ex">-народ-</span> ("nation" — you found this one yourself!) +
+    suffix <span class="ru-ex">-н-</span> + ending <span class="ru-ex">-ый</span>.
+  </div>
+
+
+  <!-- PRACTICE / QUIZ -->
+  <div class="sec-label">
+    <span class="icon">✏️</span>
+    <h2>Твоя́ о́чередь — Now You Try</h2>
+    <div class="line"></div>
+    <span class="tag green">5 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Give Mike each word with no colours. He marks where he thinks the breaks fall, then check together.
+  </div>
+
+  <div class="quiz-box">
+    <div class="qw">уста́вший</div>
+    <div class="qe">Where's the root? (Hint: same root as уста́ть/уста́лость from two weeks ago.) → у- + -ста- + -вш- + -ий</div>
+  </div>
+  <div class="quiz-box">
+    <div class="qw">интере́сный</div>
+    <div class="qe">This one has no prefix — just root + suffix + ending. → интерес- (root, a borrowed word) + -н- + -ый</div>
+  </div>
+  <div class="quiz-box">
+    <div class="qw">почтальо́н</div>
+    <div class="qe">Root по́чт(а) + a borrowed French suffix -альо́н, zero ending. A nice example of a "loanword" suffix.</div>
+  </div>
+
+
+  <!-- SHORT DIALOGUE -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини́-диало́г</h2>
+    <div class="line"></div>
+    <span class="tag purple">3 min</span>
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Оле́кс:</span>
+      <span>
+        <div class="russian-line">Майк, из чего́ состои́т сло́во «люби́мый»?</div>
+        <div class="pron-line">Mayk, eez chee-VOH sas-ta-EET SLOH-va lyu-BEE-myy?</div>
+        <div class="eng-line">Mike, what is the word "любимый" made of?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Ко́рень «люб», су́ффикс «им», оконча́ние «ый».</div>
+        <div class="pron-line">KOH-reen' lyub, SOO-feeks eem, a-kan-CHA-nee-ye yyy.</div>
+        <div class="eng-line">The root is "люб", the suffix is "им", the ending is "ый".</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Оле́кс:</span>
+      <span>
+        <div class="russian-line">Отли́чно! Тепе́рь вы понима́ете структу́ру сло́ва.</div>
+        <div class="pron-line">At-LEECH-nuh! Tee-PYER' vy pa-nee-MA-ye-tye stroo-KTOO-roo SLOH-va.</div>
+        <div class="eng-line">Excellent! Now you understand the structure of the word.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">New Vocabulary from Today</div>
+  <div class="phrase-table" style="border:1px solid var(--border); border-radius:6px; overflow:hidden;">
+    <table class="phrase-table">
+      <tbody>
+        <tr><td class="ru">приста́вка</td><td class="pr">pree-STAF-ka</td><td class="en">prefix</td></tr>
+        <tr><td class="ru">ко́рень</td><td class="pr">KOH-reen'</td><td class="en">root</td></tr>
+        <tr><td class="ru">су́ффикс</td><td class="pr">SOO-feeks</td><td class="en">suffix</td></tr>
+        <tr><td class="ru">оконча́ние</td><td class="pr">a-kan-CHA-nee-ye</td><td class="en">ending</td></tr>
+        <tr><td class="ru">состоя́ть из</td><td class="pr">sas-ta-YAT' eez</td><td class="en">to consist of</td></tr>
+        <tr><td class="ru">структу́ра</td><td class="pr">stroo-KTOO-ra</td><td class="en">structure</td></tr>
+        <tr><td class="ru">разбира́ть</td><td class="pr">raz-bee-RAT'</td><td class="en">to take apart / analyse</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Дома́шнее зада́ние — Homework for Mike</h3>
+    <ol>
+      <li>Break <em>уста́лость</em> and <em>удиви́тельный</em> into their four parts (prefix/root/suffix/ending), the way we did in class.</li>
+      <li>Pick any word from earlier lessons (e.g. <em>краси́вый, встреча́ть, обеща́ние</em>) and try to split it yourself — even a guess is good practice.</li>
+      <li>One sentence using any word from today, marking which part is the root.</li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Seasons (зима́, весна́, о́сень) · Numbers 50–100 · Hotel vocabulary (гости́ница, но́мер, брони́ровать)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>9 а́вгуста 2026</span> &nbsp;·&nbsp;
+  Word Structure · Morpheme Breakdown &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
