@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Russian with Oleks — 16 August 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1a1412; --paper:#f5f0e8; --cream:#ede6d6; --red:#b03a2e;
+    --gold:#c8922a; --blue:#2c4a7c; --green:#3a6b4a; --border:#d4c9b0; --muted:#7a7060;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; font-size: 14.5px; line-height: 1.65; }
+
+  header { background: var(--ink); color: var(--paper); padding: 32px 48px 26px; display: flex; justify-content: space-between; align-items: flex-end; }
+  header h1 { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 800; line-height: 1.1; }
+  header h1 span { color: var(--gold); }
+  header .sub { font-size: 0.78rem; color: #b0a898; letter-spacing: 0.09em; text-transform: uppercase; margin-top: 5px; }
+  header .meta { text-align: right; font-size: 0.8rem; color: #b0a898; line-height: 2; }
+  header .meta strong { color: var(--gold); font-size: 0.95rem; }
+
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 44px 60px; }
+
+  .sec-label { display: flex; align-items: center; gap: 14px; margin: 32px 0 14px; }
+  .sec-label .icon { font-size: 1.1rem; }
+  .sec-label h2 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.02em; }
+  .sec-label .line { flex: 1; height: 1px; background: var(--border); }
+  .sec-label .tag { font-size: 0.68rem; padding: 3px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.07em; font-weight: 600; white-space: nowrap; }
+  .tag.blue  { background: #e8eaf4; color: var(--blue); }
+  .tag.red   { background: #fde8e8; color: var(--red); }
+  .tag.green { background: #e4f0e8; color: var(--green); }
+  .tag.gold  { background: #fdf0d8; color: var(--gold); }
+  .tag.purple { background: #ece4f0; color: #5a3a7a; }
+
+  .phrase-table { width: 100%; border-collapse: collapse; }
+  .phrase-table thead tr { background: var(--ink); color: var(--paper); }
+  .phrase-table thead th { padding: 8px 14px; font-family: 'Playfair Display', serif; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; text-align: left; }
+  .phrase-table thead th:first-child { width: 34px; text-align: center; }
+  .phrase-table tbody tr { border-bottom: 1px solid var(--border); }
+  .phrase-table tbody tr:nth-child(even) { background: #f0ece2; }
+  .phrase-table tbody tr:hover { background: #e8e2d4; }
+  .phrase-table td { padding: 10px 14px; vertical-align: top; }
+  .phrase-table td.num { text-align: center; font-family: 'Playfair Display', serif; font-size: 0.85rem; color: #aaa; width: 34px; }
+  .phrase-table td.en { color: #333; font-size: 0.88rem; }
+  .phrase-table td.ru { font-size: 1.05rem; color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; }
+  .phrase-table td.pr { font-style: italic; color: var(--blue); font-size: 0.82rem; }
+
+  .gram { border-left: 3px solid var(--gold); background: #fdf8ee; padding: 11px 15px; margin: 14px 0 4px; font-size: 0.82rem; color: #3a3020; border-radius: 0 4px 4px 0; }
+  .gram strong { color: var(--gold); font-size: 0.85rem; }
+  .gram .ru-ex { color: var(--red); font-weight: 600; }
+  .gram .pr-ex { color: var(--blue); font-style: italic; }
+
+  .gram-box { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 16px 18px; margin: 14px 0; font-size: 0.83rem; }
+  .gram-box h4 { font-family: 'Playfair Display', serif; font-size: 0.95rem; margin-bottom: 10px; color: var(--ink); border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+
+  .tip { border-left: 3px solid var(--blue); background: #eef0f8; padding: 9px 14px; margin: 10px 0; font-size: 0.81rem; color: #20304a; border-radius: 0 4px 4px 0; }
+  .tip strong { color: var(--blue); }
+
+  /* ── Self-intro scaffold ── */
+  .scaffold-box { background: white; border: 1.5px solid var(--gold); border-radius: 8px; padding: 16px 18px; margin: 14px 0; }
+  .scaffold-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--border); align-items: baseline; }
+  .scaffold-row:last-child { border-bottom: none; }
+  .scaffold-row .starter { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; font-size: 0.95rem; }
+  .scaffold-row .use { color: #666; font-size: 0.78rem; }
+
+  /* ── Fact card (Mike's real sentences, organized) ── */
+  .fact-card { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 12px 15px; margin-bottom: 8px; }
+  .fact-card .ru { color: var(--red); font-weight: 600; font-family: 'Playfair Display', serif; font-size: 1rem; }
+  .fact-card .pr { color: var(--blue); font-style: italic; font-size: 0.76rem; display: block; margin: 2px 0; }
+  .fact-card .en { color: #666; font-size: 0.8rem; }
+
+  /* ── Word pair (adj/noun) ── */
+  .pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+  .pair-card { background: white; border: 1.5px solid var(--border); border-radius: 6px; padding: 12px 15px; text-align: center; }
+  .pair-card .w { font-family: 'Playfair Display', serif; color: var(--red); font-weight: 600; font-size: 1.05rem; }
+  .pair-card .pr { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; margin: 2px 0; }
+  .pair-card .e { color: #666; font-size: 0.78rem; }
+  .pair-card .tag2 { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 700; }
+
+  /* ── Default block (Mabo) ── */
+  .default-block { background: linear-gradient(135deg, #f8f4ec 0%, #fdf8ee 100%); border: 1.5px solid var(--gold); border-radius: 8px; padding: 18px 22px; margin: 14px 0; }
+  .default-block .db-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); font-weight: 700; margin-bottom: 10px; }
+
+  /* ── Vocab pills ── */
+  .vocab-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+  .vocab-pill { background: white; border: 1px solid var(--border); border-radius: 4px; padding: 6px 11px; font-size: 0.8rem; }
+  .vocab-pill .r { color: var(--red); font-weight: 600; font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .vocab-pill .p { color: var(--blue); font-style: italic; font-size: 0.74rem; display: block; }
+  .vocab-pill .e { color: #555; font-size: 0.74rem; }
+
+  /* ── Dialogue ── */
+  .dialogue { background: #f8f4ec; border: 1px solid var(--border); border-radius: 6px; padding: 16px 18px; margin-top: 12px; }
+  .dialogue .line { display: grid; grid-template-columns: 90px 1fr; gap: 10px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #e0d8c0; }
+  .dialogue .line:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+  .dialogue .speaker { font-weight: 600; color: var(--blue); font-size: 0.85rem; }
+  .dialogue .russian-line { color: var(--red); font-size: 1.02rem; font-weight: 600; font-family: 'Playfair Display', serif; }
+  .dialogue .pron-line { color: var(--blue); font-style: italic; font-size: 0.78rem; }
+  .dialogue .eng-line { color: #555; font-size: 0.8rem; }
+
+  .hw { background: var(--ink); color: var(--paper); border-radius: 6px; padding: 20px 24px; margin-top: 32px; }
+  .hw h3 { font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; }
+  .hw ol { padding-left: 18px; font-size: 0.85rem; color: #c8c0b0; }
+  .hw li { margin-bottom: 7px; }
+  .hw .next { margin-top: 14px; font-size: 0.78rem; color: #666; border-top: 1px solid #333; padding-top: 12px; }
+
+  footer { background: var(--ink); color: #666; text-align: center; font-size: 0.72rem; padding: 16px 40px; letter-spacing: 0.05em; }
+  footer span { color: var(--gold); }
+
+  @media (max-width: 700px) {
+    .scaffold-row { grid-template-columns: 1fr; }
+    .pair-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Russian <span>with Oleks</span></h1>
+    <div class="sub">воскресенье · 16 августа 2026 · Winnipeg</div>
+  </div>
+  <div class="meta">
+    <strong>Sunday, 16 August 2026</strong><br>
+    Student: Mike<br>
+    Level: Beginner–Elementary<br>
+    Duration: ~45 min<br>
+    Focus: <span style="color:#fff;">Small Talk — About Yourself</span>
+  </div>
+</header>
+
+<div class="page">
+
+  <!-- OBJECTIVE -->
+  <div class="tip" style="margin-top: 20px; font-size: 0.88rem;">
+    <strong>Today's Goals:</strong> Turn last week's material about Mike's real life into a smooth
+    <span style="color:var(--red); font-weight:600;">small-talk introduction</span> — the kind Mike could give at a dinner party
+    or to a new neighbour. We'll organize it into a scaffold he can reuse, then add two new word pairs and our usual Mabo round-up.
+  </div>
+
+
+  <!-- PART 1 — REVIEW -->
+  <div class="sec-label">
+    <span class="icon">↩</span>
+    <h2>Review — Morphology &amp; Last Week's Sentences</h2>
+    <div class="line"></div>
+    <span class="tag blue">5 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Quick check of last week's structure work, plus a small fix: it's <em>воспитываю</em>, not
+    <em>воспитатываю</em> — the suffix is <em>-ыва-</em>, added once, not twice.
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">R1</td>
+        <td class="en">Mabo is a well-mannered dog.</td>
+        <td class="ru">Мабо воспитанный пёс.</td>
+        <td class="pr">MA-bo vas-PEE-tan-nyy pyos.</td>
+      </tr>
+      <tr>
+        <td class="num">R2</td>
+        <td class="en">I raise/train Mabo every day.</td>
+        <td class="ru">Я воспитываю Мабо каждый день.</td>
+        <td class="pr">Ya vas-PEE-ty-va-yu MA-bo KAZH-dyy dyen'.</td>
+      </tr>
+      <tr>
+        <td class="num">R3</td>
+        <td class="en">This book is very interesting.</td>
+        <td class="ru">Эта книга очень интересная.</td>
+        <td class="pr">EH-ta KNEE-ga OH-chen' een-tee-RYES-na-ya.</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- PART 2 — SMALL TALK SCAFFOLD -->
+  <div class="sec-label">
+    <span class="icon">🗣</span>
+    <h2>Расскажи́те про себя́ — Talking About Yourself</h2>
+    <div class="line"></div>
+    <span class="tag gold">20 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Small talk runs on a handful of reusable sentence starters. Once Mike has these five patterns,
+    he can talk about almost anything about himself. We'll fill each one with what he actually said last week.
+  </div>
+
+  <div class="scaffold-box">
+    <h4 style="font-family:'Playfair Display',serif; font-size:0.95rem; margin-bottom:2px;">Five Starters for Any Small Talk</h4>
+    <div class="scaffold-row"><span class="starter">Я живу…</span><span class="use">I live… (place, view, neighbourhood)</span></div>
+    <div class="scaffold-row"><span class="starter">У меня есть…</span><span class="use">I have… (family, pets, possessions)</span></div>
+    <div class="scaffold-row"><span class="starter">Я люблю…</span><span class="use">I love… (food, hobbies, interests)</span></div>
+    <div class="scaffold-row"><span class="starter">Раньше я был(а)…</span><span class="use">I used to be… (past profession)</span></div>
+    <div class="scaffold-row"><span class="starter">Каждый день я…</span><span class="use">Every day I… (routines)</span></div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Я живу… — Where and How</h4>
+    <div class="fact-card">
+      <div class="ru">Я живу в Торонто, с моей квартиры видно озеро.</div>
+      <span class="pr">Ya zhy-VOO v Ta-RON-tuh, s ma-YEY kvar-TEE-ry VEED-nuh OH-zee-ra.</span>
+      <div class="en">I live in Toronto — from my apartment you can see the lake.</div>
+    </div>
+    <div class="fact-card">
+      <div class="ru">Я живу рядом с парком. Я люблю гулять в парке с Мабо.</div>
+      <span class="pr">Ya zhy-VOO RYA-dum s PAR-kum. Ya lyub-LYU goo-LYAT' v PAR-kye s MA-bo.</span>
+      <div class="en">I live next to a park. I love walking in the park with Mabo.</div>
+    </div>
+    <div class="gram" style="margin-top:8px; margin-bottom:0;">
+      <strong>«Видно»</strong> is impersonal — literally "it's visible": <span class="ru-ex">с моей квартиры видно озеро</span> =
+      "from my apartment, the lake is visible." No subject needed, just like <em>тепло</em> or <em>холодно</em>.
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>У меня есть… — What You Have</h4>
+    <div class="fact-card">
+      <div class="ru">У меня есть сестра, её зовут Элисон.</div>
+      <span class="pr">Oo mee-NYA yest' sees-TRA, ye-YO za-VOOT E-lee-sun.</span>
+      <div class="en">I have a sister, her name is Alison.</div>
+    </div>
+    <div class="fact-card">
+      <div class="ru">У меня подруга Анна, она любит Мабо, а Мабо любит её.</div>
+      <span class="pr">Oo mee-NYA pad-ROO-ga AN-na, a-NA LYU-beet MA-bo, a MA-bo LYU-beet ye-YO.</span>
+      <div class="en">I have a friend Anna — she loves Mabo, and Mabo loves her.</div>
+    </div>
+    <div class="gram" style="margin-top:8px; margin-bottom:0;">
+      <strong>«У меня есть»</strong> = "I have" — literally "by me, there exists." The thing you have is the grammatical subject,
+      not "I": <span class="ru-ex">у меня есть сестра</span> = "there is a sister by me."
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Я люблю… — What You Love</h4>
+    <div class="fact-card">
+      <div class="ru">Я люблю вино, сыр и бутерброды.</div>
+      <span class="pr">Ya lyub-LYU vee-NOH, syr ee boo-teer-BROH-dy.</span>
+      <div class="en">I love wine, cheese, and sandwiches.</div>
+    </div>
+    <div class="fact-card">
+      <div class="ru">Я люблю читать книги и смотреть кино (фильмы).</div>
+      <span class="pr">Ya lyub-LYU chee-TAT' KNEE-gee ee smat-RYET' kee-NOH (FEEL'-my).</div>
+      <div class="en">I love reading books and watching movies.</div>
+    </div>
+    <div class="fact-card">
+      <div class="ru">Также я люблю суп, каждый день я пью кофе с молоком без сахара.</div>
+      <span class="pr">TAK-zhe ya lyub-LYU soop, KAZH-dyy dyen' ya p'yu KOH-fye s ma-la-KOM byes SA-ha-ra.</div>
+      <div class="en">I also love soup, and every day I drink coffee with milk, no sugar.</div>
+    </div>
+  </div>
+
+  <div class="gram-box">
+    <h4>Раньше я был… — A Past Profession</h4>
+    <div class="fact-card">
+      <div class="ru">Я был пилотом и люблю самолёты.</div>
+      <span class="pr">Ya byl pee-LOH-tum ee lyub-LYU sa-ma-LYO-ty.</span>
+      <div class="en">I was a pilot, and I love airplanes.</div>
+    </div>
+    <div class="gram" style="margin-top:8px; margin-bottom:0;">
+      <strong>Profession after «был» takes the instrumental:</strong> <span class="ru-ex">пилотом</span>, not <em>пилот</em>.
+      Compare with <span class="ru-ex">учителем</span> (teacher), <span class="ru-ex">инженером</span> (engineer) — any past or
+      "acting-as" role uses this -ом/-ем ending.
+    </div>
+  </div>
+
+
+  <!-- PART 3 — WORD PAIRS -->
+  <div class="sec-label">
+    <span class="icon">🌍</span>
+    <h2>Иностра́нный / иностра́нец &amp; a Useful Phrase</h2>
+    <div class="line"></div>
+    <span class="tag purple">8 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Same morphology skill from last week, applied to two new items — a foreigner/foreign pair, and
+    a compound phrase Mike found on his own.
+  </div>
+
+  <div class="pair-grid">
+    <div class="pair-card">
+      <div class="tag2">Adjective</div>
+      <div class="w">иностранный</div>
+      <span class="pr">ee-nast-RAN-nyy</span>
+      <div class="e">foreign</div>
+    </div>
+    <div class="pair-card">
+      <div class="tag2">Noun (person)</div>
+      <div class="w">иностранец</div>
+      <span class="pr">ee-nast-RA-neets</span>
+      <div class="e">a foreigner</div>
+    </div>
+  </div>
+
+  <div class="gram">
+    <strong>Same root, familiar suffix:</strong> ино- ("other") + -странн- (root, related to страна́ — "country") + -н- (adjective
+    suffix) + -ый gives иностра́нный. Swap the ending for the person-suffix -ец and you get иностра́нец — the same trick as
+    почтальо́н from last week, where a suffix turns a concept into "a person who…".
+  </div>
+
+  <table class="phrase-table">
+    <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td class="en">Mabo's French cheese is a foreign cheese.</td>
+        <td class="ru">Французский сыр Мабо — это иностранный сыр.</td>
+        <td class="pr">Fran-TSOOZ-skiy syr MA-bo — EH-ta ee-nast-RAN-nyy syr.</td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td class="en">Toronto isn't a very old city — many foreigners live there.</td>
+        <td class="ru">Торонто не очень старый город — там живёт много иностранцев.</td>
+        <td class="pr">Ta-RON-tuh nye OH-chen' STA-ryy GOH-rut — tam zhy-VYOT MNOH-guh ee-nast-RAN-tsyf.</td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td class="en">He is a politically correct person.</td>
+        <td class="ru">Он политически корректный человек.</td>
+        <td class="pr">On pa-lee-TEE-chees-kee ka-REK-tnyy chee-la-VYEK.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="gram">
+    <strong>«Политически корректный»:</strong> notice the <span class="ru-ex">-ически</span> ending turns an adjective
+    (полити́ческий, political) into an adverb (полити́чески, politically) — the same family as <em>обы́чно</em> and other
+    -о/-и adverbs, just for longer, borrowed adjectives.
+  </div>
+
+
+  <!-- PART 4 — DEFAULT BLOCK: MABO -->
+  <div class="sec-label">
+    <span class="icon">🐕</span>
+    <h2>Мабо — Our Regular Check-In</h2>
+    <div class="line"></div>
+    <span class="tag green">10 min</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Mike wrote a wonderful set of Mabo facts last week — a perfect ready-made block. Read through, then
+    have Mike retell two or three from memory.
+  </div>
+
+  <div class="default-block">
+    <div class="db-label">This week's Mabo facts</div>
+    <table class="phrase-table">
+      <thead><tr><th>#</th><th>English</th><th>Russian</th><th>Pronunciation</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="num">4</td>
+          <td class="en">Mabo is a small dog.</td>
+          <td class="ru">Мабо маленький пёс.</td>
+          <td class="pr">MA-bo MA-leen'-kiy pyos.</td>
+        </tr>
+        <tr>
+          <td class="num">5</td>
+          <td class="en">Mabo doesn't like the rain, but loves the shower — a very strange dog!</td>
+          <td class="ru">Мабо не любит дождь, но любит душ. Очень странный пёс!</td>
+          <td class="pr">MA-bo nye LYU-beet dozhd', no LYU-beet doosh. OH-chen' STRAN-nyy pyos!</td>
+        </tr>
+        <tr>
+          <td class="num">6</td>
+          <td class="en">Mabo knows which floor we live on.</td>
+          <td class="ru">Мабо знает, на каком этаже мы живём.</td>
+          <td class="pr">MA-bo ZNA-yet, na ka-KOM e-ta-ZHE my zhy-VYOM.</td>
+        </tr>
+        <tr>
+          <td class="num">7</td>
+          <td class="en">Mabo loves French brie and camembert cheese.</td>
+          <td class="ru">Мабо очень любит французский сыр бри и камамбер.</td>
+          <td class="pr">MA-bo OH-chen' LYU-beet fran-TSOOZ-skiy syr bree ee ka-mam-BYER.</td>
+        </tr>
+        <tr>
+          <td class="num">8</td>
+          <td class="en">Mabo loves riding in the car with me.</td>
+          <td class="ru">Мабо любит кататься в машине со мной.</td>
+          <td class="pr">MA-bo LYU-beet ka-TA-tsa v ma-SHY-nye sa mnoy.</td>
+        </tr>
+        <tr>
+          <td class="num">9</td>
+          <td class="en">Mabo has a girlfriend, her name is Beata.</td>
+          <td class="ru">У Мабо есть подружка, её зовут Биата.</td>
+          <td class="pr">Oo MA-bo yest' pad-ROOSH-ka, ye-YO za-VOOT Bee-A-ta.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="gram">
+    <strong>кататься vs ездить:</strong> <span class="ru-ex">кататься в машине</span> has a playful, leisurely feel — "to ride
+    around/for fun," while <span class="ru-ex">ездить на машине</span> is the neutral "to travel by car." Perfect for Mabo,
+    who clearly isn't commuting.
+  </div>
+
+
+  <!-- PART 5 — DIALOGUE -->
+  <div class="sec-label">
+    <span class="icon">💬</span>
+    <h2>Мини-диалог — At a Small Gathering</h2>
+    <div class="line"></div>
+    <span class="tag gold">role-play</span>
+  </div>
+
+  <div class="tip">
+    <strong>Teacher:</strong> Puts the whole scaffold to work as one flowing introduction. Mike is addressed with <strong>вы</strong>.
+  </div>
+
+  <div class="dialogue">
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Майк, расскажите про себя.</div>
+        <div class="pron-line">Mayk, ras-ka-ZHY-tye pra see-BYA.</div>
+        <div class="eng-line">Mike, tell me about yourself.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я живу в Торонто, рядом с парком. С моей квартиры видно озеро.</div>
+        <div class="pron-line">Ya zhy-VOO v Ta-RON-tuh, RYA-dum s PAR-kum. S ma-YEY kvar-TEE-ry VEED-nuh OH-zee-ra.</div>
+        <div class="eng-line">I live in Toronto, next to a park. From my apartment you can see the lake.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Красиво! А чем вы занимались раньше?</div>
+        <div class="pron-line">Kra-SEE-vuh! A chem vy za-nee-MA-lees' RAN'-she?</div>
+        <div class="eng-line">Beautiful! And what did you do before?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Раньше я был пилотом. Я очень люблю самолёты.</div>
+        <div class="pron-line">RAN'-she ya byl pee-LOH-tum. Ya OH-chen' lyub-LYU sa-ma-LYO-ty.</div>
+        <div class="eng-line">I used to be a pilot. I really love airplanes.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Интересно! А кто у вас дома?</div>
+        <div class="pron-line">Een-tee-RYES-nuh! A kto oo vas DOH-ma?</div>
+        <div class="eng-line">Interesting! And who's at home with you?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">У меня есть сестра Элисон, подруга Анна, и, конечно, Мабо — мой маленький пёс.</div>
+        <div class="pron-line">Oo mee-NYA yest' sees-TRA E-lee-sun, pad-ROO-ga AN-na, ee, ka-NYESH-nuh, MA-bo — moy MA-leen'-kiy pyos.</div>
+        <div class="eng-line">I have a sister Alison, a friend Anna, and, of course, Mabo — my small dog.</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Олекс:</span>
+      <span>
+        <div class="russian-line">Замечательно. Что вы любите делать в свободное время?</div>
+        <div class="pron-line">Za-mee-CHA-teel'-nuh. Shto vy LYU-bee-tye DYE-lat' v sva-BOD-na-ye VRYE-mya?</div>
+        <div class="eng-line">Wonderful. What do you like to do in your free time?</div>
+      </span>
+    </div>
+    <div class="line">
+      <span class="speaker">Майк:</span>
+      <span>
+        <div class="russian-line">Я люблю читать книги, гулять с Мабо и пить кофе с молоком без сахара.</div>
+        <div class="pron-line">Ya lyub-LYU chee-TAT' KNEE-gee, goo-LYAT' s MA-bo ee peet' KOH-fye s ma-la-KOM byes SA-ha-ra.</div>
+        <div class="eng-line">I love reading books, walking Mabo, and drinking coffee with milk, no sugar.</div>
+      </span>
+    </div>
+  </div>
+
+
+  <!-- VOCAB -->
+  <div style="margin-top: 24px; margin-bottom: 6px; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.07em; color:var(--muted); font-weight:600;">New Vocabulary from Today</div>
+  <div class="vocab-row">
+    <div class="vocab-pill"><div class="r">видно</div><div class="p">VEED-nuh</div><div class="e">it's visible</div></div>
+    <div class="vocab-pill"><div class="r">озеро</div><div class="p">OH-zee-ra</div><div class="e">lake</div></div>
+    <div class="vocab-pill"><div class="r">сестра</div><div class="p">sees-TRA</div><div class="e">sister</div></div>
+    <div class="vocab-pill"><div class="r">бутерброд</div><div class="p">boo-teer-BROT</div><div class="e">sandwich</div></div>
+    <div class="vocab-pill"><div class="r">суп</div><div class="p">soop</div><div class="e">soup</div></div>
+    <div class="vocab-pill"><div class="r">кофе</div><div class="p">KOH-fye</div><div class="e">coffee</div></div>
+    <div class="vocab-pill"><div class="r">молоко</div><div class="p">ma-la-KOH</div><div class="e">milk</div></div>
+    <div class="vocab-pill"><div class="r">сахар</div><div class="p">SA-har</div><div class="e">sugar</div></div>
+    <div class="vocab-pill"><div class="r">пилот</div><div class="p">pee-LOT</div><div class="e">pilot</div></div>
+    <div class="vocab-pill"><div class="r">самолёт</div><div class="p">sa-ma-LYOT</div><div class="e">airplane</div></div>
+    <div class="vocab-pill"><div class="r">иностранный</div><div class="p">ee-nast-RAN-nyy</div><div class="e">foreign</div></div>
+    <div class="vocab-pill"><div class="r">иностранец</div><div class="p">ee-nast-RA-neets</div><div class="e">foreigner</div></div>
+    <div class="vocab-pill"><div class="r">кататься</div><div class="p">ka-TA-tsa</div><div class="e">to ride around (for fun)</div></div>
+    <div class="vocab-pill"><div class="r">странный</div><div class="p">STRAN-nyy</div><div class="e">strange</div></div>
+    <div class="vocab-pill"><div class="r">раньше</div><div class="p">RAN'-she</div><div class="e">before / formerly</div></div>
+    <div class="vocab-pill"><div class="r">свободное время</div><div class="p">sva-BOD-na-ye VRYE-mya</div><div class="e">free time</div></div>
+  </div>
+
+
+  <!-- HOMEWORK -->
+  <div class="hw">
+    <h3>📚 Домашнее задание — Homework for Mike</h3>
+    <ol>
+      <li>Write your own 5-sentence self-introduction using all five starters: Я живу…, У меня есть…, Я люблю…, Раньше я был…, Каждый день я…</li>
+      <li>One sentence with <em>иностранный</em> and one with <em>иностранец</em>.</li>
+      <li>Retell 3 Mabo facts from memory, without looking at the lesson.</li>
+      <li>Translate without looking: <em>"I used to be a pilot, and every day I drink coffee with milk, no sugar."</em></li>
+    </ol>
+    <div class="next">
+      <strong style="color:#999;">Next lesson:</strong> Seasons (зима, весна, осень) · Numbers 50–100 · Hotel vocabulary (гостиница, номер, бронировать)
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Russian with Oleks &nbsp;·&nbsp; <span>16 августа 2026</span> &nbsp;·&nbsp;
+  Small Talk · About Yourself &nbsp;·&nbsp; Student: Mike
+</footer>
+
+</body>
+</html>
